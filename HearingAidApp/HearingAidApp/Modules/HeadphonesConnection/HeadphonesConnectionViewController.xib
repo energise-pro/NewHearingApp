@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-Pro-Text-Bold.otf">
+            <string>SFProText-Bold</string>
+        </array>
+        <array key="SF-Pro-Text-Medium.otf">
+            <string>SFProText-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HeadphonesConnectionViewController" customModule="HearingAidApp" customModuleProvider="target">
+            <connections>
+                <outlet property="airplayButtonTitleLabel" destination="nPY-3M-FQp" id="Tn9-DQ-8fa"/>
+                <outlet property="getStartedButton" destination="qpW-Bh-iO7" id="8Hp-8P-yq5"/>
+                <outlet property="imageView" destination="Kq5-xW-w3X" id="lOU-0S-6qK"/>
+                <outlet property="subtitleLabel" destination="b8d-GM-8Nl" id="TR5-Ww-YeP"/>
+                <outlet property="titleLabel" destination="AdF-eJ-1rO" id="v7L-Du-eLw"/>
+                <outlet property="view" destination="Xjs-vr-pmB" id="LSm-6R-Ls5"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="Xjs-vr-pmB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Kq5-xW-w3X" customClass="CroppedImageView" customModule="HearingAidApp" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="448"/>
+                </imageView>
+                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qpW-Bh-iO7" customClass="RoundedButton" customModule="HearingAidApp" customModuleProvider="target">
+                    <rect key="frame" x="62" y="773" width="290" height="55"/>
+                    <color key="backgroundColor" name="AccentColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="55" id="K7L-G3-2o4"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="SFProText-Medium" family="SF Pro Text" pointSize="18"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" title="Get Started Button">
+                        <color key="titleColor" name="PrimaryButtonTitle"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="27.5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="didTapGetStartedButton" destination="-1" eventType="touchUpInside" id="a6n-eL-wxD"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000001192092896" translatesAutoresizingMaskIntoConstraints="NO" id="AdF-eJ-1rO">
+                    <rect key="frame" x="144" y="448" width="126" height="29"/>
+                    <fontDescription key="fontDescription" name="SFProText-Bold" family="SF Pro Text" pointSize="24"/>
+                    <color key="textColor" name="PrimaryLabel"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subtitle Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b8d-GM-8Nl">
+                    <rect key="frame" x="42" y="489" width="330" height="21.5"/>
+                    <fontDescription key="fontDescription" name="SFProText-Medium" family="SF Pro Text" pointSize="18"/>
+                    <color key="textColor" name="SecondaryLabel"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bby-uh-HEs" customClass="AirplayButton" customModule="HearingAidApp" customModuleProvider="target">
+                    <rect key="frame" x="177" y="570.5" width="60" height="60"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="tintColor" name="PrimaryLabel"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="bby-uh-HEs" secondAttribute="height" multiplier="1:1" id="h3y-Tj-IMc"/>
+                        <constraint firstAttribute="width" constant="60" id="xdc-uK-D80"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Airplay Button Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nPY-3M-FQp">
+                    <rect key="frame" x="123.5" y="636.5" width="167" height="21.5"/>
+                    <fontDescription key="fontDescription" name="SFProText-Medium" family="SF Pro Text" pointSize="18"/>
+                    <color key="textColor" name="SecondaryLabel"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="YOr-ZT-Z6b"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="b8d-GM-8Nl" firstAttribute="leading" secondItem="YOr-ZT-Z6b" secondAttribute="leading" constant="42" id="6eJ-Ox-1tL"/>
+                <constraint firstAttribute="trailing" secondItem="Kq5-xW-w3X" secondAttribute="trailing" id="9hY-qR-5mm"/>
+                <constraint firstItem="nPY-3M-FQp" firstAttribute="centerX" secondItem="bby-uh-HEs" secondAttribute="centerX" id="Dmu-dR-v6a"/>
+                <constraint firstItem="YOr-ZT-Z6b" firstAttribute="trailing" secondItem="qpW-Bh-iO7" secondAttribute="trailing" constant="62" id="Dqx-E8-hGP"/>
+                <constraint firstItem="Kq5-xW-w3X" firstAttribute="top" secondItem="Xjs-vr-pmB" secondAttribute="top" id="Iso-IL-p8L"/>
+                <constraint firstItem="b8d-GM-8Nl" firstAttribute="top" secondItem="AdF-eJ-1rO" secondAttribute="bottom" constant="12" id="Qhk-Ii-dtj"/>
+                <constraint firstItem="YOr-ZT-Z6b" firstAttribute="bottom" secondItem="qpW-Bh-iO7" secondAttribute="bottom" constant="34" id="Rga-yL-ysn"/>
+                <constraint firstItem="AdF-eJ-1rO" firstAttribute="centerX" secondItem="Xjs-vr-pmB" secondAttribute="centerX" id="Vd1-Wh-U9u"/>
+                <constraint firstItem="AdF-eJ-1rO" firstAttribute="top" secondItem="Kq5-xW-w3X" secondAttribute="bottom" id="jkt-jf-YZH"/>
+                <constraint firstItem="bby-uh-HEs" firstAttribute="top" secondItem="b8d-GM-8Nl" secondAttribute="bottom" constant="60" id="oqs-S7-dMM"/>
+                <constraint firstItem="Kq5-xW-w3X" firstAttribute="leading" secondItem="Xjs-vr-pmB" secondAttribute="leading" id="p3W-nf-1rP"/>
+                <constraint firstItem="qpW-Bh-iO7" firstAttribute="leading" secondItem="YOr-ZT-Z6b" secondAttribute="leading" constant="62" id="pmc-xq-E7I"/>
+                <constraint firstItem="bby-uh-HEs" firstAttribute="centerX" secondItem="Xjs-vr-pmB" secondAttribute="centerX" id="qkZ-Ht-9GM"/>
+                <constraint firstItem="Kq5-xW-w3X" firstAttribute="height" secondItem="Xjs-vr-pmB" secondAttribute="height" multiplier="0.5" id="w9w-cZ-n3O"/>
+                <constraint firstItem="YOr-ZT-Z6b" firstAttribute="trailing" secondItem="b8d-GM-8Nl" secondAttribute="trailing" constant="42" id="wbI-aH-Glq"/>
+                <constraint firstItem="nPY-3M-FQp" firstAttribute="top" secondItem="bby-uh-HEs" secondAttribute="bottom" constant="6" id="xLO-hx-SmV"/>
+            </constraints>
+            <point key="canvasLocation" x="167" y="-656"/>
+        </view>
+    </objects>
+    <designables>
+        <designable name="qpW-Bh-iO7">
+            <size key="intrinsicContentSize" width="164" height="34"/>
+        </designable>
+    </designables>
+    <resources>
+        <namedColor name="AccentColor">
+            <color red="0.45100000500679016" green="0.40400001406669617" blue="0.98000001907348633" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PrimaryButtonTitle">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PrimaryLabel">
+            <color red="0.25098039215686274" green="0.25098039215686274" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SecondaryLabel">
+            <color red="0.32941176470588235" green="0.32941176470588235" blue="0.32941176470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
