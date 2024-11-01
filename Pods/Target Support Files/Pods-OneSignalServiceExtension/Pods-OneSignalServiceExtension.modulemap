@@ -1,0 +1,6 @@
+framework module Pods_OneSignalServiceExtension {
+  umbrella header "Pods-OneSignalServiceExtension-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,272 @@
+"Yes!" = "¡Sí!";
+"Loading..." = "Cargando...";
+"Enjoying this app?" = "¿Disfrutas de esta aplicación?";
+"Error" = "Error";
+"Copy All" = "Cópialo todo";
+"Info" = "Información";
+"Free Trial" = "Prueba gratis";
+"Expire at %@" = "Caduca a las %@";
+"Weekly" = "Semanalmente";
+"Monthly" = "Mensual";
+"Annual" = "Anual";
+"No, Thanks" = "No, gracias";
+"Remove ads" = "Quitar anuncios";
+"Start your Free\n%@" = "Comienza tu gratis\n%@";
+"Settings" = "Ajustes";
+"Disable or Enable vibrations when you press UI buttons" = "Deshabilite o habilite las vibraciones cuando presione los botones de la interfaz de usuario";
+"Restore Purchase" = "Restaurar compra";
+"No" = "No";
+"Controls Color" = "ІColor de interfaz";
+"Dark Mode" = "Modo oscuro";
+"Change App Icon" = "Cambiar el icono de la aplicación";
+"Use Haptic Feedback" = "Utilizar retroalimentación háptica";
+"Unlock Premium" = "Desbloquear Premium";
+"Support & Feature Request" = "Solicitud de soporte y funciones";
+"Please Speak" = "Por favor habla";
+"Tap The Power Button To Get Started" = "Toque el botón de encendido para comenzar";
+"You can hold your finger on a screen in any place to mute the microphone instantly when you speak. For convenience, this can help you when you talk to avoid echo, which can probably interrupt you from your thoughts. \n Thank you :)" = "Puede mantener el dedo en una pantalla en cualquier lugar para silenciar el micrófono al instante cuando habla. Por conveniencia, esto puede ayudarlo cuando hable para evitar el eco, que probablemente pueda interrumpir sus pensamientos. \n Gracias :)";
+"Sync Hearing Aid volume with System Volume" = "Sincronizar el volumen del audífono con el volumen del sistema";
+"Hearing Aid Instructions" = "Instrucciones para audífonos";
+"Reset" = "Reiniciar";
+"The Reverberation allows you to simulate the environment, space, room around you" = "La reverberación le permite simular el entorno, el espacio, el espacio a su alrededor.";
+"Play around you can always reset to initial state :)" = "Juega siempre puedes restablecer el estado inicial :)";
+"The compressor allows you to set up sound more punchy. Compressors reduce the difference between the loudest and quietest parts of the volume" = "El compresor le permite configurar el sonido con más fuerza. Los compresores reducen la diferencia entre las partes más ruidosas y más silenciosas del volumen";
+"Peak limiter allows you to bring up the level without allowing the peaks to clip. It limits high-volume spikes which can sound disgusting" = "El limitador de picos le permite subir el nivel sin permitir que los picos se corten. Limita los picos de volumen alto que pueden sonar desagradables";
+"I don't recommend you disable 'Peak Limiter' since it limits high-volume spikes which can sound disgusting. However it's safe to change any parameters." = "No recomiendo que desactive el 'Limitador de picos', ya que limita los picos de volumen alto que pueden sonar desagradables. Sin embargo, es seguro cambiar cualquier parámetro.";
+"Disable Limiter?" = "¿Deshabilitar limitador?";
+"Should I disable peak limiter?" = "¿Debo desactivar el limitador de picos?";
+"Dear User, for proper work with speech recognition & hearing aid, we need your microphone usage permission. Thank You!" = "Estimado usuario, para un trabajo adecuado con el reconocimiento de voz y los audífonos, necesitamos su permiso de uso del micrófono. ¡Gracias!";
+"Please Allow Microphone Usage" = "Permita el uso del micrófono";
+"Next" = "Próximo";
+"Dear User, we use your data only for analytics purpose. To improve the app and help you get better product. We don't share this data to any third party. Thank you!" = "Estimado usuario, utilizamos sus datos solo con fines analíticos. Para mejorar la aplicación y ayudarlo a obtener un mejor producto. No compartimos estos datos con terceros.¡Gracias!";
+"Recognition Not Available :(" = "Reconocimiento no disponible :(";
+"Tap the mic to get started ;)" = "Toca el micrófono para empezar ;)";
+"Go ahead, I'm listening :)" = "Adelante, te escucho :)";
+"Available Languages %@" = "Idiomas Disponibles %@";
+"Shake to clear text" = "Agitar para borrar el texto";
+"Translate Mode" = "Modo de traducción";
+"Show Quality Indicator" =  "Mostrar indicador de calidad";
+
+"Balance" = "Equilibrio";
+"Noise OFF" = "Ruido OFF";
+"Stereo" = "Estéreo";
+"Hearing Aid" = "Audífono";
+"Front" = "Delantero";
+"Bottom" = "Fondo";
+"Rear" = "Trasero";
+"Compressor" = "Compresor";
+"Limiter" = "Limitador";
+"Reverb" = "Reverberación";
+"Speech Recognition" = "Reconocimiento de voz";
+"Clear" = "Claro";
+"Rotate" = "Girar";
+"Flip" = "Voltear";
+"Full Screen" = "Abierto";
+"Share Text" = "Compartir texto";
+"Are you sure?" = "¿Está seguro?";
+"Are you sure you want to miss out on this amazing opportunity?" = "¿Estás seguro de que quieres perderte esta increíble oportunidad?";
+
+// NEW - 02.09.2021
+"Hello" = "¡Hola!";
+"Please connect your headphones for correctly hearing aid work" = "Conecte sus auriculares para que los audífonos funcionen correctamente.";
+"Select playback device" = "Seleccionar dispositivo de reproducción";
+"Get started" = "Empezar";
+
+"Transcribes in real-time. Text appears on your phone as words are spoken." = "Transcribe en tiempo real. El texto aparece en su teléfono a medida que se pronuncian las palabras.";
+"Super volume boost" = "Volumen de sonidos amplificado";
+"Regulated noise suppression" = "Cancelación inteligente de ruido externo";
+
+"Full acoustic amplification up to 30 dB with a wired headset" = "Amplificación acústica completa de hasta 30 dB con auriculares.";
+"Elimination of background noises and increase of speech intelligibility" = "Eliminación de ruidos de fondo y aumento de la inteligibilidad \ndel habla";
+"Automatic conversion of the recorded speech into text" = "Conversión automática del discurso grabado en texto";
+"Before" = "Antes";
+"After" = "Después";
+"Continue" = "Continuar";
+
+"Dear User, for correctly work with our app, we need your microphone usage permission" = "Estimado usuario, para que funcione correctamente con nuestra aplicación, necesitamos su permiso de uso del micrófono";
+"Later" = "Más tarde";
+
+//New 08.09.2021
+"Allow Speech recognition function" = "Permitir la función de reconocimiento de voz";
+"Dear User, for use Speech recognition function, you need to allow permission" = "Estimado usuario, para utilizar la función de reconocimiento de voz, debe permitir el permiso";
+
+"Privacy Policy" = "Intimidad";
+"Terms of Use" = "Condiciones";
+"Restore" = "Restaurar";
+"Subscribe" = "Suscribir";
+"Get full access to: Super Boost, Noise Suppression, Speech to Text, Disable Ads" = "Obtenga acceso completo a: Super Boost, Supresión de ruido, Voz a texto, Desactivar anuncios";
+"ONLY-" = "SOLAMENTE-%@";
+"for your first week You save - after per week" = "durante la primera semana Ahorras %@ - después de %@ por semana";
+"OFF" = "Apagado";
+"Limited Offer" = "Oferta limitada";
+
+//New 13.09.2021
+"No device" = "Sin dispositivo";
+"Pro Setup" = "Configuración profesional";
+"Templates" = "Plantillas";
+"Full Access" = "Acceso completo";
+"Try $@ Free" = "Prueba %@ gratis";
+"First %@ free. After %@" = "Primeros %@ gratis. Después %@";
+"Only %@ per %@" = "(solo %@ por %@)";
+"Super Boost" = "Super impulso";
+"Maximum sound concentration" = "Concentración máxima de sonido";
+"Noise Suppression" = "Supresión de ruido";
+"Eliminates background noise" = "Elimina el ruido de fondo";
+"Speech to Text" = "Dictado a texto";
+"Try Free & Subscribe" = "Pruébelo gratis & suscríbase";
+"Improve your experience" = "Mejora tu experiencia";
+"Most popular" = "Más popular";
+"Yearly" = "Anual";
+
+// Calendars
+"day" = "día";
+"days" = "dias";
+"month" = "mes";
+"months" = "meses";
+"week" = "semana";
+"weeks" = "semanas";
+"year" = "año";
+"years" = "años";
+
+//New 16.09.2021
+"Oops" = "Ups";
+"Something went wrong. Please try again" = "Algo salió mal. Inténtalo de nuevo";
+"You have not purchases yet" = "Aún no has comprado";
+"Purchases successfully restored" = "Compras restauradas con éxito";
+"Load" = "Carga";
+"🥳85% Discount🥳" = "🥳85% Descuento🥳";
+"Don't miss your chance!" = "¡No pierdas tu oportunidad!";
+"If you set this option, system will mixes audio from this app with audio playing in background apps, such as the Music app.\nFor example, you want to listen a music or audio book over headphones, and at the same time hear sounds around you very well.\nIf this option OFF system reduces the volume of other audio apps to make the audio of this app more prominent." = "Si configura esta opción, el sistema mezclará el audio de esta aplicación con la reproducción de audio en aplicaciones de fondo, como la aplicación Música.\nPor ejemplo, desea escuchar una música o un libro de audio con auriculares y, al mismo tiempo, escuchar muy bien los sonidos a su alrededor.\nSi esta opción, el sistema APAGADO reduce el volumen de otras aplicaciones de audio para hacer que el audio de esta aplicación sea más prominente.";
+"Increase Volume of Hearing Aid together with the device system volume" = "Aumente el volumen del audífono junto con el volumen del sistema del dispositivo";
+"EQ" = "IG";
+"attack duration" = "duración del ataque";
+"decay duration" = "duración de la descomposición";
+"effect volume" = "volumen del efecto";
+"release duration" = "duración del lanzamiento";
+"threshold" = "umbral";
+"Music mode" = "Modo música";
+"Font Size" = "Tamaño de fuente";
+"Font Weight" = "Peso de fuente";
+"Text Alignment" = "Alineación del texto";
+
+"smallRoom" = "habitación pequeña";
+"mediumRoom" = "habitación mediana";
+"largeRoom" = "habitación grande 1";
+"largeRoom2" = "habitación grande 2";
+"mediumHall" = "salón mediano 1";
+"mediumHall2" = "salón mediano 2";
+"mediumHall3" = "salón mediano 3";
+"largeHall" = "sala grande 1";
+"largeHall2" = "sala grande 2";
+"plate" = "pequeña cámara";
+"mediumChamber" = "cámara mediana";
+"largeChamber" = "cámara grande";
+"cathedral" = "restaurante";
+
+// New
+"Templates" = "Plantillas";
+"Left" = "Izquierda";
+"Right" = "Derecha";
+"Close" = "Cerrar";
+"Reset setup" = "Restablecer la configuración";
+"Use system volume" = "Usar el volumen del sistema";
+"Equalizer" = "Ecualizador";
+"Compressor status" = "Estado del compresor";
+"Limiter status" = "Estado del limitador";
+"Color Theme" = "Tema de color";
+"Support & Contact Us" = "Soporte & Contáctenos";
+
+"Headphones" = "Auriculares";
+"Active microphone" = "Micrófono activo";
+
+"Clear voice" = "Voz clara";
+"AI helps to pick a voice out from the background noise and other sounds" = "AI ayuda a distinguir una voz del ruido de fondo y otros sonidos";
+
+// New
+"Translate" = "Traductor";
+"Type" = "Escribir";
+"Transcribe" = "Transcribir";
+"Instruction" = "Instrucción";
+"Share" = "Compartir";
+"Text setup" = "Configuración del texto";
+"Save" = "Guardar";
+"Text" = "Texto";
+"Done" = "Hecho";
+"Text successfully copied" = "Texto copiado con éxito";
+"Try this app!" = "Prueba esta aplicación!";
+"Are you sure you want to remove text?" = "¿Estás seguro de que quieres eliminar el texto?";
+"Shake to clear" = "Agitar para borrar";
+"Type quick reply" = "Escribe una respuesta rápida";
+"You haven't saved transcripts yet" = "Todavía no has guardado las transcripciones";
+"Transcripts" = "Transcripciones";
+"Are you sure you want to remove all saved transcripts?" = "¿Estás seguro de que quieres eliminar todas las transcripciones guardadas?";
+"Edit" = "Editar";
+"Do you want to remove this transcript?" = "¿Desea eliminar esta transcripción?";
+"Transcript successfully saved" = "Transcripción guardada con éxito";
+"Language" = "Idioma";
+"Downloaded" = "Descargado";
+"Downloading" = "Descargando";
+"You can now translate offline into" = "Ahora puede traducir sin conexión a %@";
+"Your language" = "Su idioma";
+"Translate language" = "Traducir idioma";
+"Download Translation Model" = "Descargar el modelo de traducción";
+"Do you want to download model?" = "¿Desea descargar el %@ modelo?";
+
+// New 24.05
+"No transcriptions found" = "No se han encontrado transcripciones";
+"Search" = "Buscar en";
+"More" = "Más";
+"Manage subscriptions" = "Suscripciones";
+"Main Screen" = "Pantalla principal";
+"Offline translation" = "Traducción sin conexión";
+"Saved" = "Guardado";
+
+"Transcribe & Translate" = "Transcribe y Traduce";
+"It is real time speech to text transcription and translation" = "Traducción y transcripción de voz a texto en tiempo real";
+"Translation Services 60+ languages" = "Servicios de traducción 60+ idiomas";
+"Continuously translate speech in near real-time. Ability to rotate the screen" = "Traductor popular en tiempo real. Posibilidad de girar la pantalla";
+"Live transcribe" = "Transcribir";
+"Makes everyday conversations and surrounding sounds more accessible" = "Las conversaciones cotidianas y los sonidos del entorno son más accesibles";
+"Which feature is the most interesting for you?" = "¿Qué característica es la más interesante para usted?";
+"Listening device" = "Dispositivo de escucha";
+"The best hearing audio services together in one app" = "Los mejores servicios de audio para la audición juntos en una aplicación";
+"%@ people use every day" = "%@ personas utilizan cada día";
+"Thank you for joining us! Receive special offers & announcements" = "¡Gracias por estar con nosotros! Reciba ofertas especiales y anuncios";
+"Email address" = "Dirección de correo electrónico";
+"Skip" = "Saltear";
+
+"Email field can't be empty" = "El campo de correo electrónico no puede estar vacío";
+"Please enter a valid email" = "Por favor introduzca una dirección de correo electrónico válida";
+
+// New
+"Base shift" = "Cambio base";
+"Range" = "Rango";
+"Speed" = "Velocidad";
+"Voice changer" = "Cambiador de voz";
+"Voice changer status" = "Estado del cambiador de voz";
+"The voice changer allows you to change voice parameters. With the voice changer, you can set the pitch to higher or lower" = "El cambiador de voz le permite cambiar los parámetros de voz. Con el cambiador de voz, puede establecer el tono más alto o más bajo";
+
+// New 19.07
+"Cancel subscription" = "Cancelar suscripción";
+"Our website" = "Nuestro sitio web";
+"Allow" = "Permitir";
+"Allowed" = "Permitido";
+"The app uses a microphone to listen to everything around you while the hearing aid is working" = "La aplicación usa un micrófono para escuchar todo lo que te rodea mientras el audífono está funcionando";
+"The app uses Speech recognition for transcribe voice" = "La aplicación usa el reconocimiento de voz para transcribir la voz";
+
+"Magnifying Glass & Loupe" = "Lupa";
+"Magnifying glass with high image quality and easy to use" = "Lupa con alta calidad de imagen y fácil de usar";
+"Magnifier 30X, pro features" = "Lupa 30X, funciones profesionales";
+"flashlight" = "linterna";
+"Reading filters & scan text" = "Leer filtros y escanear texto";
+"Try for free" = "Pruébelo gratis";
+
+// New 08.08
+"No sure yet?" = "¿Aún no está seguro?";
+"Enable free trial" = "Activar la prueba gratuita";
+"Auto-renewable, cancel anytime" = "Renovable automáticamente, cancele en cualquier momento";
+"Just %@" = "Sólo %@";
+"Type mode" = "Tipo de modo";
+"Basic" = "Básico";
+"Premium" = "Premium";
+"Try premium version" = "Pruebe la versión Premium";

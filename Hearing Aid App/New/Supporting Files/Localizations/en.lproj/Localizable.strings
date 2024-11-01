@@ -1,0 +1,297 @@
+"Yes!" = "Yes!";
+"No" = "No";
+
+"Loading..." = "Loading...";
+"Error" = "Error";
+
+"Free Trial" = "Free Trial";
+"Expire at %@" = "Expire at %@";
+"Weekly" = "Weekly";
+"Monthly" = "Monthly";
+"Annual" = "Annual";
+"Remove ads" = "Remove ads";
+"Start your Free\n%@" = "Start your Free\n%@";
+"Disable or Enable vibrations when you press UI buttons" = "Disable or Enable vibrations when you press UI buttons";
+
+"Controls Color" = "Іnterface Color";
+"Support & Feature Request" = "Support & Feature Request";
+"Please Speak" = "Please Speak";
+"You can hold your finger on a screen in any place to mute the microphone instantly when you speak. For convenience, this can help you when you talk to avoid echo, which can probably interrupt you from your thoughts. \n Thank you :)" = "You can hold your finger on a screen in any place to mute the microphone instantly when you speak. For convenience, this can help you when you talk to avoid echo, which can probably interrupt you from your thoughts. \n Thank you :)";
+"Sync Hearing Aid volume with System Volume" = "Sync Hearing Aid volume with System Volume";
+"Hearing Aid Instructions" = "Hearing Aid Instructions";
+"Reset" = "Reset";
+
+"Dear User, for proper work with speech recognition & hearing aid, we need your microphone usage permission. Thank You!" = "Dear User, for proper work with speech recognition & hearing aid, we need your microphone usage permission. Thank You!";
+"Please Allow Microphone Usage" = "Please Allow Microphone Usage";
+"Next" = "Next";
+"Dear User, we use your data only for analytics purpose. To improve the app and help you get better product. We don't share this data to any third party. Thank you!" = "Dear User, we use your data only for analytics purpose. To improve the app and help you get better product. We don't share this data to any third party. Thank you!";
+"Shake to clear text" = "Shake to clear text";
+"Translate Mode" = "Translate Mode";
+"Show Quality Indicator" =  "Show Quality Indicator";
+
+"Rotate" = "Rotate";
+"Full Screen" = "Full Screen";
+"Share Text" = "Share Text";
+"Are you sure?" = "Are you sure?";
+"Are you sure you want to miss out on this amazing opportunity?" = "Are you sure you want to miss out on this amazing opportunity?";
+
+// NEW - 02.09.2021
+"Hello" = "Hello!";
+"Please connect your headphones for correctly hearing aid work" = "Please connect your headphones for correctly hearing aid work";
+"Select playback device" = "Select playback device";
+"Get started" = "Get started";
+
+"Transcribes in real-time. Text appears on your phone as words are spoken." = "Transcribes in real-time. Text appears on your phone as words are spoken.";
+"Super volume boost" = "Super volume boost";
+"Regulated noise suppression" = "Regulated noise suppression";
+
+"Full acoustic amplification up to 30 dB with a wired headset" = "Full acoustic amplification up to 30 dB with a wired headset";
+"Elimination of background noises and increase of speech intelligibility" = "Elimination of background noises and increase of speech intelligibility";
+"Automatic conversion of the recorded speech into text" = "Automatic conversion of the recorded speech into text";
+"Before" = "Before";
+"After" = "After";
+"Continue" = "Continue";
+
+"Dear User, for correctly work with our app, we need your microphone usage permission" = "Dear User, for correctly work with our app, we need your microphone usage permission";
+"Later" = "Later";
+
+//New 08.09.2021
+"Allow Speech recognition function" = "Allow Speech recognition function";
+"Dear User, for use Speech recognition function, you need to allow permission" = "Dear User, for use Speech recognition function, you need to allow permission";
+
+"Privacy Policy" = "Privacy Policy";
+"Terms of Use" = "Terms of Use";
+"Restore" = "Restore";
+"Subscribe" = "Subscribe";
+"Get full access to: Super Boost, Noise Suppression, Speech to Text, Disable Ads" = "Get full access to: Volume Boost, Noise Suppression, Speech to Text, Disable Ads";
+"ONLY-" = "ONLY-%@";
+"for your first week You save - after per week" = "for your first week \nYou save %@ - after %@ per week";
+"OFF" = "OFF";
+"Limited Offer" = "Limited Offer";
+
+//New 13.09.2021
+"Pro Setup" = "Pro Setup";
+"Full Access" = "Full Access";
+"Try $@ Free" = "Try %@ Free";
+"First %@ free. After %@" = "First %@ free. After %@";
+"Only %@ per %@" = "(only %@ per %@)";
+"Super Boost" = "Super Boost";
+"Maximum sound concentration" = "Maximum sound concentration";
+"Noise Suppression" = "Noise Suppression";
+"Eliminates background noise" = "Eliminates background noise";
+"Speech to Text" = "Speech to Text";
+"Try Free & Subscribe" = "Try Free & Subscribe";
+"Improve your experience" = "Improve your experience";
+"Most popular" = "Most popular";
+"Yearly" = "Yearly";
+
+// Calendars
+"day" = "day";
+"days" = "days";
+"month" = "month";
+"months" = "months";
+"week" = "week";
+"weeks" = "weeks";
+"year" = "year";
+"years" = "years";
+
+//New 16.09.2021
+"Oops" = "Oops";
+"Something went wrong. Please try again" = "Something went wrong. Please try again";
+"You have not purchases yet" = "You haven't purchased yet";
+"Purchases successfully restored" = "Purchases successfully restored";
+"Load" = "Load";
+"🥳85% Discount🥳" = "🥳85% Discount🥳";
+"Don't miss your chance!" = "Don't miss your chance!";
+
+
+"Music mode" = "Music mode";
+"Font Size" = "Font Size";
+"Font Weight" = "Font Weight";
+"Text Alignment" = "Text Alignment";
+
+// Tab Bar
+"Hearing Aid" = "Hearing Aid";
+"Speech Recognition" = "Speech Services";
+"Settings" = "Settings";
+
+// Hearing
+"Pro Setup" = "Pro Setup";
+"Noise OFF" = "Noise OFF";
+"Stereo" = "Stereo";
+"Tap The Power Button To Get Started" = "Tap the power button to get started";
+"No device" = "No device";
+
+// Pro Setup
+"Front" = "Front";
+"Bottom" = "Bottom";
+"Rear" = "Rear";
+"Compressor" = "Compressor";
+"Limiter" = "Limiter";
+"Clear voice" = "Clear voice";
+"Headphones" = "Headphones";
+"Active microphone" = "Active microphone";
+
+"Info" = "Info";
+"If you set this option, system will mixes audio from this app with audio playing in background apps, such as the Music app.\nFor example, you want to listen a music or audio book over headphones, and at the same time hear sounds around you very well.\nIf this option OFF system reduces the volume of other audio apps to make the audio of this app more prominent." = "If you set this option, system will mixes audio from this app with audio playing in background apps, such as the Music app.\nFor example, you want to listen a music or audio book over headphones, and at the same time hear sounds around you very well.\nIf this option OFF system reduces the volume of other audio apps to make the audio of this app more prominent.";
+"Increase Volume of Hearing Aid together with the device system volume" = "Increase Volume of Hearing Aid together with the device system volume";
+"The Reverberation allows you to simulate the environment, space, room around you" = "The Reverberation allows you to simulate the environment, space, room around you";
+"AI helps to pick a voice out from the background noise and other sounds" = "AI helps to pick a voice out from the background noise and other sounds";
+
+// Templates
+"effect volume" = "effect volume";
+"smallRoom" = "small Room";
+"mediumRoom" = "medium Room";
+"largeRoom" = "large Room 1";
+"largeRoom2" = "large Room 2";
+"mediumHall" = "medium Hall 1";
+"mediumHall2" = "medium Hall 2";
+"mediumHall3" = "medium Hall 3";
+"largeHall" = "large Hall 1";
+"largeHall2" = "large Hall 2";
+"plate" = "small Chamber";
+"mediumChamber" = "medium Chamber";
+"largeChamber" = "large Chamber";
+"cathedral" = "restaurant";
+
+"The Reverberation allows you to simulate the environment, space, room around you" = "The Reverberation allows you to simulate the environment, space, room around you";
+
+// Compressor
+"threshold" = "threshold";
+"attack duration" = "attack duration";
+"release duration" = "release duration";
+
+"The compressor allows you to set up sound more punchy. Compressors reduce the difference between the loudest and quietest parts of the volume" = "The compressor allows you to set up sound more punchy. Compressors reduce the difference between the loudest and quietest parts of the volume";
+
+// Limiter
+"decay duration" = "decay duration";
+
+"Peak limiter allows you to bring up the level without allowing the peaks to clip. It limits high-volume spikes which can sound disgusting" = "Peak limiter allows you to bring up the level without allowing the peaks to clip. It limits high-volume spikes which can sound disgusting";
+"Play around you can always reset to initial state :)" = "Play around you can always reset to initial state :)";
+"I don't recommend you disable 'Peak Limiter' since it limits high-volume spikes which can sound disgusting. However it's safe to change any parameters." = "I don't recommend you disable 'Peak Limiter' since it limits high-volume spikes which can sound disgusting. However it's safe to change any parameters.";
+
+"Disable Limiter?" = "Disable Limiter?";
+"Should I disable peak limiter?" = "Should I disable peak limiter?";
+
+// Settings
+"Change App Icon" = "Change App Icon";
+"Dark Mode" = "Dark Mode";
+"Use Haptic Feedback" = "Use Haptic Feedback";
+"Restore Purchase" = "Restore Purchase";
+"Unlock Premium" = "Unlock Premium";
+"FAQ" = "FAQ";
+"Redeem code" = "Redeem code";
+
+// Need to remove
+"Balance" = "Balance";
+"Reverb" = "Reverb";
+"EQ" = "EQ";
+
+"Templates" = "Templates";
+"Left" = "Left";
+"Right" = "Right";
+"Close" = "Close";
+"Reset setup" = "Reset setup";
+"Use system volume" = "Use system volume";
+"Equalizer" = "Equalizer";
+"Compressor status" = "Compressor status";
+"Limiter status" = "Limiter status";
+"Color Theme" = "Color Theme";
+"Support & Contact Us" = "Support & Contact Us";
+
+// Transcribe
+"Clear" = "Clear";
+"Flip" = "Flip";
+"Copy All" = "Copy All";
+"Available Languages %@" = "Available Languages %@";
+"Recognition Not Available :(" = "Recognition Not Available :(";
+"Tap the mic to get started ;)" = "Tap the mic to get started ;)";
+"Go ahead, I'm listening :)" = "Go ahead, I'm listening :)";
+
+// New
+"Translate" = "Translate";
+"Type" = "Type";
+"Transcribe" = "Transcribe";
+"Instruction" = "Instruction";
+"Share" = "Share";
+"Text setup" = "Text setup";
+"Save" = "Save";
+"Text" = "Text";
+"Done" = "Done";
+"Text successfully copied" = "Text successfully copied";
+"Try this app!" = "Try this app!";
+"Are you sure you want to remove text?" = "Are you sure you want to remove text?";
+"Shake to clear" = "Shake to clear";
+"Type quick reply" = "Type quick reply";
+"You haven't saved transcripts yet" = "You haven't saved transcripts yet";
+"Transcripts" = "Transcripts";
+"Are you sure you want to remove all saved transcripts?" = "Are you sure you want to remove all saved transcripts?";
+"Edit" = "Edit";
+"Do you want to remove this transcript?" = "Do you want to remove this transcript?";
+"Transcript successfully saved" = "Transcript successfully saved";
+"Language" = "Language";
+"Downloaded" = "Downloaded";
+"Downloading" = "Downloading";
+"You can now translate offline into" = "You can now translate offline into %@";
+"Your language" = "Your language";
+"Translate language" = "Translate language";
+"Download Translation Model" = "Download Translation Model";
+"Do you want to download model?" = "Do you want to download %@ model?";
+
+// New 24.05
+"No transcriptions found" = "No transcriptions found";
+"Search" = "Search";
+"More" = "More";
+"Manage subscriptions" = "Manage subscriptions";
+"Main Screen" = "Main Screen";
+"Offline translation" = "Offline translation";
+"Saved" = "Saved";
+
+"Transcribe & Translate" = "Transcribe & Translate";
+"It is real time speech to text transcription and translation" = "It is real time speech to text transcription and translation";
+"Translation Services 60+ languages" = "Translation Services 60+ languages";
+"Continuously translate speech in near real-time. Ability to rotate the screen" = "Continuously translate speech in near real-time. Ability to rotate the screen";
+"Live transcribe" = "Live transcribe";
+"Makes everyday conversations and surrounding sounds more accessible" = "Makes everyday conversations and surrounding sounds more accessible";
+"Which feature is the most interesting for you?" = "Which feature is the most interesting for you?";
+"Listening device" = "Listening device";
+"The best hearing audio services together in one app" = "The best hearing audio services together in one app";
+"%@ people use every day" = "%@ people use every day";
+"Thank you for joining us! Receive special offers & announcements" = "Thank you for joining us! Receive special offers & announcements";
+"Email address" = "Email address";
+"Skip" = "Skip";
+
+"Email field can't be empty" = "Email field can't be empty";
+"Please enter a valid email" = "Please enter a valid email";
+
+"Base shift" = "Base shift";
+"Range" = "Range";
+"Speed" = "Speed";
+"Voice changer" = "Voice changer";
+"Voice changer status" = "Voice changer status";
+"The voice changer allows you to change voice parameters. With the voice changer, you can set the pitch to higher or lower" = "The voice changer allows you to change voice parameters. With the voice changer, you can set the pitch to higher or lower";
+
+// New 19.07
+"Cancel subscription" = "Cancel subscription";
+"Our website" = "Our website";
+"Allow" = "Allow";
+"Allowed" = "Allowed";
+"The app uses a microphone to listen to everything around you while the hearing aid is working" = "The app uses a microphone to listen to everything around you while the hearing aid is working";
+"The app uses Speech recognition for transcribe voice" = "The app uses Speech recognition for transcribe voice";
+
+"Magnifying Glass & Loupe" = "Magnifying Glass & Loupe";
+"Magnifying glass with high image quality and easy to use" = "Magnifying glass with high image quality and easy to use";
+"Magnifier 30X, pro features" = "Magnifier 30X, pro features";
+"flashlight" = "flashlight";
+"Reading filters & scan text" = "Reading filters & scan text";
+"Try for free" = "Try for free";
+
+// New 08.08
+"No sure yet?" = "No sure yet?";
+"Enable free trial" = "Enable free trial";
+"Auto-renewable, cancel anytime" = "Auto-renewable, cancel anytime";
+"Just %@" = "Just %@";
+"Type mode" = "Type mode";
+"Basic" = "Basic";
+"Premium" = "Premium";
+"Try premium version" = "Try premium version";

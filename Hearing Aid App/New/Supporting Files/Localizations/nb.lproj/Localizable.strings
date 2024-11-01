@@ -1,0 +1,272 @@
+"Yes!" = "Ja!";
+"Loading..." = "Laster inn ...";
+"Enjoying this app?" = "Liker du denne appen?";
+"Error" = "Feil";
+"Copy All" = "Kopier alt";
+"Info" = "Info";
+"Free Trial" = "Gratis prøveperiode";
+"Expire at %@" = "Utløper ved %@";
+"Weekly" = "Uke";
+"Monthly" = "Måned";
+"Annual" = "År";
+"Lifetime" = "Livstid";
+"No, Thanks" = "Nei takk";
+"Remove ads" = "Fjern annonser";
+"Unlock Access" = "Lås opp tilgang";
+"Start your Free\n%@" = "Start din gratis \n %@";
+"Settings" = "Innstillinger";
+"Disable or Enable vibrations when you press UI buttons" = "Deaktiver eller aktiver vibrasjoner når du trykker på UI-knappene";
+"No" = "Nei";
+"Controls Color" = "Kontrollerer farge";
+"Dark Mode" = "Mørk modus";
+"Change App Icon" = "Endre appikon";
+"Use Haptic Feedback" = "Bruk Haptic Feedback";
+"Restore Purchase" = "Gjenopprett kjøp";
+"Unlock Premium" = "Lås opp Premium";
+"Support & Feature Request" = "Support & Feature Request";
+"Please Speak" = "Vær så snill og snakk";
+"Tap The Power Button To Get Started" = "Trykk på av / på-knappen for å komme i gang";
+"You can hold your finger on a screen in any place to mute the microphone instantly when you speak. For convenience, this can help you when you talk to avoid echo, which can probably interrupt you from your thoughts. \n Thank you :)" = "Du kan holde fingeren på en skjerm hvor som helst for å dempe mikrofonen umiddelbart når du snakker. For enkelhets skyld kan dette hjelpe deg når du snakker for å unngå ekko, noe som sannsynligvis kan forstyrre deg fra tankene dine. \n Takk :)";
+"Sync Hearing Aid volume with System Volume" = "Synkroniser høreapparatvolum med systemvolum";
+"Hearing Aid Instructions" = "Instruksjoner for høreapparat";
+"Reset" = "Nullstille";
+"The Reverberation allows you to simulate the environment, space, room around you" = "Etterklangen lar deg simulere miljøet, rommet, rommet rundt deg";
+"Play around you can always reset to initial state :)" = "Spill rundt deg kan alltid tilbakestilles til utgangsstatus :)";
+"The compressor allows you to set up sound more punchy. Compressors reduce the difference between the loudest and quietest parts of the volume" = "Kompressoren lar deg sette opp lyden mer slagkraftig. Kompressorer reduserer forskjellen mellom de høyeste og lydigste delene av volumet";
+"Peak limiter allows you to bring up the level without allowing the peaks to clip. It limits high-volume spikes which can sound disgusting" = "Peak limiter lar deg øke nivået uten å la toppene klippe. Det begrenser pigger med høyt volum som kan høres ekkelt ut";
+"I don't recommend you disable 'Peak Limiter' since it limits high-volume spikes which can sound disgusting. However it's safe to change any parameters." = "Jeg anbefaler ikke at du deaktiverer 'Peak Limiter' siden det begrenser toppvolum som kan høres ekkelt ut. Det er imidlertid trygt å endre noen parametere.";
+"Disable Limiter?" = "Vil du deaktivere begrensning?";
+"Should I disable peak limiter?" = "Bør jeg deaktivere toppbegrenseren?";
+"Dear User, for proper work with speech recognition & hearing aid, we need your microphone usage permission. Thank You!" = "Kjære bruker, for riktig arbeid med talegjenkjenning og høreapparat trenger vi din tillatelse til bruk av mikrofoner. Takk skal du ha!";
+"Please Allow Microphone Usage" = "Tillat bruk av mikrofon";
+"Next" = "Neste";
+"Dear User, we use your data only for analytics purpose. To improve the app and help you get better product. We don't share this data to any third party. Thank you!" = "Kjære bruker, vi bruker dataene dine bare til analyseformål. For å forbedre appen og hjelpe deg med å få et bedre produkt. Vi deler ikke disse dataene til noen tredjepart. Takk skal du ha!";
+"Recognition Not Available :(" = "Anerkjennelse ikke tilgjengelig :(";
+"Tap the mic to get started ;)" = "Trykk på mikrofonen for å komme i gang;)";
+"Go ahead, I'm listening :)" = "Fortsett, jeg lytter :)";
+"Available Languages %@" = "Tilgjengelige språk %@";
+"Shake to clear text" = "Rist for å fjerne tekst";
+"Translate Mode" = "Oversett modus";
+"Show Quality Indicator" = "Vis kvalitetsindikator";
+"Balance" = "Balansere";
+"Noise OFF" = "Støy AV";
+"Stereo" = "Stereo";
+"Hearing Aid" = "Høreapparat";
+"Front" = "Front";
+"Bottom" = "Bunn";
+"Rear" = "Bak";
+"Compressor" = "Kompressor";
+"Limiter" = "Begrensning";
+"Reverb" = "Reverb";
+"Speech Recognition" = "Talegjenkjenning";
+"Clear" = "Klar";
+"Rotate" = "Rotere";
+"Flip" = "Vend";
+"Full Screen" = "Full skjerm";
+"Share Text" = "Del tekst";
+"Are you sure?" = "Er du sikker?";
+"Are you sure you want to miss out on this amazing opportunity?" = "Er du sikker på at du vil gå glipp av denne fantastiske muligheten?";
+
+"Hello" = "Hallo!";
+"Please connect your headphones for correctly hearing aid work" = "Koble til hodetelefonene for riktig høreapparatarbeid";
+"Select playback device" = "Velg avspillingsenhet";
+"Get started" = "Kom i gang";
+
+"Transcribes in real-time. Text appears on your phone as words are spoken." = "Transkriberer i sanntid. Tekst vises på telefonen mens ord blir sagt.";
+"Super volume boost" = "Forsterket lydvolum";
+"Regulated noise suppression" = "Smart avlysning av ekstern støy";
+
+"Full acoustic amplification up to 30 dB with a wired headset" = "Full akustisk forsterkning på opptil 30 dB med bruk av hodetelefoner ";
+"Elimination of background noises and increase of speech intelligibility" = "Eliminering av bakgrunnslyder og økt taleforståelighet";
+"Automatic conversion of the recorded speech into text" = "Automatisk konvertering av den innspilte talen til tekst";
+"Before" = "Før";
+"After" = "Etter";
+"Continue" = "Fortsette";
+
+"Dear User, for correctly work with our app, we need your microphone usage permission" = "Kjære bruker, for riktig bruk av appen vår trenger vi din tillatelse til bruk av mikrofon";
+"Later" = "Seinere";
+
+//New 08.09.2021
+"Allow Speech recognition function" = "Tillat talegjenkjenningsfunksjon";
+"Dear User, for use Speech recognition function, you need to allow permission" = "Kjære bruker, for å bruke talegjenkjenningsfunksjonen må du tillate tillatelse";
+
+"Privacy Policy" = "Personvern";
+"Terms of Use" = "Vilkår for bruk";
+"Restore" = "Restaurere";
+"Subscribe" = "Abonnere";
+"Get full access to: Super Boost, Noise Suppression, Speech to Text, Disable Ads" = "Få full tilgang til: Volumforbedring, støydemping, tale til tekst, deaktiver annonser";
+"ONLY-" = "KUN-%@";
+"for your first week You save - after per week" = "for den første uken Du sparer %@ - etter %@ per uke";
+"OFF" = "Rabatt";
+"Limited Offer" = "Begrenset tilbud";
+
+//New 13.09.2021
+"No device" = "Ingen enhet";
+"Pro Setup" = "Pro Setup";
+"Templates" = "Maler";
+"Full Access" = "Full tilgang";
+"Try $@ Free" = "Prøv %@ gratis";
+"First %@ free. After %@" = "Første %@ gratis. Etter %@";
+"Only %@ per %@" = "(bare %@ per %@)";
+"Super Boost" = "Volumforhøyelse";
+"Maximum sound concentration" = "Maksimal lydkonsentrasjon";
+"Noise Suppression" = "Lyddemping";
+"Eliminates background noise" = "Eliminerer bakgrunnsstøy";
+"Speech to Text" = "Tale til tekst";
+"Try Free & Subscribe" = "Prøv gratis og abonner";
+"Improve your experience" = "Forbedre opplevelsen din";
+"Most popular" = "Mest populær";
+"Yearly" = "Årlig";
+
+// Calendars
+"day" = "dag";
+"days" = "dager";
+"month" = "måned";
+"months" = "måneder";
+"week" = "uke";
+"weeks" = "uker";
+"year" = "år";
+"years" = "år";
+
+//New 16.09.2021
+"Oops" = "Ups";
+"Something went wrong. Please try again" = "Noe gikk galt. Vær så snill, prøv på nytt";
+"You have not purchases yet" = "Du har ikke kjøpt ennå";
+"Purchases successfully restored" = "Kjøp ble gjenopprettet";
+"Load" = "Laste";
+"🥳85% Discount🥳" = "🥳85% Rabatt🥳";
+"Don't miss your chance!" = "Ikke gå glipp av sjansen din!";
+"If you set this option, system will mixes audio from this app with audio playing in background apps, such as the Music app.\nFor example, you want to listen a music or audio book over headphones, and at the same time hear sounds around you very well.\nIf this option OFF system reduces the volume of other audio apps to make the audio of this app more prominent." = "Hvis du angir dette alternativet, blander systemet lyd fra denne appen med lydavspilling i bakgrunnsapper, for eksempel Musikk -appen.\nFor eksempel vil du lytte til en musikk- eller lydbok over hodetelefoner, og samtidig høre lyder rundt deg veldig godt.\nHvis dette alternativet AV -system reduserer volumet til andre lydapper for å gjøre lyden til denne appen mer fremtredende.";
+"Increase Volume of Hearing Aid together with the device system volume" = "Øk høreapparatvolumet sammen med enhetens systemvolum";
+"EQ" = "UT";
+"attack duration" = "angrepets varighet";
+"decay duration" = "forfallets varighet";
+"effect volume" = "effektvolum";
+"release duration" = "slippvarighet";
+"threshold" = "terskel";
+"Music mode" = "Musikkmodus";
+"Font Size" = "Skriftstørrelse";
+"Font Weight" = "Skriftvekt";
+"Text Alignment" = "Tekstjustering";
+
+"smallRoom" = "litet rum";
+"mediumRoom" = "mellan rum";
+"largeRoom" = "stort rum 1";
+"mediumHall" = "mellan Hall 1";
+"largeHall" = "stor hall 1";
+"plate" = "tallrik";
+"mediumChamber" = "medel kammare";
+"largeChamber" = "stor kammare";
+"cathedral" = "katedral";
+"largeRoom2" = "stort rum 2";
+"mediumHall2" = "mellan Hall 2";
+"mediumHall3" = "mellan Hall 3";
+"largeHall2" = "stor hall 2";
+
+// New
+"Templates" = "Maler";
+"Left" = "Venstre";
+"Right" = "Højre";
+"Close" = "Lukk";
+"Reset setup" = "Nulstil opsætning";
+"Use system volume" = "Brug systemvolumen";
+"Equalizer" = "Equalizer";
+"Compressor status" = "Kompressorstatus";
+"Limiter status" = "Limiter-status";
+"Color Theme" = "Farvetema";
+"Support & Contact Us" = "Støtte & Kontakt Os";
+
+"Headphones" = "Hodetelefoner";
+"Active microphone" = "Aktiv mikrofon";
+
+"Clear voice" = "Klar stemme";
+"AI helps to pick a voice out from the background noise and other sounds" = "AI hjelper til med å velge en stemme fra bakgrunnsstøyen og andre lyder";
+
+// New
+"Translate" = "Oversetter";
+"Type" = "Skriv";
+"Transcribe" = "Transkribere";
+"Instruction" = "Instruksjon";
+"Share" = "Dele";
+"Text setup" = "Tekstoppsett";
+"Save" = "Lagre";
+"Text" = "Tekst";
+"Done" = "Ferdig";
+"Text successfully copied" = "Teksten er kopiert";
+"Try this app!" = "Prøv denne appen!";
+"Are you sure you want to remove text?" = "Er du sikker på at du vil fjerne tekst?";
+"Shake to clear" = "Rist for å klare";
+"Type quick reply" = "Skriv raskt svar";
+"You haven't saved transcripts yet" = "Du har ikke lagret transkripsjoner ennå";
+"Transcripts" = "Avskrifter";
+"Are you sure you want to remove all saved transcripts?" = "Er du sikker på at du vil fjerne alle lagrede transkripsjoner?";
+"Edit" = "Redigere";
+"Do you want to remove this transcript?" = "Vil du fjerne denne transkripsjonen?";
+"Transcript successfully saved" = "Transkripsjonen er lagret";
+"Language" = "Språk";
+"Downloaded" = "Lastet ned";
+"Downloading" = "Laster ned";
+"You can now translate offline into" = "Du kan nå oversette offline til %@";
+"Your language" = "Ditt språk";
+"Translate language" = "Oversett språk";
+"Download Translation Model" = "Last ned oversettelsesmodell";
+"Do you want to download model?" = "Vil du laste ned %@ modell?";
+
+// New 24.05
+"No transcriptions found" = "Ingen transkripsjoner funnet";
+"Search" = "Søk";
+"More" = "Mer";
+"Manage subscriptions" = "Administrer abonnementer";
+"Main Screen" = "Hovedskjermen";
+"Offline translation" = "Frakoblet oversettelse";
+"Saved" = "Lagret";
+
+"Transcribe & Translate" = "Transkriber og Oversetter";
+"It is real time speech to text transcription and translation" = "Oversettelse og tale til tekst transkripsjon i sanntid";
+"Translation Services 60+ languages" = "Oversettelse 60+ språk";
+"Continuously translate speech in near real-time. Ability to rotate the screen" = "Populær oversetter i sanntid. Evne til å rotere skjermen";
+"Live transcribe" = "Transkribere";
+"Makes everyday conversations and surrounding sounds more accessible" = "Hverdagssamtaler og omgivelseslyder er mer tilgjengelige";
+"Which feature is the most interesting for you?" = "Hvilken funksjon er mest interessant for deg?";
+"Listening device" = "Lytteapparat";
+"The best hearing audio services together in one app" = "De beste hørelydtjenestene samlet i én app";
+"%@ people use every day" = "%@ mennesker bruker hver dag";
+"Thank you for joining us! Receive special offers & announcements" = "Takk for at du ble med oss! Motta spesialtilbud og kunngjøringer";
+"Email address" = "Epostadresse";
+"Skip" = "Hopp over";
+
+"Email field can't be empty" = "E-postfeltet kan ikke være tomt";
+"Please enter a valid email" = "Vennligst skriv inn en gyldig e-postadresse";
+
+// New
+"Base shift" = "Grunnskifte";
+"Range" = "Område";
+"Speed" = "Hastighet";
+"Voice changer" = "Stemmeveksler";
+"Voice changer status" = "Stemmeskifterstatus";
+"The voice changer allows you to change voice parameters. With the voice changer, you can set the pitch to higher or lower" = "Stemmeveksleren lar deg endre stemmeparametere. Med stemmeveksleren kan du stille inn tonehøyden til høyere eller lavere";
+
+// New 19.07
+"Cancel subscription" = "Avbryt abonnement";
+"Our website" = "Vårt nettsted";
+"Allow" = "Tillat";
+"Allowed" = "Tillatt";
+"The app uses a microphone to listen to everything around you while the hearing aid is working" = "Appen bruker en mikrofon for å lytte til alt rundt deg mens høreapparatet fungerer";
+"The app uses Speech recognition for transcribe voice" = "Appen bruker talegjenkjenning for å transkribere stemme";
+
+"Magnifying Glass & Loupe" = "Forstørrelsesglass & Loupe";
+"Magnifying glass with high image quality and easy to use" = "Forstørrelsesglass med høy bildekvalitet og enkelt å bruke";
+"Magnifier 30X, pro features" = "Magnifier 30X, pro features";
+"flashlight" = "lommelykt";
+"Reading filters & scan text" = "Lesefiltre og skanne tekst";
+"Try for free" = "Prøv gratis";
+
+// New 08.08
+"No sure yet?" = "Ikke sikker ennå?";
+"Enable free trial" = "Aktiver gratis prøveversjon";
+"Auto-renewable, cancel anytime" = "Automatisk fornybar, kanseller når som helst";
+"Just %@" = "Bare %@";
+"Type mode" = "Skrivemodus";
+"Basic" = "Grunnleggende";
+"Premium" = "Premium";
+"Try premium version" = "Prøv premiumversjonen";

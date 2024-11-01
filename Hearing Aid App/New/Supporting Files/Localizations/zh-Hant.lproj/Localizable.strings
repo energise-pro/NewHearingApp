@@ -1,0 +1,273 @@
+"Yes!" = "是的！";
+"Loading..." = "正在加載...";
+"Enjoying this app?" = "喜歡這個應用程序嗎？";
+"Error" = "錯誤";
+"Copy All" = "全部複製";
+"Info" = "信息";
+"Free Trial" = "免費試用";
+"Expire at %@" = "到期時間 %@";
+"Weekly" = "每週";
+"Monthly" = "每月";
+"Annual" = "年度的";
+"No, Thanks" = "不，謝謝";
+"Remove ads" = "移除廣告";
+"Unlock Access" = "取消阻止訪問";
+"Start your Free\n%@" = "開始你的免費\n%@";
+"Settings" = "設置";
+"Disable or Enable vibrations when you press UI buttons" = "按下 UI 按鈕時禁用或啟用振動";
+"Restore Purchase" = "恢復購買";
+"No" = "不";
+"Controls Color" = "Æ界面顏色";
+"Dark Mode" = "控制顏色";
+"Change App Icon" = "更改應用程序圖標";
+"Use Haptic Feedback" = "使用觸覺反饋";
+"Unlock Premium" = "解鎖高級版";
+"Support & Feature Request" = "支持和功能請求";
+"Please Speak" = "請講";
+"Tap The Power Button To Get Started" = "點擊電源按鈕開始";
+"You can hold your finger on a screen in any place to mute the microphone instantly when you speak. For convenience, this can help you when you talk to avoid echo, which can probably interrupt you from your thoughts. \n Thank you :)" = "您可以將手指放在屏幕上的任何位置，以便在您講話時立即將麥克風靜音。 為方便起見，這可以幫助您在說話時避免迴聲，迴聲可能會打斷您的思緒 \n 謝謝 :)";
+"Sync Hearing Aid volume with System Volume" = "將助聽器音量與系統音量同步";
+"Hearing Aid Instructions" = "助聽器說明";
+"Reset" = "重啟";
+"The Reverberation allows you to simulate the environment, space, room around you" = "混響讓您可以模擬周圍的環境、空間和房間";
+"Play around you can always reset to initial state :)" = "玩轉你可以隨時重置為初始狀態 :)";
+"The compressor allows you to set up sound more punchy. Compressors reduce the difference between the loudest and quietest parts of the volume" = "壓縮器可讓您設置更有力的聲音。 壓縮器減少音量中最響亮和最安靜部分之間的差異";
+"Peak limiter allows you to bring up the level without allowing the peaks to clip. It limits high-volume spikes which can sound disgusting" = "峰值限制器允許您調高電平而不允許峰值被削波。 它限制了聽起來很噁心的高音量尖峰";
+"I don't recommend you disable 'Peak Limiter' since it limits high-volume spikes which can sound disgusting. However it's safe to change any parameters." = "我不建議您禁用“峰值限制器”，因為它會限制聽起來令人作嘔的高音量峰值。 但是，更改任何參數都是安全的";
+"Disable Limiter?" = "禁用限制器？";
+"Should I disable peak limiter?" = "我應該禁用峰值限制器嗎？";
+"Dear User, for proper work with speech recognition & hearing aid, we need your microphone usage permission. Thank You!" = "尊敬的用戶，為了正確使用語音識別和助聽器，我們需要您的麥克風使用許可。 謝謝你！";
+"Please Allow Microphone Usage" = "請允許使用麥克風";
+"Next" = "下一個";
+"Dear User, we use your data only for analytics purpose. To improve the app and help you get better product. We don't share this data to any third party. Thank you!" = "尊敬的用戶，我們僅將您的數據用於分析目的。 改進應用程序並幫助您獲得更好的產品。 我們不會將這些數據分享給任何第三方。 謝謝！";
+"Recognition Not Available :(" = "無法識別 :(";
+"Tap the mic to get started ;)" = "點按麥克風即可開始 ;)";
+"Go ahead, I'm listening :)" = "繼續，我在聽 :)";
+"Available Languages %@" = "可用語言 %@";
+"Shake to clear text" = "搖一搖清除文字";
+"Translate Mode" = "翻譯模式";
+"Show Quality Indicator" =  "顯示質量指標";
+
+"Balance" = "平衡";
+"Noise OFF" = "噪音關閉";
+"Stereo" = "立體聲";
+"Hearing Aid" = "助聽器";
+"Front" = "正面";
+"Bottom" = "底部";
+"Rear" = "後部";
+"Compressor" = "壓縮機";
+"Limiter" = "限制器";
+"Reverb" = "混響";
+"Speech Recognition" = "語音識別";
+"Clear" = "清除";
+"Rotate" = "旋轉";
+"Flip" = "翻動";
+"Full Screen" = "全屏";
+"Share Text" = "分享文字";
+"Are you sure?" = "你確定嗎？";
+"Are you sure you want to miss out on this amazing opportunity?" = "您確定要錯過這個絕佳的機會嗎？";
+
+// NEW - 02.09.2021
+"Hello" = "你好！";
+"Please connect your headphones for correctly hearing aid work" = "請連接您的耳機以確保助聽器正常工作";
+"Select playback device" = "選擇播放設備";
+"Get started" = "開始";
+
+"Transcribes in real-time. Text appears on your phone as words are spoken." = "實時轉錄。 說話時，手機上會顯示文字。";
+"Super volume boost" = "放大的音量";
+"Regulated noise suppression" = "智能消除外部噪音";
+
+"Full acoustic amplification up to 30 dB with a wired headset" = "使用耳機時全聲放大高達 30 dB";
+"Elimination of background noises and increase of speech intelligibility" = "消除背景噪音並提高語音清晰度";
+"Automatic conversion of the recorded speech into text" = "自動將錄製的語音轉換為文本";
+"Before" = "前";
+"After" = "後";
+"Continue" = "繼續";
+
+"Dear User, for correctly work with our app, we need your microphone usage permission" = "尊敬的用戶，為了正確使用我們的應用程序，我們需要您的麥克風使用許可";
+"Later" = "之後";
+
+//New 08.09.2021
+"Allow Speech recognition function" = "允許語音識別功能";
+"Dear User, for use Speech recognition function, you need to allow permission" = "尊敬的用戶，要使用語音識別功能，您需要獲得許可";
+
+"Privacy Policy" = "隱私政策";
+"Terms of Use" = "使用條款";
+"Restore" = "恢復";
+"Subscribe" = "訂閱";
+"Get full access to: Super Boost, Noise Suppression, Speech to Text, Disable Ads" = "獲得完全訪問權限：音量增強、噪音抑制、語音轉文本、禁用廣告";
+"ONLY-" = "只要-%@";
+"for your first week You save - after per week" = "第一周您節省了 %@ - 每週 %@ 之後";
+"OFF" = "折扣";
+"Limited Offer" = "限量優惠";
+
+//New 13.09.2021
+"No device" = "沒有設備";
+"Pro Setup" = "專業設置";
+"Templates" = "模板";
+"Full Access" = "完全訪問";
+"Try $@ Free" = "嘗試 ％@ 自由";
+"First %@ free. After %@" = "第一個 %@ 免費。 後 ％@";
+"Only %@ per %@" = "(每個 %@ 僅 %@)";
+"Super Boost" = "超級提升";
+"Maximum sound concentration" = "最大聲音濃度";
+"Noise Suppression" = "噪聲抑制";
+"Eliminates background noise" = "消除背景噪音";
+"Speech to Text" = "語音轉文字";
+"Try Free & Subscribe" = "免費試用並訂閱";
+"Improve your experience" = "改善您的體驗";
+"Most popular" = "最受歡迎";
+"Yearly" = "每年";
+
+// Calendars
+"day" = "日";
+"days" = "天";
+"month" = "月";
+"months" = "月";
+"week" = "星期";
+"weeks" = "週";
+"year" = "年";
+"years" = "年";
+
+//New 16.09.2021
+"Oops" = "哎呀";
+"Something went wrong. Please try again" = "出了些问题。 请再试一次";
+"You have not purchases yet" = "您还没有购买";
+"Purchases successfully restored" = "已成功恢复购买";
+"Load" = "加载";
+"🥳85% Discount🥳" = "🥳85% 折扣🥳";
+"Don't miss your chance!" = "不要错过你的机会！";
+"If you set this option, system will mixes audio from this app with audio playing in background apps, such as the Music app.\nFor example, you want to listen a music or audio book over headphones, and at the same time hear sounds around you very well.\nIf this option OFF system reduces the volume of other audio apps to make the audio of this app more prominent." = "如果您设置此选项，系统会将来自此应用程序的音频与后台应用程序（例如音乐应用程序）中播放的音频混合。\n例如，您想通过耳机听音乐或有声读物，同时很好地听到周围的声音。\n如果此选项关闭系统会降低其他音频应用程序的音量，以使该应用程序的音频更加突出。";
+"Increase Volume of Hearing Aid together with the device system volume" = "与设备系统音量一起增加助听器的音量";
+"EQ" = "均衡器";
+"attack duration" = "攻击持续时间";
+"decay duration" = "衰减持续时间";
+"effect volume" = "效果音量";
+"release duration" = "释放持续时间";
+"threshold" = "临界点";
+"Music mode" = "音乐模式";
+"Font Size" = "字体大小";
+"Font Weight" = "字体粗细";
+"Text Alignment" = "文本对齐";
+
+"smallRoom" = "小房间";
+"mediumRoom" = "中等房间";
+"largeRoom" = "大房间1";
+"largeRoom2" = "大房间2";
+"mediumHall" = "中号馆 1";
+"mediumHall2" = "中号馆 2";
+"mediumHall3" = "中号馆 3";
+"largeHall" = "号馆1";
+"largeHall2" = "号馆2";
+"plate" = "小房间";
+"mediumChamber" = "中室";
+"largeChamber" = "大房间";
+"cathedral" = "大教堂";
+
+// New
+"Templates" = "模板";
+"Left" = "剩下";
+"Right" = "對";
+"Close" = "關閉";
+"Reset setup" = "重置設置";
+"Use system volume" = "使用系統音量";
+"Equalizer" = "均衡器";
+"Compressor status" = "壓縮機狀態";
+"Limiter status" = "限制器狀態";
+"Color Theme" = "顏色主題";
+"Support & Contact Us" = "支持與聯繫我們";
+
+"Headphones" = "耳機";
+"Active microphone" = "有源麥克風";
+
+"Clear voice" = "清晰的聲音";
+"AI helps to pick a voice out from the background noise and other sounds" = "A人工智能有助於從背景噪音和其他聲音中挑選出聲音";
+
+// New
+"Translate" = "翻譯器";
+"Type" = "鍵入文本";
+"Transcribe" = "抄寫";
+"Instruction" = "指示";
+"Share" = "分享";
+"Text setup" = "文本設置";
+"Save" = "保存";
+"Text" = "文本";
+"Done" = "已完成";
+"Text successfully copied" = "成功複製的文本";
+"Try this app!" = "試試這個應用程序吧!";
+"Are you sure you want to remove text?" = "你確定要刪除文本嗎?";
+"Shake to clear" = "搖晃以清除";
+"Type quick reply" = "輸入快速回复";
+"You haven't saved transcripts yet" = "你還沒有保存成績單";
+"Transcripts" = "文字記錄";
+"Are you sure you want to remove all saved transcripts?" = "您確定要刪除所有已保存的成績單嗎?";
+"Edit" = "編輯";
+"Do you want to remove this transcript?" = "您想刪除這份成績單嗎?";
+"Transcript successfully saved" = "轉錄本已成功保存";
+"Language" = "語言";
+"Downloaded" = "已下載";
+"Downloading" = "下載中";
+"You can now translate offline into" = "您現在可以將離線翻譯成 %@";
+"Your language" = "你的語言";
+"Translate language" = "翻譯語言";
+"Download Translation Model" = "下載翻譯模型";
+"Do you want to download model?" = "你想下載 %@ 模型?";
+
+// New 24.05
+"No transcriptions found" = "沒有找到轉寫的內容";
+"Search" = "搜索";
+"More" = "更多";
+"Manage subscriptions" = "管理訂閱情況";
+"Main Screen" = "主屏幕";
+"Offline translation" = "離線翻譯";
+"Saved" = "已保存的";
+
+"Transcribe & Translate" = "轉錄與翻譯機";
+"It is real time speech to text transcription and translation" = "實時的翻譯和語音到文本的轉錄";
+"Translation Services 60+ languages" = "翻譯60多種語言";
+"Continuously translate speech in near real-time. Ability to rotate the screen" = "流行的實時翻譯。能夠旋轉屏幕";
+"Live transcribe" = "實時抄寫";
+"Makes everyday conversations and surrounding sounds more accessible" = "日常對話和周圍的聲音更容易理解";
+"Which feature is the most interesting for you?" = "哪種功能對你來說最感興趣?";
+"Listening device" = "聽力設備";
+"The best hearing audio services together in one app" = "最好的聽力音頻服務匯集在一個應用程序中";
+"%@ people use every day" = "%@ 人每天都在使用";
+"Thank you for joining us! Receive special offers & announcements" = "感謝你加入我們! 收取特別優惠和公告";
+"Email address" = "電子郵件地址";
+"Skip" = "跳過";
+
+"Email field can't be empty" = "電子郵件字段不能為空";
+"Please enter a valid email" = "請輸入有效電子郵件";
+
+// New
+"Base shift" = "基移";
+"Range" = "範圍";
+"Speed" = "速度";
+"Voice changer" = "語音轉換器";
+"Voice changer status" = "語音轉換器狀態";
+"The voice changer allows you to change voice parameters. With the voice changer, you can set the pitch to higher or lower" = "語音轉換器允許您更改語音參數。 使用語音轉換器，您可以將音調設置為更高或更低";
+
+// New 19.07
+"Cancel subscription" = "取消訂閱";
+"Our website" = "我們的網站";
+"Allow" = "允許";
+"Allowed" = "允許";
+"The app uses a microphone to listen to everything around you while the hearing aid is working" = "該應用程序使用麥克風在助聽器工作時收聽您周圍的一切";
+"The app uses Speech recognition for transcribe voice" = "該應用程序使用語音識別來轉錄語音";
+
+"Magnifying Glass & Loupe" = "放大鏡";
+"Magnifying glass with high image quality and easy to use" = "畫質高、好用的放大鏡";
+"Magnifier 30X, pro features" = "放大鏡 30X，專業功能";
+"flashlight" = "手電筒";
+"Reading filters & scan text" = "閱讀過濾器 & 掃描文本";
+"Try for free" = "免費試用";
+
+// New 08.08
+"No sure yet?" = "還不確定？";
+"Enable free trial" = "啟用免費試用";
+"Auto-renewable, cancel anytime" = "自動續訂，隨時取消";
+"Just %@" = "只是 ％@";
+"Type mode" = "打字模式";
+"Basic" = "基本的";
+"Premium" = "優質的";
+"Try premium version" = "試用高級版";

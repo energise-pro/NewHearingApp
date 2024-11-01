@@ -1,0 +1,10 @@
+/* 
+  InfoPlist.strings
+  Drum Pad Beat Maker - Music Production
+
+  Created by Artem Sherbachuk on 2/6/21.
+  
+*/
+NSMicrophoneUsageDescription = "Please allow microphone usage for hearing aid and speech recognition";
+NSSpeechRecognitionUsageDescription = "Please allow access to speech recognition";
+NSUserTrackingUsageDescription = "Dear User, we use your data only for analytics purposes. To improve the app and help you get a better product. We don't share this data with any third party. Please allow permission. Thank you!";
