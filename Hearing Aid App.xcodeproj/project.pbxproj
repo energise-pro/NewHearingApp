@@ -18,7 +18,7 @@
 		11DC52332CD403E400A9589A /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DC52242CD403E400A9589A /* Theme.swift */; };
 		11DC52342CD403E400A9589A /* AlternateIconsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DC52222CD403E400A9589A /* AlternateIconsViewController.swift */; };
 		11DC523C2CD412CB00A9589A /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DC523B2CD412CA00A9589A /* ButtonView.swift */; };
-		11DC523E2CD4139200A9589A /* VAmplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DC523D2CD4139200A9589A /* VAmplitViewController.swift */; };
+		11DC523E2CD4139200A9589A /* AmplitudeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DC523D2CD4139200A9589A /* AmplitudeViewController.swift */; };
 		834EB73526482F9600026F01 /* ParticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834EB73326482F9600026F01 /* ParticleView.swift */; };
 		834EB73926482FEC00026F01 /* Particle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 834EB73826482FEC00026F01 /* Particle.sks */; };
 		839DE07326529F1B00A65DD7 /* IndicatorShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DE07126529F1B00A65DD7 /* IndicatorShape.swift */; };
@@ -90,10 +90,10 @@
 		9A1F9B26273E59EC0079C4F0 /* OrientationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1F9B25273E59EC0079C4F0 /* OrientationProtocol.swift */; };
 		9A2452D328378C3D0019DAC1 /* TranscriptsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2452D128378C3D0019DAC1 /* TranscriptsListViewController.swift */; };
 		9A2452D428378C3D0019DAC1 /* TranscriptsListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A2452D228378C3D0019DAC1 /* TranscriptsListViewController.xib */; };
-		9A2452D82837926A0019DAC1 /* HTranscripTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2452D62837926A0019DAC1 /* HTranscripTableViewCell.swift */; };
-		9A2452D92837926A0019DAC1 /* HTranscripTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A2452D72837926A0019DAC1 /* HTranscripTableViewCell.xib */; };
+		9A2452D82837926A0019DAC1 /* TranscriptTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2452D62837926A0019DAC1 /* TranscriptTableViewCell.swift */; };
+		9A2452D92837926A0019DAC1 /* TranscriptTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A2452D72837926A0019DAC1 /* TranscriptTableViewCell.xib */; };
 		9A2452DB283798440019DAC1 /* Date+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2452DA283798440019DAC1 /* Date+Formatter.swift */; };
-		9A24620A26E121540044C420 /* NeCTypingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A24620926E121540044C420 /* NeCTypingLabel.swift */; };
+		9A24620A26E121540044C420 /* CLTypingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A24620926E121540044C420 /* CLTypingLabel.swift */; };
 		9A27ED7326CDA5C800D8EF09 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A27ED7226CDA5C800D8EF09 /* NotificationService.swift */; };
 		9A27ED7726CDA5C800D8EF09 /* OneSignalServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9A27ED7026CDA5C800D8EF09 /* OneSignalServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		9A27ED7D26CDA67F00D8EF09 /* OneSignalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A27ED7C26CDA67F00D8EF09 /* OneSignalService.swift */; };
@@ -117,8 +117,8 @@
 		9A5512E3280977380078C5E5 /* HearingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5512E1280977380078C5E5 /* HearingViewController.swift */; };
 		9A5512E4280977380078C5E5 /* HearingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A5512E2280977380078C5E5 /* HearingViewController.xib */; };
 		9A5512E628097A270078C5E5 /* PMBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5512E528097A270078C5E5 /* PMBaseViewController.swift */; };
-		9A5CCE972819906700B8F89D /* МCentrPikrTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5CCE952819906700B8F89D /* МCentrPikrTableViewCell.swift */; };
-		9A5CCE982819906700B8F89D /* МCentrPikrTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A5CCE962819906700B8F89D /* МCentrPikrTableViewCell.xib */; };
+		9A5CCE972819906700B8F89D /* CenterPickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5CCE952819906700B8F89D /* CenterPickerTableViewCell.swift */; };
+		9A5CCE982819906700B8F89D /* CenterPickerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A5CCE962819906700B8F89D /* CenterPickerTableViewCell.xib */; };
 		9A60EDC7281A955C00112720 /* LimiterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A60EDC5281A955C00112720 /* LimiterViewController.swift */; };
 		9A60EDC8281A955C00112720 /* LimiterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A60EDC6281A955C00112720 /* LimiterViewController.xib */; };
 		9A60EDCC281A957300112720 /* EqualizerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A60EDCA281A957300112720 /* EqualizerViewController.swift */; };
@@ -132,7 +132,7 @@
 		9A60EE012820074100112720 /* ThemeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A60EDFF2820074100112720 /* ThemeTableViewCell.xib */; };
 		9A635DD126F3811900A6C0EF /* CatchUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A635DCF26F3811900A6C0EF /* CatchUpViewController.xib */; };
 		9A635DD226F3811900A6C0EF /* CatchUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A635DD026F3811900A6C0EF /* CatchUpViewController.swift */; };
-		9A635DD426F389F900A6C0EF /* CNatLoadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A635DD326F389F900A6C0EF /* CNatLoadView.swift */; };
+		9A635DD426F389F900A6C0EF /* NativeLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A635DD326F389F900A6C0EF /* NativeLoaderView.swift */; };
 		9A635DD626F38C9300A6C0EF /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A635DD526F38C9300A6C0EF /* UIViewController+Extensions.swift */; };
 		9A713AF9283E84D4003BCD42 /* Hearing Aid App.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 9A27ED7E26CDA94400D8EF09 /* Hearing Aid App.entitlements */; };
 		9A713AFC283E8569003BCD42 /* Branch in Frameworks */ = {isa = PBXBuildFile; productRef = 9A713AFB283E8569003BCD42 /* Branch */; };
@@ -216,8 +216,8 @@
 		9ACB45EE2812F29900FAF44E /* SimpleSegmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACB45EC2812F29900FAF44E /* SimpleSegmentTableViewCell.swift */; };
 		9ACB45EF2812F29900FAF44E /* SimpleSegmentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9ACB45ED2812F29900FAF44E /* SimpleSegmentTableViewCell.xib */; };
 		9ACB45F12812F8E900FAF44E /* ConfigurableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACB45F02812F8E900FAF44E /* ConfigurableCell.swift */; };
-		9ACB45F5281307EE00FAF44E /* SCentButtnTablViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACB45F3281307EE00FAF44E /* SCentButtnTablViewCell.swift */; };
-		9ACB45F6281307EE00FAF44E /* SCentButtnTablViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9ACB45F4281307EE00FAF44E /* SCentButtnTablViewCell.xib */; };
+		9ACB45F5281307EE00FAF44E /* CenterButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACB45F3281307EE00FAF44E /* CenterButtonTableViewCell.swift */; };
+		9ACB45F6281307EE00FAF44E /* CenterButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9ACB45F4281307EE00FAF44E /* CenterButtonTableViewCell.xib */; };
 		9AD6C64B28A101CC0055C518 /* BPaywallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD6C64928A101CC0055C518 /* BPaywallViewController.swift */; };
 		9AD6C64C28A101CC0055C518 /* BPaywallViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AD6C64A28A101CC0055C518 /* BPaywallViewController.xib */; };
 		9ADCA38627353DD900B8CE6B /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADCA38527353DD900B8CE6B /* FirebaseService.swift */; };
@@ -227,8 +227,8 @@
 		9AE1EC90283D0BD000941B54 /* MoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AE1EC8E283D0BD000941B54 /* MoreViewController.xib */; };
 		9AE950AD283FBDD00044CAB1 /* PreOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE950AB283FBDD00044CAB1 /* PreOnboardingViewController.swift */; };
 		9AE950AE283FBDD00044CAB1 /* PreOnboardingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AE950AC283FBDD00044CAB1 /* PreOnboardingViewController.xib */; };
-		9AEC02F0283533FF00E9E88B /* STextParamsTablViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEC02EE283533FF00E9E88B /* STextParamsTablViewCell.swift */; };
-		9AEC02F1283533FF00E9E88B /* STextParamsTablViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AEC02EF283533FF00E9E88B /* STextParamsTablViewCell.xib */; };
+		9AEC02F0283533FF00E9E88B /* TextParametersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEC02EE283533FF00E9E88B /* TextParametersTableViewCell.swift */; };
+		9AEC02F1283533FF00E9E88B /* TextParametersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AEC02EF283533FF00E9E88B /* TextParametersTableViewCell.xib */; };
 		A51EBD3426D9572E00674657 /* dialogAfter.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A51EBD3226D9572E00674657 /* dialogAfter.mp3 */; };
 		A51EBD3526D9572E00674657 /* guitarAfter.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A51EBD3326D9572E00674657 /* guitarAfter.mp3 */; };
 		A51EBD3826D9575600674657 /* dialogBefore.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A51EBD3626D9575600674657 /* dialogBefore.mp3 */; };
@@ -299,7 +299,7 @@
 		11DC52252CD403E400A9589A /* ThemeViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ThemeViewController.storyboard; sourceTree = "<group>"; };
 		11DC52262CD403E400A9589A /* ThemeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeViewController.swift; sourceTree = "<group>"; };
 		11DC523B2CD412CA00A9589A /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
-		11DC523D2CD4139200A9589A /* VAmplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VAmplitViewController.swift; sourceTree = "<group>"; };
+		11DC523D2CD4139200A9589A /* AmplitudeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmplitudeViewController.swift; sourceTree = "<group>"; };
 		1A072DD98EA6DE92C46C80E2 /* Pods-Hearing Aid App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hearing Aid App.release.xcconfig"; path = "Target Support Files/Pods-Hearing Aid App/Pods-Hearing Aid App.release.xcconfig"; sourceTree = "<group>"; };
 		4BFC181DF387069A4E37B1D0 /* Pods-Hearing Aid App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hearing Aid App.debug.xcconfig"; path = "Target Support Files/Pods-Hearing Aid App/Pods-Hearing Aid App.debug.xcconfig"; sourceTree = "<group>"; };
 		6CADFEADBA8A46FF205E30F6 /* Pods-OneSignalServiceExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalServiceExtension.debug.xcconfig"; path = "Target Support Files/Pods-OneSignalServiceExtension/Pods-OneSignalServiceExtension.debug.xcconfig"; sourceTree = "<group>"; };
@@ -400,10 +400,10 @@
 		9A1F9B25273E59EC0079C4F0 /* OrientationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrientationProtocol.swift; sourceTree = "<group>"; };
 		9A2452D128378C3D0019DAC1 /* TranscriptsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptsListViewController.swift; sourceTree = "<group>"; };
 		9A2452D228378C3D0019DAC1 /* TranscriptsListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TranscriptsListViewController.xib; sourceTree = "<group>"; };
-		9A2452D62837926A0019DAC1 /* HTranscripTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTranscripTableViewCell.swift; sourceTree = "<group>"; };
-		9A2452D72837926A0019DAC1 /* HTranscripTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HTranscripTableViewCell.xib; sourceTree = "<group>"; };
+		9A2452D62837926A0019DAC1 /* TranscriptTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptTableViewCell.swift; sourceTree = "<group>"; };
+		9A2452D72837926A0019DAC1 /* TranscriptTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TranscriptTableViewCell.xib; sourceTree = "<group>"; };
 		9A2452DA283798440019DAC1 /* Date+Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Formatter.swift"; sourceTree = "<group>"; };
-		9A24620926E121540044C420 /* NeCTypingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeCTypingLabel.swift; sourceTree = "<group>"; };
+		9A24620926E121540044C420 /* CLTypingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLTypingLabel.swift; sourceTree = "<group>"; };
 		9A27ED7026CDA5C800D8EF09 /* OneSignalServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OneSignalServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A27ED7226CDA5C800D8EF09 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		9A27ED7426CDA5C800D8EF09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -428,8 +428,8 @@
 		9A5512E1280977380078C5E5 /* HearingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HearingViewController.swift; sourceTree = "<group>"; };
 		9A5512E2280977380078C5E5 /* HearingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HearingViewController.xib; sourceTree = "<group>"; };
 		9A5512E528097A270078C5E5 /* PMBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PMBaseViewController.swift; sourceTree = "<group>"; };
-		9A5CCE952819906700B8F89D /* МCentrPikrTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "МCentrPikrTableViewCell.swift"; sourceTree = "<group>"; };
-		9A5CCE962819906700B8F89D /* МCentrPikrTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "МCentrPikrTableViewCell.xib"; sourceTree = "<group>"; };
+		9A5CCE952819906700B8F89D /* CenterPickerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterPickerTableViewCell.swift; sourceTree = "<group>"; };
+		9A5CCE962819906700B8F89D /* CenterPickerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CenterPickerTableViewCell.xib; sourceTree = "<group>"; };
 		9A60EDC5281A955C00112720 /* LimiterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimiterViewController.swift; sourceTree = "<group>"; };
 		9A60EDC6281A955C00112720 /* LimiterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LimiterViewController.xib; sourceTree = "<group>"; };
 		9A60EDCA281A957300112720 /* EqualizerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EqualizerViewController.swift; sourceTree = "<group>"; };
@@ -443,7 +443,7 @@
 		9A60EDFF2820074100112720 /* ThemeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ThemeTableViewCell.xib; sourceTree = "<group>"; };
 		9A635DCF26F3811900A6C0EF /* CatchUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CatchUpViewController.xib; sourceTree = "<group>"; };
 		9A635DD026F3811900A6C0EF /* CatchUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatchUpViewController.swift; sourceTree = "<group>"; };
-		9A635DD326F389F900A6C0EF /* CNatLoadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CNatLoadView.swift; sourceTree = "<group>"; };
+		9A635DD326F389F900A6C0EF /* NativeLoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeLoaderView.swift; sourceTree = "<group>"; };
 		9A635DD526F38C9300A6C0EF /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		9A713AFD283E860D003BCD42 /* BranchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchService.swift; sourceTree = "<group>"; };
 		9A713B00283E8AAC003BCD42 /* FacebookService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookService.swift; sourceTree = "<group>"; };
@@ -525,8 +525,8 @@
 		9ACB45EC2812F29900FAF44E /* SimpleSegmentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleSegmentTableViewCell.swift; sourceTree = "<group>"; };
 		9ACB45ED2812F29900FAF44E /* SimpleSegmentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SimpleSegmentTableViewCell.xib; sourceTree = "<group>"; };
 		9ACB45F02812F8E900FAF44E /* ConfigurableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurableCell.swift; sourceTree = "<group>"; };
-		9ACB45F3281307EE00FAF44E /* SCentButtnTablViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCentButtnTablViewCell.swift; sourceTree = "<group>"; };
-		9ACB45F4281307EE00FAF44E /* SCentButtnTablViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SCentButtnTablViewCell.xib; sourceTree = "<group>"; };
+		9ACB45F3281307EE00FAF44E /* CenterButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterButtonTableViewCell.swift; sourceTree = "<group>"; };
+		9ACB45F4281307EE00FAF44E /* CenterButtonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CenterButtonTableViewCell.xib; sourceTree = "<group>"; };
 		9AD6C64928A101CC0055C518 /* BPaywallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPaywallViewController.swift; sourceTree = "<group>"; };
 		9AD6C64A28A101CC0055C518 /* BPaywallViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BPaywallViewController.xib; sourceTree = "<group>"; };
 		9ADCA38527353DD900B8CE6B /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
@@ -536,8 +536,8 @@
 		9AE1EC8E283D0BD000941B54 /* MoreViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoreViewController.xib; sourceTree = "<group>"; };
 		9AE950AB283FBDD00044CAB1 /* PreOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreOnboardingViewController.swift; sourceTree = "<group>"; };
 		9AE950AC283FBDD00044CAB1 /* PreOnboardingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreOnboardingViewController.xib; sourceTree = "<group>"; };
-		9AEC02EE283533FF00E9E88B /* STextParamsTablViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STextParamsTablViewCell.swift; sourceTree = "<group>"; };
-		9AEC02EF283533FF00E9E88B /* STextParamsTablViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = STextParamsTablViewCell.xib; sourceTree = "<group>"; };
+		9AEC02EE283533FF00E9E88B /* TextParametersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextParametersTableViewCell.swift; sourceTree = "<group>"; };
+		9AEC02EF283533FF00E9E88B /* TextParametersTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextParametersTableViewCell.xib; sourceTree = "<group>"; };
 		9D9EBDD51084828864D7BA3C /* Pods_Hearing_Aid_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hearing_Aid_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A51EBD3226D9572E00674657 /* dialogAfter.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = dialogAfter.mp3; sourceTree = "<group>"; };
 		A51EBD3326D9572E00674657 /* guitarAfter.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = guitarAfter.mp3; sourceTree = "<group>"; };
@@ -606,12 +606,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		11DC52202CD403E400A9589A /* HearingA */ = {
+		11DC52202CD403E400A9589A /* Hearing Aid */ = {
 			isa = PBXGroup;
 			children = (
-				11DC523D2CD4139200A9589A /* VAmplitViewController.swift */,
+				11DC523D2CD4139200A9589A /* AmplitudeViewController.swift */,
 			);
-			path = HearingA;
+			path = "Hearing Aid";
 			sourceTree = "<group>";
 		};
 		11DC52232CD403E400A9589A /* AlternateIcons */ = {
@@ -623,7 +623,7 @@
 			path = AlternateIcons;
 			sourceTree = "<group>";
 		};
-		11DC52272CD403E400A9589A /* Themes */ = {
+		11DC52272CD403E400A9589A /* Theme */ = {
 			isa = PBXGroup;
 			children = (
 				11DC52232CD403E400A9589A /* AlternateIcons */,
@@ -631,16 +631,16 @@
 				11DC52252CD403E400A9589A /* ThemeViewController.storyboard */,
 				11DC52262CD403E400A9589A /* ThemeViewController.swift */,
 			);
-			path = Themes;
+			path = Theme;
 			sourceTree = "<group>";
 		};
-		11DC52282CD403E400A9589A /* Feture */ = {
+		11DC52282CD403E400A9589A /* Old */ = {
 			isa = PBXGroup;
 			children = (
-				11DC52202CD403E400A9589A /* HearingA */,
-				11DC52272CD403E400A9589A /* Themes */,
+				11DC52202CD403E400A9589A /* Hearing Aid */,
+				11DC52272CD403E400A9589A /* Theme */,
 			);
-			path = Feture;
+			path = Old;
 			sourceTree = "<group>";
 		};
 		834EB73126482F9600026F01 /* Particle View */ = {
@@ -707,8 +707,8 @@
 			isa = PBXGroup;
 			children = (
 				9A27ED7E26CDA94400D8EF09 /* Hearing Aid App.entitlements */,
-				11DC52282CD403E400A9589A /* Feture */,
-				A5B2323D26CC44BC0042AA7B /* Apps */,
+				11DC52282CD403E400A9589A /* Old */,
+				A5B2323D26CC44BC0042AA7B /* New */,
 				83EAFE89264C263700FF9CAC /* Common */,
 				83ABA24F264BE316001784B8 /* Speech Recoginiton */,
 			);
@@ -924,13 +924,13 @@
 			path = TranscriptsListViewController;
 			sourceTree = "<group>";
 		};
-		9A2452D52837924B0019DAC1 /* HTranscripTableViewCell */ = {
+		9A2452D52837924B0019DAC1 /* TranscriptTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				9A2452D62837926A0019DAC1 /* HTranscripTableViewCell.swift */,
-				9A2452D72837926A0019DAC1 /* HTranscripTableViewCell.xib */,
+				9A2452D62837926A0019DAC1 /* TranscriptTableViewCell.swift */,
+				9A2452D72837926A0019DAC1 /* TranscriptTableViewCell.xib */,
 			);
-			path = HTranscripTableViewCell;
+			path = TranscriptTableViewCell;
 			sourceTree = "<group>";
 		};
 		9A2452DC28379B7E0019DAC1 /* TranscriptDetailsViewController */ = {
@@ -1036,13 +1036,13 @@
 			path = HearingViewController;
 			sourceTree = "<group>";
 		};
-		9A5CCE942819904D00B8F89D /* МCentrPikrTableViewCell */ = {
+		9A5CCE942819904D00B8F89D /* CenterPickerTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				9A5CCE952819906700B8F89D /* МCentrPikrTableViewCell.swift */,
-				9A5CCE962819906700B8F89D /* МCentrPikrTableViewCell.xib */,
+				9A5CCE952819906700B8F89D /* CenterPickerTableViewCell.swift */,
+				9A5CCE962819906700B8F89D /* CenterPickerTableViewCell.xib */,
 			);
-			path = "МCentrPikrTableViewCell";
+			path = CenterPickerTableViewCell;
 			sourceTree = "<group>";
 		};
 		9A60EDC4281A954000112720 /* LimiterViewController */ = {
@@ -1321,20 +1321,20 @@
 			path = TemplatesViewController;
 			sourceTree = "<group>";
 		};
-		9ACB45EA2812F1FA00FAF44E /* TablViewCellsB */ = {
+		9ACB45EA2812F1FA00FAF44E /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
-				9A2452D52837924B0019DAC1 /* HTranscripTableViewCell */,
-				9AEC02ED283533E900E9E88B /* STextParamsTablViewCell */,
-				9ACB45F2281307D900FAF44E /* SCentButtnTablViewCell */,
-				9A5CCE942819904D00B8F89D /* МCentrPikrTableViewCell */,
+				9A2452D52837924B0019DAC1 /* TranscriptTableViewCell */,
+				9AEC02ED283533E900E9E88B /* TextParametersTableViewCell */,
+				9ACB45F2281307D900FAF44E /* CenterButtonTableViewCell */,
+				9A5CCE942819904D00B8F89D /* CenterPickerTableViewCell */,
 				9A60EDD0281AE15000112720 /* EqualizerTableViewCell */,
 				9A836AEB2819297900FD5AF2 /* SettingTableViewCell */,
 				9ACB45EB2812F20500FAF44E /* SimpleSegmentTableViewCell */,
 				9A836AF028198B3800FD5AF2 /* SliderTableViewCell */,
 				9A60EDFD2820072300112720 /* ThemeTableViewCell */,
 			);
-			path = TablViewCellsB;
+			path = TableViewCells;
 			sourceTree = "<group>";
 		};
 		9ACB45EB2812F20500FAF44E /* SimpleSegmentTableViewCell */ = {
@@ -1346,13 +1346,13 @@
 			path = SimpleSegmentTableViewCell;
 			sourceTree = "<group>";
 		};
-		9ACB45F2281307D900FAF44E /* SCentButtnTablViewCell */ = {
+		9ACB45F2281307D900FAF44E /* CenterButtonTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				9ACB45F3281307EE00FAF44E /* SCentButtnTablViewCell.swift */,
-				9ACB45F4281307EE00FAF44E /* SCentButtnTablViewCell.xib */,
+				9ACB45F3281307EE00FAF44E /* CenterButtonTableViewCell.swift */,
+				9ACB45F4281307EE00FAF44E /* CenterButtonTableViewCell.xib */,
 			);
-			path = SCentButtnTablViewCell;
+			path = CenterButtonTableViewCell;
 			sourceTree = "<group>";
 		};
 		9AD6C64828A1019B0055C518 /* BPaywallViewController */ = {
@@ -1382,13 +1382,13 @@
 			path = PreOnboardingViewController;
 			sourceTree = "<group>";
 		};
-		9AEC02ED283533E900E9E88B /* STextParamsTablViewCell */ = {
+		9AEC02ED283533E900E9E88B /* TextParametersTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				9AEC02EE283533FF00E9E88B /* STextParamsTablViewCell.swift */,
-				9AEC02EF283533FF00E9E88B /* STextParamsTablViewCell.xib */,
+				9AEC02EE283533FF00E9E88B /* TextParametersTableViewCell.swift */,
+				9AEC02EF283533FF00E9E88B /* TextParametersTableViewCell.xib */,
 			);
-			path = STextParamsTablViewCell;
+			path = TextParametersTableViewCell;
 			sourceTree = "<group>";
 		};
 		A51C52BF26CEF7FF00D90673 /* Fonts */ = {
@@ -1423,13 +1423,13 @@
 			path = OnboardingViewController;
 			sourceTree = "<group>";
 		};
-		A51EBD4126D959F000674657 /* CollectViewCell */ = {
+		A51EBD4126D959F000674657 /* CollectionViewCells */ = {
 			isa = PBXGroup;
 			children = (
 				A552868526FA70E400A92066 /* OnboardingSpeechViewCell */,
 				A58219A826F91922005BFCD6 /* OnboardingCollectionViewCell */,
 			);
-			path = CollectViewCell;
+			path = CollectionViewCells;
 			sourceTree = "<group>";
 		};
 		A52F8AFE26D19FF100034120 /* Video */ = {
@@ -1491,11 +1491,11 @@
 			path = OnboardingCollectionViewCell;
 			sourceTree = "<group>";
 		};
-		A5B2323D26CC44BC0042AA7B /* Apps */ = {
+		A5B2323D26CC44BC0042AA7B /* New */ = {
 			isa = PBXGroup;
 			children = (
 				83A8E89E2645898A0080AEE5 /* AppDelegate.swift */,
-				A5E9ADD626E0962100B7DA17 /* CustView */,
+				A5E9ADD626E0962100B7DA17 /* CustomView */,
 				9A87D76526CF06F70077C9D0 /* Controllers */,
 				A5B2324F26CC47B40042AA7B /* Entities */,
 				A52F8B0226D1B0CA00034120 /* Extensions */,
@@ -1506,7 +1506,7 @@
 				A5B2324126CC44C70042AA7B /* Services */,
 				9A27ED8126CDA9F200D8EF09 /* Supporting Files */,
 			);
-			path = Apps;
+			path = New;
 			sourceTree = "<group>";
 		};
 		A5B2323E26CC44C70042AA7B /* Protocols */ = {
@@ -1589,15 +1589,15 @@
 			path = PaywallViewController;
 			sourceTree = "<group>";
 		};
-		A5E9ADD626E0962100B7DA17 /* CustView */ = {
+		A5E9ADD626E0962100B7DA17 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
-				9A24620926E121540044C420 /* NeCTypingLabel.swift */,
-				9A635DD326F389F900A6C0EF /* CNatLoadView.swift */,
-				9ACB45EA2812F1FA00FAF44E /* TablViewCellsB */,
-				A51EBD4126D959F000674657 /* CollectViewCell */,
+				9A24620926E121540044C420 /* CLTypingLabel.swift */,
+				9A635DD326F389F900A6C0EF /* NativeLoaderView.swift */,
+				9ACB45EA2812F1FA00FAF44E /* TableViewCells */,
+				A51EBD4126D959F000674657 /* CollectionViewCells */,
 			);
-			path = CustView;
+			path = CustomView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1709,7 +1709,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A713AF9283E84D4003BCD42 /* Hearing Aid App.entitlements in Resources */,
-				9A5CCE982819906700B8F89D /* МCentrPikrTableViewCell.xib in Resources */,
+				9A5CCE982819906700B8F89D /* CenterPickerTableViewCell.xib in Resources */,
 				9AE1EC90283D0BD000941B54 /* MoreViewController.xib in Resources */,
 				9ACB45E42812D05F00FAF44E /* CompressorViewController.xib in Resources */,
 				839FAC24264EE87D004910D9 /* SpeechRecognitionSettingsViewController.storyboard in Resources */,
@@ -1742,14 +1742,14 @@
 				A51EBD3826D9575600674657 /* dialogBefore.mp3 in Resources */,
 				9A60EDD4281AE17800112720 /* EqualizerTableViewCell.xib in Resources */,
 				9A1B0B7B2833842B003588B5 /* TextSetupViewController.xib in Resources */,
-				9AEC02F1283533FF00E9E88B /* STextParamsTablViewCell.xib in Resources */,
+				9AEC02F1283533FF00E9E88B /* TextParametersTableViewCell.xib in Resources */,
 				83A0A0CA267E02C700D06F35 /* Implode.wav in Resources */,
 				9ACB45EF2812F29900FAF44E /* SimpleSegmentTableViewCell.xib in Resources */,
 				83A8E8EA2645A7FD0080AEE5 /* LoadingView.xib in Resources */,
-				9ACB45F6281307EE00FAF44E /* SCentButtnTablViewCell.xib in Resources */,
+				9ACB45F6281307EE00FAF44E /* CenterButtonTableViewCell.xib in Resources */,
 				9A836AF428198B4C00FD5AF2 /* SliderTableViewCell.xib in Resources */,
 				A5774AB626EAB00800AA4780 /* Gotham-Bold.otf in Resources */,
-				9A2452D92837926A0019DAC1 /* HTranscripTableViewCell.xib in Resources */,
+				9A2452D92837926A0019DAC1 /* TranscriptTableViewCell.xib in Resources */,
 				83ABAC50265BBA3C00A20D0E /* GoogleService-Info.plist in Resources */,
 				9A122CF3283B9FA800944287 /* hearing_aid_instruction.mp4 in Resources */,
 				9A635DD126F3811900A6C0EF /* CatchUpViewController.xib in Resources */,
@@ -1890,16 +1890,16 @@
 				9A635DD226F3811900A6C0EF /* CatchUpViewController.swift in Sources */,
 				83A8E8DC2645A7FD0080AEE5 /* TransitionZoom.swift in Sources */,
 				83A8E8E42645A7FD0080AEE5 /* Misc.swift in Sources */,
-				9A635DD426F389F900A6C0EF /* CNatLoadView.swift in Sources */,
+				9A635DD426F389F900A6C0EF /* NativeLoaderView.swift in Sources */,
 				9A42A9C526CEFAC400496DC9 /* InAppPurchasesService.swift in Sources */,
 				9AE1EC8F283D0BD000941B54 /* MoreViewController.swift in Sources */,
 				839DE07426529F1B00A65DD7 /* ActivityIndicatorView.swift in Sources */,
-				11DC523E2CD4139200A9589A /* VAmplitViewController.swift in Sources */,
+				11DC523E2CD4139200A9589A /* AmplitudeViewController.swift in Sources */,
 				9ACB45BE2812B9BF00FAF44E /* TapCountingDrumPadGrid.swift in Sources */,
 				A5B2324626CC44C70042AA7B /* IServiceProtocol.swift in Sources */,
 				9A5512DC28096B870078C5E5 /* TabBarViewController.swift in Sources */,
 				9A80746726E814AB00E89B83 /* UIFont+Extensions.swift in Sources */,
-				9A2452D82837926A0019DAC1 /* HTranscripTableViewCell.swift in Sources */,
+				9A2452D82837926A0019DAC1 /* TranscriptTableViewCell.swift in Sources */,
 				A53D650926E9483000C9882D /* IAppStateListener.swift in Sources */,
 				9AE950AD283FBDD00044CAB1 /* PreOnboardingViewController.swift in Sources */,
 				9A60EDCF281A9B9A00112720 /* AudioKitParameters.swift in Sources */,
@@ -1920,7 +1920,7 @@
 				83A8E8DB2645A7FD0080AEE5 /* TransitionManager.swift in Sources */,
 				83A8E8E32645A7FD0080AEE5 /* SpringTextView.swift in Sources */,
 				9A1F9B26273E59EC0079C4F0 /* OrientationProtocol.swift in Sources */,
-				9ACB45F5281307EE00FAF44E /* SCentButtnTablViewCell.swift in Sources */,
+				9ACB45F5281307EE00FAF44E /* CenterButtonTableViewCell.swift in Sources */,
 				83A8E8E92645A7FD0080AEE5 /* DesignableTabBarController.swift in Sources */,
 				9A713AFE283E860D003BCD42 /* BranchService.swift in Sources */,
 				9AC37F682833D3EB00F95E24 /* UITextView+Extension.swift in Sources */,
@@ -1979,7 +1979,7 @@
 				9ADD32C328365A24002ADA43 /* LocalesListViewController.swift in Sources */,
 				9AAB268C26FA23DA007F4A67 /* (null) in Sources */,
 				9A5512E628097A270078C5E5 /* PMBaseViewController.swift in Sources */,
-				9A5CCE972819906700B8F89D /* МCentrPikrTableViewCell.swift in Sources */,
+				9A5CCE972819906700B8F89D /* CenterPickerTableViewCell.swift in Sources */,
 				9ACB45D92812B9BF00FAF44E /* MorphableShape.swift in Sources */,
 				83A8E8E22645A7FD0080AEE5 /* SpringButton.swift in Sources */,
 				9ACB45CF2812B9BF00FAF44E /* SpectrumView.swift in Sources */,
@@ -2006,7 +2006,7 @@
 				9ACB45C92812B9BF00FAF44E /* WaveformLayer.swift in Sources */,
 				9ACB45CC2812B9BF00FAF44E /* FFTView.swift in Sources */,
 				9ACB45C32812B9BF00FAF44E /* MultitouchGestureRecognizer.swift in Sources */,
-				9A24620A26E121540044C420 /* NeCTypingLabel.swift in Sources */,
+				9A24620A26E121540044C420 /* CLTypingLabel.swift in Sources */,
 				A51EBD3D26D957C600674657 /* OnboardingViewController.swift in Sources */,
 				9A836AF328198B4C00FD5AF2 /* SliderTableViewCell.swift in Sources */,
 				9ACB45CE2812B9BF00FAF44E /* FragmentBuilder.swift in Sources */,
@@ -2031,7 +2031,7 @@
 				9A171CB026D4164000714425 /* AVRoutePickerView+Extension.swift in Sources */,
 				9ACB45D52812B9BF00FAF44E /* AmplitudeView.swift in Sources */,
 				A552868826FA711500A92066 /* OnboardingSpeechViewCell.swift in Sources */,
-				9AEC02F0283533FF00E9E88B /* STextParamsTablViewCell.swift in Sources */,
+				9AEC02F0283533FF00E9E88B /* TextParametersTableViewCell.swift in Sources */,
 				A5B2325526CC48080042AA7B /* Constants.swift in Sources */,
 				9A836AEE281929CE00FD5AF2 /* SettingTableViewCell.swift in Sources */,
 				83A8E8E62645A7FD0080AEE5 /* DesignableButton.swift in Sources */,

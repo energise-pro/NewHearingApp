@@ -83,7 +83,7 @@ class BasePopoverViewController: BaseViewController {
     }
 
     func animateAppearance() {
-        guard let view = self.view as? VSringlerView else {
+        guard let view = self.view as? SpringView else {
             return
         }
         view.animation = "pop"

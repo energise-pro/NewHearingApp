@@ -1,6 +1,6 @@
 import UIKit
 
-open class VSringlerView: UIView, Springable {
+open class SpringView: UIView, Springable {
     public var isAnimationInProgress: Bool = false
     @IBInspectable public var autostart: Bool = false
     @IBInspectable public var autohide: Bool = false

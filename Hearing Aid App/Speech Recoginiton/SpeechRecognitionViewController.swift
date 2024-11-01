@@ -31,7 +31,7 @@ final class SpeechRecognitionViewController: BaseViewController, OrientationalPr
     //Amplitude Indicator
     @IBOutlet weak var amplitudeView: UIStackView!
     @IBOutlet weak var amplitudeIndicatorView: UIView!
-    private let amplitudeVC = VAmplitViewController()
+    private let amplitudeVC = AmplitudeViewController()
 
     private var fullScreenViewController: TextViewFullScreenViewController?
 
