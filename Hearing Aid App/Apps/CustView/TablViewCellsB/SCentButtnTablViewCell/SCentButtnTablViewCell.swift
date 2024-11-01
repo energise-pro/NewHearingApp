@@ -1,26 +1,26 @@
 import UIKit
 
-protocol CenterButtonTableViewCellDelegate: AnyObject {
-    func didSelectButton(from cell: CenterButtonTableViewCell)
+protocol SCentButtnTablViewCellDelegate: AnyObject {
+    func didSelectButton(from cell: SCentButtnTablViewCell)
 }
 
-struct CenterButtonTableViewCellModel {
+struct SCentButtnTablViewCellModel {
     var buttonTitle: String
     var buttonImage: UIImage
-    weak var delegate: CenterButtonTableViewCellDelegate?
+    weak var delegate: SCentButtnTablViewCellDelegate?
 }
 
-typealias CenterButtonTableViewCellConfig = ViewCellConfigurator<CenterButtonTableViewCell, CenterButtonTableViewCellModel>
+typealias SCentButtnTablViewCellConfig = ViewCellConfigurator<SCentButtnTablViewCell, SCentButtnTablViewCellModel>
 
-final class CenterButtonTableViewCell: UITableViewCell, ConfigurableCellProtocol, UIViewCellNib {
+final class SCentButtnTablViewCell: UITableViewCell, ConfigurableCellProtocol, UIViewCellNib {
 
-    typealias DataType = CenterButtonTableViewCellModel
+    typealias DataType = SCentButtnTablViewCellModel
 
     // MARK: - Properties
     @IBOutlet private weak var buttonTitleLabel: UILabel!
     @IBOutlet private weak var buttonImageView: UIImageView!
     
-    private weak var delegate: CenterButtonTableViewCellDelegate?
+    private weak var delegate: SCentButtnTablViewCellDelegate?
     
     // MARK: - Lifecycle
     func configure(data: DataType) {

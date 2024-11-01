@@ -43,7 +43,7 @@ final class ProSetupViewController: PMBaseViewController {
         navigationItem.rightBarButtonItem?.tintColor = ThemeService.shared.activeColor
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         
-        let cellNibs: [UIViewCellNib.Type] = [SimpleSegmentTableViewCell.self, SettingTableViewCell.self, CenterButtonTableViewCell.self]
+        let cellNibs: [UIViewCellNib.Type] = [SimpleSegmentTableViewCell.self, SettingTableViewCell.self, SCentButtnTablViewCell.self]
         cellNibs.forEach { tableView.register($0.nib, forCellReuseIdentifier: $0.identifier) }
     }
     
@@ -73,8 +73,8 @@ final class ProSetupViewController: PMBaseViewController {
         let equalizerCellModel = SettingTableViewCellModel(title: "Equalizer".localized(), buttonTypes: [.rightButton], delegate: self)
         let equalizerCellConfig = SettingTableViewCellConfig(item: equalizerCellModel)
         
-        let resetCellModel = CenterButtonTableViewCellModel(buttonTitle: "Reset setup".localized(), buttonImage: UIImage(systemName: "trash.fill")!, delegate: self)
-        let resetCellConfig = CenterButtonTableViewCellConfig(item: resetCellModel)
+        let resetCellModel = SCentButtnTablViewCellModel(buttonTitle: "Reset setup".localized(), buttonImage: UIImage(systemName: "trash.fill")!, delegate: self)
+        let resetCellConfig = SCentButtnTablViewCellConfig(item: resetCellModel)
         
         dataSource = [segmentCellConfig, musicCellConfig, systemVolumeCellConfig, clearVoiceCellConfig, voiceChangerCellConfig, compressorCellConfig, limiterCellConfig, equalizerCellConfig, resetCellConfig]
         tableView.reloadData()
@@ -133,10 +133,10 @@ extension ProSetupViewController: SimpleSegmentTableViewCellDelegate {
     }
 }
 
-// MARK: - CenterButtonTableViewCellDelegate
-extension ProSetupViewController: CenterButtonTableViewCellDelegate {
+// MARK: - SCentButtnTablViewCellDelegate
+extension ProSetupViewController: SCentButtnTablViewCellDelegate {
     
-    func didSelectButton(from cell: CenterButtonTableViewCell) {
+    func didSelectButton(from cell: SCentButtnTablViewCell) {
         TapticEngine.impact.feedback(.medium)
         AudioKitService.shared.changeMicrophone(on: MicrophoneType.defaultMicrophone)
         AudioKitService.shared.setMusicMode(false)

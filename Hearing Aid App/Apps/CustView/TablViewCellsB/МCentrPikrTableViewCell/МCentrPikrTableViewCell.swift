@@ -1,25 +1,25 @@
 import UIKit
 
-protocol CenterPickerTableViewCellDelegate: AnyObject {
-    func didSelect(_ value: String?, from cell: CenterPickerTableViewCell)
+protocol МCentrPikrTableViewCellDelegate: AnyObject {
+    func didSelect(_ value: String?, from cell: МCentrPikrTableViewCell)
 }
 
-struct CenterPickerTableViewCellModel {
+struct МCentrPikrTableViewCellModel {
     var dataSource: [String]
     var selectedValue: String?
-    weak var delegate: CenterPickerTableViewCellDelegate?
+    weak var delegate: МCentrPikrTableViewCellDelegate?
 }
 
-typealias CenterPickerTableViewCellConfig = ViewCellConfigurator<CenterPickerTableViewCell, CenterPickerTableViewCellModel>
+typealias МCentrPikrTableViewCellConfig = ViewCellConfigurator<МCentrPikrTableViewCell, МCentrPikrTableViewCellModel>
 
-final class CenterPickerTableViewCell: UITableViewCell, ConfigurableCellProtocol, UIViewCellNib {
+final class МCentrPikrTableViewCell: UITableViewCell, ConfigurableCellProtocol, UIViewCellNib {
 
-    typealias DataType = CenterPickerTableViewCellModel
+    typealias DataType = МCentrPikrTableViewCellModel
     
     @IBOutlet private weak var pickerView: UIPickerView!
     
     private var dataSource: [String] = []
-    private weak var delegate: CenterPickerTableViewCellDelegate?
+    private weak var delegate: МCentrPikrTableViewCellDelegate?
     
     // MARK: - Lifecycle
     func configure(data: DataType) {
@@ -33,7 +33,7 @@ final class CenterPickerTableViewCell: UITableViewCell, ConfigurableCellProtocol
 }
 
 // MARK: - UIPickerViewDataSource, UIPickerViewDelegate
-extension CenterPickerTableViewCell: UIPickerViewDataSource, UIPickerViewDelegate {
+extension МCentrPikrTableViewCell: UIPickerViewDataSource, UIPickerViewDelegate {
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1

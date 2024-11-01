@@ -125,12 +125,12 @@ final class BPaywallViewController: PMBaseViewController {
     }
     
     private func purchase(plan: ShopItem) {
-        NativeLoaderView.showLoader(at: self.view, animated: true)
+        CNatLoadView.showLoader(at: self.view, animated: true)
         InAppPurchasesService.shared.purchase(plan, from: .subscriptions) { [weak self] isSuccess in
             guard let self = self else {
                 return
             }
-            NativeLoaderView.hideLoader(for: self.view, animated: true)
+            CNatLoadView.hideLoader(for: self.view, animated: true)
             if isSuccess {
                 DispatchQueue.main.async {
                     self.closePaywall()
@@ -174,10 +174,10 @@ final class BPaywallViewController: PMBaseViewController {
             NavigationManager.shared.presentSafariViewController(with: Constants.URLs.privacyPolicyURL)
         case 1:
             AppConfigService.shared.analytics.track(.v2BPaywall, with: [AnalyticsAction.action.rawValue: AnalyticsAction.restore.rawValue])
-            NativeLoaderView.showLoader(at: view, animated: true)
+            CNatLoadView.showLoader(at: view, animated: true)
             InAppPurchasesService.shared.restorePurchases { [weak self] isSuccess in
                 guard let self = self else { return }
-                NativeLoaderView.hideLoader(for: self.view, animated: true)
+                CNatLoadView.hideLoader(for: self.view, animated: true)
                 if isSuccess {
                     self.presentHidingAlert(title: "Purchases successfully restored".localized(), message: "") {
                         self.closePaywall()

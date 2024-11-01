@@ -103,12 +103,12 @@ extension SettingsViewController: SettingTableViewCellDelegate {
         case 1: // Premium
             NavigationManager.shared.presentPaywallViewController(with: .openFromSetting)
         case 2: // Restore
-            NativeLoaderView.showLoader(at: NavigationManager.shared.topViewController?.view ?? view, animated: true)
+            CNatLoadView.showLoader(at: NavigationManager.shared.topViewController?.view ?? view, animated: true)
             InAppPurchasesService.shared.restorePurchases { [weak self] isSuccess in
                 guard let self = self else {
                     return
                 }
-                NativeLoaderView.hideLoader(for: NavigationManager.shared.topViewController?.view ?? self.view, animated: true)
+                CNatLoadView.hideLoader(for: NavigationManager.shared.topViewController?.view ?? self.view, animated: true)
                 let title = isSuccess ? "Purchases successfully restored".localized() : "Oops".localized()
                 let message = isSuccess ? "" : "You have not purchases yet".localized()
                 isSuccess ? self.presentHidingAlert(title: title, message: message) : self.presentAlertPM(title: title, message: message)

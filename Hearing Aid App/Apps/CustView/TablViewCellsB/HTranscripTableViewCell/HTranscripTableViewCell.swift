@@ -1,25 +1,25 @@
 import UIKit
 
-protocol TranscriptTableViewCellDelegate: AnyObject {
-    func didSelectTranscript(from cell: TranscriptTableViewCell)
+protocol HTranscripTableViewCellDelegate: AnyObject {
+    func didSelectTranscript(from cell: HTranscripTableViewCell)
 }
 
-struct TranscriptTableViewCellModel {
+struct HTranscripTableViewCellModel {
     var transcriptModel: TranscribeModel
-    weak var delegate: TranscriptTableViewCellDelegate?
+    weak var delegate: HTranscripTableViewCellDelegate?
 }
 
-typealias TranscriptTableViewCellConfig = ViewCellConfigurator<TranscriptTableViewCell, TranscriptTableViewCellModel>
+typealias HTranscripTableViewCellConfig = ViewCellConfigurator<HTranscripTableViewCell, HTranscripTableViewCellModel>
 
-final class TranscriptTableViewCell: UITableViewCell, ConfigurableCellProtocol, UIViewCellNib {
+final class HTranscripTableViewCell: UITableViewCell, ConfigurableCellProtocol, UIViewCellNib {
 
-    typealias DataType = TranscriptTableViewCellModel
+    typealias DataType = HTranscripTableViewCellModel
     
     // MARK: - Properties
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var dateLabel: UILabel!
     
-    private weak var delegate: TranscriptTableViewCellDelegate?
+    private weak var delegate: HTranscripTableViewCellDelegate?
     
     // MARK: - Lifecycle
     func configure(data: DataType) {

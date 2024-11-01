@@ -35,7 +35,7 @@ final class TranscriptsListViewController: PMBaseViewController {
         placeholderTitleLabel.text = "No transcriptions found".localized()
         searchBar.placeholder = "Search".localized() + "..."
         
-        let cellNibs: [UIViewCellNib.Type] = [TranscriptTableViewCell.self]
+        let cellNibs: [UIViewCellNib.Type] = [HTranscripTableViewCell.self]
         cellNibs.forEach { tableView.register($0.nib, forCellReuseIdentifier: $0.identifier) }
         
         tableView.contentInset = UIEdgeInsets(top: 20.0, left: .zero, bottom: .zero, right: .zero)
@@ -63,8 +63,8 @@ final class TranscriptsListViewController: PMBaseViewController {
             }
             
             let cellConfigs = transcripts
-                .compactMap { TranscriptTableViewCellModel(transcriptModel: $0, delegate: self) }
-                .compactMap { TranscriptTableViewCellConfig(item: $0) }
+                .compactMap { HTranscripTableViewCellModel(transcriptModel: $0, delegate: self) }
+                .compactMap { HTranscripTableViewCellConfig(item: $0) }
             dataSource.append(cellConfigs)
         }
         return dataSource
@@ -122,16 +122,16 @@ extension TranscriptsListViewController: UITableViewDataSource, UITableViewDeleg
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let timeInterval = (filteredDataSource[section].first?.getItem() as? TranscriptTableViewCellModel)?.transcriptModel.createdDate ?? Date().timeIntervalSince1970
+        let timeInterval = (filteredDataSource[section].first?.getItem() as? HTranscripTableViewCellModel)?.transcriptModel.createdDate ?? Date().timeIntervalSince1970
         return Date(timeIntervalSince1970: timeInterval).toMonthWithYear().capitalizingFirstLetter()
     }
 }
 
-// MARK: - TranscriptTableViewCellDelegate
-extension TranscriptsListViewController: TranscriptTableViewCellDelegate {
+// MARK: - HTranscripTableViewCellDelegate
+extension TranscriptsListViewController: HTranscripTableViewCellDelegate {
     
-    func didSelectTranscript(from cell: TranscriptTableViewCell) {
-        guard let indexPath = tableView.indexPath(for: cell), let transcriptModel = (filteredDataSource[indexPath.section][indexPath.row].getItem() as? TranscriptTableViewCellModel)?.transcriptModel else {
+    func didSelectTranscript(from cell: HTranscripTableViewCell) {
+        guard let indexPath = tableView.indexPath(for: cell), let transcriptModel = (filteredDataSource[indexPath.section][indexPath.row].getItem() as? HTranscripTableViewCellModel)?.transcriptModel else {
             return
         }
         searchBar.endEditing(true)

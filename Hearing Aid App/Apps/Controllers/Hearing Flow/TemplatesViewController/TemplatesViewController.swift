@@ -44,7 +44,7 @@ final class TemplatesViewController: PMBaseViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Close".localized(), style: .plain, target: self, action: #selector(closeButtonAction))
         navigationItem.rightBarButtonItem?.tintColor = ThemeService.shared.activeColor
         
-        let cellNibs: [UIViewCellNib.Type] = [SettingTableViewCell.self, SliderTableViewCell.self, CenterPickerTableViewCell.self, CenterButtonTableViewCell.self]
+        let cellNibs: [UIViewCellNib.Type] = [SettingTableViewCell.self, SliderTableViewCell.self, МCentrPikrTableViewCell.self, SCentButtnTablViewCell.self]
         cellNibs.forEach { tableView.register($0.nib, forCellReuseIdentifier: $0.identifier) }
     }
     
@@ -55,11 +55,11 @@ final class TemplatesViewController: PMBaseViewController {
         let volumeCellModel = SliderTableViewCellModel(title: "effect volume".localized().capitalizingFirstLetter(), sliderValue: Float(TemplatesParameter.dryWet.value), topInset: 70.0, delegate: self)
         let volumeCellConfig = SliderTableViewCellConfig(item: volumeCellModel)
         
-        let pickerCellModel = CenterPickerTableViewCellModel(dataSource: TemplatesType.allCases.compactMap { $0.title }, selectedValue: TemplatesType.selectedTemplate.title, delegate: self)
-        let pickerCellConfig = CenterPickerTableViewCellConfig(item: pickerCellModel, height: 250.0)
+        let pickerCellModel = МCentrPikrTableViewCellModel(dataSource: TemplatesType.allCases.compactMap { $0.title }, selectedValue: TemplatesType.selectedTemplate.title, delegate: self)
+        let pickerCellConfig = МCentrPikrTableViewCellConfig(item: pickerCellModel, height: 250.0)
         
-        let resetCellModel = CenterButtonTableViewCellModel(buttonTitle: "Reset setup".localized(), buttonImage: UIImage(systemName: "trash.fill")!, delegate: self)
-        let resetCellConfig = CenterButtonTableViewCellConfig(item: resetCellModel)
+        let resetCellModel = SCentButtnTablViewCellModel(buttonTitle: "Reset setup".localized(), buttonImage: UIImage(systemName: "trash.fill")!, delegate: self)
+        let resetCellConfig = SCentButtnTablViewCellConfig(item: resetCellModel)
         
         dataSource = [templatesCellConfig, volumeCellConfig, pickerCellConfig, resetCellConfig]
         tableView.reloadData()
@@ -96,10 +96,10 @@ extension TemplatesViewController: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
-// MARK: - CenterButtonTableViewCellDelegate
-extension TemplatesViewController: CenterButtonTableViewCellDelegate {
+// MARK: - SCentButtnTablViewCellDelegate
+extension TemplatesViewController: SCentButtnTablViewCellDelegate {
     
-    func didSelectButton(from cell: CenterButtonTableViewCell) {
+    func didSelectButton(from cell: SCentButtnTablViewCell) {
         TapticEngine.impact.feedback(.medium)
         AudioKitService.shared.setTemplates(false)
         AudioKitService.shared.changeTemplate(on: TemplatesType.defaultTemplate)
@@ -160,16 +160,16 @@ extension TemplatesViewController: SliderTableViewCellDelegate {
     }
 }
 
-// MARK: - CenterPickerTableViewCellDelegate
-extension TemplatesViewController: CenterPickerTableViewCellDelegate {
+// MARK: - МCentrPikrTableViewCellDelegate
+extension TemplatesViewController: МCentrPikrTableViewCellDelegate {
     
-    func didSelect(_ value: String?, from cell: CenterPickerTableViewCell) {
-        guard let indexRow = tableView.indexPath(for: cell)?.row, let cellModel = dataSource[indexRow].getItem() as? CenterPickerTableViewCellModel, let selectedTemplate = value, let templatesType = TemplatesType.allCases.first(where: { $0.title == selectedTemplate }) else {
+    func didSelect(_ value: String?, from cell: МCentrPikrTableViewCell) {
+        guard let indexRow = tableView.indexPath(for: cell)?.row, let cellModel = dataSource[indexRow].getItem() as? МCentrPikrTableViewCellModel, let selectedTemplate = value, let templatesType = TemplatesType.allCases.first(where: { $0.title == selectedTemplate }) else {
             return
         }
         AudioKitService.shared.changeTemplate(on: templatesType)
-        let newCellModel = CenterPickerTableViewCellModel(dataSource: cellModel.dataSource, selectedValue: selectedTemplate, delegate: self)
-        dataSource[indexRow] = CenterPickerTableViewCellConfig(item: newCellModel)
+        let newCellModel = МCentrPikrTableViewCellModel(dataSource: cellModel.dataSource, selectedValue: selectedTemplate, delegate: self)
+        dataSource[indexRow] = МCentrPikrTableViewCellConfig(item: newCellModel)
         
         AppConfigService.shared.analytics.track(action: .v2TemplatesScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.changeTemplate.rawValue])
     }

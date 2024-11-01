@@ -1,6 +1,6 @@
 import UIKit
 
-final class NativeLoaderView: UIView {
+final class CNatLoadView: UIView {
     
     private struct Defaults {
         static let sideValue: CGFloat = 100.0

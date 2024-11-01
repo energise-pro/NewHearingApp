@@ -1,31 +1,9 @@
-
 import UIKit
 
-/*
- Set text at runtime to trigger type animation;
- 
- Set charInterval property for interval time between each character, default is 0.1;
- 
- Call pauseTyping() to pause animation;
- 
- Call continueTyping() to restart a paused animation;
- */
-
-
-@IBDesignable open class CLTypingLabel: UILabel {
-    /*
-     Set interval time between each characters
-     */
+@IBDesignable open class NeCTypingLabel: UILabel {
     @IBInspectable open var charInterval: Double = 0.1
 
-    /*
-     Optional handler which fires when typing animation is finished
-     */
     open var onTypingAnimationFinished: (() -> Void)?
-    
-    /*
-     If text is always centered during typing
-     */
     @IBInspectable open var centerText: Bool = true
     
     private var typingStopped: Bool = false
@@ -34,9 +12,6 @@ import UIKit
     private var attributes: [NSAttributedString.Key: Any]?
     private var currentDispatchID: Int = 320
     private let dispatchSerialQ = DispatchQueue(label: "CLTypingLableQueue")
-    /*
-     Setting the text will trigger animation automatically
-     */
     override open var text: String! {
         get {
             return super.text
@@ -95,12 +70,12 @@ import UIKit
     open func continueTyping() {
         
         guard typingOver == false else {
-            print("CLTypingLabel: Animation is already over")
+            print("NeCTypingLabel: Animation is already over")
             return
         }
         
         guard typingStopped == true else {
-            print("CLTypingLabel: Animation is not stopped")
+            print("NeCTypingLabel: Animation is not stopped")
             return
         }
         guard let stoppedSubstring = stoppedSubstring else {

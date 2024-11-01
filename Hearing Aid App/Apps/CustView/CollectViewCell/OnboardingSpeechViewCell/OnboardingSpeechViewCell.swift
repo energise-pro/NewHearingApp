@@ -5,8 +5,8 @@ final class OnboardingSpeechViewCell: UICollectionViewCell {
     //MARK: - @IBOutlet
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
-    @IBOutlet private weak var typographyLabel: CLTypingLabel!
-    @IBOutlet private weak var translateTypographyLabel: CLTypingLabel!
+    @IBOutlet private weak var typographyLabel: NeCTypingLabel!
+    @IBOutlet private weak var translateTypographyLabel: NeCTypingLabel!
     
     @IBOutlet private weak var handImageView: UIImageView!
     

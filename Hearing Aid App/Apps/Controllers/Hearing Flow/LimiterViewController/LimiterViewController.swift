@@ -29,7 +29,7 @@ final class LimiterViewController: PMBaseViewController {
         navigationItem.rightBarButtonItem?.tintColor = ThemeService.shared.activeColor
         navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
-        let cellNibs: [UIViewCellNib.Type] = [SettingTableViewCell.self, SliderTableViewCell.self, CenterButtonTableViewCell.self]
+        let cellNibs: [UIViewCellNib.Type] = [SettingTableViewCell.self, SliderTableViewCell.self, SCentButtnTablViewCell.self]
         cellNibs.forEach { tableView.register($0.nib, forCellReuseIdentifier: $0.identifier) }
     }
     
@@ -47,8 +47,8 @@ final class LimiterViewController: PMBaseViewController {
             dataSource.append(cellConfig)
         }
         
-        let resetCellModel = CenterButtonTableViewCellModel(buttonTitle: "Reset setup".localized(), buttonImage: UIImage(systemName: "trash.fill")!, delegate: self)
-        let resetCellConfig = CenterButtonTableViewCellConfig(item: resetCellModel)
+        let resetCellModel = SCentButtnTablViewCellModel(buttonTitle: "Reset setup".localized(), buttonImage: UIImage(systemName: "trash.fill")!, delegate: self)
+        let resetCellConfig = SCentButtnTablViewCellConfig(item: resetCellModel)
         
         dataSource.append(resetCellConfig)
         
@@ -109,10 +109,10 @@ extension LimiterViewController: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
-// MARK: - CenterButtonTableViewCellDelegate
-extension LimiterViewController: CenterButtonTableViewCellDelegate {
+// MARK: - SCentButtnTablViewCellDelegate
+extension LimiterViewController: SCentButtnTablViewCellDelegate {
     
-    func didSelectButton(from cell: CenterButtonTableViewCell) {
+    func didSelectButton(from cell: SCentButtnTablViewCell) {
         TapticEngine.impact.feedback(.medium)
         AudioKitService.shared.setLimiter(true)
         PeakLimiterParameter.allCases.forEach { $0.setNew($0.defaultValue) }

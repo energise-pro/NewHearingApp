@@ -1,18 +1,18 @@
 import UIKit
 
-protocol TextParametersTableViewCellDelegate: AnyObject {
-    func didChangeValue(value: Int, for parameter: TranscribeTextParameter, from cell: TextParametersTableViewCell)
+protocol STextParamsTablViewCellDelegate: AnyObject {
+    func didChangeValue(value: Int, for parameter: TranscribeTextParameter, from cell: STextParamsTablViewCell)
 }
 
-struct TextParametersTableViewCellModel {
-    weak var delegate: TextParametersTableViewCellDelegate?
+struct STextParamsTablViewCellModel {
+    weak var delegate: STextParamsTablViewCellDelegate?
 }
 
-typealias TextParametersTableViewCellConfig = ViewCellConfigurator<TextParametersTableViewCell, TextParametersTableViewCellModel>
+typealias STextParamsTablViewCellConfig = ViewCellConfigurator<STextParamsTablViewCell, STextParamsTablViewCellModel>
 
-final class TextParametersTableViewCell: UITableViewCell, ConfigurableCellProtocol, UIViewCellNib {
+final class STextParamsTablViewCell: UITableViewCell, ConfigurableCellProtocol, UIViewCellNib {
 
-    typealias DataType = TextParametersTableViewCellModel
+    typealias DataType = STextParamsTablViewCellModel
     
     // MARK: - Properties
     @IBOutlet private weak var fontSizeTitleLabel: UILabel!
@@ -25,7 +25,7 @@ final class TextParametersTableViewCell: UITableViewCell, ConfigurableCellProtoc
     
     @IBOutlet private var alignmentImageViews: [UIImageView]!
     
-    private weak var delegate: TextParametersTableViewCellDelegate?
+    private weak var delegate: STextParamsTablViewCellDelegate?
     
     // MARK: - Lifecycle
     func configure(data: DataType) {

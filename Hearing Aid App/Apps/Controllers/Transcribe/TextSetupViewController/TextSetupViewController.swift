@@ -59,13 +59,13 @@ final class TextSetupViewController: PMBaseViewController {
         
         view.backgroundColor = UIColor.appColor(.UnactiveButton_3)
         
-        let cellNibs: [UIViewCellNib.Type] = [TextParametersTableViewCell.self, SettingTableViewCell.self]
+        let cellNibs: [UIViewCellNib.Type] = [STextParamsTablViewCell.self, SettingTableViewCell.self]
         cellNibs.forEach { tableView.register($0.nib, forCellReuseIdentifier: $0.identifier) }
     }
     
     private func configureDataSource() {
-        let textCellModel = TextParametersTableViewCellModel(delegate: self)
-        let textCellConfig = TextParametersTableViewCellConfig(item: textCellModel)
+        let textCellModel = STextParamsTablViewCellModel(delegate: self)
+        let textCellConfig = STextParamsTablViewCellConfig(item: textCellModel)
         
         let currentLocale = TranscribeService.shared.localizedSelectedLocale.capitalized
         let localeCellModel = SettingTableViewCellModel(title: currentLocale, buttonTypes: [.rightButton], delegate: self)
@@ -108,10 +108,10 @@ extension TextSetupViewController: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
-// MARK: - TextParametersTableViewCellDelegate
-extension TextSetupViewController: TextParametersTableViewCellDelegate {
+// MARK: - STextParamsTablViewCellDelegate
+extension TextSetupViewController: STextParamsTablViewCellDelegate {
     
-    func didChangeValue(value: Int, for parameter: TranscribeTextParameter, from cell: TextParametersTableViewCell) {
+    func didChangeValue(value: Int, for parameter: TranscribeTextParameter, from cell: STextParamsTablViewCell) {
         parameter.setNew(value)
         delegate?.didUpdateTextParameters()
         
