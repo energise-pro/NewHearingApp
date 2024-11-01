@@ -1,0 +1,72 @@
+# Xcode
+build/
+DerivedData/
+*.xcuserstate
+*.xcworkspace
+*.xcodeproj/project.xcworkspace/xcuserdata/
+*.xcodeproj/xcuserdata/
+*.xcodeproj/project.xcworkspace/xcuserdata/*.xcuserdatad
+
+# CocoaPods
+Pods/
+Podfile.lock
+
+# Carthage
+Carthage/
+*.xcuserdatad
+
+# Swift Package Manager
+.build/
+Packages/
+
+# Build artifacts
+*.app
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Simulator
+*.app.dSYM
+
+# Archives
+*.xcarchive
+
+# Other files
+*.swp
+*.swo
+*.DS_Store
+*.lock
+*.tgz
+*.gz
+*.zip
+*.log
+*.tmp
+
+# User-specific files
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+*.pbxuser
+*.pbxproj
+*.user
+*.xcuserdata
+*.xcuserstate
+*.plist
+
+# Xcode Server
+xcuserdata/
+*.xcworkspace
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output
+
+# SwiftLint
+.swiftlint.yml
+
+# Third-party frameworks (optional)
+# Uncomment if you want to ignore third-party frameworks directly
+# Frameworks/
+
