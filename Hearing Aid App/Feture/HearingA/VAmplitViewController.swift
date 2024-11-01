@@ -1,6 +1,6 @@
 import UIKit
 
-final class AmplitudeViewController: UIViewController, Gradientable {
+final class VAmplitViewController: UIViewController, Gradientable {
 
     @IBInspectable var isHorizontal: Bool = false {
         didSet {
@@ -11,12 +11,12 @@ final class AmplitudeViewController: UIViewController, Gradientable {
     }
 
     //back Amplitude view
-    private let backgrounAmplitudeView = SpringView()
-    private let backgrounAmplitudeMask = SpringImageView(image: #imageLiteral(resourceName: "volume"))
+    private let backgrounAmplitudeView = VSringlerView()
+    private let backgrounAmplitudeMask = CSringFImageView(image: #imageLiteral(resourceName: "volume"))
     let gradient: CAGradientLayer = CAGradientLayer()
 
     //front Amplitude view
-    private let frontAmplitudeView = SpringView()
+    private let frontAmplitudeView = VSringlerView()
     private let frontAmplitudeMask = UIImageView(image: #imageLiteral(resourceName: "volume"))
 
 //    let hearingAid = HearingAid.shared

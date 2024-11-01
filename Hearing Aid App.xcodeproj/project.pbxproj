@@ -18,7 +18,7 @@
 		11DC52332CD403E400A9589A /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DC52242CD403E400A9589A /* Theme.swift */; };
 		11DC52342CD403E400A9589A /* AlternateIconsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DC52222CD403E400A9589A /* AlternateIconsViewController.swift */; };
 		11DC523C2CD412CB00A9589A /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DC523B2CD412CA00A9589A /* ButtonView.swift */; };
-		11DC523E2CD4139200A9589A /* AmplitudeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DC523D2CD4139200A9589A /* AmplitudeViewController.swift */; };
+		11DC523E2CD4139200A9589A /* VAmplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DC523D2CD4139200A9589A /* VAmplitViewController.swift */; };
 		834EB73526482F9600026F01 /* ParticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834EB73326482F9600026F01 /* ParticleView.swift */; };
 		834EB73926482FEC00026F01 /* Particle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 834EB73826482FEC00026F01 /* Particle.sks */; };
 		839DE07326529F1B00A65DD7 /* IndicatorShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DE07126529F1B00A65DD7 /* IndicatorShape.swift */; };
@@ -299,7 +299,7 @@
 		11DC52252CD403E400A9589A /* ThemeViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ThemeViewController.storyboard; sourceTree = "<group>"; };
 		11DC52262CD403E400A9589A /* ThemeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeViewController.swift; sourceTree = "<group>"; };
 		11DC523B2CD412CA00A9589A /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
-		11DC523D2CD4139200A9589A /* AmplitudeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmplitudeViewController.swift; sourceTree = "<group>"; };
+		11DC523D2CD4139200A9589A /* VAmplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VAmplitViewController.swift; sourceTree = "<group>"; };
 		1A072DD98EA6DE92C46C80E2 /* Pods-Hearing Aid App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hearing Aid App.release.xcconfig"; path = "Target Support Files/Pods-Hearing Aid App/Pods-Hearing Aid App.release.xcconfig"; sourceTree = "<group>"; };
 		4BFC181DF387069A4E37B1D0 /* Pods-Hearing Aid App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hearing Aid App.debug.xcconfig"; path = "Target Support Files/Pods-Hearing Aid App/Pods-Hearing Aid App.debug.xcconfig"; sourceTree = "<group>"; };
 		6CADFEADBA8A46FF205E30F6 /* Pods-OneSignalServiceExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalServiceExtension.debug.xcconfig"; path = "Target Support Files/Pods-OneSignalServiceExtension/Pods-OneSignalServiceExtension.debug.xcconfig"; sourceTree = "<group>"; };
@@ -606,12 +606,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		11DC52202CD403E400A9589A /* Hearing Aid */ = {
+		11DC52202CD403E400A9589A /* HearingA */ = {
 			isa = PBXGroup;
 			children = (
-				11DC523D2CD4139200A9589A /* AmplitudeViewController.swift */,
+				11DC523D2CD4139200A9589A /* VAmplitViewController.swift */,
 			);
-			path = "Hearing Aid";
+			path = HearingA;
 			sourceTree = "<group>";
 		};
 		11DC52232CD403E400A9589A /* AlternateIcons */ = {
@@ -623,7 +623,7 @@
 			path = AlternateIcons;
 			sourceTree = "<group>";
 		};
-		11DC52272CD403E400A9589A /* Theme */ = {
+		11DC52272CD403E400A9589A /* Themes */ = {
 			isa = PBXGroup;
 			children = (
 				11DC52232CD403E400A9589A /* AlternateIcons */,
@@ -631,16 +631,16 @@
 				11DC52252CD403E400A9589A /* ThemeViewController.storyboard */,
 				11DC52262CD403E400A9589A /* ThemeViewController.swift */,
 			);
-			path = Theme;
+			path = Themes;
 			sourceTree = "<group>";
 		};
-		11DC52282CD403E400A9589A /* Old */ = {
+		11DC52282CD403E400A9589A /* Feture */ = {
 			isa = PBXGroup;
 			children = (
-				11DC52202CD403E400A9589A /* Hearing Aid */,
-				11DC52272CD403E400A9589A /* Theme */,
+				11DC52202CD403E400A9589A /* HearingA */,
+				11DC52272CD403E400A9589A /* Themes */,
 			);
-			path = Old;
+			path = Feture;
 			sourceTree = "<group>";
 		};
 		834EB73126482F9600026F01 /* Particle View */ = {
@@ -707,8 +707,8 @@
 			isa = PBXGroup;
 			children = (
 				9A27ED7E26CDA94400D8EF09 /* Hearing Aid App.entitlements */,
-				11DC52282CD403E400A9589A /* Old */,
-				A5B2323D26CC44BC0042AA7B /* New */,
+				11DC52282CD403E400A9589A /* Feture */,
+				A5B2323D26CC44BC0042AA7B /* Apps */,
 				83EAFE89264C263700FF9CAC /* Common */,
 				83ABA24F264BE316001784B8 /* Speech Recoginiton */,
 			);
@@ -1491,7 +1491,7 @@
 			path = OnboardingCollectionViewCell;
 			sourceTree = "<group>";
 		};
-		A5B2323D26CC44BC0042AA7B /* New */ = {
+		A5B2323D26CC44BC0042AA7B /* Apps */ = {
 			isa = PBXGroup;
 			children = (
 				83A8E89E2645898A0080AEE5 /* AppDelegate.swift */,
@@ -1506,7 +1506,7 @@
 				A5B2324126CC44C70042AA7B /* Services */,
 				9A27ED8126CDA9F200D8EF09 /* Supporting Files */,
 			);
-			path = New;
+			path = Apps;
 			sourceTree = "<group>";
 		};
 		A5B2323E26CC44C70042AA7B /* Protocols */ = {
@@ -1894,7 +1894,7 @@
 				9A42A9C526CEFAC400496DC9 /* InAppPurchasesService.swift in Sources */,
 				9AE1EC8F283D0BD000941B54 /* MoreViewController.swift in Sources */,
 				839DE07426529F1B00A65DD7 /* ActivityIndicatorView.swift in Sources */,
-				11DC523E2CD4139200A9589A /* AmplitudeViewController.swift in Sources */,
+				11DC523E2CD4139200A9589A /* VAmplitViewController.swift in Sources */,
 				9ACB45BE2812B9BF00FAF44E /* TapCountingDrumPadGrid.swift in Sources */,
 				A5B2324626CC44C70042AA7B /* IServiceProtocol.swift in Sources */,
 				9A5512DC28096B870078C5E5 /* TabBarViewController.swift in Sources */,

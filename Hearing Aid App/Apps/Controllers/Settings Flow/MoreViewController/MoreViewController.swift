@@ -31,7 +31,7 @@ final class MoreViewController: PMBaseViewController {
     }
     
     private func configureDataSource() {
-        let segmentCellModel = SimpleSegmentTableViewCellModel(mainTitle: "Main Screen".localized(), titles: [TabBarViewController.TabBarButton.hearing.title, TabBarViewController.TabBarButton.transcribe.title], selectedIndex: AppConfigService.shared.settings.mainScreen, delegate: self)
+        let segmentCellModel = SimpleSegmentTableViewCellModel(mainTitle: "Main Screen".localized(), titles: [VTabBarsViewController.TabBarButton.hearing.title, VTabBarsViewController.TabBarButton.transcribe.title], selectedIndex: AppConfigService.shared.settings.mainScreen, delegate: self)
         let segmentCellConfig = SimpleSegmentTableViewCellConfig(item: segmentCellModel)
         
         let manageCellModel = SettingTableViewCellModel(title: "Manage subscriptions".localized(), buttonTypes: [.rightButton], delegate: self)
@@ -116,9 +116,9 @@ extension MoreViewController: SimpleSegmentTableViewCellDelegate {
         let cellConfig = SimpleSegmentTableViewCellConfig(item: cellModel)
         dataSource[indexPath.row] = cellConfig
         
-        NavigationManager.shared.tabBarViewController?.reconfigureUI()
+        NavigationManager.shared.VTabBarsViewController?.reconfigureUI()
         
-        let selectedMainScreenString = String(describing: TabBarViewController.TabBarButton(rawValue: index)!)
+        let selectedMainScreenString = String(describing: VTabBarsViewController.TabBarButton(rawValue: index)!)
         AppConfigService.shared.analytics.track(.v2MoreScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.changeMainScreen.rawValue)_\(selectedMainScreenString)"])
     }
 }

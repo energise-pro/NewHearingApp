@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="4Wq-uW-iFx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="4Wq-uW-iFx">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -15,14 +14,14 @@
                         <viewControllerLayoutGuide type="top" id="H1L-OB-p3p"/>
                         <viewControllerLayoutGuide type="bottom" id="J31-Kw-g7u"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Cx1-P8-bUK" customClass="SpringView" customModule="Hearing_Aid_App" customModuleProvider="target">
+                    <view key="view" contentMode="scaleToFill" id="Cx1-P8-bUK" customClass="VSringlerView" customModule="Hearing_Aid_App" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="340" height="172"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zYC-4a-zuP">
-                                <rect key="frame" x="0.0" y="0.0" width="340" height="172"/>
+                                <rect key="frame" x="0.0" y="0.0" width="340" height="138"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="WyL-ZD-ern">
-                                    <rect key="frame" x="0.0" y="0.0" width="340" height="172"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="340" height="138"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hPE-b3-c18">
@@ -269,7 +268,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="xmark.circle" catalog="system" width="128" height="121"/>
+        <image name="checkmark.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="xmark.circle" catalog="system" width="128" height="123"/>
     </resources>
 </document>

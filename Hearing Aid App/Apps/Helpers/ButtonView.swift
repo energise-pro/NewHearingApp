@@ -1,6 +1,6 @@
 import UIKit
 
-class ButtonView: SpringView {
+class ButtonView: VSringlerView {
     @IBOutlet weak var button: SpringButton!
     @IBOutlet weak var title: UILabel?
     

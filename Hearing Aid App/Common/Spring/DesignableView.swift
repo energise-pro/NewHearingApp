@@ -1,6 +1,6 @@
 import UIKit
 
-@IBDesignable public class DesignableView: SpringView {
+@IBDesignable public class DesignableView: VSringlerView {
     
     @IBInspectable public var shadowOffsetY: CGFloat = 0 {
         didSet {

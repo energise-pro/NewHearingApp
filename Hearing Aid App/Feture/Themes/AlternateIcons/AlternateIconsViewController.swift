@@ -117,7 +117,7 @@ final class AlternateIconsViewController: BasePopoverViewController {
     }
 }
 
-final class IconView: SpringView {
+final class IconView: VSringlerView {
 
     @IBOutlet weak var checkmarkIcon: UIImageView!
 

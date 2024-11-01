@@ -25,13 +25,13 @@ final class NavigationManager: NSObject {
         return appDelegate?.window?.rootViewController?.topMostViewController()
     }
     
-    var tabBarViewController: TabBarViewController? {
-        return appDelegate?.window?.rootViewController as? TabBarViewController
+    var VTabBarsViewController: VTabBarsViewController? {
+        return appDelegate?.window?.rootViewController as? VTabBarsViewController
     }
     
     func setTabBarAsRootViewController() {
-        let tabBarViewController = TabBarViewController()
-        appDelegate?.window?.rootViewController = tabBarViewController
+        let VTabBarsViewController = VTabBarsViewController()
+        appDelegate?.window?.rootViewController = VTabBarsViewController
         appDelegate?.window?.makeKeyAndVisible()
     }
     

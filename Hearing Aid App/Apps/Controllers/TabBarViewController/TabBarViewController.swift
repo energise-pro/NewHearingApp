@@ -1,7 +1,7 @@
 import UIKit
 import SwiftUI
 
-final class TabBarViewController: PMBaseViewController {
+final class VTabBarsViewController: PMBaseViewController {
     
     enum TabBarButton: Int {
         case hearing
@@ -33,13 +33,10 @@ final class TabBarViewController: PMBaseViewController {
         var viewController: UIViewController {
             switch self {
             case .hearing:
-//                UIStoryboard.init(name: "HearingAidViewController", bundle: Bundle.main).instantiateViewController(withIdentifier: "HearingAidViewController")
                 return HearingViewController()
             case .transcribe:
-//                UIStoryboard.init(name: "SpeechRecognitionViewController", bundle: Bundle.main).instantiateViewController(withIdentifier: "SpeechRecognitionViewController")
                 return SpeechViewController()
             case .settings:
-//                UIStoryboard.init(name: "ThemeViewController", bundle: Bundle.main).instantiateViewController(withIdentifier: "ThemeViewController")
                 return SettingsViewController()
             }
         }
