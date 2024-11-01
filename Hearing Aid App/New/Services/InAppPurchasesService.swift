@@ -131,7 +131,7 @@ extension InAppPurchasesService: SKPaymentTransactionObserver {
     func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) { }
     
     func paymentQueue(_ queue: SKPaymentQueue, shouldAddStorePayment payment: SKPayment, for product: SKProduct) -> Bool {
-        AppConfiguration.shared.analytics.track(AnalyticsAction.v2AppStore, with: [AnalyticsAction.open.rawValue: "paywall"])
+        AppConfiguration.shared.analytics.track(GAppAnalyticActions.v2AppStore, with: [GAppAnalyticActions.open.rawValue: "paywall"])
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
             NavigationManager.shared.presentPaywallViewController(with: .openFromAppStore)
         }

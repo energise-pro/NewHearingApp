@@ -1,17 +1,22 @@
 import Foundation
 
-enum AnalyticsAction: String {
+enum GAppAnalyticActions: String {
     
     static var delaySliderInterval: TimeInterval = 1.0
     
+    case privacy = "privacy"
+    case terms = "terms"
+    case restore = "restore"
+    case purchase = "purchase"
+    case haptic = "haptic"
+    case darkMode = "dark_mode"
+    case faq = "faq"
+    case ourWebsite = "our_website"
+    case manageSubscriptions = "manage_subscriptions"
+    case cancelSubscription = "cancel_subscription"
     // Version 2
     case v2FirstLaunch = "v2_first_launch"
     case v2AppOpen = "v2_app_open"
-    
-    case v2AppStoreEvent = "v2_app_store_event"
-    case v2AppStore = "v2_app_store"
-    case v2Notification = "v2_notification"
-    case v2Deeplink = "v2_deeplink"
     
     case v2Onboarding = "v2_onboarding_screen"
     case v2TabBar = "v2_tab_bar_screen"
@@ -47,6 +52,24 @@ enum AnalyticsAction: String {
     case v2PermissionsScreen = "v2_permissions_screen"
     case v2CrossPromoScreen = "v2_cross_promo_screen"
     
+    case hearing = "hearing"
+    case transcribe = "transcribe"
+    case settings = "settings"
+    
+    case v2AppStoreEvent = "v2_app_store_event"
+    case v2AppStore = "v2_app_store"
+    case v2Notification = "v2_notification"
+    case v2Deeplink = "v2_deeplink"
+    
+    
+    case openFromHearing = "open_from_hearing"
+    case openFromTranscribe = "open_from_transcribe"
+    case openFromSetting = "open_from_settings"
+    case openFromLaunch = "open_from_launch"
+    case openFromAppStore = "open_from_app_store"
+    case openFromNotification = "open_from_notification"
+    case openFromDeeplink = "open_from_deeplink"
+    
     // Additional actions
     case trial = "trial"
     case event = "event"
@@ -70,29 +93,6 @@ enum AnalyticsAction: String {
     case share = "share"
     case redeem = "redeem"
     case search = "search"
-    
-    case hearing = "hearing"
-    case transcribe = "transcribe"
-    case settings = "settings"
-    
-    case privacy = "privacy"
-    case terms = "terms"
-    case restore = "restore"
-    case purchase = "purchase"
-    case haptic = "haptic"
-    case darkMode = "dark_mode"
-    case faq = "faq"
-    case ourWebsite = "our_website"
-    case manageSubscriptions = "manage_subscriptions"
-    case cancelSubscription = "cancel_subscription"
-    
-    case openFromHearing = "open_from_hearing"
-    case openFromTranscribe = "open_from_transcribe"
-    case openFromSetting = "open_from_settings"
-    case openFromLaunch = "open_from_launch"
-    case openFromAppStore = "open_from_app_store"
-    case openFromNotification = "open_from_notification"
-    case openFromDeeplink = "open_from_deeplink"
     
     case green = "green"
     case orange = "orange"
@@ -124,7 +124,6 @@ enum AnalyticsAction: String {
     case compressor = "compressor"
     case limiter = "limiter"
     case equalizer = "equalizer"
-    
     case shakeClearText = "shake_clear_text"
     case offlineTranslate = "offline_translate"
     case flip = "flip"
@@ -135,7 +134,6 @@ enum AnalyticsAction: String {
     case keyboardSaveText = "keyboard_save_text"
     case keyboardDone = "keyboard_done"
     
-    case translate = "translate"
     case type = "type"
     case saved = "saved"
     case textSetup = "text_setup"
@@ -147,14 +145,15 @@ enum AnalyticsAction: String {
     case downloadLanguage = "download_language"
     case translateLanguage = "translate_language"
     case userLanguage = "user_language"
+    case translate = "translate"
+   
     
-    case listening = "listening"
-    
-    // Old
     case translateMode = "translate_mode"
     case rotate = "rotate"
     case fullScreen = "full_screen"
     case alignment = "alignment"
     case weight = "weight"
     case changeFontSize = "change_font_size"
+    case listening = "listening"
+    
 }

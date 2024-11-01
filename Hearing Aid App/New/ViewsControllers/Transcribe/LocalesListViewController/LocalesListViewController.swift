@@ -11,7 +11,7 @@ final class LocalesListViewController: PMBaseViewController {
         case translateTo
         case translateFrom
         
-        var analyticAction: AnalyticsAction {
+        var analyticAction: GAppAnalyticActions {
             switch self {
             case .transcribe:
                 return .v2TranscribeLanguagesScreen
@@ -155,18 +155,18 @@ extension LocalesListViewController: SettingTableViewCellDelegate {
             TranscribeService.shared.changeLocale(on: TranscribeService.shared.supportedLocales[indexRow])
             configureDataSource()
             delegate?.didChangeLocale()
-            AppConfiguration.shared.analytics.track(action: screenType.analyticAction, with: [AnalyticsAction.action.rawValue: AnalyticsAction.changeLanguage.rawValue])
+            AppConfiguration.shared.analytics.track(action: screenType.analyticAction, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.changeLanguage.rawValue])
         case .translateTo:
             let selectedLanguage = filteredLanguages[indexRow]
             if TranslateService.shared.isLanguageDownloaded(selectedLanguage) {
                 TranslateService.shared.changeOutputLanguage(on: selectedLanguage)
                 configureDataSource()
                 delegate?.didChangeLocale()
-                AppConfiguration.shared.analytics.track(action: screenType.analyticAction, with: [AnalyticsAction.action.rawValue: AnalyticsAction.changeLanguage.rawValue])
+                AppConfiguration.shared.analytics.track(action: screenType.analyticAction, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.changeLanguage.rawValue])
             } else {
                 let yesAction = UIAlertAction(title: "Yes!".localized(), style: .default) { [weak self] alertAction in
                     guard let self = self else { return }
-                    AppConfiguration.shared.analytics.track(action: self.screenType.analyticAction, with: [AnalyticsAction.action.rawValue: AnalyticsAction.downloadLanguage.rawValue])
+                    AppConfiguration.shared.analytics.track(action: self.screenType.analyticAction, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.downloadLanguage.rawValue])
                     
                     TranslateService.shared.downloadModel(language: selectedLanguage) { [weak self] isSuccess in
                         guard let self = self else { return }
@@ -187,11 +187,11 @@ extension LocalesListViewController: SettingTableViewCellDelegate {
                 TranslateService.shared.changeInputLanguage(on: selectedLanguage)
                 configureDataSource()
                 delegate?.didChangeLocale()
-                AppConfiguration.shared.analytics.track(action: screenType.analyticAction, with: [AnalyticsAction.action.rawValue: AnalyticsAction.changeLanguage.rawValue])
+                AppConfiguration.shared.analytics.track(action: screenType.analyticAction, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.changeLanguage.rawValue])
             } else {
                 let yesAction = UIAlertAction(title: "Yes!".localized(), style: .default) { [weak self] alertAction in
                     guard let self = self else { return }
-                    AppConfiguration.shared.analytics.track(action: self.screenType.analyticAction, with: [AnalyticsAction.action.rawValue: AnalyticsAction.downloadLanguage.rawValue])
+                    AppConfiguration.shared.analytics.track(action: self.screenType.analyticAction, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.downloadLanguage.rawValue])
                     
                     TranslateService.shared.downloadModel(language: selectedLanguage) { [weak self] isSuccess in
                         guard let self = self else { return }

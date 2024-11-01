@@ -24,18 +24,18 @@ enum ColorType: Int, CaseIterable {
         }
     }
     
-    var analyticAction: AnalyticsAction {
+    var analyticAction: GAppAnalyticActions {
         switch self {
         case .blue:
-            return AnalyticsAction.blue
+            return GAppAnalyticActions.blue
         case .purpule:
-            return AnalyticsAction.violet
+            return GAppAnalyticActions.violet
         case .orange:
-            return AnalyticsAction.orange
+            return GAppAnalyticActions.orange
         case .red:
-            return AnalyticsAction.red
+            return GAppAnalyticActions.red
         case .green:
-            return AnalyticsAction.green
+            return GAppAnalyticActions.green
         }
     }
 }

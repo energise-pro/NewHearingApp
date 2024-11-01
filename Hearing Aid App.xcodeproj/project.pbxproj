@@ -1420,7 +1420,7 @@
 			path = Video;
 			sourceTree = "<group>";
 		};
-		A52F8B0226D1B0CA00034120 /* Extensions */ = {
+		A52F8B0226D1B0CA00034120 /* Ext */ = {
 			isa = PBXGroup;
 			children = (
 				9A171CAF26D4164000714425 /* AVRoutePickerView+Extension.swift */,
@@ -1441,7 +1441,7 @@
 				9AC37F672833D3EB00F95E24 /* UITextView+Extension.swift */,
 				9A2452DA283798440019DAC1 /* Date+Formatter.swift */,
 			);
-			path = Extensions;
+			path = Ext;
 			sourceTree = "<group>";
 		};
 		A53D650326E91FAF00C9882D /* RequestVoiceRecordingViewController */ = {
@@ -1478,7 +1478,7 @@
 				A5E9ADD626E0962100B7DA17 /* CustomView */,
 				9A87D76526CF06F70077C9D0 /* ViewsControllers */,
 				A5B2324F26CC47B40042AA7B /* Entities */,
-				A52F8B0226D1B0CA00034120 /* Extensions */,
+				A52F8B0226D1B0CA00034120 /* Ext */,
 				A5B2324C26CC44D20042AA7B /* Enums */,
 				A5B2323E26CC44C70042AA7B /* Protocols */,
 				A5B2325226CC48080042AA7B /* Helpers */,

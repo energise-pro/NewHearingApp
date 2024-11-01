@@ -80,8 +80,8 @@ final class TranscriptsListViewController: PMBaseViewController {
         tableView.reloadData()
         
         searchTimer?.invalidate()
-        searchTimer = Timer.scheduledTimer(withTimeInterval: AnalyticsAction.delaySliderInterval, repeats: false) { _ in
-            AppConfiguration.shared.analytics.track(action: .v2SavedTranscriptsScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.search.rawValue])
+        searchTimer = Timer.scheduledTimer(withTimeInterval: GAppAnalyticActions.delaySliderInterval, repeats: false) { _ in
+            AppConfiguration.shared.analytics.track(action: .v2SavedTranscriptsScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.search.rawValue])
         }
     }
     
@@ -89,7 +89,7 @@ final class TranscriptsListViewController: PMBaseViewController {
     @objc private func closeButtonAction() {
         dismiss(animated: true)
         
-        AppConfiguration.shared.analytics.track(action: .v2SavedTranscriptsScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.close.rawValue])
+        AppConfiguration.shared.analytics.track(action: .v2SavedTranscriptsScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.close.rawValue])
     } 
 }
 
@@ -137,7 +137,7 @@ extension TranscriptsListViewController: TranscriptTableViewCellDelegate {
         searchBar.endEditing(true)
         NavigationManager.shared.pushTranscriptDetailsViewController(with: transcriptModel, and: self)
         
-        AppConfiguration.shared.analytics.track(action: .v2SavedTranscriptsScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.transcript.rawValue])
+        AppConfiguration.shared.analytics.track(action: .v2SavedTranscriptsScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.transcript.rawValue])
     }
 }
 

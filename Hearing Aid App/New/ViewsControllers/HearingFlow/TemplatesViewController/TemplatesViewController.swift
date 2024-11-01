@@ -30,7 +30,7 @@ final class TemplatesViewController: PMBaseViewController {
         configureUI()
         configureDataSource()
         
-        AppConfiguration.shared.analytics.track(action: .v2TemplatesScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.open.rawValue])
+        AppConfiguration.shared.analytics.track(action: .v2TemplatesScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.open.rawValue])
     }
     
     override func didChangeTheme() {
@@ -69,7 +69,7 @@ final class TemplatesViewController: PMBaseViewController {
     @objc private func closeButtonAction() {
         dismiss(animated: true)
         
-        AppConfiguration.shared.analytics.track(action: .v2TemplatesScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.close.rawValue])
+        AppConfiguration.shared.analytics.track(action: .v2TemplatesScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.close.rawValue])
     }
 }
 
@@ -107,7 +107,7 @@ extension TemplatesViewController: CenterButtonTableViewCellDelegate {
         configureDataSource()
         delegate?.didChangeTemplatesValue()
         
-        AppConfiguration.shared.analytics.track(action: .v2TemplatesScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.reset.rawValue])
+        AppConfiguration.shared.analytics.track(action: .v2TemplatesScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.reset.rawValue])
     }
 }
 
@@ -125,7 +125,7 @@ extension TemplatesViewController: SettingTableViewCellDelegate {
         case .info:
             presentAlertPM(title: "Info".localized(), message: "The Reverberation allows you to simulate the environment, space, room around you".localized())
             
-            AppConfiguration.shared.analytics.track(action: .v2TemplatesScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.templates.rawValue)_\(AnalyticsAction.info.rawValue)"])
+            AppConfiguration.shared.analytics.track(action: .v2TemplatesScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.templates.rawValue)_\(GAppAnalyticActions.info.rawValue)"])
         case .switchButton:
             let newState = !AudioKitService.shared.isTemplatesEnabled
             AudioKitService.shared.setTemplates(newState)
@@ -133,8 +133,8 @@ extension TemplatesViewController: SettingTableViewCellDelegate {
             dataSource[indexRow] = SettingTableViewCellConfig(item: newCellModel)
             delegate?.didChangeTemplatesValue()
             
-            let stringState = newState ? AnalyticsAction.enable.rawValue : AnalyticsAction.disable.rawValue
-            AppConfiguration.shared.analytics.track(action: .v2TemplatesScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.templates.rawValue)_\(stringState)"])
+            let stringState = newState ? GAppAnalyticActions.enable.rawValue : GAppAnalyticActions.disable.rawValue
+            AppConfiguration.shared.analytics.track(action: .v2TemplatesScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.templates.rawValue)_\(stringState)"])
         default:
             break
         }
@@ -154,8 +154,8 @@ extension TemplatesViewController: SliderTableViewCellDelegate {
         dataSource[indexRow] = SliderTableViewCellConfig(item: newCellModel)
         
         volumeTimer?.invalidate()
-        volumeTimer = Timer.scheduledTimer(withTimeInterval: AnalyticsAction.delaySliderInterval, repeats: false) { _ in
-            AppConfiguration.shared.analytics.track(action: .v2TemplatesScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.changeVolume.rawValue])
+        volumeTimer = Timer.scheduledTimer(withTimeInterval: GAppAnalyticActions.delaySliderInterval, repeats: false) { _ in
+            AppConfiguration.shared.analytics.track(action: .v2TemplatesScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.changeVolume.rawValue])
         }
     }
 }
@@ -171,6 +171,6 @@ extension TemplatesViewController: CenterPickerTableViewCellDelegate {
         let newCellModel = CenterPickerTableViewCellModel(dataSource: cellModel.dataSource, selectedValue: selectedTemplate, delegate: self)
         dataSource[indexRow] = CenterPickerTableViewCellConfig(item: newCellModel)
         
-        AppConfiguration.shared.analytics.track(action: .v2TemplatesScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.changeTemplate.rawValue])
+        AppConfiguration.shared.analytics.track(action: .v2TemplatesScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.changeTemplate.rawValue])
     }
 }

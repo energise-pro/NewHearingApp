@@ -73,7 +73,7 @@ final class TranscriptDetailsViewController: PMBaseViewController {
         shareText += "\n\n✏️ Created by: \(Bundle.main.appName)\n\(Constants.URLs.appStoreUrl)"
         NavigationManager.shared.presentShareViewController(with: [shareText], and: mainTextView.inputAccessoryView)
         
-        AppConfiguration.shared.analytics.track(action: .v2TranscriptDetailsScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.share.rawValue])
+        AppConfiguration.shared.analytics.track(action: .v2TranscriptDetailsScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.share.rawValue])
     }
     
     @objc private func trashButtonAction() {
@@ -83,7 +83,7 @@ final class TranscriptDetailsViewController: PMBaseViewController {
                 TranscribeService.shared.savedTranscripts.remove(at: index)
                 self?.delegate?.didUpdateTranscript()
                 
-                AppConfiguration.shared.analytics.track(action: .v2TranscriptDetailsScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.delete.rawValue])
+                AppConfiguration.shared.analytics.track(action: .v2TranscriptDetailsScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.delete.rawValue])
             }
             self?.navigationController?.popViewController(animated: true)
         }

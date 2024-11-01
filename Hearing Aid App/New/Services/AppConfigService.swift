@@ -6,7 +6,7 @@ final class AppConfiguration: NSObject, IServiceProtocol {
     static let shared: AppConfiguration = AppConfiguration()
     static let TAG = "AppConfiguration"
     
-    var analytics: AppAnalytics
+    var analytics: FAppinAnalytica
     var settings: HearAppSetting
     var services: [IServiceProtocol]
     var supportedOrientations: UIInterfaceOrientationMask = .portrait
@@ -22,7 +22,7 @@ final class AppConfiguration: NSObject, IServiceProtocol {
         self.services = services
         
         let analyticsServices = services.compactMap { ($0 as? IAnalyticsService) }
-        self.analytics = AppAnalytics(services: analyticsServices)
+        self.analytics = FAppinAnalytica(services: analyticsServices)
         self.settings = HearAppSetting()
         self.asaService = ASAService()
         

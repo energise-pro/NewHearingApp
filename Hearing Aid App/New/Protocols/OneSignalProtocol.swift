@@ -12,7 +12,7 @@ extension OneSignalProtocol {
     
     func showPushNotificationsAlert(_ fallbackToSettings: Bool = true) {
         OneSignal.promptForPushNotifications(userResponse: { accepted  in
-            AppConfiguration.shared.analytics.track(AnalyticsAction.v2Notification, with: [AnalyticsAction.action.rawValue: accepted ? AnalyticsAction.enable.rawValue : AnalyticsAction.disable.rawValue])
+            AppConfiguration.shared.analytics.track(GAppAnalyticActions.v2Notification, with: [GAppAnalyticActions.action.rawValue: accepted ? GAppAnalyticActions.enable.rawValue : GAppAnalyticActions.disable.rawValue])
         }, fallbackToSettings: fallbackToSettings)
     }
 }

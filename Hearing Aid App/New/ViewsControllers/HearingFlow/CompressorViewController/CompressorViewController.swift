@@ -14,7 +14,7 @@ final class CompressorViewController: PMBaseViewController {
         configureUI()
         configureDataSource()
         
-        AppConfiguration.shared.analytics.track(action: .v2CompressorScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.open.rawValue])
+        AppConfiguration.shared.analytics.track(action: .v2CompressorScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.open.rawValue])
     }
     
     override func didChangeTheme() {
@@ -60,7 +60,7 @@ final class CompressorViewController: PMBaseViewController {
     @objc private func closeButtonAction() {
         dismiss(animated: true)
         
-        AppConfiguration.shared.analytics.track(action: .v2CompressorScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.close.rawValue])
+        AppConfiguration.shared.analytics.track(action: .v2CompressorScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.close.rawValue])
     }
 }
 
@@ -96,7 +96,7 @@ extension CompressorViewController: CenterButtonTableViewCellDelegate {
         CompressorParameter.allCases.forEach { $0.setNew($0.defaultValue) }
         configureDataSource()
         
-        AppConfiguration.shared.analytics.track(action: .v2CompressorScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.reset.rawValue])
+        AppConfiguration.shared.analytics.track(action: .v2CompressorScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.reset.rawValue])
     }
 }
 
@@ -114,15 +114,15 @@ extension CompressorViewController: SettingTableViewCellDelegate {
         case .info:
             presentAlertPM(title: "Info".localized(), message: "The compressor allows you to set up sound more punchy. Compressors reduce the difference between the loudest and quietest parts of the volume".localized())
             
-            AppConfiguration.shared.analytics.track(action: .v2CompressorScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.compressor.rawValue)_\(AnalyticsAction.info.rawValue)"])
+            AppConfiguration.shared.analytics.track(action: .v2CompressorScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.compressor.rawValue)_\(GAppAnalyticActions.info.rawValue)"])
         case .switchButton:
             let newState = !AudioKitService.shared.isCompressorEnabled
             AudioKitService.shared.setCompressor(newState)
             let newCellModel = SettingTableViewCellModel(title: cellModel.title, buttonTypes: cellModel.buttonTypes, switchState: newState, delegate: self)
             dataSource[indexRow] = SettingTableViewCellConfig(item: newCellModel)
             
-            let stringState = newState ? AnalyticsAction.enable.rawValue : AnalyticsAction.disable.rawValue
-            AppConfiguration.shared.analytics.track(action: .v2CompressorScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.compressor.rawValue)_\(stringState)"])
+            let stringState = newState ? GAppAnalyticActions.enable.rawValue : GAppAnalyticActions.disable.rawValue
+            AppConfiguration.shared.analytics.track(action: .v2CompressorScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.compressor.rawValue)_\(stringState)"])
         default:
             break
         }
@@ -143,8 +143,8 @@ extension CompressorViewController: SliderTableViewCellDelegate {
         dataSource[indexRow] = SliderTableViewCellConfig(item: newCellModel)
         
         sliderTimer?.invalidate()
-        sliderTimer = Timer.scheduledTimer(withTimeInterval: AnalyticsAction.delaySliderInterval, repeats: false) { _ in
-            AppConfiguration.shared.analytics.track(action: .v2CompressorScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.change.rawValue)_\(compressorParameter.rawValue)"])
+        sliderTimer = Timer.scheduledTimer(withTimeInterval: GAppAnalyticActions.delaySliderInterval, repeats: false) { _ in
+            AppConfiguration.shared.analytics.track(action: .v2CompressorScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.change.rawValue)_\(compressorParameter.rawValue)"])
         }
     }
 }

@@ -24,7 +24,7 @@ final class AmplitudeService: IAnalyticsService {
     }
     
     // MARK: - IAnalyticsProtocol
-    func track(_ action: AnalyticsAction, with fillingInfo: [String: Any]?) {
+    func track(_ action: GAppAnalyticActions, with fillingInfo: [String: Any]?) {
         #if DEBUG
         Logger.log(tag: AmplitudeService.TAG, message: "Action - \(action.rawValue) with fillingInfo \(fillingInfo ?? [:]).")
         #else

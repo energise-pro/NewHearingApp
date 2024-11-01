@@ -92,12 +92,12 @@ final class OneSignalService: NSObject, IServiceProtocol {
         
         if let eventName = params.first(where: { $0.name == "eventName" })?.value {
             DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                AppConfiguration.shared.analytics.track(AnalyticsAction.v2AppStoreEvent, with: [AnalyticsAction.event.rawValue: eventName])
+                AppConfiguration.shared.analytics.track(GAppAnalyticActions.v2AppStoreEvent, with: [GAppAnalyticActions.event.rawValue: eventName])
             }
         }
         
         if let screenName = params.first(where: { $0.name == "screenName" })?.value {
-            AppConfiguration.shared.analytics.track(AnalyticsAction.v2Deeplink, with: [AnalyticsAction.open.rawValue: screenName])
+            AppConfiguration.shared.analytics.track(GAppAnalyticActions.v2Deeplink, with: [GAppAnalyticActions.open.rawValue: screenName])
             openScreen(with: screenName, with: .openFromDeeplink)
         }
     }
@@ -106,11 +106,11 @@ final class OneSignalService: NSObject, IServiceProtocol {
         guard let additionalData = notificationData["a"] as? [String: Any], let screenName = additionalData["open"] as? String else {
             return
         }
-        AppConfiguration.shared.analytics.track(AnalyticsAction.v2Notification, with: [AnalyticsAction.open.rawValue: screenName])
+        AppConfiguration.shared.analytics.track(GAppAnalyticActions.v2Notification, with: [GAppAnalyticActions.open.rawValue: screenName])
         openScreen(with: screenName, with: .openFromNotification)
     }
     
-    private func openScreen(with screenName: String, with openAction: AnalyticsAction) {
+    private func openScreen(with screenName: String, with openAction: GAppAnalyticActions) {
         switch screenName {
         case Constants.Keys.paywallScreenName:
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {

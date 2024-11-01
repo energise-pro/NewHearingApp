@@ -32,7 +32,7 @@ final class SpeechRecognitionSettingsViewController: BaseViewController {
         SpeechRecognitionSettings.FontSize.setValue(value)
         TapticEngine.selection.feedback()
         
-        AppConfiguration.shared.analytics.track(action: .v2TranscribeScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.changeFontSize.rawValue])
+        AppConfiguration.shared.analytics.track(action: .v2TranscribeScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.changeFontSize.rawValue])
     }
 
     @IBAction func switchAction(sender: UISwitch) {
@@ -44,11 +44,11 @@ final class SpeechRecognitionSettingsViewController: BaseViewController {
         
         switch setting {
         case .TranslateMode:
-            let stringState = sender.isOn ? AnalyticsAction.enable.rawValue : AnalyticsAction.disable.rawValue
-            AppConfiguration.shared.analytics.track(action: .v2TranscribeScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.translateMode.rawValue)_\(stringState)"])
+            let stringState = sender.isOn ? GAppAnalyticActions.enable.rawValue : GAppAnalyticActions.disable.rawValue
+            AppConfiguration.shared.analytics.track(action: .v2TranscribeScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.translateMode.rawValue)_\(stringState)"])
         case .ShakeToClearText:
-            let stringState = sender.isOn ? AnalyticsAction.enable.rawValue : AnalyticsAction.disable.rawValue
-            AppConfiguration.shared.analytics.track(action: .v2TranscribeScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.shakeClearText.rawValue)_\(stringState)"])
+            let stringState = sender.isOn ? GAppAnalyticActions.enable.rawValue : GAppAnalyticActions.disable.rawValue
+            AppConfiguration.shared.analytics.track(action: .v2TranscribeScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.shakeClearText.rawValue)_\(stringState)"])
         default:
             break
         }
@@ -62,7 +62,7 @@ final class SpeechRecognitionSettingsViewController: BaseViewController {
         delegate?.didChangeTextAlignment(alignment)
         SpeechRecognitionSettings.TextAlignment.setValue(alignment.rawValue)
         
-        AppConfiguration.shared.analytics.track(action: .v2TranscribeScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.change.rawValue)_\(AnalyticsAction.alignment.rawValue)"])
+        AppConfiguration.shared.analytics.track(action: .v2TranscribeScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.change.rawValue)_\(GAppAnalyticActions.alignment.rawValue)"])
     }
 
     @IBAction func fontWeightAction(sender: UIButton) {
@@ -72,7 +72,7 @@ final class SpeechRecognitionSettingsViewController: BaseViewController {
         delegate?.didChangeFontWeight(weight)
         SpeechRecognitionSettings.FontWeight.setValue(weight)
         
-        AppConfiguration.shared.analytics.track(action: .v2TranscribeScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.change.rawValue)_\(AnalyticsAction.weight.rawValue)"])
+        AppConfiguration.shared.analytics.track(action: .v2TranscribeScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.change.rawValue)_\(GAppAnalyticActions.weight.rawValue)"])
     }
     
     //MARK: - Deinit
@@ -82,44 +82,44 @@ final class SpeechRecognitionSettingsViewController: BaseViewController {
 //            switch setting {
 //            case .FontSize:
 //                if let value = setting.value as? Float {
-//                    analyticsParams[AnalyticsAction.fontSize.rawValue] = "\(value)"
+//                    analyticsParams[GAppAnalyticActions.fontSize.rawValue] = "\(value)"
 //                }
 //            case .FontWeight:
 //                if let value = setting.value as? Float {
-//                    analyticsParams[AnalyticsAction.fontWeight.rawValue] = "\(value)"
+//                    analyticsParams[GAppAnalyticActions.fontWeight.rawValue] = "\(value)"
 //                }
 //            case .TextAlignment:
 //                if let value = setting.value as? Int {
 //                    var alignment = ""
 //                    switch value {
 //                    case 0:
-//                        alignment = AnalyticsAction.left.rawValue
+//                        alignment = GAppAnalyticActions.left.rawValue
 //                    case 1:
-//                        alignment = AnalyticsAction.center.rawValue
+//                        alignment = GAppAnalyticActions.center.rawValue
 //                    case 2:
-//                        alignment = AnalyticsAction.right.rawValue
+//                        alignment = GAppAnalyticActions.right.rawValue
 //                    case 3:
-//                        alignment = AnalyticsAction.fullScreen.rawValue
+//                        alignment = GAppAnalyticActions.fullScreen.rawValue
 //                    default:
 //                        break
 //                    }
-//                    analyticsParams[AnalyticsAction.textAlignment.rawValue] = alignment
+//                    analyticsParams[GAppAnalyticActions.textAlignment.rawValue] = alignment
 //                }
 //            case .TranslateMode:
 //                if let value = setting.value as? Bool {
-//                    analyticsParams[AnalyticsAction.translateMode.rawValue] = value ? AnalyticsAction.enable.rawValue : AnalyticsAction.disable.rawValue
+//                    analyticsParams[GAppAnalyticActions.translateMode.rawValue] = value ? GAppAnalyticActions.enable.rawValue : GAppAnalyticActions.disable.rawValue
 //                }
 //            case .ShakeToClearText:
 //                if let value = setting.value as? Bool {
-//                    analyticsParams[AnalyticsAction.shakeClearText.rawValue] = value ? AnalyticsAction.enable.rawValue : AnalyticsAction.disable.rawValue
+//                    analyticsParams[GAppAnalyticActions.shakeClearText.rawValue] = value ? GAppAnalyticActions.enable.rawValue : GAppAnalyticActions.disable.rawValue
 //                }
 //            case .AmplitudeIndicator:
 //                if let value = setting.value as? Bool {
-//                    analyticsParams[AnalyticsAction.qualityIndicator.rawValue] = value ? AnalyticsAction.enable.rawValue : AnalyticsAction.disable.rawValue
+//                    analyticsParams[GAppAnalyticActions.qualityIndicator.rawValue] = value ? GAppAnalyticActions.enable.rawValue : GAppAnalyticActions.disable.rawValue
 //                }
 //            }
 //        }
-//        AppConfiguration.shared.analytics.track(action: .settingsHearingAid, with: [AnalyticsAction.parameters.rawValue: analyticsParams])
+//        AppConfiguration.shared.analytics.track(action: .settingsHearingAid, with: [GAppAnalyticActions.parameters.rawValue: analyticsParams])
     }
 }
 

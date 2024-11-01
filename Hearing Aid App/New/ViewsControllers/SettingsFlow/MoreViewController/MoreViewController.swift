@@ -48,7 +48,7 @@ final class MoreViewController: PMBaseViewController {
     @objc private func closeButtonAction() {
         dismiss(animated: true)
         
-        AppConfiguration.shared.analytics.track(action: .v2MoreScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.close.rawValue])
+        AppConfiguration.shared.analytics.track(action: .v2MoreScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.close.rawValue])
     }
 }
 
@@ -88,11 +88,11 @@ extension MoreViewController: SettingTableViewCellDelegate {
         case 1: // Manage subscription
             NavigationManager.shared.presentManageSubscription()
             
-            AppConfiguration.shared.analytics.track(.v2MoreScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.manageSubscriptions.rawValue])
+            AppConfiguration.shared.analytics.track(.v2MoreScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.manageSubscriptions.rawValue])
         case 2: // Cancel subscription
             NavigationManager.shared.presentCancelSubscriptionViewController()
             
-            AppConfiguration.shared.analytics.track(.v2MoreScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.cancelSubscription.rawValue])
+            AppConfiguration.shared.analytics.track(.v2MoreScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.cancelSubscription.rawValue])
         default:
             break
         }
@@ -119,6 +119,6 @@ extension MoreViewController: SimpleSegmentTableViewCellDelegate {
         NavigationManager.shared.tabBarViewController?.reconfigureUI()
         
         let selectedMainScreenString = String(describing: TabBarViewController.TabBarButton(rawValue: index)!)
-        AppConfiguration.shared.analytics.track(.v2MoreScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.changeMainScreen.rawValue)_\(selectedMainScreenString)"])
+        AppConfiguration.shared.analytics.track(.v2MoreScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.changeMainScreen.rawValue)_\(selectedMainScreenString)"])
     }
 }

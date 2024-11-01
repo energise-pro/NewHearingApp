@@ -28,7 +28,7 @@ final class ProSetupViewController: PMBaseViewController {
         super.viewDidLoad()
         configureUI()
         configureDataSource()
-        AppConfiguration.shared.analytics.track(action: .v2HearingProSetupScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.open.rawValue])
+        AppConfiguration.shared.analytics.track(action: .v2HearingProSetupScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.open.rawValue])
     }
     
     override func didChangeTheme() {
@@ -84,7 +84,7 @@ final class ProSetupViewController: PMBaseViewController {
     @objc private func closeButtonAction() {
         dismiss(animated: true)
         
-        AppConfiguration.shared.analytics.track(action: .v2HearingProSetupScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.close.rawValue])
+        AppConfiguration.shared.analytics.track(action: .v2HearingProSetupScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.close.rawValue])
     }
 }
 
@@ -129,7 +129,7 @@ extension ProSetupViewController: SimpleSegmentTableViewCellDelegate {
         delegate?.didChangeMicrophone()
         
         let selectedMicrophoneString = String(describing: MicrophoneType.selectedMicrophone)
-        AppConfiguration.shared.analytics.track(action: .v2HearingProSetupScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.changeMicrophone.rawValue)_\(selectedMicrophoneString)"])
+        AppConfiguration.shared.analytics.track(action: .v2HearingProSetupScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.changeMicrophone.rawValue)_\(selectedMicrophoneString)"])
     }
 }
 
@@ -146,7 +146,7 @@ extension ProSetupViewController: CenterButtonTableViewCellDelegate {
         delegate?.didUpdateSystemVolumeValue()
         delegate?.didChangeMicrophone()
         
-        AppConfiguration.shared.analytics.track(action: .v2HearingProSetupScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.reset.rawValue])
+        AppConfiguration.shared.analytics.track(action: .v2HearingProSetupScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.reset.rawValue])
     }
 }
 
@@ -166,15 +166,15 @@ extension ProSetupViewController: SettingTableViewCellDelegate {
             case .info:
                 presentAlertPM(title: "Info".localized(), message: "If you set this option, system will mixes audio from this app with audio playing in background apps, such as the Music app.\nFor example, you want to listen a music or audio book over headphones, and at the same time hear sounds around you very well.\nIf this option OFF system reduces the volume of other audio apps to make the audio of this app more prominent.".localized())
                 
-                AppConfiguration.shared.analytics.track(action: .v2HearingProSetupScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.musicMode.rawValue)_\(AnalyticsAction.info.rawValue)"])
+                AppConfiguration.shared.analytics.track(action: .v2HearingProSetupScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.musicMode.rawValue)_\(GAppAnalyticActions.info.rawValue)"])
             case .switchButton:
                 let newState = !AudioKitService.shared.isMusicModeEnabled
                 AudioKitService.shared.setMusicMode(newState)
                 let newCellModel = SettingTableViewCellModel(title: cellModel.title, buttonTypes: cellModel.buttonTypes, switchState: newState, delegate: self)
                 dataSource[indexRow] = SettingTableViewCellConfig(item: newCellModel)
                 
-                let stringState = newState ? AnalyticsAction.enable.rawValue : AnalyticsAction.disable.rawValue
-                AppConfiguration.shared.analytics.track(action: .v2HearingProSetupScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.musicMode.rawValue)_\(stringState)"])
+                let stringState = newState ? GAppAnalyticActions.enable.rawValue : GAppAnalyticActions.disable.rawValue
+                AppConfiguration.shared.analytics.track(action: .v2HearingProSetupScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.musicMode.rawValue)_\(stringState)"])
             default:
                 break
             }
@@ -183,7 +183,7 @@ extension ProSetupViewController: SettingTableViewCellDelegate {
             case .info:
                 presentAlertPM(title: "Info".localized(), message: "Increase Volume of Hearing Aid together with the device system volume".localized())
                 
-                AppConfiguration.shared.analytics.track(action: .v2HearingProSetupScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.systemVolume.rawValue)_\(AnalyticsAction.info.rawValue)"])
+                AppConfiguration.shared.analytics.track(action: .v2HearingProSetupScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.systemVolume.rawValue)_\(GAppAnalyticActions.info.rawValue)"])
             case .switchButton:
                 let newState = !AudioKitService.shared.isUseSystemVolume
                 AudioKitService.shared.setUseSystemVolume(newState)
@@ -191,8 +191,8 @@ extension ProSetupViewController: SettingTableViewCellDelegate {
                 dataSource[indexRow] = SettingTableViewCellConfig(item: newCellModel)
                 delegate?.didUpdateSystemVolumeValue()
                 
-                let stringState = newState ? AnalyticsAction.enable.rawValue : AnalyticsAction.disable.rawValue
-                AppConfiguration.shared.analytics.track(action: .v2HearingProSetupScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.systemVolume.rawValue)_\(stringState)"])
+                let stringState = newState ? GAppAnalyticActions.enable.rawValue : GAppAnalyticActions.disable.rawValue
+                AppConfiguration.shared.analytics.track(action: .v2HearingProSetupScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.systemVolume.rawValue)_\(stringState)"])
             default:
                 break
             }
@@ -201,30 +201,30 @@ extension ProSetupViewController: SettingTableViewCellDelegate {
             case .info:
                 presentAlertPM(title: "Info".localized(), message: "AI helps to pick a voice out from the background noise and other sounds".localized())
                 
-                AppConfiguration.shared.analytics.track(action: .v2HearingProSetupScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.clearVoice.rawValue)_\(AnalyticsAction.info.rawValue)"])
+                AppConfiguration.shared.analytics.track(action: .v2HearingProSetupScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.clearVoice.rawValue)_\(GAppAnalyticActions.info.rawValue)"])
             case .switchButton:
                 let newState = !AudioKitService.shared.isClearVoice
                 AudioKitService.shared.setClearVoice(newState)
                 let newCellModel = SettingTableViewCellModel(title: cellModel.title, buttonTypes: cellModel.buttonTypes, switchState: newState, delegate: self)
                 dataSource[indexRow] = SettingTableViewCellConfig(item: newCellModel)
                 
-                let stringState = newState ? AnalyticsAction.enable.rawValue : AnalyticsAction.disable.rawValue
-                AppConfiguration.shared.analytics.track(action: .v2HearingProSetupScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.clearVoice.rawValue)_\(stringState)"])
+                let stringState = newState ? GAppAnalyticActions.enable.rawValue : GAppAnalyticActions.disable.rawValue
+                AppConfiguration.shared.analytics.track(action: .v2HearingProSetupScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.clearVoice.rawValue)_\(stringState)"])
             default:
                 break
             }
         case 4:
             NavigationManager.shared.pushVoiceChangerViewController()
-            AppConfiguration.shared.analytics.track(action: .v2HearingProSetupScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.voiceChanger.rawValue])
+            AppConfiguration.shared.analytics.track(action: .v2HearingProSetupScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.voiceChanger.rawValue])
         case 5: // Compressor
             NavigationManager.shared.pushCompressorViewController()
-            AppConfiguration.shared.analytics.track(action: .v2HearingProSetupScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.compressor.rawValue])
+            AppConfiguration.shared.analytics.track(action: .v2HearingProSetupScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.compressor.rawValue])
         case 6: // Limiter
             NavigationManager.shared.pushLimiterViewController()
-            AppConfiguration.shared.analytics.track(action: .v2HearingProSetupScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.limiter.rawValue])
+            AppConfiguration.shared.analytics.track(action: .v2HearingProSetupScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.limiter.rawValue])
         case 7: // Equalizer
             NavigationManager.shared.pushEqualizerViewController()
-            AppConfiguration.shared.analytics.track(action: .v2HearingProSetupScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.equalizer.rawValue])
+            AppConfiguration.shared.analytics.track(action: .v2HearingProSetupScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.equalizer.rawValue])
         default:
             break
         }

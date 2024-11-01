@@ -43,14 +43,14 @@ final class TabBarViewController: PMBaseViewController {
             }
         }
         
-        var analyticAction: AnalyticsAction {
+        var analyticAction: GAppAnalyticActions {
             switch self {
             case .hearing:
-                return AnalyticsAction.hearing
+                return GAppAnalyticActions.hearing
             case .transcribe:
-                return AnalyticsAction.transcribe
+                return GAppAnalyticActions.transcribe
             case .settings:
-                return AnalyticsAction.settings
+                return GAppAnalyticActions.settings
             }
         }
     }
@@ -77,7 +77,7 @@ final class TabBarViewController: PMBaseViewController {
         configureUI()
         updateMainView(with: 0)
         AppConfiguration.shared.settings.appLaunchCount > 1 ? AudioKitService.shared.initializeAudioKit() : Void()
-        AppConfiguration.shared.analytics.track(.v2TabBar, with: [AnalyticsAction.action.rawValue: AnalyticsAction.open.rawValue])
+        AppConfiguration.shared.analytics.track(.v2TabBar, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.open.rawValue])
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -121,7 +121,7 @@ final class TabBarViewController: PMBaseViewController {
     @IBAction private func didTapOnTabBarButton(_ sender: UIButton) {
         TapticEngine.impact.feedback(.heavy)
         updateMainView(with: sender.tag)
-        AppConfiguration.shared.analytics.track(.v2TabBar, with: [AnalyticsAction.action.rawValue: tabBarButtons[sender.tag].analyticAction.rawValue])
+        AppConfiguration.shared.analytics.track(.v2TabBar, with: [GAppAnalyticActions.action.rawValue: tabBarButtons[sender.tag].analyticAction.rawValue])
     }
     
     // MARK: - Private methods

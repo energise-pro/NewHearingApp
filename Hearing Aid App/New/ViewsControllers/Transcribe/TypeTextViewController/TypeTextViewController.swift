@@ -115,7 +115,7 @@ final class TypeTextViewController: PMBaseViewController {
         TapticEngine.impact.feedback(.medium)
         dismiss(animated: true)
         
-        AppConfiguration.shared.analytics.track(action: .v2TypeScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.close.rawValue])
+        AppConfiguration.shared.analytics.track(action: .v2TypeScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.close.rawValue])
     }
     
     @IBAction private func buttonsAction(_ sender: UIButton) {
@@ -128,18 +128,18 @@ final class TypeTextViewController: PMBaseViewController {
         case .trash:
             mainTextView.text = ""
             configureMainLabel(asPlaceholder: true)
-            AppConfiguration.shared.analytics.track(action: .v2TypeScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.clearText.rawValue])
+            AppConfiguration.shared.analytics.track(action: .v2TypeScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.clearText.rawValue])
         case .expand:
             mainTextView.resignFirstResponder()
-            AppConfiguration.shared.analytics.track(action: .v2TypeScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.expand.rawValue])
+            AppConfiguration.shared.analytics.track(action: .v2TypeScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.expand.rawValue])
         }
     }
     
     @IBAction private func tapGestureAction(_ sender: UITapGestureRecognizer) {
         _ = keyboardNotification.isKeyboardOpened ? mainTextView.resignFirstResponder() : mainTextView.becomeFirstResponder()
         
-        let stringState = keyboardNotification.isKeyboardOpened ? AnalyticsAction.enable.rawValue : AnalyticsAction.disable.rawValue
-        AppConfiguration.shared.analytics.track(action: .v2TypeScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.type.rawValue)_\(stringState)"])
+        let stringState = keyboardNotification.isKeyboardOpened ? GAppAnalyticActions.enable.rawValue : GAppAnalyticActions.disable.rawValue
+        AppConfiguration.shared.analytics.track(action: .v2TypeScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.type.rawValue)_\(stringState)"])
     }
 }
 

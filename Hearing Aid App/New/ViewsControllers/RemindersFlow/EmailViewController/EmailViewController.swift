@@ -15,7 +15,7 @@ final class EmailViewController: PMBaseViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        AppConfiguration.shared.analytics.track(.v2EmailScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.open.rawValue])
+        AppConfiguration.shared.analytics.track(.v2EmailScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.open.rawValue])
         AppConfiguration.shared.settings.emailScreenShown = true
         configureUI()
     }
@@ -52,7 +52,7 @@ final class EmailViewController: PMBaseViewController {
         }
         
         TapticEngine.impact.feedback(.medium)
-        AppConfiguration.shared.analytics.track(.v2EmailScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.continue.rawValue])
+        AppConfiguration.shared.analytics.track(.v2EmailScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.continue.rawValue])
         AppConfiguration.shared.setUserEmail(text)
         dismiss(animated: true)
     }
@@ -64,7 +64,7 @@ final class EmailViewController: PMBaseViewController {
     
     @IBAction private func skipButtonAction(_ sender: UIButton) {
         TapticEngine.impact.feedback(.medium)
-        AppConfiguration.shared.analytics.track(.v2EmailScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.close.rawValue])
+        AppConfiguration.shared.analytics.track(.v2EmailScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.close.rawValue])
         view.endEditing(true)
         dismiss(animated: true)
     }

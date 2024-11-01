@@ -114,17 +114,17 @@ extension SettingsViewController: SettingTableViewCellDelegate {
                 isSuccess ? self.presentHidingAlert(title: title, message: message) : self.presentAlertPM(title: title, message: message)
             }
             
-            AppConfiguration.shared.analytics.track(action: .v2SettingsScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.restore.rawValue])
+            AppConfiguration.shared.analytics.track(action: .v2SettingsScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.restore.rawValue])
         case 3: // App icon
             NavigationManager.shared.presentZAppIconViewController()
             
-            AppConfiguration.shared.analytics.track(.v2SettingsScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.changeAppIcon.rawValue])
+            AppConfiguration.shared.analytics.track(.v2SettingsScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.changeAppIcon.rawValue])
         case 4: // Haptic
             switch type {
             case .info:
                 presentAlertPM(title: "Info".localized(), message: "Disable or Enable vibrations when you press UI buttons".localized())
                 
-                AppConfiguration.shared.analytics.track(action: .v2SettingsScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.haptic.rawValue)_\(AnalyticsAction.info.rawValue)"])
+                AppConfiguration.shared.analytics.track(action: .v2SettingsScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.haptic.rawValue)_\(GAppAnalyticActions.info.rawValue)"])
             case .switchButton:
                 let newState = !TapticEngine.isOn
                 TapticEngine.isOn = newState
@@ -133,27 +133,27 @@ extension SettingsViewController: SettingTableViewCellDelegate {
                 let newCellModel = SettingTableViewCellModel(title: cellModel.title, buttonTypes: cellModel.buttonTypes, switchState: newState, topInset: cellModel.topInset, delegate: self)
                 dataSource[indexRow] = SettingTableViewCellConfig(item: newCellModel)
 
-                let stringState = newState ? AnalyticsAction.enable.rawValue : AnalyticsAction.disable.rawValue
-                AppConfiguration.shared.analytics.track(action: .v2SettingsScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.haptic.rawValue)_\(stringState)"])
+                let stringState = newState ? GAppAnalyticActions.enable.rawValue : GAppAnalyticActions.disable.rawValue
+                AppConfiguration.shared.analytics.track(action: .v2SettingsScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.haptic.rawValue)_\(stringState)"])
             default:
                 break
             }
         case 5: // FAQ
             NavigationManager.shared.presentSafariViewController(with: Constants.URLs.faqURL)
             
-            AppConfiguration.shared.analytics.track(.v2SettingsScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.faq.rawValue])
+            AppConfiguration.shared.analytics.track(.v2SettingsScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.faq.rawValue])
         case 6: // Website
             NavigationManager.shared.presentSafariViewController(with: Constants.URLs.ourWebSiteURL)
             
-            AppConfiguration.shared.analytics.track(.v2SettingsScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.ourWebsite.rawValue])
+            AppConfiguration.shared.analytics.track(.v2SettingsScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.ourWebsite.rawValue])
         case 7: // More
             NavigationManager.shared.presentMoreViewController()
             
-            AppConfiguration.shared.analytics.track(action: .v2SettingsScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.more.rawValue])
+            AppConfiguration.shared.analytics.track(action: .v2SettingsScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.more.rawValue])
         case 8: // Support
             NavigationManager.shared.presentSupportViewController()
             
-            AppConfiguration.shared.analytics.track(action: .v2SettingsScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.support.rawValue])
+            AppConfiguration.shared.analytics.track(action: .v2SettingsScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.support.rawValue])
         default:
             break
         }
@@ -176,6 +176,6 @@ extension SettingsViewController: ThemeTableViewCellDelegate {
         let newCellModel = ThemeTableViewCellModel(title: cellModel.title, selectedTheme: ThemeService.shared.currentColorType, themes: cellModel.themes, delegate: self)
         dataSource[indexRow] = ThemeTableViewCellConfig(item: newCellModel)
         
-        AppConfiguration.shared.analytics.track(action: .v2SettingsScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.select.rawValue)_\(type.analyticAction.rawValue)"])
+        AppConfiguration.shared.analytics.track(action: .v2SettingsScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.select.rawValue)_\(type.analyticAction.rawValue)"])
     }
 }

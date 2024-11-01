@@ -64,10 +64,10 @@ final class PaywallViewController: UIViewController {
     private var scaleYearlyButton = true
     private var isLoading: Bool = false
     private var subscriptionItems: [ShopItem] = []
-    private var openAction: AnalyticsAction
+    private var openAction: GAppAnalyticActions
     
     //MARK: - Init
-    init(typeScreen: TypePaywallScreen, openAction: AnalyticsAction) {
+    init(typeScreen: TypePaywallScreen, openAction: GAppAnalyticActions) {
         self.typeScreen = typeScreen
         self.openAction = openAction
         super.init(nibName: nil, bundle: nil)
@@ -81,7 +81,7 @@ final class PaywallViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         AppHudService.shared.paywallShown()
-        AppConfiguration.shared.analytics.track(.v2Paywall, with: [AnalyticsAction.action.rawValue: openAction.rawValue])
+        AppConfiguration.shared.analytics.track(.v2Paywall, with: [GAppAnalyticActions.action.rawValue: openAction.rawValue])
         configureUI()
     }
     
@@ -287,7 +287,7 @@ final class PaywallViewController: UIViewController {
             return
         }
         TapticEngine.impact.feedback(.heavy)
-        AppConfiguration.shared.analytics.track(.v2Paywall, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.purchase.rawValue)_\(subscriptionPlan.productId)"])
+        AppConfiguration.shared.analytics.track(.v2Paywall, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.purchase.rawValue)_\(subscriptionPlan.productId)"])
         scaleYearlyButton = false
         scaleButton()
         purchase(plan: subscriptionPlan)
@@ -301,13 +301,13 @@ final class PaywallViewController: UIViewController {
                     return
                 }
                 purchase(plan: subscriptionPlan)
-                AppConfiguration.shared.analytics.track(.v2Paywall, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.purchase.rawValue)_\(subscriptionPlan.productId)"])
+                AppConfiguration.shared.analytics.track(.v2Paywall, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.purchase.rawValue)_\(subscriptionPlan.productId)"])
             case .regular:
                 guard let subscriptionPlan = subscriptionItems.first(where: { $0.productId == Constants.Keys.annualSubscriptionId }) else {
                     return
                 }
                 purchase(plan: subscriptionPlan)
-                AppConfiguration.shared.analytics.track(.v2Paywall, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.purchase.rawValue)_\(subscriptionPlan.productId)"])
+                AppConfiguration.shared.analytics.track(.v2Paywall, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.purchase.rawValue)_\(subscriptionPlan.productId)"])
             }
             TapticEngine.impact.feedback(.heavy)
             scaleYearlyButton = true
@@ -320,7 +320,7 @@ final class PaywallViewController: UIViewController {
     
     @IBAction private func restoreButtonAction(_ sender: UIButton) {
         TapticEngine.impact.feedback(.medium)
-        AppConfiguration.shared.analytics.track(.v2Paywall, with: [AnalyticsAction.action.rawValue: AnalyticsAction.restore.rawValue])
+        AppConfiguration.shared.analytics.track(.v2Paywall, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.restore.rawValue])
         NativeLoaderView.showLoader(at: view, animated: true)
         InAppPurchasesService.shared.restorePurchases { [weak self] isSuccess in
             guard let self = self else {
@@ -339,26 +339,26 @@ final class PaywallViewController: UIViewController {
     
     @IBAction private func privacyButtonAction(_ sender: UIButton) {
         TapticEngine.impact.feedback(.medium)
-        AppConfiguration.shared.analytics.track(.v2Paywall, with: [AnalyticsAction.action.rawValue: AnalyticsAction.privacy.rawValue])
+        AppConfiguration.shared.analytics.track(.v2Paywall, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.privacy.rawValue])
         NavigationManager.shared.presentSafariViewController(with: Constants.URLs.privacyPolicyURL)
     }
     
     @IBAction private func termsButtonAction(_ sender: UIButton) {
         TapticEngine.impact.feedback(.medium)
-        AppConfiguration.shared.analytics.track(.v2Paywall, with: [AnalyticsAction.action.rawValue: AnalyticsAction.terms.rawValue])
+        AppConfiguration.shared.analytics.track(.v2Paywall, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.terms.rawValue])
         NavigationManager.shared.presentSafariViewController(with: Constants.URLs.termsURL)
     }
     
     @IBAction private func closeButton(_ sender: UIButton) {
         TapticEngine.impact.feedback(.heavy)
-        AppConfiguration.shared.analytics.track(.v2Paywall, with: [AnalyticsAction.action.rawValue: AnalyticsAction.close.rawValue])
+        AppConfiguration.shared.analytics.track(.v2Paywall, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.close.rawValue])
         typeScreen == .trial ? NavigationManager.shared.presentCatchUpAfter(60.0) : Void()
         closePaywall()
     }
     
     @IBAction private func redeemPromocodeAction(_ sender: UIButton) {
         TapticEngine.impact.feedback(.medium)
-        AppConfiguration.shared.analytics.track(.v2Paywall, with: [AnalyticsAction.action.rawValue: AnalyticsAction.redeem.rawValue])
+        AppConfiguration.shared.analytics.track(.v2Paywall, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.redeem.rawValue])
         InAppPurchasesService.shared.presentRedeemScreen()
     }
 }

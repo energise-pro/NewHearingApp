@@ -43,15 +43,15 @@ struct Theme {
         var titleAnalysticsColor: String {
             switch self {
             case .blue:
-                return AnalyticsAction.blue.rawValue
+                return GAppAnalyticActions.blue.rawValue
             case .purpule:
-                return AnalyticsAction.violet.rawValue
+                return GAppAnalyticActions.violet.rawValue
             case .orange:
-                return AnalyticsAction.orange.rawValue
+                return GAppAnalyticActions.orange.rawValue
             case .red:
-                return AnalyticsAction.red.rawValue
+                return GAppAnalyticActions.red.rawValue
             case .green:
-                return AnalyticsAction.green.rawValue
+                return GAppAnalyticActions.green.rawValue
             }
         }
     }

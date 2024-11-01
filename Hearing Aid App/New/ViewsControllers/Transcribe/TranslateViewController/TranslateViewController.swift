@@ -173,7 +173,7 @@ final class TranslateViewController: PMBaseViewController {
         let yesAction = UIAlertAction(title: "Yes!".localized(), style: .default) { [weak self] _ in
             self?.clearAction()
             
-            AppConfiguration.shared.analytics.track(action: .v2TranslateScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.clearText.rawValue])
+            AppConfiguration.shared.analytics.track(action: .v2TranslateScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.clearText.rawValue])
         }
         let noAction = UIAlertAction(title: "No".localized(), style: .default)
         presentAlertPM(title: "Are you sure you want to remove text?".localized(), message: "", actions: [noAction, yesAction])
@@ -193,8 +193,8 @@ final class TranslateViewController: PMBaseViewController {
         newState && AudioKitService.shared.countOfUsingRecognize % 3 == 0 ? AppConfiguration.shared.settings.presentAppRatingAlert() : Void()
         newState ? AudioKitService.shared.increaseCountOfUsing(for: .translate) : Void()
         
-        let stringState = newState ? AnalyticsAction.enable.rawValue : AnalyticsAction.disable.rawValue
-        AppConfiguration.shared.analytics.track(action: .v2TranslateScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.microphone.rawValue)_\(stringState)"])
+        let stringState = newState ? GAppAnalyticActions.enable.rawValue : GAppAnalyticActions.disable.rawValue
+        AppConfiguration.shared.analytics.track(action: .v2TranslateScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.microphone.rawValue)_\(stringState)"])
         
         if newState {
             placeholderLabels.forEach {
@@ -245,7 +245,7 @@ final class TranslateViewController: PMBaseViewController {
     @objc private func closeButtonAction() {
         dismiss(animated: true)
         
-        AppConfiguration.shared.analytics.track(action: .v2TranslateScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.close.rawValue])
+        AppConfiguration.shared.analytics.track(action: .v2TranslateScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.close.rawValue])
     }
     
     @objc private func shareButtonAction() {
@@ -259,14 +259,14 @@ final class TranslateViewController: PMBaseViewController {
         shareText += "\n\n✏️ Created by: \(Bundle.main.appName)\n\(Constants.URLs.appStoreUrl)"
         NavigationManager.shared.presentShareViewController(with: [shareText], and: mainTextViews.last?.inputAccessoryView)
         
-        AppConfiguration.shared.analytics.track(action: .v2TranslateScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.share.rawValue])
+        AppConfiguration.shared.analytics.track(action: .v2TranslateScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.share.rawValue])
     }
     
     @objc private func clearButtonAction() {
         TapticEngine.impact.feedback(.medium)
         clearAction()
         
-        AppConfiguration.shared.analytics.track(action: .v2TranslateScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.keyboardClearText.rawValue])
+        AppConfiguration.shared.analytics.track(action: .v2TranslateScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.keyboardClearText.rawValue])
     }
     
     @objc private func copyAllButtonAction() {
@@ -277,20 +277,20 @@ final class TranslateViewController: PMBaseViewController {
         UIPasteboard.general.string = text + "\n\n" + (mainTextViews.first?.text ?? "")
         presentHidingAlert(title: "Text successfully copied".localized(), message: "", timeOut: .low)
         
-        AppConfiguration.shared.analytics.track(action: .v2TranslateScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.keyboardCopyAllText.rawValue])
+        AppConfiguration.shared.analytics.track(action: .v2TranslateScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.keyboardCopyAllText.rawValue])
     }
     
     @objc private func saveButtonAction() {
         saveAction()
         
-        AppConfiguration.shared.analytics.track(action: .v2TranslateScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.keyboardSaveText.rawValue])
+        AppConfiguration.shared.analytics.track(action: .v2TranslateScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.keyboardSaveText.rawValue])
     }
     
     @objc private func doneButtonAction() {
         TapticEngine.impact.feedback(.medium)
         mainTextViews.last?.resignFirstResponder()
         
-        AppConfiguration.shared.analytics.track(action: .v2TranslateScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.keyboardDone.rawValue])
+        AppConfiguration.shared.analytics.track(action: .v2TranslateScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.keyboardDone.rawValue])
     }
     
     @IBAction private func bottomButtonsAction(_ sender: UIButton) {
@@ -304,7 +304,7 @@ final class TranslateViewController: PMBaseViewController {
             presentClearConfirmAlert()
         case .save:
             saveAction()
-            AppConfiguration.shared.analytics.track(action: .v2TranslateScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.saveText.rawValue])
+            AppConfiguration.shared.analytics.track(action: .v2TranslateScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.saveText.rawValue])
         case .transcribe:
             guard TranscribeService.shared.isStartedTranscribe || InAppPurchasesService.shared.isPremium || AudioKitService.shared.countOfTranslate < 2 else {
                 TapticEngine.impact.feedback(.medium)
@@ -318,18 +318,18 @@ final class TranslateViewController: PMBaseViewController {
         case .textSetup:
             TapticEngine.impact.feedback(.medium)
             NavigationManager.shared.presentTextSetupViewController(with: .translate, with: self)
-            AppConfiguration.shared.analytics.track(action: .v2TranslateScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.textSetup.rawValue])
+            AppConfiguration.shared.analytics.track(action: .v2TranslateScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.textSetup.rawValue])
         case .languageSetup:
             TapticEngine.impact.feedback(.medium)
             NavigationManager.shared.presentLanguangeSetupViewController(with: self)
-            AppConfiguration.shared.analytics.track(action: .v2TranslateScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.languageSetup.rawValue])
+            AppConfiguration.shared.analytics.track(action: .v2TranslateScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.languageSetup.rawValue])
         }
     }
     
     @IBAction private func flipButtonAction(_ sender: UIButton) {
         TapticEngine.impact.feedback(.medium)
         flipTextView()
-        AppConfiguration.shared.analytics.track(action: .v2TranslateScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.flip.rawValue])
+        AppConfiguration.shared.analytics.track(action: .v2TranslateScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.flip.rawValue])
     }
     
     @IBAction private func panGestureAction(_ sender: UIPanGestureRecognizer) {

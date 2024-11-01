@@ -14,7 +14,7 @@ final class VoiceChangerViewController: PMBaseViewController {
         configureUI()
         configureDataSource()
         
-        AppConfiguration.shared.analytics.track(action: .v2VoiceChangerScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.open.rawValue])
+        AppConfiguration.shared.analytics.track(action: .v2VoiceChangerScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.open.rawValue])
     }
     
     override func didChangeTheme() {
@@ -60,7 +60,7 @@ final class VoiceChangerViewController: PMBaseViewController {
     @objc private func closeButtonAction() {
         dismiss(animated: true)
         
-        AppConfiguration.shared.analytics.track(action: .v2VoiceChangerScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.close.rawValue])
+        AppConfiguration.shared.analytics.track(action: .v2VoiceChangerScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.close.rawValue])
     }
 }
 
@@ -96,7 +96,7 @@ extension VoiceChangerViewController: CenterButtonTableViewCellDelegate {
         PitchShifterParameter.allCases.forEach { $0.setNew($0.defaultValue) }
         configureDataSource()
         
-        AppConfiguration.shared.analytics.track(action: .v2VoiceChangerScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.reset.rawValue])
+        AppConfiguration.shared.analytics.track(action: .v2VoiceChangerScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.reset.rawValue])
     }
 }
 
@@ -114,15 +114,15 @@ extension VoiceChangerViewController: SettingTableViewCellDelegate {
         case .info:
             presentAlertPM(title: "Info".localized(), message: "The voice changer allows you to change voice parameters. With the voice changer, you can set the pitch to higher or lower".localized())
             
-            AppConfiguration.shared.analytics.track(action: .v2VoiceChangerScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.voiceChanger.rawValue)_\(AnalyticsAction.info.rawValue)"])
+            AppConfiguration.shared.analytics.track(action: .v2VoiceChangerScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.voiceChanger.rawValue)_\(GAppAnalyticActions.info.rawValue)"])
         case .switchButton:
             let newState = !AudioKitService.shared.isVoiceChangerEnabled
             AudioKitService.shared.setVoiceChanger(newState)
             let newCellModel = SettingTableViewCellModel(title: cellModel.title, buttonTypes: cellModel.buttonTypes, switchState: newState, delegate: self)
             dataSource[indexRow] = SettingTableViewCellConfig(item: newCellModel)
             
-            let stringState = newState ? AnalyticsAction.enable.rawValue : AnalyticsAction.disable.rawValue
-            AppConfiguration.shared.analytics.track(action: .v2VoiceChangerScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.voiceChanger.rawValue)_\(stringState)"])
+            let stringState = newState ? GAppAnalyticActions.enable.rawValue : GAppAnalyticActions.disable.rawValue
+            AppConfiguration.shared.analytics.track(action: .v2VoiceChangerScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.voiceChanger.rawValue)_\(stringState)"])
         default:
             break
         }
@@ -143,8 +143,8 @@ extension VoiceChangerViewController: SliderTableViewCellDelegate {
         dataSource[indexRow] = SliderTableViewCellConfig(item: newCellModel)
         
         sliderTimer?.invalidate()
-        sliderTimer = Timer.scheduledTimer(withTimeInterval: AnalyticsAction.delaySliderInterval, repeats: false) { _ in
-            AppConfiguration.shared.analytics.track(action: .v2VoiceChangerScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.change.rawValue)_\(pitchParameter.rawValue)"])
+        sliderTimer = Timer.scheduledTimer(withTimeInterval: GAppAnalyticActions.delaySliderInterval, repeats: false) { _ in
+            AppConfiguration.shared.analytics.track(action: .v2VoiceChangerScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.change.rawValue)_\(pitchParameter.rawValue)"])
         }
     }
 }

@@ -21,7 +21,7 @@ final class RequestVoiceRecordingViewController: UIViewController {
     //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        AppConfiguration.shared.analytics.track(.v2VoiceRecordingReminder, with: [AnalyticsAction.action.rawValue: AnalyticsAction.open.rawValue])
+        AppConfiguration.shared.analytics.track(.v2VoiceRecordingReminder, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.open.rawValue])
         configureUI()
     }
     
@@ -47,7 +47,7 @@ final class RequestVoiceRecordingViewController: UIViewController {
     //MARK: @IBAction
     @IBAction private func allowButtonAction(_ sender: UIButton) {
         TapticEngine.impact.feedback(.medium)
-        AppConfiguration.shared.analytics.track(.v2VoiceRecordingReminder, with: [AnalyticsAction.action.rawValue: AnalyticsAction.allow.rawValue])
+        AppConfiguration.shared.analytics.track(.v2VoiceRecordingReminder, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.allow.rawValue])
         if let appSettingsUrl = URL(string: UIApplication.openSettingsURLString) {
             UIApplication.shared.open(appSettingsUrl, options: [:], completionHandler: nil)
         }
@@ -55,7 +55,7 @@ final class RequestVoiceRecordingViewController: UIViewController {
     
     @IBAction private func closeButtonAction(_ sender: UIButton) {
         TapticEngine.impact.feedback(.medium)
-        AppConfiguration.shared.analytics.track(.v2VoiceRecordingReminder, with: [AnalyticsAction.action.rawValue: AnalyticsAction.close.rawValue])
+        AppConfiguration.shared.analytics.track(.v2VoiceRecordingReminder, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.close.rawValue])
         dismiss(animated: true, completion: nil)
     }
 }
@@ -65,7 +65,7 @@ extension RequestVoiceRecordingViewController: IAppStateListener {
     
     func appWillEnterForeground() {
         if SFSpeechRecognizer.authorizationStatus() == .authorized {
-            AppConfiguration.shared.analytics.track(.v2VoiceRecordingReminder, with: [AnalyticsAction.action.rawValue: AnalyticsAction.close.rawValue])
+            AppConfiguration.shared.analytics.track(.v2VoiceRecordingReminder, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.close.rawValue])
             dismiss(animated: true, completion: nil)
         }
     }

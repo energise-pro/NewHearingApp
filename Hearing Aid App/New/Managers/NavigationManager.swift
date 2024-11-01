@@ -162,7 +162,7 @@ final class NavigationManager: NSObject {
         topViewController?.present(requestVoiceRecordingViewController, animated: true)
     }
     
-    func presentPaywallViewController(with openAction: AnalyticsAction, _ screenType: TypePaywallScreen? = nil) {
+    func presentPaywallViewController(with openAction: GAppAnalyticActions, _ screenType: TypePaywallScreen? = nil) {
         let paywallScreenType: TypePaywallScreen
         if let screenType = screenType {
             paywallScreenType = screenType

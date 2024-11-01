@@ -16,7 +16,7 @@ final class TextSetupViewController: PMBaseViewController {
         case transcribe
         case translate
         
-        var analyticAction: AnalyticsAction {
+        var analyticAction: GAppAnalyticActions {
             switch self {
             case .transcribe:
                 return .v2TranscribeTextSetupScreen
@@ -116,9 +116,9 @@ extension TextSetupViewController: TextParametersTableViewCellDelegate {
         delegate?.didUpdateTextParameters()
         
         sliderTimer?.invalidate()
-        sliderTimer = Timer.scheduledTimer(withTimeInterval: AnalyticsAction.delaySliderInterval, repeats: false) { [weak self] _ in
+        sliderTimer = Timer.scheduledTimer(withTimeInterval: GAppAnalyticActions.delaySliderInterval, repeats: false) { [weak self] _ in
             guard let self = self else { return }
-            AppConfiguration.shared.analytics.track(action: self.screenType.analyticAction, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.change.rawValue)_\(parameter.rawValue)"])
+            AppConfiguration.shared.analytics.track(action: self.screenType.analyticAction, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.change.rawValue)_\(parameter.rawValue)"])
         }
     }
 }
@@ -136,7 +136,7 @@ extension TextSetupViewController: SettingTableViewCellDelegate {
         switch indexRow {
         case 1 where screenType == .transcribe: // Locale
             NavigationManager.shared.pushLocalesListViewController(with: screenType == .transcribe ? .transcribe : .translateFrom, with: self)
-            AppConfiguration.shared.analytics.track(action: screenType.analyticAction, with: [AnalyticsAction.action.rawValue: AnalyticsAction.changeLanguage.rawValue])
+            AppConfiguration.shared.analytics.track(action: screenType.analyticAction, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.changeLanguage.rawValue])
         case 1 where screenType == .translate, 2 where screenType == .transcribe: // Shake
             switch type {
             case .switchButton:
@@ -145,8 +145,8 @@ extension TextSetupViewController: SettingTableViewCellDelegate {
                 let newCellModel = SettingTableViewCellModel(title: cellModel.title, buttonTypes: cellModel.buttonTypes, switchState: newState, delegate: self)
                 dataSource[indexRow] = SettingTableViewCellConfig(item: newCellModel)
                 
-                let stringState = newState ? AnalyticsAction.enable.rawValue : AnalyticsAction.disable.rawValue
-                AppConfiguration.shared.analytics.track(action: screenType.analyticAction, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.shakeClearText.rawValue)_\(stringState)"])
+                let stringState = newState ? GAppAnalyticActions.enable.rawValue : GAppAnalyticActions.disable.rawValue
+                AppConfiguration.shared.analytics.track(action: screenType.analyticAction, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.shakeClearText.rawValue)_\(stringState)"])
             default:
                 break
             }

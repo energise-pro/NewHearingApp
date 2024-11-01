@@ -14,7 +14,7 @@ final class EqualizerViewController: PMBaseViewController {
         configureUI()
         configureDataSource()
         
-        AppConfiguration.shared.analytics.track(action: .v2EqualizerScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.open.rawValue])
+        AppConfiguration.shared.analytics.track(action: .v2EqualizerScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.open.rawValue])
     }
     
     override func didChangeTheme() {
@@ -70,7 +70,7 @@ final class EqualizerViewController: PMBaseViewController {
     @objc private func closeButtonAction() {
         dismiss(animated: true)
         
-        AppConfiguration.shared.analytics.track(action: .v2EqualizerScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.close.rawValue])
+        AppConfiguration.shared.analytics.track(action: .v2EqualizerScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.close.rawValue])
     }
 }
 
@@ -107,7 +107,7 @@ extension EqualizerViewController: CenterButtonTableViewCellDelegate {
         updateChartCell()
         configureDataSource()
         
-        AppConfiguration.shared.analytics.track(action: .v2EqualizerScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.reset.rawValue])
+        AppConfiguration.shared.analytics.track(action: .v2EqualizerScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.reset.rawValue])
     }
 }
 
@@ -128,8 +128,8 @@ extension EqualizerViewController: SettingTableViewCellDelegate {
             let newCellModel = SettingTableViewCellModel(title: cellModel.title, buttonTypes: cellModel.buttonTypes, switchState: newState, delegate: self)
             dataSource[indexRow] = SettingTableViewCellConfig(item: newCellModel)
             
-            let stringState = newState ? AnalyticsAction.enable.rawValue : AnalyticsAction.disable.rawValue
-            AppConfiguration.shared.analytics.track(action: .v2EqualizerScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.equalizer.rawValue)_\(stringState)"])
+            let stringState = newState ? GAppAnalyticActions.enable.rawValue : GAppAnalyticActions.disable.rawValue
+            AppConfiguration.shared.analytics.track(action: .v2EqualizerScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.equalizer.rawValue)_\(stringState)"])
         default:
             break
         }
@@ -151,8 +151,8 @@ extension EqualizerViewController: SliderTableViewCellDelegate {
         dataSource[indexRow] = SliderTableViewCellConfig(item: newCellModel)
         
         sliderTimer?.invalidate()
-        sliderTimer = Timer.scheduledTimer(withTimeInterval: AnalyticsAction.delaySliderInterval, repeats: false) { _ in
-            AppConfiguration.shared.analytics.track(action: .v2EqualizerScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.change.rawValue)_\(AnalyticsAction.equalizer.rawValue)"])
+        sliderTimer = Timer.scheduledTimer(withTimeInterval: GAppAnalyticActions.delaySliderInterval, repeats: false) { _ in
+            AppConfiguration.shared.analytics.track(action: .v2EqualizerScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.change.rawValue)_\(GAppAnalyticActions.equalizer.rawValue)"])
         }
     }
 }

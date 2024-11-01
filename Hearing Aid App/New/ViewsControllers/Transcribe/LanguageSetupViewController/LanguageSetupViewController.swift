@@ -107,17 +107,17 @@ extension LanguageSetupViewController: SettingTableViewCellDelegate {
                 let newCellModel = SettingTableViewCellModel(title: cellModel.title, buttonTypes: cellModel.buttonTypes, switchState: newState, delegate: self)
                 dataSource[indexRow] = SettingTableViewCellConfig(item: newCellModel)
                 
-                let stringState = newState ? AnalyticsAction.enable.rawValue : AnalyticsAction.disable.rawValue
-                AppConfiguration.shared.analytics.track(action: .v2TranslateLanguageSetupScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.offlineTranslate.rawValue)_\(stringState)"])
+                let stringState = newState ? GAppAnalyticActions.enable.rawValue : GAppAnalyticActions.disable.rawValue
+                AppConfiguration.shared.analytics.track(action: .v2TranslateLanguageSetupScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.offlineTranslate.rawValue)_\(stringState)"])
             default:
                 break
             }
         case 1: // Translate language
             NavigationManager.shared.pushLocalesListViewController(with: .translateTo, with: self)
-            AppConfiguration.shared.analytics.track(action: .v2TranslateLanguageSetupScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.translateLanguage.rawValue])
+            AppConfiguration.shared.analytics.track(action: .v2TranslateLanguageSetupScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.translateLanguage.rawValue])
         case 2: // Your language
             NavigationManager.shared.pushLocalesListViewController(with: .translateFrom, with: self)
-            AppConfiguration.shared.analytics.track(action: .v2TranslateLanguageSetupScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.userLanguage.rawValue])
+            AppConfiguration.shared.analytics.track(action: .v2TranslateLanguageSetupScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.userLanguage.rawValue])
         case 3: // Shake to clear
             switch type {
             case .switchButton:
@@ -126,8 +126,8 @@ extension LanguageSetupViewController: SettingTableViewCellDelegate {
                 let newCellModel = SettingTableViewCellModel(title: cellModel.title, buttonTypes: cellModel.buttonTypes, switchState: newState, delegate: self)
                 dataSource[indexRow] = SettingTableViewCellConfig(item: newCellModel)
                 
-                let stringState = newState ? AnalyticsAction.enable.rawValue : AnalyticsAction.disable.rawValue
-                AppConfiguration.shared.analytics.track(action: .v2TranslateLanguageSetupScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.shakeClearText.rawValue)_\(stringState)"])
+                let stringState = newState ? GAppAnalyticActions.enable.rawValue : GAppAnalyticActions.disable.rawValue
+                AppConfiguration.shared.analytics.track(action: .v2TranslateLanguageSetupScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.shakeClearText.rawValue)_\(stringState)"])
             default:
                 break
             }

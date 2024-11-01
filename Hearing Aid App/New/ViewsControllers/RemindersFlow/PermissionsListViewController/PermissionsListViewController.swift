@@ -18,7 +18,7 @@ final class PermissionsListViewController: PMBaseViewController {
         super.viewDidLoad()
         configureUI()
         
-        AppConfiguration.shared.analytics.track(action: .v2PermissionsScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.open.rawValue])
+        AppConfiguration.shared.analytics.track(action: .v2PermissionsScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.open.rawValue])
     }
     
     // MARK: - Private methods
@@ -48,7 +48,7 @@ final class PermissionsListViewController: PMBaseViewController {
         guard microPermissionGranted && TranscribeService.shared.recordPermission == .authorized else {
             return
         }
-        AppConfiguration.shared.analytics.track(action: .v2PermissionsScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.autoClose.rawValue])
+        AppConfiguration.shared.analytics.track(action: .v2PermissionsScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.autoClose.rawValue])
         dismiss(animated: true)
     }
     
@@ -70,13 +70,13 @@ final class PermissionsListViewController: PMBaseViewController {
         
         switch type {
         case .micro:
-            AppConfiguration.shared.analytics.track(action: .v2PermissionsScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.allow.rawValue)_\(AnalyticsAction.microphone.rawValue)"])
+            AppConfiguration.shared.analytics.track(action: .v2PermissionsScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.allow.rawValue)_\(GAppAnalyticActions.microphone.rawValue)"])
             
             AudioKitService.shared.requestMicrophonePermission { [weak self] _ in
                 self?.autoCloseIfNeeded()
             }
         case .speechRecognition:
-            AppConfiguration.shared.analytics.track(action: .v2PermissionsScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.allow.rawValue)_\(AnalyticsAction.transcribe.rawValue)"])
+            AppConfiguration.shared.analytics.track(action: .v2PermissionsScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.allow.rawValue)_\(GAppAnalyticActions.transcribe.rawValue)"])
             
             TranscribeService.shared.requestRecognitionPermission { [weak self] _ in
                 self?.autoCloseIfNeeded()
@@ -88,6 +88,6 @@ final class PermissionsListViewController: PMBaseViewController {
         TapticEngine.impact.feedback(.medium)
         dismiss(animated: true)
         
-        AppConfiguration.shared.analytics.track(action: .v2PermissionsScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.close.rawValue])
+        AppConfiguration.shared.analytics.track(action: .v2PermissionsScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.close.rawValue])
     }
 }

@@ -311,8 +311,8 @@ final class HearingViewController: PMBaseViewController {
         newState && AudioKitService.shared.countOfUsingAid % 3 == 0 ? AppConfiguration.shared.settings.presentAppRatingAlert() : Void()
         newState ? AudioKitService.shared.increaseCountOfUsing(for: .aid) : Void()
         
-        let stringState = newState ? AnalyticsAction.enable.rawValue : AnalyticsAction.disable.rawValue
-        AppConfiguration.shared.analytics.track(action: .v2HearingScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.microphone.rawValue)_\(stringState)"])
+        let stringState = newState ? GAppAnalyticActions.enable.rawValue : GAppAnalyticActions.disable.rawValue
+        AppConfiguration.shared.analytics.track(action: .v2HearingScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.microphone.rawValue)_\(stringState)"])
     }
     
     @IBAction private func bottomButtonsAction(_ sender: UIButton) {
@@ -323,31 +323,31 @@ final class HearingViewController: PMBaseViewController {
         switch buttonType {
         case .proSetup:
             NavigationManager.shared.presentProSetupViewController(with: self)
-            AppConfiguration.shared.analytics.track(action: .v2HearingScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.proSetup.rawValue])
+            AppConfiguration.shared.analytics.track(action: .v2HearingScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.proSetup.rawValue])
         case .noiseOff:
             let newState = !AudioKitService.shared.isNoiseOffEnabled
             AudioKitService.shared.setNoiseOFF(newState)
             setBottomButton(.noiseOff, asSelected: newState)
             
-            let stringState = newState ? AnalyticsAction.enable.rawValue : AnalyticsAction.disable.rawValue
-            AppConfiguration.shared.analytics.track(action: .v2HearingScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.noise.rawValue)_\(stringState)"])
+            let stringState = newState ? GAppAnalyticActions.enable.rawValue : GAppAnalyticActions.disable.rawValue
+            AppConfiguration.shared.analytics.track(action: .v2HearingScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.noise.rawValue)_\(stringState)"])
         case .stereo:
             let newState = !AudioKitService.shared.isStereoEnabled
             AudioKitService.shared.setStereo(newState)
             setBottomButton(.stereo, asSelected: newState)
             
-            let stringState = newState ? AnalyticsAction.enable.rawValue : AnalyticsAction.disable.rawValue
-            AppConfiguration.shared.analytics.track(action: .v2HearingScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.stereo.rawValue)_\(stringState)"])
+            let stringState = newState ? GAppAnalyticActions.enable.rawValue : GAppAnalyticActions.disable.rawValue
+            AppConfiguration.shared.analytics.track(action: .v2HearingScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.stereo.rawValue)_\(stringState)"])
         case .templates:
             NavigationManager.shared.presentTemplatesViewController(with: self)
-            AppConfiguration.shared.analytics.track(action: .v2HearingScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.templates.rawValue])
+            AppConfiguration.shared.analytics.track(action: .v2HearingScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.templates.rawValue])
         }
     }
     
     @IBAction private func infoButtonAction(_ sender: UIButton) {
         TapticEngine.impact.feedback(.medium)
         NavigationManager.shared.presentCustomVideoInstructionViewController()
-        AppConfiguration.shared.analytics.track(action: .v2HearingScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.info.rawValue])
+        AppConfiguration.shared.analytics.track(action: .v2HearingScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.info.rawValue])
     }
     
     @IBAction private func sliderValueChanged(_ sender: UISlider) {
@@ -361,16 +361,16 @@ final class HearingViewController: PMBaseViewController {
         AudioKitService.shared.changeBalance(on: senderValue)
         
         balanceTimer?.invalidate()
-        balanceTimer = Timer.scheduledTimer(withTimeInterval: AnalyticsAction.delaySliderInterval, repeats: false) { _ in
-            AppConfiguration.shared.analytics.track(action: .v2HearingScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.changeBalance.rawValue])
+        balanceTimer = Timer.scheduledTimer(withTimeInterval: GAppAnalyticActions.delaySliderInterval, repeats: false) { _ in
+            AppConfiguration.shared.analytics.track(action: .v2HearingScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.changeBalance.rawValue])
         }
     }
     
     @IBAction private func panGestureAction(_ sender: UIPanGestureRecognizer) {
         func trackAnalytic() {
             volumeTimer?.invalidate()
-            volumeTimer = Timer.scheduledTimer(withTimeInterval: AnalyticsAction.delaySliderInterval, repeats: false) { _ in
-                AppConfiguration.shared.analytics.track(action: .v2HearingScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.changeVolume.rawValue])
+            volumeTimer = Timer.scheduledTimer(withTimeInterval: GAppAnalyticActions.delaySliderInterval, repeats: false) { _ in
+                AppConfiguration.shared.analytics.track(action: .v2HearingScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.changeVolume.rawValue])
             }
         }
         
