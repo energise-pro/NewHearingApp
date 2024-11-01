@@ -7,7 +7,7 @@ final class AppConfiguration: NSObject, IServiceProtocol {
     static let TAG = "AppConfiguration"
     
     var analytics: AppAnalytics
-    var settings: AppSettings
+    var settings: HearAppSetting
     var services: [IServiceProtocol]
     var supportedOrientations: UIInterfaceOrientationMask = .portrait
     
@@ -23,7 +23,7 @@ final class AppConfiguration: NSObject, IServiceProtocol {
         
         let analyticsServices = services.compactMap { ($0 as? IAnalyticsService) }
         self.analytics = AppAnalytics(services: analyticsServices)
-        self.settings = AppSettings()
+        self.settings = HearAppSetting()
         self.asaService = ASAService()
         
         supportedOrientations = UIDevice.current.userInterfaceIdiom == .pad ? .all : .portrait

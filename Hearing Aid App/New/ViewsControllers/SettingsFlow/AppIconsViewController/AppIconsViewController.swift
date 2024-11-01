@@ -1,33 +1,6 @@
 import UIKit
 
-enum IconType: String, CaseIterable {
-    case primary = ""
-    case orangeGradient = "GradientOrange-Icon"
-    case orange = "Orange-Icon"
-    case lightBlue = "LightBlue-Icon"
-    case blue = "Blue-Icon"
-    
-    var analyticAction: AnalyticsAction {
-        switch self {
-        case .primary:
-            return .red
-        case .orangeGradient:
-            return .gradientOrange
-        case .orange:
-            return .orange
-        case .lightBlue:
-            return .lightBlue
-        case .blue:
-            return .blue
-        }
-    }
-    
-    var previewImage: UIImage? {
-        return UIImage(named: "\(self.rawValue)-Preview") ?? UIImage(named: "AppIcon-Preview")
-    }
-}
-
-final class AppIconsViewController: PMBaseViewController {
+final class ZAppIconViewController: PMBaseViewController {
     
     // MARK: - Properties
     @IBOutlet private var previewsImageViews: [UIImageView]!
@@ -75,5 +48,32 @@ final class AppIconsViewController: PMBaseViewController {
         opacityViews.forEach {
             $0.backgroundColor = UIColor.black.withAlphaComponent(0.3)
         }
+    }
+}
+
+enum IconType: String, CaseIterable {
+    case primary = ""
+    case orangeGradient = "GradientOrange-Icon"
+    case orange = "Orange-Icon"
+    case lightBlue = "LightBlue-Icon"
+    case blue = "Blue-Icon"
+    
+    var analyticAction: AnalyticsAction {
+        switch self {
+        case .primary:
+            return .red
+        case .orangeGradient:
+            return .gradientOrange
+        case .orange:
+            return .orange
+        case .lightBlue:
+            return .lightBlue
+        case .blue:
+            return .blue
+        }
+    }
+    
+    var previewImage: UIImage? {
+        return UIImage(named: "\(self.rawValue)-Preview") ?? UIImage(named: "AppIcon-Preview")
     }
 }

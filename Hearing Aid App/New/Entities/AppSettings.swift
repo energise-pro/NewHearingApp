@@ -2,7 +2,7 @@ import Foundation
 import StoreKit
 import ApphudSDK
 
-struct AppSettings {
+struct HearAppSetting {
     
     // MARK: - Properties
     var appLaunchCount: Int {

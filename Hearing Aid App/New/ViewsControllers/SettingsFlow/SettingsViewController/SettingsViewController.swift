@@ -116,7 +116,7 @@ extension SettingsViewController: SettingTableViewCellDelegate {
             
             AppConfiguration.shared.analytics.track(action: .v2SettingsScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.restore.rawValue])
         case 3: // App icon
-            NavigationManager.shared.presentAppIconsViewController()
+            NavigationManager.shared.presentZAppIconViewController()
             
             AppConfiguration.shared.analytics.track(.v2SettingsScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.changeAppIcon.rawValue])
         case 4: // Haptic

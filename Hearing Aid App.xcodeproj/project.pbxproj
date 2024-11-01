@@ -811,7 +811,7 @@
 			path = MicrophonePermissionViewController;
 			sourceTree = "<group>";
 		};
-		9A094343282D5B5C00F7AEC5 /* Hearing Flow */ = {
+		9A094343282D5B5C00F7AEC5 /* HearingFlow */ = {
 			isa = PBXGroup;
 			children = (
 				9A4DA21D28464DD800DCBC87 /* VoiceChangerViewController */,
@@ -823,10 +823,10 @@
 				9ACB45DB2812CDE300FAF44E /* ProSetupViewController */,
 				9ACB45E52812D0B700FAF44E /* TemplatesViewController */,
 			);
-			path = "Hearing Flow";
+			path = HearingFlow;
 			sourceTree = "<group>";
 		};
-		9A094344282D5B9900F7AEC5 /* Reminders Flow */ = {
+		9A094344282D5B9900F7AEC5 /* RemindersFlow */ = {
 			isa = PBXGroup;
 			children = (
 				9A8809DF2840D588008D3B66 /* EmailViewController */,
@@ -835,10 +835,10 @@
 				9AC90E622886B70300A43212 /* PermissionsListViewController */,
 				A53D650326E91FAF00C9882D /* RequestVoiceRecordingViewController */,
 			);
-			path = "Reminders Flow";
+			path = RemindersFlow;
 			sourceTree = "<group>";
 		};
-		9A094345282D5BB800F7AEC5 /* Purchase Flow */ = {
+		9A094345282D5BB800F7AEC5 /* PurchaseFlow */ = {
 			isa = PBXGroup;
 			children = (
 				9AD6C64828A1019B0055C518 /* BPaywallViewController */,
@@ -847,17 +847,17 @@
 				A5E542AB26EFF06F001D3AB4 /* PaywallViewController */,
 				A51EBD3A26D957AC00674657 /* OnboardingViewController */,
 			);
-			path = "Purchase Flow";
+			path = PurchaseFlow;
 			sourceTree = "<group>";
 		};
-		9A094346282D652200F7AEC5 /* Settings Flow */ = {
+		9A094346282D652200F7AEC5 /* SettingsFlow */ = {
 			isa = PBXGroup;
 			children = (
 				9A094347282D653100F7AEC5 /* AppIconsViewController */,
 				9AC3113F283D0BA600DCEE59 /* MoreViewController */,
 				9A60EDF8281FE97A00112720 /* SettingsViewController */,
 			);
-			path = "Settings Flow";
+			path = SettingsFlow;
 			sourceTree = "<group>";
 		};
 		9A094347282D653100F7AEC5 /* AppIconsViewController */ = {
@@ -1114,20 +1114,20 @@
 			path = SliderTableViewCell;
 			sourceTree = "<group>";
 		};
-		9A87D76526CF06F70077C9D0 /* Controllers */ = {
+		9A87D76526CF06F70077C9D0 /* ViewsControllers */ = {
 			isa = PBXGroup;
 			children = (
 				9A5512E528097A270078C5E5 /* PMBaseViewController.swift */,
-				9A094343282D5B5C00F7AEC5 /* Hearing Flow */,
-				9A094345282D5BB800F7AEC5 /* Purchase Flow */,
-				9A094344282D5B9900F7AEC5 /* Reminders Flow */,
-				9A094346282D652200F7AEC5 /* Settings Flow */,
+				9A094343282D5B5C00F7AEC5 /* HearingFlow */,
+				9A094345282D5BB800F7AEC5 /* PurchaseFlow */,
+				9A094344282D5B9900F7AEC5 /* RemindersFlow */,
+				9A094346282D652200F7AEC5 /* SettingsFlow */,
 				9A5512D928096B740078C5E5 /* TabBarViewController */,
 				9A52DD0E28324E3300307F2A /* Transcribe */,
 				9A949F5428A293D700F7D7D4 /* FakeSplashViewController */,
 				9AC90E672886EFB800A43212 /* CrossPromoViewController */,
 			);
-			path = Controllers;
+			path = ViewsControllers;
 			sourceTree = "<group>";
 		};
 		9A87D76626CF06F70077C9D0 /* HeadphonesReminderViewController */ = {
@@ -1476,7 +1476,7 @@
 			children = (
 				83A8E89E2645898A0080AEE5 /* AppDelegate.swift */,
 				A5E9ADD626E0962100B7DA17 /* CustomView */,
-				9A87D76526CF06F70077C9D0 /* Controllers */,
+				9A87D76526CF06F70077C9D0 /* ViewsControllers */,
 				A5B2324F26CC47B40042AA7B /* Entities */,
 				A52F8B0226D1B0CA00034120 /* Extensions */,
 				A5B2324C26CC44D20042AA7B /* Enums */,

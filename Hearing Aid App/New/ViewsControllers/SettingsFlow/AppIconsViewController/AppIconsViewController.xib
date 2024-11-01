@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AppIconsViewController" customModule="Hearing_Aid_App" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ZAppIconViewController" customModule="Hearing_Aid_App" customModuleProvider="target">
             <connections>
                 <outlet property="view" destination="8Kf-IT-u0o" id="hh3-yo-JZj"/>
                 <outletCollection property="previewsImageViews" destination="egW-hm-qE2" collectionClass="NSMutableArray" id="UWN-iF-CJs"/>
@@ -168,6 +167,7 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
+                                        <constraint firstAttribute="width" secondItem="Bi5-ph-Psj" secondAttribute="height" multiplier="1:1" id="1Zb-rE-Xpn"/>
                                         <constraint firstAttribute="trailing" secondItem="jMo-7q-VTT" secondAttribute="trailing" id="1c1-Ec-Wrv"/>
                                         <constraint firstItem="7Nw-ga-fdE" firstAttribute="top" secondItem="Bi5-ph-Psj" secondAttribute="top" id="2tc-DP-GVQ"/>
                                         <constraint firstAttribute="width" secondItem="Bi5-ph-Psj" secondAttribute="height" multiplier="1:1" id="95F-XE-pfz"/>
@@ -218,6 +218,7 @@
                                         <constraint firstAttribute="trailing" secondItem="Gj2-hE-Le5" secondAttribute="trailing" id="GOb-K3-hXO"/>
                                         <constraint firstItem="DJA-iv-qAa" firstAttribute="top" secondItem="WFC-b6-3Kh" secondAttribute="top" id="HvP-Kn-qqd"/>
                                         <constraint firstAttribute="bottom" secondItem="jAN-Un-6N3" secondAttribute="bottom" id="I40-J8-B3k"/>
+                                        <constraint firstAttribute="width" secondItem="WFC-b6-3Kh" secondAttribute="height" multiplier="1:1" id="InT-g4-rZd"/>
                                         <constraint firstItem="DJA-iv-qAa" firstAttribute="leading" secondItem="WFC-b6-3Kh" secondAttribute="leading" id="Qgj-G7-2GJ"/>
                                         <constraint firstAttribute="trailing" secondItem="DJA-iv-qAa" secondAttribute="trailing" id="RY7-ru-euH"/>
                                         <constraint firstItem="jAN-Un-6N3" firstAttribute="top" secondItem="WFC-b6-3Kh" secondAttribute="top" id="VQx-ez-v6u"/>
@@ -264,6 +265,7 @@
                                         <constraint firstItem="c6a-UA-b01" firstAttribute="top" secondItem="L65-Pu-IQl" secondAttribute="top" id="PIl-20-gMD"/>
                                         <constraint firstItem="gZf-gH-8Z8" firstAttribute="top" secondItem="L65-Pu-IQl" secondAttribute="top" id="S0W-V3-z7e"/>
                                         <constraint firstAttribute="bottom" secondItem="kjW-F8-dXj" secondAttribute="bottom" id="TeE-4c-r9y"/>
+                                        <constraint firstAttribute="width" secondItem="L65-Pu-IQl" secondAttribute="height" multiplier="1:1" id="WFx-ZT-hoB"/>
                                         <constraint firstAttribute="width" secondItem="L65-Pu-IQl" secondAttribute="height" multiplier="1:1" id="WJj-a0-bWL"/>
                                         <constraint firstItem="kjW-F8-dXj" firstAttribute="top" secondItem="L65-Pu-IQl" secondAttribute="top" id="lMi-lR-k71"/>
                                         <constraint firstItem="c6a-UA-b01" firstAttribute="leading" secondItem="L65-Pu-IQl" secondAttribute="leading" id="mOH-lb-Zv2"/>
@@ -274,11 +276,6 @@
                                     </constraints>
                                 </view>
                             </subviews>
-                            <constraints>
-                                <constraint firstItem="Bi5-ph-Psj" firstAttribute="width" secondItem="Bi5-ph-Psj" secondAttribute="height" multiplier="1:1" id="1Zb-rE-Xpn"/>
-                                <constraint firstItem="WFC-b6-3Kh" firstAttribute="width" secondItem="WFC-b6-3Kh" secondAttribute="height" multiplier="1:1" id="InT-g4-rZd"/>
-                                <constraint firstItem="L65-Pu-IQl" firstAttribute="width" secondItem="L65-Pu-IQl" secondAttribute="height" multiplier="1:1" id="WFx-ZT-hoB"/>
-                            </constraints>
                         </stackView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

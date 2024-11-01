@@ -220,11 +220,11 @@ final class NavigationManager: NSObject {
         topViewController?.navigationController?.pushViewController(equalizerViewController, animated: true)
     }
     
-    func presentAppIconsViewController() {
-        let appIconsViewController = AppIconsViewController()
-        appIconsViewController.modalPresentationStyle = .overFullScreen
-        appIconsViewController.modalTransitionStyle = .crossDissolve
-        topViewController?.present(appIconsViewController, animated: true)
+    func presentZAppIconViewController() {
+        let ZAppIconViewController = ZAppIconViewController()
+        ZAppIconViewController.modalPresentationStyle = .overFullScreen
+        ZAppIconViewController.modalTransitionStyle = .crossDissolve
+        topViewController?.present(ZAppIconViewController, animated: true)
     }
     
     func presentTranscribeViewController() {
