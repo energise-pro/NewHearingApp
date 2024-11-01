@@ -35,7 +35,7 @@ final class BPaywallViewController: PMBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         AppHudService.shared.paywallShown()
-        AppConfigService.shared.analytics.track(.v2BPaywall, with: [AnalyticsAction.action.rawValue: AnalyticsAction.openFromLaunch.rawValue])
+        AppConfiguration.shared.analytics.track(.v2BPaywall, with: [AnalyticsAction.action.rawValue: AnalyticsAction.openFromLaunch.rawValue])
         configureUI()
     }
     
@@ -148,21 +148,21 @@ final class BPaywallViewController: PMBaseViewController {
     
     // MARK: - Actions
     @IBAction private func valueChanged(_ sender: UISwitch) {
-        AppConfigService.shared.analytics.track(.v2BPaywall, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.trial.rawValue)_\(sender.isOn ? AnalyticsAction.enable.rawValue : AnalyticsAction.disable.rawValue)"])
+        AppConfiguration.shared.analytics.track(.v2BPaywall, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.trial.rawValue)_\(sender.isOn ? AnalyticsAction.enable.rawValue : AnalyticsAction.disable.rawValue)"])
         TapticEngine.impact.feedback(.medium)
         changeTrialStatus(on: sender.isOn)
     }
     
     @IBAction private func purchaseButtonAction(_ sender: UIButton) {
         guard let selectedPlan = selectedPlan else { return }
-        AppConfigService.shared.analytics.track(.v2BPaywall, with: [AnalyticsAction.action.rawValue: AnalyticsAction.purchase.rawValue])
+        AppConfiguration.shared.analytics.track(.v2BPaywall, with: [AnalyticsAction.action.rawValue: AnalyticsAction.purchase.rawValue])
         TapticEngine.impact.feedback(.heavy)
         purchase(plan: selectedPlan)
     }
     
     @IBAction private func closeButton(_ sender: UIButton) {
         TapticEngine.impact.feedback(.heavy)
-        AppConfigService.shared.analytics.track(.v2BPaywall, with: [AnalyticsAction.action.rawValue: AnalyticsAction.close.rawValue])
+        AppConfiguration.shared.analytics.track(.v2BPaywall, with: [AnalyticsAction.action.rawValue: AnalyticsAction.close.rawValue])
         closePaywall()
     }
     
@@ -170,10 +170,10 @@ final class BPaywallViewController: PMBaseViewController {
         TapticEngine.impact.feedback(.medium)
         switch sender.tag {
         case 0:
-            AppConfigService.shared.analytics.track(.v2BPaywall, with: [AnalyticsAction.action.rawValue: AnalyticsAction.privacy.rawValue])
+            AppConfiguration.shared.analytics.track(.v2BPaywall, with: [AnalyticsAction.action.rawValue: AnalyticsAction.privacy.rawValue])
             NavigationManager.shared.presentSafariViewController(with: Constants.URLs.privacyPolicyURL)
         case 1:
-            AppConfigService.shared.analytics.track(.v2BPaywall, with: [AnalyticsAction.action.rawValue: AnalyticsAction.restore.rawValue])
+            AppConfiguration.shared.analytics.track(.v2BPaywall, with: [AnalyticsAction.action.rawValue: AnalyticsAction.restore.rawValue])
             NativeLoaderView.showLoader(at: view, animated: true)
             InAppPurchasesService.shared.restorePurchases { [weak self] isSuccess in
                 guard let self = self else { return }
@@ -187,7 +187,7 @@ final class BPaywallViewController: PMBaseViewController {
                 }
             }
         case 2:
-            AppConfigService.shared.analytics.track(.v2BPaywall, with: [AnalyticsAction.action.rawValue: AnalyticsAction.terms.rawValue])
+            AppConfiguration.shared.analytics.track(.v2BPaywall, with: [AnalyticsAction.action.rawValue: AnalyticsAction.terms.rawValue])
             NavigationManager.shared.presentSafariViewController(with: Constants.URLs.termsURL)
         default:
             break

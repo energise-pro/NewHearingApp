@@ -53,7 +53,7 @@ final class PreOnboardingViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        AppConfigService.shared.analytics.track(.v2PreOnboardingScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.open.rawValue])
+        AppConfiguration.shared.analytics.track(.v2PreOnboardingScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.open.rawValue])
         configureUI()
     }
     
@@ -106,7 +106,7 @@ final class PreOnboardingViewController: UIViewController {
     @IBAction private func nextButtonAction(_ sender: UIButton) {
         TapticEngine.impact.feedback(.medium)
         animateShowQuestionView()
-        AppConfigService.shared.analytics.track(.v2PreOnboardingScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.continue.rawValue])
+        AppConfiguration.shared.analytics.track(.v2PreOnboardingScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.continue.rawValue])
     }
     
     @IBAction private func questionButtonAction(_ sender: UIButton) {
@@ -114,7 +114,7 @@ final class PreOnboardingViewController: UIViewController {
             return
         }
         TapticEngine.impact.feedback(.medium)
-        AppConfigService.shared.analytics.track(.v2PreOnboardingScreen, with: [AnalyticsAction.action.rawValue: type.analyticAction.rawValue])
+        AppConfiguration.shared.analytics.track(.v2PreOnboardingScreen, with: [AnalyticsAction.action.rawValue: type.analyticAction.rawValue])
         NavigationManager.shared.setOnboardingAsRootViewController()
     }
 }

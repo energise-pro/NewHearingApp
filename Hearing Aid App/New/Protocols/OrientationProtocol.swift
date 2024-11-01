@@ -6,7 +6,7 @@ extension OrientationalProtocol {
     
     // MARK: - Methods
     func setSupportedOrientations(_ orientations: UIInterfaceOrientationMask) {
-        AppConfigService.shared.supportedOrientations = orientations
+        AppConfiguration.shared.supportedOrientations = orientations
     }
     
     func setOrientation(_ orientation: UIInterfaceOrientation) {

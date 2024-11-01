@@ -39,7 +39,6 @@ final class TabBarViewController: PMBaseViewController {
 //                UIStoryboard.init(name: "SpeechRecognitionViewController", bundle: Bundle.main).instantiateViewController(withIdentifier: "SpeechRecognitionViewController")
                 return SpeechViewController()
             case .settings:
-//                UIStoryboard.init(name: "ThemeViewController", bundle: Bundle.main).instantiateViewController(withIdentifier: "ThemeViewController")
                 return SettingsViewController()
             }
         }
@@ -70,35 +69,35 @@ final class TabBarViewController: PMBaseViewController {
     
     private var navigationControllers: [UINavigationController] = []
     private var tabBarButtons: [TabBarButton] {
-        return AppConfigService.shared.settings.mainScreen == TabBarButton.hearing.rawValue ? [.hearing, .transcribe, .settings] : [.transcribe, .hearing, .settings]
+        return AppConfiguration.shared.settings.mainScreen == TabBarButton.hearing.rawValue ? [.hearing, .transcribe, .settings] : [.transcribe, .hearing, .settings]
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
         updateMainView(with: 0)
-        AppConfigService.shared.settings.appLaunchCount > 1 ? AudioKitService.shared.initializeAudioKit() : Void()
-        AppConfigService.shared.analytics.track(.v2TabBar, with: [AnalyticsAction.action.rawValue: AnalyticsAction.open.rawValue])
+        AppConfiguration.shared.settings.appLaunchCount > 1 ? AudioKitService.shared.initializeAudioKit() : Void()
+        AppConfiguration.shared.analytics.track(.v2TabBar, with: [AnalyticsAction.action.rawValue: AnalyticsAction.open.rawValue])
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if !isPaywallShown && AppConfigService.shared.settings.appLaunchCount < 2 {
+        if !isPaywallShown && AppConfiguration.shared.settings.appLaunchCount < 2 {
             NavigationManager.shared.presentBPaywallViewController()
             isPaywallShown = true
         }
         
-        if !isPermissionShown && AppConfigService.shared.settings.appLaunchCount < 2 && NavigationManager.shared.topViewController == self {
+        if !isPermissionShown && AppConfiguration.shared.settings.appLaunchCount < 2 && NavigationManager.shared.topViewController == self {
             NavigationManager.shared.presentPermissionsListViewController()
             isPermissionShown = true
         }
         
-        if !headphonesReminderShown && NavigationManager.shared.topViewController == self && AppConfigService.shared.settings.mainScreen == 0 {
+        if !headphonesReminderShown && NavigationManager.shared.topViewController == self && AppConfiguration.shared.settings.mainScreen == 0 {
             !AudioKitService.shared.connectedHeadphones ? NavigationManager.shared.presentHeadphonesReminderViewController() : Void()
             headphonesReminderShown = true
         }
         
-        if !AppConfigService.shared.settings.emailScreenShown && AppConfigService.shared.settings.appLaunchCount >= 2 && NavigationManager.shared.topViewController == self {
+        if !AppConfiguration.shared.settings.emailScreenShown && AppConfiguration.shared.settings.appLaunchCount >= 2 && NavigationManager.shared.topViewController == self {
             NavigationManager.shared.presentEmailViewController()
         }
     }
@@ -122,7 +121,7 @@ final class TabBarViewController: PMBaseViewController {
     @IBAction private func didTapOnTabBarButton(_ sender: UIButton) {
         TapticEngine.impact.feedback(.heavy)
         updateMainView(with: sender.tag)
-        AppConfigService.shared.analytics.track(.v2TabBar, with: [AnalyticsAction.action.rawValue: tabBarButtons[sender.tag].analyticAction.rawValue])
+        AppConfiguration.shared.analytics.track(.v2TabBar, with: [AnalyticsAction.action.rawValue: tabBarButtons[sender.tag].analyticAction.rawValue])
     }
     
     // MARK: - Private methods

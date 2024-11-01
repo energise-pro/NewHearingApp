@@ -1,10 +1,10 @@
 import UIKit
 
-final class AppConfigService: NSObject, IServiceProtocol {
+final class AppConfiguration: NSObject, IServiceProtocol {
     
     // MARK: - Properties
-    static let shared: AppConfigService = AppConfigService()
-    static let TAG = "AppConfigService"
+    static let shared: AppConfiguration = AppConfiguration()
+    static let TAG = "AppConfiguration"
     
     var analytics: AppAnalytics
     var settings: AppSettings

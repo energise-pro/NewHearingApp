@@ -32,9 +32,9 @@ struct AppSettings {
         UserDefaults.standard.synchronize()
         
         if newAppLaunchCount > 1 {
-            AppConfigService.shared.analytics.track(action: .v2AppOpen)
+            AppConfiguration.shared.analytics.track(action: .v2AppOpen)
         } else {
-            AppConfigService.shared.analytics.track(action: .v2FirstLaunch)
+            AppConfiguration.shared.analytics.track(action: .v2FirstLaunch)
         }
         
         newAppLaunchCount % 5 == 0 ? presentAppRatingAlert() : Void()
@@ -54,7 +54,7 @@ struct AppSettings {
         }
         Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false) { _ in
             NavigationManager.shared.presentCrossPromoViewController()
-            AppConfigService.shared.settings.countOfPresentCrossPromo += 1
+            AppConfiguration.shared.settings.countOfPresentCrossPromo += 1
         }
     }
 }

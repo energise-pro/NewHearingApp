@@ -31,7 +31,7 @@ final class SpeechRecognitionViewController: BaseViewController, OrientationalPr
     //Amplitude Indicator
     @IBOutlet weak var amplitudeView: UIStackView!
     @IBOutlet weak var amplitudeIndicatorView: UIView!
-    private let amplitudeVC = AmplitudeViewController()
+    private let amplitudeVC = AnalliticAmplViewController()
 
     private var fullScreenViewController: TextViewFullScreenViewController?
 
@@ -135,11 +135,11 @@ final class SpeechRecognitionViewController: BaseViewController, OrientationalPr
         vc.delegate = self
         presentAsPopover(vc: vc, sourceView: sender, height: 350)
         
-        AppConfigService.shared.analytics.track(action: .v2TranscribeScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.settings.rawValue])
+        AppConfiguration.shared.analytics.track(action: .v2TranscribeScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.settings.rawValue])
     }
 
     @IBAction func shareAction(sender: UIButton) {
-        AppConfigService.shared.analytics.track(action: .v2TranscribeScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.share.rawValue])
+        AppConfiguration.shared.analytics.track(action: .v2TranscribeScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.share.rawValue])
         var shareText = textView.text ?? "Try this app!🙂"
         shareText += "\n\n✏️ Created by: \(Bundle.main.appName)\n\(Constants.URLs.appStoreUrl)"
         let activityVC = UIActivityViewController(activityItems: [shareText], applicationActivities: nil)
@@ -153,7 +153,7 @@ final class SpeechRecognitionViewController: BaseViewController, OrientationalPr
         localeSelection.selectionDelegate = self
         presentAsPopover(vc: localeSelection, sourceView: sender)
         
-        AppConfigService.shared.analytics.track(action: .v2TranscribeScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.changeLanguage.rawValue])
+        AppConfiguration.shared.analytics.track(action: .v2TranscribeScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.changeLanguage.rawValue])
     }
 
     @IBAction func hideLeftTextViewAction(sender: UIButton) {
@@ -175,7 +175,7 @@ final class SpeechRecognitionViewController: BaseViewController, OrientationalPr
     private var deletedText: String?
     private var fullText: String?
     @IBAction func clearTextAction(sender: UIButton?) {
-        AppConfigService.shared.analytics.track(action: .v2TranscribeScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.clearText.rawValue])
+        AppConfiguration.shared.analytics.track(action: .v2TranscribeScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.clearText.rawValue])
         UIView.transition(with: textView, duration: 0.4,
                           options: [.curveEaseInOut, .transitionCurlUp], animations: {
                             self.deletedText = self.fullText
@@ -193,7 +193,7 @@ final class SpeechRecognitionViewController: BaseViewController, OrientationalPr
             setOrientation(.portrait)
         }
         
-        AppConfigService.shared.analytics.track(action: .v2TranscribeScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.rotate.rawValue])
+        AppConfiguration.shared.analytics.track(action: .v2TranscribeScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.rotate.rawValue])
     }
 
     @IBAction func speechRecognitionAction(sender: UIButton) {
@@ -217,11 +217,11 @@ final class SpeechRecognitionViewController: BaseViewController, OrientationalPr
                 if !self.menuView.isRecognitionButtonSelected {
                     AudioKitService.shared.setAudioEngine(true)
                     
-                    AppConfigService.shared.analytics.track(action: .v2TranscribeScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.microphone.rawValue)_\(AnalyticsAction.enable.rawValue)"])
+                    AppConfiguration.shared.analytics.track(action: .v2TranscribeScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.microphone.rawValue)_\(AnalyticsAction.enable.rawValue)"])
                     
                     UIApplication.shared.isIdleTimerDisabled = true
                     TapticEngine.customHaptic.playOn()
-                    AudioKitService.shared.countOfUsingRecognize % 3 == 0 ? AppConfigService.shared.settings.presentAppRatingAlert() : Void()
+                    AudioKitService.shared.countOfUsingRecognize % 3 == 0 ? AppConfiguration.shared.settings.presentAppRatingAlert() : Void()
 
                     self.textView.text = readyText
                     self.speech.startRecognition(textHandler: {[weak self] text, _, _ in
@@ -243,7 +243,7 @@ final class SpeechRecognitionViewController: BaseViewController, OrientationalPr
                 } else {
                     AudioKitService.shared.setAudioEngine(false)
                     
-                    AppConfigService.shared.analytics.track(action: .v2TranscribeScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.microphone.rawValue)_\(AnalyticsAction.disable.rawValue)"])
+                    AppConfiguration.shared.analytics.track(action: .v2TranscribeScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.microphone.rawValue)_\(AnalyticsAction.disable.rawValue)"])
                     
                     UIApplication.shared.isIdleTimerDisabled = false
                     self.speech.stopRecognition()
@@ -257,7 +257,7 @@ final class SpeechRecognitionViewController: BaseViewController, OrientationalPr
     }
 
     @IBAction func fullScreenAction(sender:UIButton) {
-        AppConfigService.shared.analytics.track(action: .v2TranscribeScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.fullScreen.rawValue])
+        AppConfiguration.shared.analytics.track(action: .v2TranscribeScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.fullScreen.rawValue])
         let vc: TextViewFullScreenViewController = TextViewFullScreenViewController.instantiate()
         vc.delegate = self
         vc.text = textView.text
@@ -268,7 +268,7 @@ final class SpeechRecognitionViewController: BaseViewController, OrientationalPr
     }
 
     @IBAction func flipAction(sender: UIButton) {
-        AppConfigService.shared.analytics.track(action: .v2TranscribeScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.flip.rawValue])
+        AppConfiguration.shared.analytics.track(action: .v2TranscribeScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.flip.rawValue])
 
         UIView.animate(withDuration: 0.35) {
             let flipTransform = CGAffineTransform(scaleX: -1, y: -1)

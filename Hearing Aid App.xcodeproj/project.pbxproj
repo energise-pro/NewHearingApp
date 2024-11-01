@@ -12,13 +12,9 @@
 		118EDAF32CD2643900C3F2CF /* AudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = 118EDAF22CD2643900C3F2CF /* AudioKit */; };
 		118EDAF62CD2646A00C3F2CF /* SoundpipeAudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = 118EDAF52CD2646A00C3F2CF /* SoundpipeAudioKit */; };
 		118EDAF92CD2648C00C3F2CF /* SporthAudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = 118EDAF82CD2648C00C3F2CF /* SporthAudioKit */; };
-		11DC522D2CD403E400A9589A /* AlternateIconsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11DC52212CD403E400A9589A /* AlternateIconsViewController.storyboard */; };
-		11DC522E2CD403E400A9589A /* ThemeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11DC52252CD403E400A9589A /* ThemeViewController.storyboard */; };
-		11DC52302CD403E400A9589A /* ThemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DC52262CD403E400A9589A /* ThemeViewController.swift */; };
 		11DC52332CD403E400A9589A /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DC52242CD403E400A9589A /* Theme.swift */; };
-		11DC52342CD403E400A9589A /* AlternateIconsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DC52222CD403E400A9589A /* AlternateIconsViewController.swift */; };
 		11DC523C2CD412CB00A9589A /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DC523B2CD412CA00A9589A /* ButtonView.swift */; };
-		11DC523E2CD4139200A9589A /* AmplitudeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DC523D2CD4139200A9589A /* AmplitudeViewController.swift */; };
+		11DC523E2CD4139200A9589A /* AnalliticAmplViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DC523D2CD4139200A9589A /* AnalliticAmplViewController.swift */; };
 		834EB73526482F9600026F01 /* ParticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834EB73326482F9600026F01 /* ParticleView.swift */; };
 		834EB73926482FEC00026F01 /* Particle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 834EB73826482FEC00026F01 /* Particle.sks */; };
 		839DE07326529F1B00A65DD7 /* IndicatorShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DE07126529F1B00A65DD7 /* IndicatorShape.swift */; };
@@ -293,13 +289,9 @@
 /* Begin PBXFileReference section */
 		1179064C2CD2CB160089B308 /* AdServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdServices.framework; path = System/Library/Frameworks/AdServices.framework; sourceTree = SDKROOT; };
 		1197E8D22CD2A76C007F05B3 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
-		11DC52212CD403E400A9589A /* AlternateIconsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AlternateIconsViewController.storyboard; sourceTree = "<group>"; };
-		11DC52222CD403E400A9589A /* AlternateIconsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlternateIconsViewController.swift; sourceTree = "<group>"; };
 		11DC52242CD403E400A9589A /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
-		11DC52252CD403E400A9589A /* ThemeViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ThemeViewController.storyboard; sourceTree = "<group>"; };
-		11DC52262CD403E400A9589A /* ThemeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeViewController.swift; sourceTree = "<group>"; };
 		11DC523B2CD412CA00A9589A /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
-		11DC523D2CD4139200A9589A /* AmplitudeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmplitudeViewController.swift; sourceTree = "<group>"; };
+		11DC523D2CD4139200A9589A /* AnalliticAmplViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalliticAmplViewController.swift; sourceTree = "<group>"; };
 		1A072DD98EA6DE92C46C80E2 /* Pods-Hearing Aid App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hearing Aid App.release.xcconfig"; path = "Target Support Files/Pods-Hearing Aid App/Pods-Hearing Aid App.release.xcconfig"; sourceTree = "<group>"; };
 		4BFC181DF387069A4E37B1D0 /* Pods-Hearing Aid App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hearing Aid App.debug.xcconfig"; path = "Target Support Files/Pods-Hearing Aid App/Pods-Hearing Aid App.debug.xcconfig"; sourceTree = "<group>"; };
 		6CADFEADBA8A46FF205E30F6 /* Pods-OneSignalServiceExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalServiceExtension.debug.xcconfig"; path = "Target Support Files/Pods-OneSignalServiceExtension/Pods-OneSignalServiceExtension.debug.xcconfig"; sourceTree = "<group>"; };
@@ -606,30 +598,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		11DC52202CD403E400A9589A /* Hearing Aid */ = {
+		11DC52202CD403E400A9589A /* Amplitud */ = {
 			isa = PBXGroup;
 			children = (
-				11DC523D2CD4139200A9589A /* AmplitudeViewController.swift */,
+				11DC523D2CD4139200A9589A /* AnalliticAmplViewController.swift */,
 			);
-			path = "Hearing Aid";
-			sourceTree = "<group>";
-		};
-		11DC52232CD403E400A9589A /* AlternateIcons */ = {
-			isa = PBXGroup;
-			children = (
-				11DC52212CD403E400A9589A /* AlternateIconsViewController.storyboard */,
-				11DC52222CD403E400A9589A /* AlternateIconsViewController.swift */,
-			);
-			path = AlternateIcons;
+			path = Amplitud;
 			sourceTree = "<group>";
 		};
 		11DC52272CD403E400A9589A /* Theme */ = {
 			isa = PBXGroup;
 			children = (
-				11DC52232CD403E400A9589A /* AlternateIcons */,
 				11DC52242CD403E400A9589A /* Theme.swift */,
-				11DC52252CD403E400A9589A /* ThemeViewController.storyboard */,
-				11DC52262CD403E400A9589A /* ThemeViewController.swift */,
 			);
 			path = Theme;
 			sourceTree = "<group>";
@@ -637,28 +617,28 @@
 		11DC52282CD403E400A9589A /* Old */ = {
 			isa = PBXGroup;
 			children = (
-				11DC52202CD403E400A9589A /* Hearing Aid */,
+				11DC52202CD403E400A9589A /* Amplitud */,
 				11DC52272CD403E400A9589A /* Theme */,
 			);
 			path = Old;
 			sourceTree = "<group>";
 		};
-		834EB73126482F9600026F01 /* Particle View */ = {
+		834EB73126482F9600026F01 /* ParticleView */ = {
 			isa = PBXGroup;
 			children = (
 				834EB73826482FEC00026F01 /* Particle.sks */,
 				834EB73326482F9600026F01 /* ParticleView.swift */,
 			);
-			path = "Particle View";
+			path = ParticleView;
 			sourceTree = "<group>";
 		};
-		839DE07026529F1B00A65DD7 /* Progress view */ = {
+		839DE07026529F1B00A65DD7 /* Progressview */ = {
 			isa = PBXGroup;
 			children = (
 				839DE07126529F1B00A65DD7 /* IndicatorShape.swift */,
 				839DE07226529F1B00A65DD7 /* ActivityIndicatorView.swift */,
 			);
-			path = "Progress view";
+			path = Progressview;
 			sourceTree = "<group>";
 		};
 		839FAC22264EE846004910D9 /* Settings */ = {
@@ -706,11 +686,12 @@
 		83A8E89D2645898A0080AEE5 /* Hearing Aid App */ = {
 			isa = PBXGroup;
 			children = (
+				83A8E8AC2645898B0080AEE5 /* Info.plist */,
 				9A27ED7E26CDA94400D8EF09 /* Hearing Aid App.entitlements */,
 				11DC52282CD403E400A9589A /* Old */,
 				A5B2323D26CC44BC0042AA7B /* New */,
-				83EAFE89264C263700FF9CAC /* Common */,
-				83ABA24F264BE316001784B8 /* Speech Recoginiton */,
+				83EAFE89264C263700FF9CAC /* General */,
+				83ABA24F264BE316001784B8 /* SpeechRecoginiton */,
 			);
 			path = "Hearing Aid App";
 			sourceTree = "<group>";
@@ -756,36 +737,36 @@
 			path = Spring;
 			sourceTree = "<group>";
 		};
-		83AA6D892677747800AFFB7F /* Speech Recognition */ = {
+		83AA6D892677747800AFFB7F /* SpeechRecognition */ = {
 			isa = PBXGroup;
 			children = (
 				83BCCDD6264C797100AAAF9B /* SpeechRecognition.swift */,
 				83AF2C22264D660E00DB9909 /* SpeechRecognitionLocaleSelectionViewController.swift */,
 			);
-			path = "Speech Recognition";
+			path = SpeechRecognition;
 			sourceTree = "<group>";
 		};
-		83AA6D8A2677749300AFFB7F /* Google Translator */ = {
+		83AA6D8A2677749300AFFB7F /* GoogleTranslator */ = {
 			isa = PBXGroup;
 			children = (
 				83AA6D8B267774BD00AFFB7F /* MLTranslator.swift */,
 				83AA6D8D26777DD800AFFB7F /* TranslateToLanguageSelectionController.swift */,
 			);
-			path = "Google Translator";
+			path = GoogleTranslator;
 			sourceTree = "<group>";
 		};
-		83ABA24F264BE316001784B8 /* Speech Recoginiton */ = {
+		83ABA24F264BE316001784B8 /* SpeechRecoginiton */ = {
 			isa = PBXGroup;
 			children = (
 				83ABA250264BE340001784B8 /* SpeechRecognitionViewController.swift */,
 				83AF2C75264D9CD100DB9909 /* TextViewFullScreenViewController.swift */,
 				83AF2C78264D9CEF00DB9909 /* TextViewFullScreenViewController.storyboard */,
 				83ABA253264BE346001784B8 /* SpeechRecognitionViewController.storyboard */,
-				83AA6D8A2677749300AFFB7F /* Google Translator */,
-				83AA6D892677747800AFFB7F /* Speech Recognition */,
+				83AA6D8A2677749300AFFB7F /* GoogleTranslator */,
+				83AA6D892677747800AFFB7F /* SpeechRecognition */,
 				839FAC22264EE846004910D9 /* Settings */,
 			);
-			path = "Speech Recoginiton";
+			path = SpeechRecoginiton;
 			sourceTree = "<group>";
 		};
 		83AC1EF92693A9FD0019C36F /* Localizations */ = {
@@ -797,17 +778,17 @@
 			path = Localizations;
 			sourceTree = "<group>";
 		};
-		83EAFE89264C263700FF9CAC /* Common */ = {
+		83EAFE89264C263700FF9CAC /* General */ = {
 			isa = PBXGroup;
 			children = (
 				83A8E8BB2645A71D0080AEE5 /* BaseViewController.swift */,
 				83C81AA0264A86F300B3F8E2 /* Extensions.swift */,
 				83A8E8BE2645A76D0080AEE5 /* Gradientable.swift */,
-				834EB73126482F9600026F01 /* Particle View */,
-				839DE07026529F1B00A65DD7 /* Progress view */,
+				834EB73126482F9600026F01 /* ParticleView */,
+				839DE07026529F1B00A65DD7 /* Progressview */,
 				83A8E8C12645A7FD0080AEE5 /* Spring */,
 			);
-			path = Common;
+			path = General;
 			sourceTree = "<group>";
 		};
 		9094A7AF71082B3103E99273 /* Pods */ = {
@@ -951,12 +932,11 @@
 			path = OneSignal;
 			sourceTree = "<group>";
 		};
-		9A27ED8126CDA9F200D8EF09 /* Supporting Files */ = {
+		9A27ED8126CDA9F200D8EF09 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
 				9A122CF2283B9FA800944287 /* hearing_aid_instruction.mp4 */,
 				83A8E8A72645898B0080AEE5 /* Assets.xcassets */,
-				83A8E8AC2645898B0080AEE5 /* Info.plist */,
 				83ABAC4F265BBA3C00A20D0E /* GoogleService-Info.plist */,
 				83A8E8A92645898B0080AEE5 /* LaunchScreen.storyboard */,
 				83AC1EF92693A9FD0019C36F /* Localizations */,
@@ -964,7 +944,7 @@
 				A51EBD3126D956BE00674657 /* Ringtone */,
 				A52F8AFE26D19FF100034120 /* Video */,
 			);
-			path = "Supporting Files";
+			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
 		9A3328B426E203D700D5F32B /* Managers */ = {
@@ -1504,7 +1484,7 @@
 				A5B2325226CC48080042AA7B /* Helpers */,
 				9A3328B426E203D700D5F32B /* Managers */,
 				A5B2324126CC44C70042AA7B /* Services */,
-				9A27ED8126CDA9F200D8EF09 /* Supporting Files */,
+				9A27ED8126CDA9F200D8EF09 /* SupportingFiles */,
 			);
 			path = New;
 			sourceTree = "<group>";
@@ -1733,8 +1713,6 @@
 				9ABEB29A26D3FF5600A8252D /* HeadphonesReminderViewController.xib in Resources */,
 				83A0A0C9267E02C700D06F35 /* Spawn.ahap in Resources */,
 				A51EBD3426D9572E00674657 /* dialogAfter.mp3 in Resources */,
-				11DC522D2CD403E400A9589A /* AlternateIconsViewController.storyboard in Resources */,
-				11DC522E2CD403E400A9589A /* ThemeViewController.storyboard in Resources */,
 				9A60EDFC281FE99600112720 /* SettingsViewController.xib in Resources */,
 				A58219B026F9196D005BFCD6 /* OnboardingCollectionViewCell.xib in Resources */,
 				9A949F5828A293E800F7D7D4 /* FakeSplashViewController.xib in Resources */,
@@ -1894,7 +1872,7 @@
 				9A42A9C526CEFAC400496DC9 /* InAppPurchasesService.swift in Sources */,
 				9AE1EC8F283D0BD000941B54 /* MoreViewController.swift in Sources */,
 				839DE07426529F1B00A65DD7 /* ActivityIndicatorView.swift in Sources */,
-				11DC523E2CD4139200A9589A /* AmplitudeViewController.swift in Sources */,
+				11DC523E2CD4139200A9589A /* AnalliticAmplViewController.swift in Sources */,
 				9ACB45BE2812B9BF00FAF44E /* TapCountingDrumPadGrid.swift in Sources */,
 				A5B2324626CC44C70042AA7B /* IServiceProtocol.swift in Sources */,
 				9A5512DC28096B870078C5E5 /* TabBarViewController.swift in Sources */,
@@ -1973,9 +1951,7 @@
 				9AC37F6A2833DBC100F95E24 /* TranscribeService.swift in Sources */,
 				9A60EDD3281AE17800112720 /* EqualizerTableViewCell.swift in Sources */,
 				9ACB45EE2812F29900FAF44E /* SimpleSegmentTableViewCell.swift in Sources */,
-				11DC52302CD403E400A9589A /* ThemeViewController.swift in Sources */,
 				11DC52332CD403E400A9589A /* Theme.swift in Sources */,
-				11DC52342CD403E400A9589A /* AlternateIconsViewController.swift in Sources */,
 				9ADD32C328365A24002ADA43 /* LocalesListViewController.swift in Sources */,
 				9AAB268C26FA23DA007F4A67 /* (null) in Sources */,
 				9A5512E628097A270078C5E5 /* PMBaseViewController.swift in Sources */,
@@ -2256,7 +2232,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 7ST4DBW6T5;
-				INFOPLIST_FILE = "Hearing Aid App/New/Supporting Files/Info.plist";
+				INFOPLIST_FILE = "Hearing Aid App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2285,7 +2261,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7ST4DBW6T5;
-				INFOPLIST_FILE = "Hearing Aid App/New/Supporting Files/Info.plist";
+				INFOPLIST_FILE = "Hearing Aid App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

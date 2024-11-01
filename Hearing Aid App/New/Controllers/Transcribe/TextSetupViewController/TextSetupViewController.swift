@@ -118,7 +118,7 @@ extension TextSetupViewController: TextParametersTableViewCellDelegate {
         sliderTimer?.invalidate()
         sliderTimer = Timer.scheduledTimer(withTimeInterval: AnalyticsAction.delaySliderInterval, repeats: false) { [weak self] _ in
             guard let self = self else { return }
-            AppConfigService.shared.analytics.track(action: self.screenType.analyticAction, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.change.rawValue)_\(parameter.rawValue)"])
+            AppConfiguration.shared.analytics.track(action: self.screenType.analyticAction, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.change.rawValue)_\(parameter.rawValue)"])
         }
     }
 }
@@ -136,7 +136,7 @@ extension TextSetupViewController: SettingTableViewCellDelegate {
         switch indexRow {
         case 1 where screenType == .transcribe: // Locale
             NavigationManager.shared.pushLocalesListViewController(with: screenType == .transcribe ? .transcribe : .translateFrom, with: self)
-            AppConfigService.shared.analytics.track(action: screenType.analyticAction, with: [AnalyticsAction.action.rawValue: AnalyticsAction.changeLanguage.rawValue])
+            AppConfiguration.shared.analytics.track(action: screenType.analyticAction, with: [AnalyticsAction.action.rawValue: AnalyticsAction.changeLanguage.rawValue])
         case 1 where screenType == .translate, 2 where screenType == .transcribe: // Shake
             switch type {
             case .switchButton:
@@ -146,7 +146,7 @@ extension TextSetupViewController: SettingTableViewCellDelegate {
                 dataSource[indexRow] = SettingTableViewCellConfig(item: newCellModel)
                 
                 let stringState = newState ? AnalyticsAction.enable.rawValue : AnalyticsAction.disable.rawValue
-                AppConfigService.shared.analytics.track(action: screenType.analyticAction, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.shakeClearText.rawValue)_\(stringState)"])
+                AppConfiguration.shared.analytics.track(action: screenType.analyticAction, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.shakeClearText.rawValue)_\(stringState)"])
             default:
                 break
             }

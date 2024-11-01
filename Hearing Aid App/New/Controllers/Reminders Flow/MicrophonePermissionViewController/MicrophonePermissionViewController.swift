@@ -23,13 +23,13 @@ final class MicrophonePermissionViewController: UIViewController {
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        AppConfigService.shared.analytics.track(.v2MicrophoneReminder, with: [AnalyticsAction.action.rawValue: AnalyticsAction.open.rawValue])
+        AppConfiguration.shared.analytics.track(.v2MicrophoneReminder, with: [AnalyticsAction.action.rawValue: AnalyticsAction.open.rawValue])
         configureUI()
     }
     
     //MARK: - IBActions
     @IBAction private func allowButtonAction(_ sender: UIButton) {
-        AppConfigService.shared.analytics.track(.v2MicrophoneReminder, with: [AnalyticsAction.action.rawValue: AnalyticsAction.allow.rawValue])
+        AppConfiguration.shared.analytics.track(.v2MicrophoneReminder, with: [AnalyticsAction.action.rawValue: AnalyticsAction.allow.rawValue])
         TapticEngine.impact.feedback(.medium)
         AudioKitService.shared.requestMicrophonePermission { [weak self] accepted in
             accepted ? self?.dismiss(animated: true) : Void()
@@ -37,7 +37,7 @@ final class MicrophonePermissionViewController: UIViewController {
     }
     
     @IBAction private func latterButtonAction(_ sender: UIButton) {
-        AppConfigService.shared.analytics.track(.v2MicrophoneReminder, with: [AnalyticsAction.action.rawValue: AnalyticsAction.close.rawValue])
+        AppConfiguration.shared.analytics.track(.v2MicrophoneReminder, with: [AnalyticsAction.action.rawValue: AnalyticsAction.close.rawValue])
         TapticEngine.impact.feedback(.medium)
         dismiss(animated: true)
     }

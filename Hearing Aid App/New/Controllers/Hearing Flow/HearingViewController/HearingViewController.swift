@@ -186,7 +186,7 @@ final class HearingViewController: PMBaseViewController {
         
         AudioKitService.shared.didInitialiseService = { [weak self] in
             guard let self = self else { return }
-            if !self.isConfiguredWaveView, AppConfigService.shared.settings.appLaunchCount <= 1 {
+            if !self.isConfiguredWaveView, AppConfiguration.shared.settings.appLaunchCount <= 1 {
                 self.isConfiguredWaveView = true
                 self.configureWaveView()
             }
@@ -308,11 +308,11 @@ final class HearingViewController: PMBaseViewController {
         newState ? TapticEngine.customHaptic.playOn() : TapticEngine.customHaptic.playOff()
         mainSwitchImageView.tintColor = newState ? ThemeService.shared.activeColor : UIColor.appColor(.UnactiveButton_1)
         powerInfoLabel.isHidden = newState
-        newState && AudioKitService.shared.countOfUsingAid % 3 == 0 ? AppConfigService.shared.settings.presentAppRatingAlert() : Void()
+        newState && AudioKitService.shared.countOfUsingAid % 3 == 0 ? AppConfiguration.shared.settings.presentAppRatingAlert() : Void()
         newState ? AudioKitService.shared.increaseCountOfUsing(for: .aid) : Void()
         
         let stringState = newState ? AnalyticsAction.enable.rawValue : AnalyticsAction.disable.rawValue
-        AppConfigService.shared.analytics.track(action: .v2HearingScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.microphone.rawValue)_\(stringState)"])
+        AppConfiguration.shared.analytics.track(action: .v2HearingScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.microphone.rawValue)_\(stringState)"])
     }
     
     @IBAction private func bottomButtonsAction(_ sender: UIButton) {
@@ -323,31 +323,31 @@ final class HearingViewController: PMBaseViewController {
         switch buttonType {
         case .proSetup:
             NavigationManager.shared.presentProSetupViewController(with: self)
-            AppConfigService.shared.analytics.track(action: .v2HearingScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.proSetup.rawValue])
+            AppConfiguration.shared.analytics.track(action: .v2HearingScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.proSetup.rawValue])
         case .noiseOff:
             let newState = !AudioKitService.shared.isNoiseOffEnabled
             AudioKitService.shared.setNoiseOFF(newState)
             setBottomButton(.noiseOff, asSelected: newState)
             
             let stringState = newState ? AnalyticsAction.enable.rawValue : AnalyticsAction.disable.rawValue
-            AppConfigService.shared.analytics.track(action: .v2HearingScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.noise.rawValue)_\(stringState)"])
+            AppConfiguration.shared.analytics.track(action: .v2HearingScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.noise.rawValue)_\(stringState)"])
         case .stereo:
             let newState = !AudioKitService.shared.isStereoEnabled
             AudioKitService.shared.setStereo(newState)
             setBottomButton(.stereo, asSelected: newState)
             
             let stringState = newState ? AnalyticsAction.enable.rawValue : AnalyticsAction.disable.rawValue
-            AppConfigService.shared.analytics.track(action: .v2HearingScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.stereo.rawValue)_\(stringState)"])
+            AppConfiguration.shared.analytics.track(action: .v2HearingScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.stereo.rawValue)_\(stringState)"])
         case .templates:
             NavigationManager.shared.presentTemplatesViewController(with: self)
-            AppConfigService.shared.analytics.track(action: .v2HearingScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.templates.rawValue])
+            AppConfiguration.shared.analytics.track(action: .v2HearingScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.templates.rawValue])
         }
     }
     
     @IBAction private func infoButtonAction(_ sender: UIButton) {
         TapticEngine.impact.feedback(.medium)
         NavigationManager.shared.presentCustomVideoInstructionViewController()
-        AppConfigService.shared.analytics.track(action: .v2HearingScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.info.rawValue])
+        AppConfiguration.shared.analytics.track(action: .v2HearingScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.info.rawValue])
     }
     
     @IBAction private func sliderValueChanged(_ sender: UISlider) {
@@ -362,7 +362,7 @@ final class HearingViewController: PMBaseViewController {
         
         balanceTimer?.invalidate()
         balanceTimer = Timer.scheduledTimer(withTimeInterval: AnalyticsAction.delaySliderInterval, repeats: false) { _ in
-            AppConfigService.shared.analytics.track(action: .v2HearingScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.changeBalance.rawValue])
+            AppConfiguration.shared.analytics.track(action: .v2HearingScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.changeBalance.rawValue])
         }
     }
     
@@ -370,7 +370,7 @@ final class HearingViewController: PMBaseViewController {
         func trackAnalytic() {
             volumeTimer?.invalidate()
             volumeTimer = Timer.scheduledTimer(withTimeInterval: AnalyticsAction.delaySliderInterval, repeats: false) { _ in
-                AppConfigService.shared.analytics.track(action: .v2HearingScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.changeVolume.rawValue])
+                AppConfiguration.shared.analytics.track(action: .v2HearingScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.changeVolume.rawValue])
             }
         }
         

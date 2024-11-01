@@ -76,11 +76,11 @@ final class TranslateService: NSObject {
         translator = Translator.translator(options: options)
         modelManager = ModelManager.modelManager()
         
-        if !AppConfigService.shared.settings.outputLanguageSetted {
+        if !AppConfiguration.shared.settings.outputLanguageSetted {
             let phoneInputLanguage = TranslationLanguage.allLanguages().first(where: { $0.rawValue == TranscribeService.shared.selectedLocale.components(separatedBy: "-").first ?? "en" }) ?? TranslationLanguage(rawValue: "en")
             outputLanguage = TranslationLanguage(rawValue: phoneInputLanguage.rawValue == "en" ? "de" : "en")
             inputLanguage = inputLanguages.contains(where: { $0.rawValue == phoneInputLanguage.rawValue }) ? phoneInputLanguage : TranslationLanguage(rawValue: "en")
-            AppConfigService.shared.settings.outputLanguageSetted = true
+            AppConfiguration.shared.settings.outputLanguageSetted = true
         }
         
         downloadModel(language: inputLanguage, completion: nil)

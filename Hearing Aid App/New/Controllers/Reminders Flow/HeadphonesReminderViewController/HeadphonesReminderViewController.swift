@@ -45,7 +45,7 @@ final class HeadphonesReminderViewController: UIViewController {
     //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        AppConfigService.shared.analytics.track(.v2HeadphonesReminder, with: [AnalyticsAction.action.rawValue: AnalyticsAction.open.rawValue])
+        AppConfiguration.shared.analytics.track(.v2HeadphonesReminder, with: [AnalyticsAction.action.rawValue: AnalyticsAction.open.rawValue])
         configureUI()
         configureObserver()
         chargePlayer()
@@ -67,13 +67,13 @@ final class HeadphonesReminderViewController: UIViewController {
     
     //MARK: - Actions
     @IBAction private func nextButtonAction(_ sender: UIButton) {
-        AppConfigService.shared.analytics.track(.v2HeadphonesReminder, with: [AnalyticsAction.action.rawValue: AnalyticsAction.close.rawValue])
+        AppConfiguration.shared.analytics.track(.v2HeadphonesReminder, with: [AnalyticsAction.action.rawValue: AnalyticsAction.close.rawValue])
         TapticEngine.impact.feedback(.medium)
         dismiss(animated: true)
     }
     
     @IBAction private func airplayButtonAction(_ sender: UIButton) {
-        AppConfigService.shared.analytics.track(.v2HeadphonesReminder, with: [AnalyticsAction.action.rawValue: AnalyticsAction.airPlay.rawValue])
+        AppConfiguration.shared.analytics.track(.v2HeadphonesReminder, with: [AnalyticsAction.action.rawValue: AnalyticsAction.airPlay.rawValue])
         TapticEngine.impact.feedback(.medium)
         routePickerView.present()
     }
@@ -140,7 +140,7 @@ final class HeadphonesReminderViewController: UIViewController {
 
         switch audioRouteChangeReason {
         case AVAudioSession.RouteChangeReason.newDeviceAvailable.rawValue:
-            AppConfigService.shared.analytics.track(.v2HeadphonesReminder, with: [AnalyticsAction.action.rawValue: AnalyticsAction.connected.rawValue])
+            AppConfiguration.shared.analytics.track(.v2HeadphonesReminder, with: [AnalyticsAction.action.rawValue: AnalyticsAction.connected.rawValue])
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [weak self] in
                 if AudioKitService.shared.connectedHeadphones {
                     AudioKitService.shared.setAudioEngine(true)

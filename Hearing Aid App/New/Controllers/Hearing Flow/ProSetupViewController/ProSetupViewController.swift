@@ -28,7 +28,7 @@ final class ProSetupViewController: PMBaseViewController {
         super.viewDidLoad()
         configureUI()
         configureDataSource()
-        AppConfigService.shared.analytics.track(action: .v2HearingProSetupScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.open.rawValue])
+        AppConfiguration.shared.analytics.track(action: .v2HearingProSetupScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.open.rawValue])
     }
     
     override func didChangeTheme() {
@@ -84,7 +84,7 @@ final class ProSetupViewController: PMBaseViewController {
     @objc private func closeButtonAction() {
         dismiss(animated: true)
         
-        AppConfigService.shared.analytics.track(action: .v2HearingProSetupScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.close.rawValue])
+        AppConfiguration.shared.analytics.track(action: .v2HearingProSetupScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.close.rawValue])
     }
 }
 
@@ -129,7 +129,7 @@ extension ProSetupViewController: SimpleSegmentTableViewCellDelegate {
         delegate?.didChangeMicrophone()
         
         let selectedMicrophoneString = String(describing: MicrophoneType.selectedMicrophone)
-        AppConfigService.shared.analytics.track(action: .v2HearingProSetupScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.changeMicrophone.rawValue)_\(selectedMicrophoneString)"])
+        AppConfiguration.shared.analytics.track(action: .v2HearingProSetupScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.changeMicrophone.rawValue)_\(selectedMicrophoneString)"])
     }
 }
 
@@ -146,7 +146,7 @@ extension ProSetupViewController: CenterButtonTableViewCellDelegate {
         delegate?.didUpdateSystemVolumeValue()
         delegate?.didChangeMicrophone()
         
-        AppConfigService.shared.analytics.track(action: .v2HearingProSetupScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.reset.rawValue])
+        AppConfiguration.shared.analytics.track(action: .v2HearingProSetupScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.reset.rawValue])
     }
 }
 
@@ -166,7 +166,7 @@ extension ProSetupViewController: SettingTableViewCellDelegate {
             case .info:
                 presentAlertPM(title: "Info".localized(), message: "If you set this option, system will mixes audio from this app with audio playing in background apps, such as the Music app.\nFor example, you want to listen a music or audio book over headphones, and at the same time hear sounds around you very well.\nIf this option OFF system reduces the volume of other audio apps to make the audio of this app more prominent.".localized())
                 
-                AppConfigService.shared.analytics.track(action: .v2HearingProSetupScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.musicMode.rawValue)_\(AnalyticsAction.info.rawValue)"])
+                AppConfiguration.shared.analytics.track(action: .v2HearingProSetupScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.musicMode.rawValue)_\(AnalyticsAction.info.rawValue)"])
             case .switchButton:
                 let newState = !AudioKitService.shared.isMusicModeEnabled
                 AudioKitService.shared.setMusicMode(newState)
@@ -174,7 +174,7 @@ extension ProSetupViewController: SettingTableViewCellDelegate {
                 dataSource[indexRow] = SettingTableViewCellConfig(item: newCellModel)
                 
                 let stringState = newState ? AnalyticsAction.enable.rawValue : AnalyticsAction.disable.rawValue
-                AppConfigService.shared.analytics.track(action: .v2HearingProSetupScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.musicMode.rawValue)_\(stringState)"])
+                AppConfiguration.shared.analytics.track(action: .v2HearingProSetupScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.musicMode.rawValue)_\(stringState)"])
             default:
                 break
             }
@@ -183,7 +183,7 @@ extension ProSetupViewController: SettingTableViewCellDelegate {
             case .info:
                 presentAlertPM(title: "Info".localized(), message: "Increase Volume of Hearing Aid together with the device system volume".localized())
                 
-                AppConfigService.shared.analytics.track(action: .v2HearingProSetupScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.systemVolume.rawValue)_\(AnalyticsAction.info.rawValue)"])
+                AppConfiguration.shared.analytics.track(action: .v2HearingProSetupScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.systemVolume.rawValue)_\(AnalyticsAction.info.rawValue)"])
             case .switchButton:
                 let newState = !AudioKitService.shared.isUseSystemVolume
                 AudioKitService.shared.setUseSystemVolume(newState)
@@ -192,7 +192,7 @@ extension ProSetupViewController: SettingTableViewCellDelegate {
                 delegate?.didUpdateSystemVolumeValue()
                 
                 let stringState = newState ? AnalyticsAction.enable.rawValue : AnalyticsAction.disable.rawValue
-                AppConfigService.shared.analytics.track(action: .v2HearingProSetupScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.systemVolume.rawValue)_\(stringState)"])
+                AppConfiguration.shared.analytics.track(action: .v2HearingProSetupScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.systemVolume.rawValue)_\(stringState)"])
             default:
                 break
             }
@@ -201,7 +201,7 @@ extension ProSetupViewController: SettingTableViewCellDelegate {
             case .info:
                 presentAlertPM(title: "Info".localized(), message: "AI helps to pick a voice out from the background noise and other sounds".localized())
                 
-                AppConfigService.shared.analytics.track(action: .v2HearingProSetupScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.clearVoice.rawValue)_\(AnalyticsAction.info.rawValue)"])
+                AppConfiguration.shared.analytics.track(action: .v2HearingProSetupScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.clearVoice.rawValue)_\(AnalyticsAction.info.rawValue)"])
             case .switchButton:
                 let newState = !AudioKitService.shared.isClearVoice
                 AudioKitService.shared.setClearVoice(newState)
@@ -209,22 +209,22 @@ extension ProSetupViewController: SettingTableViewCellDelegate {
                 dataSource[indexRow] = SettingTableViewCellConfig(item: newCellModel)
                 
                 let stringState = newState ? AnalyticsAction.enable.rawValue : AnalyticsAction.disable.rawValue
-                AppConfigService.shared.analytics.track(action: .v2HearingProSetupScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.clearVoice.rawValue)_\(stringState)"])
+                AppConfiguration.shared.analytics.track(action: .v2HearingProSetupScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.clearVoice.rawValue)_\(stringState)"])
             default:
                 break
             }
         case 4:
             NavigationManager.shared.pushVoiceChangerViewController()
-            AppConfigService.shared.analytics.track(action: .v2HearingProSetupScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.voiceChanger.rawValue])
+            AppConfiguration.shared.analytics.track(action: .v2HearingProSetupScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.voiceChanger.rawValue])
         case 5: // Compressor
             NavigationManager.shared.pushCompressorViewController()
-            AppConfigService.shared.analytics.track(action: .v2HearingProSetupScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.compressor.rawValue])
+            AppConfiguration.shared.analytics.track(action: .v2HearingProSetupScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.compressor.rawValue])
         case 6: // Limiter
             NavigationManager.shared.pushLimiterViewController()
-            AppConfigService.shared.analytics.track(action: .v2HearingProSetupScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.limiter.rawValue])
+            AppConfiguration.shared.analytics.track(action: .v2HearingProSetupScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.limiter.rawValue])
         case 7: // Equalizer
             NavigationManager.shared.pushEqualizerViewController()
-            AppConfigService.shared.analytics.track(action: .v2HearingProSetupScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.equalizer.rawValue])
+            AppConfiguration.shared.analytics.track(action: .v2HearingProSetupScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.equalizer.rawValue])
         default:
             break
         }

@@ -30,7 +30,7 @@ final class TemplatesViewController: PMBaseViewController {
         configureUI()
         configureDataSource()
         
-        AppConfigService.shared.analytics.track(action: .v2TemplatesScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.open.rawValue])
+        AppConfiguration.shared.analytics.track(action: .v2TemplatesScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.open.rawValue])
     }
     
     override func didChangeTheme() {
@@ -69,7 +69,7 @@ final class TemplatesViewController: PMBaseViewController {
     @objc private func closeButtonAction() {
         dismiss(animated: true)
         
-        AppConfigService.shared.analytics.track(action: .v2TemplatesScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.close.rawValue])
+        AppConfiguration.shared.analytics.track(action: .v2TemplatesScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.close.rawValue])
     }
 }
 
@@ -107,7 +107,7 @@ extension TemplatesViewController: CenterButtonTableViewCellDelegate {
         configureDataSource()
         delegate?.didChangeTemplatesValue()
         
-        AppConfigService.shared.analytics.track(action: .v2TemplatesScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.reset.rawValue])
+        AppConfiguration.shared.analytics.track(action: .v2TemplatesScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.reset.rawValue])
     }
 }
 
@@ -125,7 +125,7 @@ extension TemplatesViewController: SettingTableViewCellDelegate {
         case .info:
             presentAlertPM(title: "Info".localized(), message: "The Reverberation allows you to simulate the environment, space, room around you".localized())
             
-            AppConfigService.shared.analytics.track(action: .v2TemplatesScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.templates.rawValue)_\(AnalyticsAction.info.rawValue)"])
+            AppConfiguration.shared.analytics.track(action: .v2TemplatesScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.templates.rawValue)_\(AnalyticsAction.info.rawValue)"])
         case .switchButton:
             let newState = !AudioKitService.shared.isTemplatesEnabled
             AudioKitService.shared.setTemplates(newState)
@@ -134,7 +134,7 @@ extension TemplatesViewController: SettingTableViewCellDelegate {
             delegate?.didChangeTemplatesValue()
             
             let stringState = newState ? AnalyticsAction.enable.rawValue : AnalyticsAction.disable.rawValue
-            AppConfigService.shared.analytics.track(action: .v2TemplatesScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.templates.rawValue)_\(stringState)"])
+            AppConfiguration.shared.analytics.track(action: .v2TemplatesScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.templates.rawValue)_\(stringState)"])
         default:
             break
         }
@@ -155,7 +155,7 @@ extension TemplatesViewController: SliderTableViewCellDelegate {
         
         volumeTimer?.invalidate()
         volumeTimer = Timer.scheduledTimer(withTimeInterval: AnalyticsAction.delaySliderInterval, repeats: false) { _ in
-            AppConfigService.shared.analytics.track(action: .v2TemplatesScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.changeVolume.rawValue])
+            AppConfiguration.shared.analytics.track(action: .v2TemplatesScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.changeVolume.rawValue])
         }
     }
 }
@@ -171,6 +171,6 @@ extension TemplatesViewController: CenterPickerTableViewCellDelegate {
         let newCellModel = CenterPickerTableViewCellModel(dataSource: cellModel.dataSource, selectedValue: selectedTemplate, delegate: self)
         dataSource[indexRow] = CenterPickerTableViewCellConfig(item: newCellModel)
         
-        AppConfigService.shared.analytics.track(action: .v2TemplatesScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.changeTemplate.rawValue])
+        AppConfiguration.shared.analytics.track(action: .v2TemplatesScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.changeTemplate.rawValue])
     }
 }

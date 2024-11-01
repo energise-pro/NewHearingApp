@@ -32,7 +32,7 @@ final class SpeechRecognitionSettingsViewController: BaseViewController {
         SpeechRecognitionSettings.FontSize.setValue(value)
         TapticEngine.selection.feedback()
         
-        AppConfigService.shared.analytics.track(action: .v2TranscribeScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.changeFontSize.rawValue])
+        AppConfiguration.shared.analytics.track(action: .v2TranscribeScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.changeFontSize.rawValue])
     }
 
     @IBAction func switchAction(sender: UISwitch) {
@@ -45,10 +45,10 @@ final class SpeechRecognitionSettingsViewController: BaseViewController {
         switch setting {
         case .TranslateMode:
             let stringState = sender.isOn ? AnalyticsAction.enable.rawValue : AnalyticsAction.disable.rawValue
-            AppConfigService.shared.analytics.track(action: .v2TranscribeScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.translateMode.rawValue)_\(stringState)"])
+            AppConfiguration.shared.analytics.track(action: .v2TranscribeScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.translateMode.rawValue)_\(stringState)"])
         case .ShakeToClearText:
             let stringState = sender.isOn ? AnalyticsAction.enable.rawValue : AnalyticsAction.disable.rawValue
-            AppConfigService.shared.analytics.track(action: .v2TranscribeScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.shakeClearText.rawValue)_\(stringState)"])
+            AppConfiguration.shared.analytics.track(action: .v2TranscribeScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.shakeClearText.rawValue)_\(stringState)"])
         default:
             break
         }
@@ -62,7 +62,7 @@ final class SpeechRecognitionSettingsViewController: BaseViewController {
         delegate?.didChangeTextAlignment(alignment)
         SpeechRecognitionSettings.TextAlignment.setValue(alignment.rawValue)
         
-        AppConfigService.shared.analytics.track(action: .v2TranscribeScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.change.rawValue)_\(AnalyticsAction.alignment.rawValue)"])
+        AppConfiguration.shared.analytics.track(action: .v2TranscribeScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.change.rawValue)_\(AnalyticsAction.alignment.rawValue)"])
     }
 
     @IBAction func fontWeightAction(sender: UIButton) {
@@ -72,7 +72,7 @@ final class SpeechRecognitionSettingsViewController: BaseViewController {
         delegate?.didChangeFontWeight(weight)
         SpeechRecognitionSettings.FontWeight.setValue(weight)
         
-        AppConfigService.shared.analytics.track(action: .v2TranscribeScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.change.rawValue)_\(AnalyticsAction.weight.rawValue)"])
+        AppConfiguration.shared.analytics.track(action: .v2TranscribeScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.change.rawValue)_\(AnalyticsAction.weight.rawValue)"])
     }
     
     //MARK: - Deinit
@@ -119,7 +119,7 @@ final class SpeechRecognitionSettingsViewController: BaseViewController {
 //                }
 //            }
 //        }
-//        AppConfigService.shared.analytics.track(action: .settingsHearingAid, with: [AnalyticsAction.parameters.rawValue: analyticsParams])
+//        AppConfiguration.shared.analytics.track(action: .settingsHearingAid, with: [AnalyticsAction.parameters.rawValue: analyticsParams])
     }
 }
 

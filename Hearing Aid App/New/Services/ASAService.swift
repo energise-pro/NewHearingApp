@@ -103,7 +103,7 @@ final class ASAService {
         
         allProperties["IDFA"] = IDFA
         
-        AppConfigService.shared.analytics.setUserProperty(with: allProperties)
+        AppConfiguration.shared.analytics.setUserProperty(with: allProperties)
     }
     
     private func setAppInstall(searchAdAttributes: [String: Any]) {

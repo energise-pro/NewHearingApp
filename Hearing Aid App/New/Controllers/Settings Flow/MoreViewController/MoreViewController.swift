@@ -31,7 +31,7 @@ final class MoreViewController: PMBaseViewController {
     }
     
     private func configureDataSource() {
-        let segmentCellModel = SimpleSegmentTableViewCellModel(mainTitle: "Main Screen".localized(), titles: [TabBarViewController.TabBarButton.hearing.title, TabBarViewController.TabBarButton.transcribe.title], selectedIndex: AppConfigService.shared.settings.mainScreen, delegate: self)
+        let segmentCellModel = SimpleSegmentTableViewCellModel(mainTitle: "Main Screen".localized(), titles: [TabBarViewController.TabBarButton.hearing.title, TabBarViewController.TabBarButton.transcribe.title], selectedIndex: AppConfiguration.shared.settings.mainScreen, delegate: self)
         let segmentCellConfig = SimpleSegmentTableViewCellConfig(item: segmentCellModel)
         
         let manageCellModel = SettingTableViewCellModel(title: "Manage subscriptions".localized(), buttonTypes: [.rightButton], delegate: self)
@@ -48,7 +48,7 @@ final class MoreViewController: PMBaseViewController {
     @objc private func closeButtonAction() {
         dismiss(animated: true)
         
-        AppConfigService.shared.analytics.track(action: .v2MoreScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.close.rawValue])
+        AppConfiguration.shared.analytics.track(action: .v2MoreScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.close.rawValue])
     }
 }
 
@@ -88,11 +88,11 @@ extension MoreViewController: SettingTableViewCellDelegate {
         case 1: // Manage subscription
             NavigationManager.shared.presentManageSubscription()
             
-            AppConfigService.shared.analytics.track(.v2MoreScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.manageSubscriptions.rawValue])
+            AppConfiguration.shared.analytics.track(.v2MoreScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.manageSubscriptions.rawValue])
         case 2: // Cancel subscription
             NavigationManager.shared.presentCancelSubscriptionViewController()
             
-            AppConfigService.shared.analytics.track(.v2MoreScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.cancelSubscription.rawValue])
+            AppConfiguration.shared.analytics.track(.v2MoreScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.cancelSubscription.rawValue])
         default:
             break
         }
@@ -105,12 +105,12 @@ extension MoreViewController: SimpleSegmentTableViewCellDelegate {
     func didSelectSegment(with index: Int, from cell: UITableViewCell) {
         guard let indexPath = tableView.indexPath(for: cell),
               var cellModel = dataSource[safe: indexPath.row]?.getItem() as? SimpleSegmentTableViewCellModel,
-              AppConfigService.shared.settings.mainScreen != index else {
+              AppConfiguration.shared.settings.mainScreen != index else {
             return
         }
         
         TapticEngine.impact.feedback(.medium)
-        AppConfigService.shared.settings.mainScreen = index
+        AppConfiguration.shared.settings.mainScreen = index
         
         cellModel.selectedIndex = MicrophoneType.selectedMicrophone.rawValue
         let cellConfig = SimpleSegmentTableViewCellConfig(item: cellModel)
@@ -119,6 +119,6 @@ extension MoreViewController: SimpleSegmentTableViewCellDelegate {
         NavigationManager.shared.tabBarViewController?.reconfigureUI()
         
         let selectedMainScreenString = String(describing: TabBarViewController.TabBarButton(rawValue: index)!)
-        AppConfigService.shared.analytics.track(.v2MoreScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.changeMainScreen.rawValue)_\(selectedMainScreenString)"])
+        AppConfiguration.shared.analytics.track(.v2MoreScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.changeMainScreen.rawValue)_\(selectedMainScreenString)"])
     }
 }

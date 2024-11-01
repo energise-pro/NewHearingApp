@@ -36,7 +36,7 @@ final class CatchUpViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         UserDefaults.standard.setValue(true, forKey: Constants.Keys.wasPresentedCatchUp)
-        AppConfigService.shared.analytics.track(.v2CatchUp, with: [AnalyticsAction.action.rawValue: AnalyticsAction.open.rawValue])
+        AppConfiguration.shared.analytics.track(.v2CatchUp, with: [AnalyticsAction.action.rawValue: AnalyticsAction.open.rawValue])
         configureUI()
     }
     
@@ -103,7 +103,7 @@ final class CatchUpViewController: BaseViewController {
     @IBAction private func subscribeButtonAction(_ sender: UIButton) {
         TapticEngine.impact.feedback(.medium)
         if let offerPlan = offerSubscriptionPlan {
-            AppConfigService.shared.analytics.track(.v2CatchUp, with: [AnalyticsAction.action.rawValue: AnalyticsAction.subscribe.rawValue])
+            AppConfiguration.shared.analytics.track(.v2CatchUp, with: [AnalyticsAction.action.rawValue: AnalyticsAction.subscribe.rawValue])
             NativeLoaderView.showLoader(at: self.view, animated: true)
             InAppPurchasesService.shared.purchase(offerPlan, from: .offer) { [weak self] isSuccess in
                 guard let self = self else {
@@ -125,7 +125,7 @@ final class CatchUpViewController: BaseViewController {
     
     @IBAction private func restoreButtonAction(_ sender: UIButton) {
         TapticEngine.impact.feedback(.medium)
-        AppConfigService.shared.analytics.track(.v2CatchUp, with: [AnalyticsAction.action.rawValue: AnalyticsAction.restore.rawValue])
+        AppConfiguration.shared.analytics.track(.v2CatchUp, with: [AnalyticsAction.action.rawValue: AnalyticsAction.restore.rawValue])
         NativeLoaderView.showLoader(at: view, animated: true)
         InAppPurchasesService.shared.restorePurchases { [weak self] isSuccess in
             guard let self = self else {
@@ -144,19 +144,19 @@ final class CatchUpViewController: BaseViewController {
     
     @IBAction private func termsButtonAction(_ sender: UIButton) {
         TapticEngine.impact.feedback(.medium)
-        AppConfigService.shared.analytics.track(.v2CatchUp, with: [AnalyticsAction.action.rawValue: AnalyticsAction.terms.rawValue])
+        AppConfiguration.shared.analytics.track(.v2CatchUp, with: [AnalyticsAction.action.rawValue: AnalyticsAction.terms.rawValue])
         NavigationManager.shared.presentSafariViewController(with: Constants.URLs.termsURL)
     }
     
     @IBAction private func privacyButtonAction(_ sender: UIButton) {
         TapticEngine.impact.feedback(.medium)
-        AppConfigService.shared.analytics.track(.v2CatchUp, with: [AnalyticsAction.action.rawValue: AnalyticsAction.privacy.rawValue])
+        AppConfiguration.shared.analytics.track(.v2CatchUp, with: [AnalyticsAction.action.rawValue: AnalyticsAction.privacy.rawValue])
         NavigationManager.shared.presentSafariViewController(with: Constants.URLs.privacyPolicyURL)
     }
     
     @IBAction private func closeButtonAction(_ sender: UIButton) {
         TapticEngine.impact.feedback(.medium)
-        AppConfigService.shared.analytics.track(.v2CatchUp, with: [AnalyticsAction.action.rawValue: AnalyticsAction.close.rawValue])
+        AppConfiguration.shared.analytics.track(.v2CatchUp, with: [AnalyticsAction.action.rawValue: AnalyticsAction.close.rawValue])
         dismiss(animated: true)
     }
 }

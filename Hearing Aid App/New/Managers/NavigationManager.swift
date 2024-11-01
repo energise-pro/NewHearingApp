@@ -132,7 +132,7 @@ final class NavigationManager: NSObject {
         mailViewController.mailComposeDelegate = self
         mailViewController.setToRecipients([Constants.General.supportEmail])
         mailViewController.setSubject("Hearing Aid App Support")
-        mailViewController.setMessageBody("<p>My app identificator: \(AppConfigService.shared.settings.userID)<br>\(Bundle.main.versionNumber) (\(Bundle.main.buildNumber))</p><br>", isHTML: true)
+        mailViewController.setMessageBody("<p>My app identificator: \(AppConfiguration.shared.settings.userID)<br>\(Bundle.main.versionNumber) (\(Bundle.main.buildNumber))</p><br>", isHTML: true)
         topViewController?.present(mailViewController, animated: true)
     }
     
@@ -144,7 +144,7 @@ final class NavigationManager: NSObject {
         mailViewController.mailComposeDelegate = self
         mailViewController.setToRecipients([Constants.General.supportEmail])
         mailViewController.setSubject("Hearing Aid - Cancel subscription")
-        mailViewController.setMessageBody("<p>My app identificator: \(AppConfigService.shared.settings.userID)<br>\(Bundle.main.versionNumber) (\(Bundle.main.buildNumber))</p><br>", isHTML: true)
+        mailViewController.setMessageBody("<p>My app identificator: \(AppConfiguration.shared.settings.userID)<br>\(Bundle.main.versionNumber) (\(Bundle.main.buildNumber))</p><br>", isHTML: true)
         topViewController?.present(mailViewController, animated: true)
     }
     

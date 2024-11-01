@@ -99,20 +99,20 @@ final class SpeechViewController: PMBaseViewController {
         switch buttonType {
         case .translate:
             NavigationManager.shared.presentTranslateViewController()
-            AppConfigService.shared.analytics.track(action: .v2TranscribeMainScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.translate.rawValue])
+            AppConfiguration.shared.analytics.track(action: .v2TranscribeMainScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.translate.rawValue])
         case .type:
             NavigationManager.shared.presentTypeTextViewController()
-            AppConfigService.shared.analytics.track(action: .v2TranscribeMainScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.type.rawValue])
+            AppConfiguration.shared.analytics.track(action: .v2TranscribeMainScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.type.rawValue])
         case .transcribe:
             NavigationManager.shared.presentTranscribeViewController()
-            AppConfigService.shared.analytics.track(action: .v2TranscribeMainScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.transcribe.rawValue])
+            AppConfiguration.shared.analytics.track(action: .v2TranscribeMainScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.transcribe.rawValue])
         }
     }
     
     @IBAction private func bookmarkButtonAction(_ sender: UIButton) {
         TapticEngine.impact.feedback(.medium)
         NavigationManager.shared.presentTranscriptsListViewController()
-        AppConfigService.shared.analytics.track(action: .v2TranscribeMainScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.saved.rawValue])
+        AppConfiguration.shared.analytics.track(action: .v2TranscribeMainScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.saved.rawValue])
     }
     
     @IBAction private func instructionButtonAction(_ sender: UIButton) {

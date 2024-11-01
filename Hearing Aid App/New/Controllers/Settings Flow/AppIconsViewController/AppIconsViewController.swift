@@ -59,9 +59,9 @@ final class AppIconsViewController: PMBaseViewController {
         let iconName = iconType == .primary ? nil : iconType.rawValue
         UIApplication.shared.setAlternateIconName(iconName)
         configureUI()
-        AppConfigService.shared.settings.presentAppRatingAlert()
+        AppConfiguration.shared.settings.presentAppRatingAlert()
         
-        AppConfigService.shared.analytics.track(action: .v2SettingsScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.changeAppIcon.rawValue)_\(iconType.analyticAction.rawValue)"])
+        AppConfiguration.shared.analytics.track(action: .v2SettingsScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.changeAppIcon.rawValue)_\(iconType.analyticAction.rawValue)"])
     }
     
     // MARK: - Private methods

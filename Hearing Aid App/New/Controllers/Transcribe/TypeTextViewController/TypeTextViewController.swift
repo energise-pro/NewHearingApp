@@ -115,7 +115,7 @@ final class TypeTextViewController: PMBaseViewController {
         TapticEngine.impact.feedback(.medium)
         dismiss(animated: true)
         
-        AppConfigService.shared.analytics.track(action: .v2TypeScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.close.rawValue])
+        AppConfiguration.shared.analytics.track(action: .v2TypeScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.close.rawValue])
     }
     
     @IBAction private func buttonsAction(_ sender: UIButton) {
@@ -128,10 +128,10 @@ final class TypeTextViewController: PMBaseViewController {
         case .trash:
             mainTextView.text = ""
             configureMainLabel(asPlaceholder: true)
-            AppConfigService.shared.analytics.track(action: .v2TypeScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.clearText.rawValue])
+            AppConfiguration.shared.analytics.track(action: .v2TypeScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.clearText.rawValue])
         case .expand:
             mainTextView.resignFirstResponder()
-            AppConfigService.shared.analytics.track(action: .v2TypeScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.expand.rawValue])
+            AppConfiguration.shared.analytics.track(action: .v2TypeScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.expand.rawValue])
         }
     }
     
@@ -139,7 +139,7 @@ final class TypeTextViewController: PMBaseViewController {
         _ = keyboardNotification.isKeyboardOpened ? mainTextView.resignFirstResponder() : mainTextView.becomeFirstResponder()
         
         let stringState = keyboardNotification.isKeyboardOpened ? AnalyticsAction.enable.rawValue : AnalyticsAction.disable.rawValue
-        AppConfigService.shared.analytics.track(action: .v2TypeScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.type.rawValue)_\(stringState)"])
+        AppConfiguration.shared.analytics.track(action: .v2TypeScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.type.rawValue)_\(stringState)"])
     }
 }
 

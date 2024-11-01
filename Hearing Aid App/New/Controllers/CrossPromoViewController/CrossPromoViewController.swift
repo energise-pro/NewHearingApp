@@ -18,7 +18,7 @@ final class CrossPromoViewController: PMBaseViewController {
         super.viewDidLoad()
         configureUI()
         
-        AppConfigService.shared.analytics.track(action: .v2CrossPromoScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.open.rawValue])
+        AppConfiguration.shared.analytics.track(action: .v2CrossPromoScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.open.rawValue])
     }
     
     override func viewWillLayoutSubviews() {
@@ -48,7 +48,7 @@ final class CrossPromoViewController: PMBaseViewController {
         TapticEngine.impact.feedback(.medium)
         dismiss(animated: true)
         
-        AppConfigService.shared.analytics.track(action: .v2CrossPromoScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.close.rawValue])
+        AppConfiguration.shared.analytics.track(action: .v2CrossPromoScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.close.rawValue])
     }
     
     @IBAction private func continueButtonAction(_ sender: UIButton) {
@@ -58,6 +58,6 @@ final class CrossPromoViewController: PMBaseViewController {
         }
         UIApplication.shared.open(Constants.URLs.lupaAppStoreURL, options: [:], completionHandler: nil)
         
-        AppConfigService.shared.analytics.track(action: .v2CrossPromoScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.continue.rawValue])
+        AppConfiguration.shared.analytics.track(action: .v2CrossPromoScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.continue.rawValue])
     }
 }

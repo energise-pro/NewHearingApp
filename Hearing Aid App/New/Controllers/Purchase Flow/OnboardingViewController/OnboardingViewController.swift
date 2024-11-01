@@ -22,7 +22,7 @@ final class OnboardingViewController: UIViewController, OneSignalProtocol {
     //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        AppConfigService.shared.analytics.track(.v2Onboarding, with: [AnalyticsAction.action.rawValue: AnalyticsAction.open.rawValue])
+        AppConfiguration.shared.analytics.track(.v2Onboarding, with: [AnalyticsAction.action.rawValue: AnalyticsAction.open.rawValue])
         configureCollectionView()
         configureDataSource()
         pageControl.numberOfPages = OnboardingTabs.allCases.count
@@ -37,7 +37,7 @@ final class OnboardingViewController: UIViewController, OneSignalProtocol {
         super.viewDidAppear(animated)
         (collectionView.cellForItem(at: IndexPath(item: currentIndex, section: 0)) as? OnboardingCollectionViewCell)?.setDefaultStatesForButtons()
         
-        AppConfigService.shared.requestIDFA {
+        AppConfiguration.shared.requestIDFA {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
                 self?.notificationPermissionStatus == .notDetermined ? self?.showPushNotificationsAlert() : Void()
             }
@@ -97,7 +97,7 @@ final class OnboardingViewController: UIViewController, OneSignalProtocol {
         }
         
         configurePageControl()
-        AppConfigService.shared.analytics.track(.v2Onboarding, with: [AnalyticsAction.action.rawValue: "scroll_on_\(index)"])
+        AppConfiguration.shared.analytics.track(.v2Onboarding, with: [AnalyticsAction.action.rawValue: "scroll_on_\(index)"])
     }
     
     private func configurePlayer(audioPath: String) {
@@ -139,7 +139,7 @@ extension OnboardingViewController: OnboardingCollectionViewCellDelegate {
             return
         }
         TapticEngine.impact.feedback(.medium)
-        AppConfigService.shared.analytics.track(.v2Onboarding, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.before.rawValue)_\(currentIndex)"])
+        AppConfiguration.shared.analytics.track(.v2Onboarding, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.before.rawValue)_\(currentIndex)"])
         playedIndexPath = indexPath
         configurePlayer(audioPath: audioPath)
     }
@@ -150,14 +150,14 @@ extension OnboardingViewController: OnboardingCollectionViewCellDelegate {
             return
         }
         TapticEngine.impact.feedback(.medium)
-        AppConfigService.shared.analytics.track(.v2Onboarding, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.after.rawValue)_\(currentIndex)"])
+        AppConfiguration.shared.analytics.track(.v2Onboarding, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.after.rawValue)_\(currentIndex)"])
         playedIndexPath = indexPath
         configurePlayer(audioPath: audioPath)
     }
     
     func tapContinueButton() {
         TapticEngine.impact.feedback(.medium)
-        AppConfigService.shared.analytics.track(.v2Onboarding, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.continue.rawValue)_\(currentIndex)"])
+        AppConfiguration.shared.analytics.track(.v2Onboarding, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.continue.rawValue)_\(currentIndex)"])
         audioPlayer?.pause()
         currentIndex == OnboardingTabs.allCases.count - 1 ? Void() : collectionView.scrollToItem(at: IndexPath(row: currentIndex + 1, section: 0), at: .centeredHorizontally, animated: true)
         currentIndex == OnboardingTabs.allCases.count - 1 ? NavigationManager.shared.setTabBarAsRootViewController() : Void()

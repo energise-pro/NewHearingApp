@@ -1,10 +1,3 @@
-//
-//  Theme.swift
-//  Hearing Aid App
-//
-//  Created by Artem Sherbachuk on 5/12/21.
-//
-
 import UIKit
 
 struct Theme {
@@ -66,7 +59,6 @@ struct Theme {
     static var current: Color = .red
 
     static func setupAppearance() {
-//        let theme = (Color(rawValue: ThemeSettingsRow.ControlsColor.value as? Int ?? 0) ?? .red)
         let theme = Color(rawValue: ThemeService.shared.currentColorType.rawValue) ?? .red
         current = theme
         buttonActiveColor = theme.color
@@ -80,22 +72,11 @@ struct Theme {
 
     static let buttonInactiveColor: UIColor = UIColor(named: "textColor") ?? UIColor.systemGray
 
-    static var enableDarkMode: Bool = false {
-        didSet {
-//            UIApplication.shared.windows.forEach { window in
-//                window.overrideUserInterfaceStyle = enableDarkMode ? .dark : .light
-//                window.subviews.forEach({ $0.overrideUserInterfaceStyle = enableDarkMode ? .dark : .light })
-//            }
-//            ThemeSettingsRow.DarkMode.setValue(enableDarkMode)
-        }
-    }
+    static var enableDarkMode: Bool = false
 
     static func setControlsColor(_ color: Color) {
         current = color
-//        ThemeSettingsRow.ControlsColor.setValue(color.rawValue)
         buttonActiveColor = color.color
         setupAppearance()
-//        NotificationCenter.default.post(name: ThemeDidChangeNotificationName,
-//                                        object: nil)
     }
 }

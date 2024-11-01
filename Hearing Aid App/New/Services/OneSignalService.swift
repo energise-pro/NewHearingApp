@@ -62,7 +62,7 @@ final class OneSignalService: NSObject, IServiceProtocol {
     
     // MARK: - Private methods
     private func configureCatchUpPushNotification() {
-        guard AppConfigService.shared.settings.appLaunchCount < 2 && !InAppPurchasesService.shared.isPremium && UserDefaults.standard.bool(forKey: Constants.Keys.wasConfiguredPushOffer) == false else {
+        guard AppConfiguration.shared.settings.appLaunchCount < 2 && !InAppPurchasesService.shared.isPremium && UserDefaults.standard.bool(forKey: Constants.Keys.wasConfiguredPushOffer) == false else {
             return
         }
         UserDefaults.standard.setValue(true, forKey: Constants.Keys.wasConfiguredPushOffer)
@@ -92,12 +92,12 @@ final class OneSignalService: NSObject, IServiceProtocol {
         
         if let eventName = params.first(where: { $0.name == "eventName" })?.value {
             DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                AppConfigService.shared.analytics.track(AnalyticsAction.v2AppStoreEvent, with: [AnalyticsAction.event.rawValue: eventName])
+                AppConfiguration.shared.analytics.track(AnalyticsAction.v2AppStoreEvent, with: [AnalyticsAction.event.rawValue: eventName])
             }
         }
         
         if let screenName = params.first(where: { $0.name == "screenName" })?.value {
-            AppConfigService.shared.analytics.track(AnalyticsAction.v2Deeplink, with: [AnalyticsAction.open.rawValue: screenName])
+            AppConfiguration.shared.analytics.track(AnalyticsAction.v2Deeplink, with: [AnalyticsAction.open.rawValue: screenName])
             openScreen(with: screenName, with: .openFromDeeplink)
         }
     }
@@ -106,7 +106,7 @@ final class OneSignalService: NSObject, IServiceProtocol {
         guard let additionalData = notificationData["a"] as? [String: Any], let screenName = additionalData["open"] as? String else {
             return
         }
-        AppConfigService.shared.analytics.track(AnalyticsAction.v2Notification, with: [AnalyticsAction.open.rawValue: screenName])
+        AppConfiguration.shared.analytics.track(AnalyticsAction.v2Notification, with: [AnalyticsAction.open.rawValue: screenName])
         openScreen(with: screenName, with: .openFromNotification)
     }
     

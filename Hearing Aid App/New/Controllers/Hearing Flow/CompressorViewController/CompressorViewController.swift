@@ -14,7 +14,7 @@ final class CompressorViewController: PMBaseViewController {
         configureUI()
         configureDataSource()
         
-        AppConfigService.shared.analytics.track(action: .v2CompressorScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.open.rawValue])
+        AppConfiguration.shared.analytics.track(action: .v2CompressorScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.open.rawValue])
     }
     
     override func didChangeTheme() {
@@ -60,7 +60,7 @@ final class CompressorViewController: PMBaseViewController {
     @objc private func closeButtonAction() {
         dismiss(animated: true)
         
-        AppConfigService.shared.analytics.track(action: .v2CompressorScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.close.rawValue])
+        AppConfiguration.shared.analytics.track(action: .v2CompressorScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.close.rawValue])
     }
 }
 
@@ -96,7 +96,7 @@ extension CompressorViewController: CenterButtonTableViewCellDelegate {
         CompressorParameter.allCases.forEach { $0.setNew($0.defaultValue) }
         configureDataSource()
         
-        AppConfigService.shared.analytics.track(action: .v2CompressorScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.reset.rawValue])
+        AppConfiguration.shared.analytics.track(action: .v2CompressorScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.reset.rawValue])
     }
 }
 
@@ -114,7 +114,7 @@ extension CompressorViewController: SettingTableViewCellDelegate {
         case .info:
             presentAlertPM(title: "Info".localized(), message: "The compressor allows you to set up sound more punchy. Compressors reduce the difference between the loudest and quietest parts of the volume".localized())
             
-            AppConfigService.shared.analytics.track(action: .v2CompressorScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.compressor.rawValue)_\(AnalyticsAction.info.rawValue)"])
+            AppConfiguration.shared.analytics.track(action: .v2CompressorScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.compressor.rawValue)_\(AnalyticsAction.info.rawValue)"])
         case .switchButton:
             let newState = !AudioKitService.shared.isCompressorEnabled
             AudioKitService.shared.setCompressor(newState)
@@ -122,7 +122,7 @@ extension CompressorViewController: SettingTableViewCellDelegate {
             dataSource[indexRow] = SettingTableViewCellConfig(item: newCellModel)
             
             let stringState = newState ? AnalyticsAction.enable.rawValue : AnalyticsAction.disable.rawValue
-            AppConfigService.shared.analytics.track(action: .v2CompressorScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.compressor.rawValue)_\(stringState)"])
+            AppConfiguration.shared.analytics.track(action: .v2CompressorScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.compressor.rawValue)_\(stringState)"])
         default:
             break
         }
@@ -144,7 +144,7 @@ extension CompressorViewController: SliderTableViewCellDelegate {
         
         sliderTimer?.invalidate()
         sliderTimer = Timer.scheduledTimer(withTimeInterval: AnalyticsAction.delaySliderInterval, repeats: false) { _ in
-            AppConfigService.shared.analytics.track(action: .v2CompressorScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.change.rawValue)_\(compressorParameter.rawValue)"])
+            AppConfiguration.shared.analytics.track(action: .v2CompressorScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.change.rawValue)_\(compressorParameter.rawValue)"])
         }
     }
 }

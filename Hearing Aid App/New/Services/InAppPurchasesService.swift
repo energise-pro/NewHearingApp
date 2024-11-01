@@ -110,7 +110,7 @@ final class InAppPurchasesService: NSObject, IServiceProtocol {
         Logger.log(tag: InAppPurchasesService.TAG, message: "Try to purchase product with identifier - \(product.productId)")
         Apphud.purchase(product) { [weak self] result in
             if result.subscription?.status == .trial || result.subscription?.status == .intro {
-                AppConfigService.shared.analytics.trackTrial(amount: product.skProduct?.price.doubleValue ?? .zero, currency: product.skProduct?.priceLocale.currencyCode ?? "")
+                AppConfiguration.shared.analytics.trackTrial(amount: product.skProduct?.price.doubleValue ?? .zero, currency: product.skProduct?.priceLocale.currencyCode ?? "")
                 self?.wasUsedTrial = true
             }
             let isSuccess: Bool = result.error == nil
@@ -131,7 +131,7 @@ extension InAppPurchasesService: SKPaymentTransactionObserver {
     func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) { }
     
     func paymentQueue(_ queue: SKPaymentQueue, shouldAddStorePayment payment: SKPayment, for product: SKProduct) -> Bool {
-        AppConfigService.shared.analytics.track(AnalyticsAction.v2AppStore, with: [AnalyticsAction.open.rawValue: "paywall"])
+        AppConfiguration.shared.analytics.track(AnalyticsAction.v2AppStore, with: [AnalyticsAction.open.rawValue: "paywall"])
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
             NavigationManager.shared.presentPaywallViewController(with: .openFromAppStore)
         }

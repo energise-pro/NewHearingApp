@@ -108,16 +108,16 @@ extension LanguageSetupViewController: SettingTableViewCellDelegate {
                 dataSource[indexRow] = SettingTableViewCellConfig(item: newCellModel)
                 
                 let stringState = newState ? AnalyticsAction.enable.rawValue : AnalyticsAction.disable.rawValue
-                AppConfigService.shared.analytics.track(action: .v2TranslateLanguageSetupScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.offlineTranslate.rawValue)_\(stringState)"])
+                AppConfiguration.shared.analytics.track(action: .v2TranslateLanguageSetupScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.offlineTranslate.rawValue)_\(stringState)"])
             default:
                 break
             }
         case 1: // Translate language
             NavigationManager.shared.pushLocalesListViewController(with: .translateTo, with: self)
-            AppConfigService.shared.analytics.track(action: .v2TranslateLanguageSetupScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.translateLanguage.rawValue])
+            AppConfiguration.shared.analytics.track(action: .v2TranslateLanguageSetupScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.translateLanguage.rawValue])
         case 2: // Your language
             NavigationManager.shared.pushLocalesListViewController(with: .translateFrom, with: self)
-            AppConfigService.shared.analytics.track(action: .v2TranslateLanguageSetupScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.userLanguage.rawValue])
+            AppConfiguration.shared.analytics.track(action: .v2TranslateLanguageSetupScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.userLanguage.rawValue])
         case 3: // Shake to clear
             switch type {
             case .switchButton:
@@ -127,7 +127,7 @@ extension LanguageSetupViewController: SettingTableViewCellDelegate {
                 dataSource[indexRow] = SettingTableViewCellConfig(item: newCellModel)
                 
                 let stringState = newState ? AnalyticsAction.enable.rawValue : AnalyticsAction.disable.rawValue
-                AppConfigService.shared.analytics.track(action: .v2TranslateLanguageSetupScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.shakeClearText.rawValue)_\(stringState)"])
+                AppConfiguration.shared.analytics.track(action: .v2TranslateLanguageSetupScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.shakeClearText.rawValue)_\(stringState)"])
             default:
                 break
             }

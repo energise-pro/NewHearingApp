@@ -1,6 +1,6 @@
 import UIKit
 
-final class AmplitudeViewController: UIViewController, Gradientable {
+final class AnalliticAmplViewController: UIViewController, Gradientable {
 
     @IBInspectable var isHorizontal: Bool = false {
         didSet {

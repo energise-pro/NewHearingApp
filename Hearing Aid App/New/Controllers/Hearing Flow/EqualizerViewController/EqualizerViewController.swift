@@ -14,7 +14,7 @@ final class EqualizerViewController: PMBaseViewController {
         configureUI()
         configureDataSource()
         
-        AppConfigService.shared.analytics.track(action: .v2EqualizerScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.open.rawValue])
+        AppConfiguration.shared.analytics.track(action: .v2EqualizerScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.open.rawValue])
     }
     
     override func didChangeTheme() {
@@ -70,7 +70,7 @@ final class EqualizerViewController: PMBaseViewController {
     @objc private func closeButtonAction() {
         dismiss(animated: true)
         
-        AppConfigService.shared.analytics.track(action: .v2EqualizerScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.close.rawValue])
+        AppConfiguration.shared.analytics.track(action: .v2EqualizerScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.close.rawValue])
     }
 }
 
@@ -107,7 +107,7 @@ extension EqualizerViewController: CenterButtonTableViewCellDelegate {
         updateChartCell()
         configureDataSource()
         
-        AppConfigService.shared.analytics.track(action: .v2EqualizerScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.reset.rawValue])
+        AppConfiguration.shared.analytics.track(action: .v2EqualizerScreen, with: [AnalyticsAction.action.rawValue: AnalyticsAction.reset.rawValue])
     }
 }
 
@@ -129,7 +129,7 @@ extension EqualizerViewController: SettingTableViewCellDelegate {
             dataSource[indexRow] = SettingTableViewCellConfig(item: newCellModel)
             
             let stringState = newState ? AnalyticsAction.enable.rawValue : AnalyticsAction.disable.rawValue
-            AppConfigService.shared.analytics.track(action: .v2EqualizerScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.equalizer.rawValue)_\(stringState)"])
+            AppConfiguration.shared.analytics.track(action: .v2EqualizerScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.equalizer.rawValue)_\(stringState)"])
         default:
             break
         }
@@ -152,7 +152,7 @@ extension EqualizerViewController: SliderTableViewCellDelegate {
         
         sliderTimer?.invalidate()
         sliderTimer = Timer.scheduledTimer(withTimeInterval: AnalyticsAction.delaySliderInterval, repeats: false) { _ in
-            AppConfigService.shared.analytics.track(action: .v2EqualizerScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.change.rawValue)_\(AnalyticsAction.equalizer.rawValue)"])
+            AppConfiguration.shared.analytics.track(action: .v2EqualizerScreen, with: [AnalyticsAction.action.rawValue: "\(AnalyticsAction.change.rawValue)_\(AnalyticsAction.equalizer.rawValue)"])
         }
     }
 }
