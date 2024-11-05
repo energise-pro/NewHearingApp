@@ -1,7 +1,7 @@
 import UIKit
 import SwiftUI
 
-final class TabBarViewController: PMUMainViewController {
+final class AppTabBarViewController: PMUMainViewController {
     
     enum TabBarButton: Int {
         case hearing
@@ -34,12 +34,12 @@ final class TabBarViewController: PMUMainViewController {
             switch self {
             case .hearing:
 //                UIStoryboard.init(name: "HearingAidViewController", bundle: Bundle.main).instantiateViewController(withIdentifier: "HearingAidViewController")
-                return HearingViewController()
+                return THearinApViewController()
             case .transcribe:
 //                UIStoryboard.init(name: "USpeechRecViewController", bundle: Bundle.main).instantiateViewController(withIdentifier: "USpeechRecViewController")
                 return SpeechViewController()
             case .settings:
-                return SettingsViewController()
+                return ASettingAppViewController()
             }
         }
         
@@ -83,22 +83,22 @@ final class TabBarViewController: PMUMainViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if !isPaywallShown && AppConfiguration.shared.settings.appLaunchCount < 2 {
-            AppsNavManager.shared.presentBPaywallViewController()
+            AppsNavManager.shared.presentDBPaywlApViewController()
             isPaywallShown = true
         }
         
         if !isPermissionShown && AppConfiguration.shared.settings.appLaunchCount < 2 && AppsNavManager.shared.topViewController == self {
-            AppsNavManager.shared.presentPermissionsListViewController()
+            AppsNavManager.shared.presentTPermissListApViewController()
             isPermissionShown = true
         }
         
         if !headphonesReminderShown && AppsNavManager.shared.topViewController == self && AppConfiguration.shared.settings.mainScreen == 0 {
-            !AudioKitService.shared.connectedHeadphones ? AppsNavManager.shared.presentHeadphonesReminderViewController() : Void()
+            !AudioKitService.shared.connectedHeadphones ? AppsNavManager.shared.presentAHeadphRemindApViewController() : Void()
             headphonesReminderShown = true
         }
         
         if !AppConfiguration.shared.settings.emailScreenShown && AppConfiguration.shared.settings.appLaunchCount >= 2 && AppsNavManager.shared.topViewController == self {
-            AppsNavManager.shared.presentEmailViewController()
+            AppsNavManager.shared.presentWEmailApViewController()
         }
     }
     

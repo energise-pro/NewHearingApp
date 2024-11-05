@@ -1,12 +1,7 @@
 import UIKit
 import AVFoundation
 
-private struct DataSource {
-    
-    static var dataSource = [GOnboModelCollectionViewCell]()
-}
-
-final class OnboardingViewController: UIViewController, OneSignalProtocol {
+final class FOnboardApViewController: UIViewController, OneSignalProtocol {
     
     //MARK: - @IBOutlet
     @IBOutlet private weak var pageControl: UIPageControl!
@@ -35,7 +30,7 @@ final class OnboardingViewController: UIViewController, OneSignalProtocol {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        (collectionView.cellForItem(at: IndexPath(item: currentIndex, section: 0)) as? OnboardingCollectionViewCell)?.setDefaultStatesForButtons()
+        (collectionView.cellForItem(at: IndexPath(item: currentIndex, section: 0)) as? JOnbrdCollectViewCell)?.setDefaultStatesForButtons()
         
         AppConfiguration.shared.requestIDFA {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
@@ -60,7 +55,7 @@ final class OnboardingViewController: UIViewController, OneSignalProtocol {
     
     //MARK: - Functions
     private func configureCollectionView() {
-        let cellsName = ["OnboardingCollectionViewCell", "OnboardingSpeechViewCell"]
+        let cellsName = ["JOnbrdCollectViewCell", "GOnbBSpeechViewCell"]
         cellsName.forEach { cellName in
             collectionView.register(UINib(nibName: cellName, bundle: nil), forCellWithReuseIdentifier: cellName)
         }
@@ -85,14 +80,14 @@ final class OnboardingViewController: UIViewController, OneSignalProtocol {
         
         currentIndex = index
         
-        let transcribeCell = collectionView.cellForItem(at: IndexPath(item: TOnboardHvTabs.speachRecognition.rawValue, section: 0)) as? OnboardingSpeechViewCell
-        let translateCell = collectionView.cellForItem(at: IndexPath(item: TOnboardHvTabs.speechTranslate.rawValue, section: 0)) as? OnboardingSpeechViewCell
+        let transcribeCell = collectionView.cellForItem(at: IndexPath(item: TOnboardHvTabs.speachRecognition.rawValue, section: 0)) as? GOnbBSpeechViewCell
+        let translateCell = collectionView.cellForItem(at: IndexPath(item: TOnboardHvTabs.speechTranslate.rawValue, section: 0)) as? GOnbBSpeechViewCell
         currentIndex == TOnboardHvTabs.speachRecognition.rawValue ? transcribeCell?.startTypographyAnimation() : transcribeCell?.pauseTypographyAnimation()
         currentIndex == TOnboardHvTabs.speechTranslate.rawValue ? translateCell?.startTypographyAnimation() : translateCell?.pauseTypographyAnimation()
         
         if let indexPath = playedIndexPath {
             audioPlayer?.pause()
-            let onboardingCell = collectionView.cellForItem(at: indexPath) as? OnboardingCollectionViewCell
+            let onboardingCell = collectionView.cellForItem(at: indexPath) as? JOnbrdCollectViewCell
             onboardingCell?.setDefaultStatesForButtons()
         }
         
@@ -119,8 +114,8 @@ final class OnboardingViewController: UIViewController, OneSignalProtocol {
         }
         let playerURLAsset = (sender.object as? AVPlayerItem)?.asset as? AVURLAsset
         let isBeforeItem = playerURLAsset?.url.lastPathComponent == "\(TOnboardHvTabs.allCases[safe: playedIndexPath.row]?.beforeRingtonePath ?? "").mp3"
-        (collectionView.cellForItem(at: playedIndexPath) as? OnboardingCollectionViewCell)?.updateStateButton(asActive: false, button: .after)
-        isBeforeItem ? (collectionView.cellForItem(at: playedIndexPath) as? OnboardingCollectionViewCell)?.triggerAfterButtonAction() : Void()
+        (collectionView.cellForItem(at: playedIndexPath) as? JOnbrdCollectViewCell)?.updateStateButton(asActive: false, button: .after)
+        isBeforeItem ? (collectionView.cellForItem(at: playedIndexPath) as? JOnbrdCollectViewCell)?.triggerAfterButtonAction() : Void()
     }
     
     private func configurePageControl() {
@@ -130,10 +125,10 @@ final class OnboardingViewController: UIViewController, OneSignalProtocol {
     }
 }
 
-//MARK: - OnboardingCollectionViewCellDelegate
-extension OnboardingViewController: OnboardingCollectionViewCellDelegate {
+//MARK: - JOnbrdCollectViewCellDelegate
+extension FOnboardApViewController: JOnbrdCollectViewCellDelegate {
     
-    func tapBeforeButton(from cell: OnboardingCollectionViewCell) {
+    func tapBeforeButton(from cell: JOnbrdCollectViewCell) {
         guard let indexPath = collectionView.indexPath(for: cell),
               let audioPath = TOnboardHvTabs.allCases[safe: indexPath.row]?.beforeRingtonePath else {
             return
@@ -144,7 +139,7 @@ extension OnboardingViewController: OnboardingCollectionViewCellDelegate {
         configurePlayer(audioPath: audioPath)
     }
     
-    func tapAfterButton(from cell: OnboardingCollectionViewCell) {
+    func tapAfterButton(from cell: JOnbrdCollectViewCell) {
         guard let indexPath = collectionView.indexPath(for: cell),
               let audioPath = TOnboardHvTabs.allCases[safe: indexPath.row]?.afterRingtonePath else {
             return
@@ -166,7 +161,7 @@ extension OnboardingViewController: OnboardingCollectionViewCellDelegate {
 }
 
 //MARK: - UICollectionViewDataSource
-extension OnboardingViewController: UICollectionViewDataSource {
+extension FOnboardApViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return DataSource.dataSource.count
@@ -175,11 +170,11 @@ extension OnboardingViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch indexPath.row {
         case TOnboardHvTabs.speachRecognition.rawValue, TOnboardHvTabs.speechTranslate.rawValue:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "OnboardingSpeechViewCell", for: indexPath) as! OnboardingSpeechViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GOnbBSpeechViewCell", for: indexPath) as! GOnbBSpeechViewCell
             cell.configureCell(model: DataSource.dataSource[indexPath.row])
             return cell
         default:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "OnboardingCollectionViewCell", for: indexPath) as! OnboardingCollectionViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "JOnbrdCollectViewCell", for: indexPath) as! JOnbrdCollectViewCell
             cell.configureCell(model: DataSource.dataSource[indexPath.row])
             return cell
         }
@@ -187,7 +182,7 @@ extension OnboardingViewController: UICollectionViewDataSource {
 }
 
 //MARK: - UICollectionViewDelegate
-extension OnboardingViewController: UICollectionViewDelegate {
+extension FOnboardApViewController: UICollectionViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let currentIndex = Int((scrollView.contentOffset.x / .appWidth).rounded(.toNearestOrAwayFromZero))
@@ -196,7 +191,7 @@ extension OnboardingViewController: UICollectionViewDelegate {
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout
-extension OnboardingViewController: UICollectionViewDelegateFlowLayout {
+extension FOnboardApViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
@@ -209,4 +204,9 @@ extension OnboardingViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return .zero
     }
+}
+
+private struct DataSource {
+    
+    static var dataSource = [GOnboModelCollectionViewCell]()
 }

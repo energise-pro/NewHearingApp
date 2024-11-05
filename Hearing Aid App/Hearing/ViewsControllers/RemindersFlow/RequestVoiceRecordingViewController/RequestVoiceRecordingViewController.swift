@@ -1,15 +1,7 @@
 import UIKit
 import Speech
 
-private struct Defaults {
-    static let minimumTitleFontSize: CGFloat = 22.0
-    static let maximumTitleFontSize: CGFloat = 28.0
-    
-    static let minimumDescriptionFontSize: CGFloat = 16.0
-    static let maximumDescriptionFontSize: CGFloat = 25.0
-}
-
-final class RequestVoiceRecordingViewController: UIViewController {
+final class SReqVoiceRecordApViewController: UIViewController {
     
     //MARK: - @IBOutlet
     @IBOutlet private weak var titleLabel: UILabel!
@@ -61,7 +53,7 @@ final class RequestVoiceRecordingViewController: UIViewController {
 }
 
 //MARK: - IAppStateListener
-extension RequestVoiceRecordingViewController: IAppStateListener {
+extension SReqVoiceRecordApViewController: IAppStateListener {
     
     func appWillEnterForeground() {
         if SFSpeechRecognizer.authorizationStatus() == .authorized {
@@ -69,4 +61,12 @@ extension RequestVoiceRecordingViewController: IAppStateListener {
             dismiss(animated: true, completion: nil)
         }
     }
+}
+
+private struct Defaults {
+    static let minimumTitleFontSize: CGFloat = 22.0
+    static let maximumTitleFontSize: CGFloat = 28.0
+    
+    static let minimumDescriptionFontSize: CGFloat = 16.0
+    static let maximumDescriptionFontSize: CGFloat = 25.0
 }

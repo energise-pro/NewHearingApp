@@ -1,21 +1,21 @@
 import UIKit
 
-protocol ThemeTableViewCellDelegate: AnyObject {
-    func didSelectTheme(with type: ColorType, from cell: ThemeTableViewCell)
+protocol UThemNTablViewCellDelegate: AnyObject {
+    func didSelectTheme(with type: ColorType, from cell: UThemNTablViewCell)
 }
 
-struct ThemeTableViewCellModel {
+struct UThemNTablViewCellModel {
     var title: String
     var selectedTheme: ColorType
     var themes: [ColorType]
-    weak var delegate: ThemeTableViewCellDelegate?
+    weak var delegate: UThemNTablViewCellDelegate?
 }
 
-typealias ThemeTableViewCellConfig = АViewCellConfig<ThemeTableViewCell, ThemeTableViewCellModel>
+typealias UThemNTablViewCellConfig = АViewCellConfig<UThemNTablViewCell, UThemNTablViewCellModel>
 
-final class ThemeTableViewCell: UITableViewCell, HConfigCellProtocol, UIViewCellNib {
+final class UThemNTablViewCell: UITableViewCell, HConfigCellProtocol, UIViewCellNib {
 
-    typealias DataType = ThemeTableViewCellModel
+    typealias DataType = UThemNTablViewCellModel
     
     @IBOutlet private weak var titleLabel: UILabel!
     
@@ -23,7 +23,7 @@ final class ThemeTableViewCell: UITableViewCell, HConfigCellProtocol, UIViewCell
     
     @IBOutlet private weak var separatorView: UIView!
     
-    private weak var delegate: ThemeTableViewCellDelegate?
+    private weak var delegate: UThemNTablViewCellDelegate?
     private var themes: [ColorType] = []
     
     // MARK: - Lifecycle

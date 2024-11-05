@@ -1,17 +1,6 @@
 import UIKit
 
-private struct Defaults {
-    
-    struct Sizes {
-        static let minimumTitleFontSize: CGFloat = 22.0
-        static let maximumTitleFontSize: CGFloat = 28.0
-        
-        static let minimumDescriptionFontSize: CGFloat = 16.0
-        static let maximumDescriptionFontSize: CGFloat = 25.0
-    }
-}
-
-final class MicrophonePermissionViewController: UIViewController {
+final class HMicrophPermisApViewController: UIViewController {
 
     //MARK: - IBOutlets
     @IBOutlet private weak var titleLabel: UILabel!
@@ -60,5 +49,16 @@ final class MicrophonePermissionViewController: UIViewController {
         
         titleLabel.font = UIFont.systemFont(ofSize: titleFontSize, weight: .bold)
         descriptionLabel.font = UIFont.systemFont(ofSize: descriptionFontSize, weight: .medium)
+    }
+}
+
+private struct Defaults {
+    
+    struct Sizes {
+        static let minimumTitleFontSize: CGFloat = 22.0
+        static let maximumTitleFontSize: CGFloat = 28.0
+        
+        static let minimumDescriptionFontSize: CGFloat = 16.0
+        static let maximumDescriptionFontSize: CGFloat = 25.0
     }
 }

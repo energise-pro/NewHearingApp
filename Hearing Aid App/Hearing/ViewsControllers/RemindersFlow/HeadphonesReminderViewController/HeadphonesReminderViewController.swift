@@ -1,21 +1,7 @@
 import UIKit
 import AVKit
 
-private struct Defaults {
-    
-    struct Sizes {
-        static let minimumTitleTopInset: CGFloat = 40.0
-        static let maximumTitleTopInset: CGFloat = 80.0
-        
-        static let minimumTitleFontSize: CGFloat = 22.0
-        static let maximumTitleFontSize: CGFloat = 28.0
-        
-        static let minimumDescriptionFontSize: CGFloat = 16.0
-        static let maximumDescriptionFontSize: CGFloat = 25.0
-    }
-}
-
-final class HeadphonesReminderViewController: UIViewController {
+final class AHeadphRemindApViewController: UIViewController {
     
     //MARK: - @IBOutlet
     @IBOutlet private weak var thumbnailImageView: UIImageView!
@@ -162,5 +148,19 @@ final class HeadphonesReminderViewController: UIViewController {
     
     @objc func willResignActiveNotificationNotificationTriggered(notification: Notification) {
         pause()
+    }
+}
+
+private struct Defaults {
+    
+    struct Sizes {
+        static let minimumTitleTopInset: CGFloat = 40.0
+        static let maximumTitleTopInset: CGFloat = 80.0
+        
+        static let minimumTitleFontSize: CGFloat = 22.0
+        static let maximumTitleFontSize: CGFloat = 28.0
+        
+        static let minimumDescriptionFontSize: CGFloat = 16.0
+        static let maximumDescriptionFontSize: CGFloat = 25.0
     }
 }

@@ -1,22 +1,5 @@
 import UIKit
 
-private struct Defaults {
-    
-    static let minSizeFontTitleLabel: CGFloat = 16
-    static let maxSizeFontTitleLabel: CGFloat = 40
-    
-    static let minSizeFontSubTitleLabel: CGFloat = 14
-    static let maxSizeFontSubTitleLabel: CGFloat = 26
-    
-    static let minSizeFontDescriptionPriceLabel: CGFloat = 14
-    static let maxSizeFontDescriptionPriceLabel: CGFloat = 18
-    
-    static let minSizeDescriptionLabels: CGFloat = 12
-    static let maxSizeDescriptionLabels: CGFloat = 18
-    
-    static let minSubtitleLabelBottom: CGFloat = 10
-    static let maxSubtitleLabelBottom: CGFloat = 40
-}
 
 final class PaywallViewController: UIViewController {
     
@@ -361,4 +344,22 @@ final class PaywallViewController: UIViewController {
         AppConfiguration.shared.analytics.track(.v2Paywall, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.redeem.rawValue])
         InAppPurchasesService.shared.presentRedeemScreen()
     }
+}
+
+private struct Defaults {
+    
+    static let minSizeFontTitleLabel: CGFloat = 16
+    static let maxSizeFontTitleLabel: CGFloat = 40
+    
+    static let minSizeFontSubTitleLabel: CGFloat = 14
+    static let maxSizeFontSubTitleLabel: CGFloat = 26
+    
+    static let minSizeFontDescriptionPriceLabel: CGFloat = 14
+    static let maxSizeFontDescriptionPriceLabel: CGFloat = 18
+    
+    static let minSizeDescriptionLabels: CGFloat = 12
+    static let maxSizeDescriptionLabels: CGFloat = 18
+    
+    static let minSubtitleLabelBottom: CGFloat = 10
+    static let maxSubtitleLabelBottom: CGFloat = 40
 }

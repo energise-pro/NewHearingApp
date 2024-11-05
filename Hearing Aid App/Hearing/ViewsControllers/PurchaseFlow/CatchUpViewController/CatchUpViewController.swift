@@ -1,15 +1,7 @@
 import UIKit
 
-private struct Defaults {
-        
-    static var minSizeFontDescriptionPercent: CGFloat = 10
-    static var maxSizeFontDescriptionPercent: CGFloat = 35
 
-    static var minSizeFontDescription: CGFloat = 15
-    static var maxSizeFontDescription: CGFloat = 20
-}
-
-final class CatchUpViewController: UMainViewController {
+final class SCatchUpApViewController: UMainViewController {
     
     //MARK: - @IBOutlet
     @IBOutlet private weak var mainImageView: UIImageView!
@@ -159,4 +151,12 @@ final class CatchUpViewController: UMainViewController {
         AppConfiguration.shared.analytics.track(.v2CatchUp, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.close.rawValue])
         dismiss(animated: true)
     }
+}
+private struct Defaults {
+        
+    static var minSizeFontDescriptionPercent: CGFloat = 10
+    static var maxSizeFontDescriptionPercent: CGFloat = 35
+
+    static var minSizeFontDescription: CGFloat = 15
+    static var maxSizeFontDescription: CGFloat = 20
 }

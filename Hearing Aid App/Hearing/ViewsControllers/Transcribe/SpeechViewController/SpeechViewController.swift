@@ -117,6 +117,6 @@ final class SpeechViewController: PMUMainViewController {
     
     @IBAction private func instructionButtonAction(_ sender: UIButton) {
         TapticEngine.impact.feedback(.medium)
-        AppsNavManager.shared.presentVideoInstructionViewController(with: CAppConstants.URLs.transcrabeInstructions)
+        AppsNavManager.shared.presentVideoFInstructApViewController(with: CAppConstants.URLs.transcrabeInstructions)
     }
 }

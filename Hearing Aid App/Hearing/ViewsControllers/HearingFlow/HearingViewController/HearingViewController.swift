@@ -3,7 +3,7 @@ import SwiftUI
 import MediaPlayer
 import AVKit
 
-final class HearingViewController: PMUMainViewController {
+final class THearinApViewController: PMUMainViewController {
     
     enum BottomButtonType: Int, CaseIterable {
         case proSetup
@@ -293,13 +293,13 @@ final class HearingViewController: PMUMainViewController {
 
         guard AudioKitService.shared.recordPermission != .denied else {
             TapticEngine.impact.feedback(.medium)
-            AppsNavManager.shared.presentMicrophonePermissionViewController()
+            AppsNavManager.shared.presentHMicrophPermisApViewController()
             return
         }
 
         if !AudioKitService.shared.isStartedMixer && !AudioKitService.shared.connectedHeadphones {
             TapticEngine.impact.feedback(.medium)
-            AppsNavManager.shared.presentHeadphonesReminderViewController()
+            AppsNavManager.shared.presentAHeadphRemindApViewController()
             return
         }
         
@@ -322,7 +322,7 @@ final class HearingViewController: PMUMainViewController {
         TapticEngine.impact.feedback(.medium)
         switch buttonType {
         case .proSetup:
-            AppsNavManager.shared.presentProSetupViewController(with: self)
+            AppsNavManager.shared.presentEPSetupApViewController(with: self)
             AppConfiguration.shared.analytics.track(action: .v2HearingScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.proSetup.rawValue])
         case .noiseOff:
             let newState = !AudioKitService.shared.isNoiseOffEnabled
@@ -339,14 +339,14 @@ final class HearingViewController: PMUMainViewController {
             let stringState = newState ? GAppAnalyticActions.enable.rawValue : GAppAnalyticActions.disable.rawValue
             AppConfiguration.shared.analytics.track(action: .v2HearingScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.stereo.rawValue)_\(stringState)"])
         case .templates:
-            AppsNavManager.shared.presentTemplatesViewController(with: self)
+            AppsNavManager.shared.presentQTemplateApViewController(with: self)
             AppConfiguration.shared.analytics.track(action: .v2HearingScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.templates.rawValue])
         }
     }
     
     @IBAction private func infoButtonAction(_ sender: UIButton) {
         TapticEngine.impact.feedback(.medium)
-        AppsNavManager.shared.presentCustomVideoInstructionViewController()
+        AppsNavManager.shared.presentCustomVideoFInstructApViewController()
         AppConfiguration.shared.analytics.track(action: .v2HearingScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.info.rawValue])
     }
     
@@ -393,8 +393,8 @@ final class HearingViewController: PMUMainViewController {
     }
 }
 
-// MARK: - ProSetupViewControllerDelegate
-extension HearingViewController: ProSetupViewControllerDelegate {
+// MARK: - EPSetupApViewControllerDelegate
+extension THearinApViewController: EPSetupApViewControllerDelegate {
     
     func didUpdateSystemVolumeValue() {
         volumePercentageValue = AudioKitService.shared.microphoneVolume * 100.0
@@ -406,8 +406,8 @@ extension HearingViewController: ProSetupViewControllerDelegate {
     }
 }
 
-// MARK: - ProSetupViewControllerDelegate
-extension HearingViewController: TemplatesViewControllerDelegate {
+// MARK: - EPSetupApViewControllerDelegate
+extension THearinApViewController: QTemplateApViewControllerDelegate {
     
     func didChangeTemplatesValue() {
         setBottomButton(.templates, asSelected: AudioKitService.shared.isTemplatesEnabled)

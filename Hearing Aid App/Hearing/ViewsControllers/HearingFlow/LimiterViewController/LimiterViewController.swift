@@ -1,6 +1,6 @@
 import UIKit
 
-final class LimiterViewController: PMUMainViewController {
+final class YLimitApViewController: PMUMainViewController {
 
     @IBOutlet private weak var tableView: UITableView!
     
@@ -29,7 +29,7 @@ final class LimiterViewController: PMUMainViewController {
         navigationItem.rightBarButtonItem?.tintColor = ThemeService.shared.activeColor
         navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
-        let cellNibs: [UIViewCellNib.Type] = [SettingTableViewCell.self, SliderTableViewCell.self, VCentereButnTableViewCell.self]
+        let cellNibs: [UIViewCellNib.Type] = [SettingTableViewCell.self, GSlideBTablViewCell.self, VCentereButnTableViewCell.self]
         cellNibs.forEach { tableView.register($0.nib, forCellReuseIdentifier: $0.identifier) }
     }
     
@@ -42,8 +42,8 @@ final class LimiterViewController: PMUMainViewController {
         dataSource = [statusCellConfig]
         
         VPLirParameter.allCases.enumerated().forEach { index, parameter in
-            let cellModel = SliderTableViewCellModel(title: parameter.title.capitalizingFirstLetter(), sliderValue: Float(parameter.value), minSliderValue: Float(parameter.minValue), maxSliderValue: Float(parameter.maxValue), topInset: index == 0 ? 70.0 : 0.0, delegate: self)
-            let cellConfig = SliderTableViewCellConfig(item: cellModel)
+            let cellModel = GSlideBTablViewCellModel(title: parameter.title.capitalizingFirstLetter(), sliderValue: Float(parameter.value), minSliderValue: Float(parameter.minValue), maxSliderValue: Float(parameter.maxValue), topInset: index == 0 ? 70.0 : 0.0, delegate: self)
+            let cellConfig = GSlideBTablViewCellConfig(item: cellModel)
             dataSource.append(cellConfig)
         }
         
@@ -87,7 +87,7 @@ final class LimiterViewController: PMUMainViewController {
 }
 
 // MARK: - UITableViewDataSource, UITableViewDelegate
-extension LimiterViewController: UITableViewDataSource, UITableViewDelegate {
+extension YLimitApViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataSource.count
@@ -110,7 +110,7 @@ extension LimiterViewController: UITableViewDataSource, UITableViewDelegate {
 }
 
 // MARK: - VCentereButnTableViewCellDelegate
-extension LimiterViewController: VCentereButnTableViewCellDelegate {
+extension YLimitApViewController: VCentereButnTableViewCellDelegate {
     
     func didSelectButton(from cell: VCentereButnTableViewCell) {
         TapticEngine.impact.feedback(.medium)
@@ -123,7 +123,7 @@ extension LimiterViewController: VCentereButnTableViewCellDelegate {
 }
 
 // MARK: - SettingTableViewCellDelegate
-extension LimiterViewController: SettingTableViewCellDelegate {
+extension YLimitApViewController: SettingTableViewCellDelegate {
     
     func didSelectButton(with type: SettingTableViewButtonType, from cell: SettingTableViewCell) {
         TapticEngine.impact.feedback(.medium)
@@ -146,18 +146,18 @@ extension LimiterViewController: SettingTableViewCellDelegate {
     }
 }
 
-// MARK: - SliderTableViewCellDelegate
-extension LimiterViewController: SliderTableViewCellDelegate {
+// MARK: - GSlideBTablViewCellDelegate
+extension YLimitApViewController: GSlideBTablViewCellDelegate {
     
-    func didChangeSliderValue(on value: Float, from cell: SliderTableViewCell) {
+    func didChangeSliderValue(on value: Float, from cell: GSlideBTablViewCell) {
         guard let indexRow = tableView.indexPath(for: cell)?.row,
-              let cellModel = dataSource[indexRow].getItem() as? SliderTableViewCellModel,
+              let cellModel = dataSource[indexRow].getItem() as? GSlideBTablViewCellModel,
               let VPLirParameter = VPLirParameter.allCases[safe: indexRow - 1] else {
             return
         }
         AudioKitService.shared.changeLimiterValue(on: Double(value), for: VPLirParameter)
-        let newCellModel = SliderTableViewCellModel(title: cellModel.title, sliderValue: value, minSliderValue: cellModel.minSliderValue, maxSliderValue: cellModel.maxSliderValue, topInset: cellModel.topInset, delegate: self)
-        dataSource[indexRow] = SliderTableViewCellConfig(item: newCellModel)
+        let newCellModel = GSlideBTablViewCellModel(title: cellModel.title, sliderValue: value, minSliderValue: cellModel.minSliderValue, maxSliderValue: cellModel.maxSliderValue, topInset: cellModel.topInset, delegate: self)
+        dataSource[indexRow] = GSlideBTablViewCellConfig(item: newCellModel)
         
         sliderTimer?.invalidate()
         sliderTimer = Timer.scheduledTimer(withTimeInterval: GAppAnalyticActions.delaySliderInterval, repeats: false) { _ in

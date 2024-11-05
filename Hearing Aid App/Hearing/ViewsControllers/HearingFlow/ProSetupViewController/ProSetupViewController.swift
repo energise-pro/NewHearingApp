@@ -1,20 +1,20 @@
 import UIKit
 
-protocol ProSetupViewControllerDelegate: AnyObject {
+protocol EPSetupApViewControllerDelegate: AnyObject {
     func didUpdateSystemVolumeValue()
     func didChangeMicrophone()
 }
 
-final class ProSetupViewController: PMUMainViewController {
+final class EPSetupApViewController: PMUMainViewController {
     
     @IBOutlet private weak var tableView: UITableView!
     
     private var dataSource: [CellConfigurator] = []
     
-    private weak var delegate: ProSetupViewControllerDelegate?
+    private weak var delegate: EPSetupApViewControllerDelegate?
     
     // MARK: - Init
-    init(delegate: ProSetupViewControllerDelegate?) {
+    init(delegate: EPSetupApViewControllerDelegate?) {
         self.delegate = delegate
         super.init(nibName: nil, bundle: nil)
     }
@@ -43,14 +43,14 @@ final class ProSetupViewController: PMUMainViewController {
         navigationItem.rightBarButtonItem?.tintColor = ThemeService.shared.activeColor
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         
-        let cellNibs: [UIViewCellNib.Type] = [SimpleSegmentTableViewCell.self, SettingTableViewCell.self, VCentereButnTableViewCell.self]
+        let cellNibs: [UIViewCellNib.Type] = [NSimplSementTablViewCell.self, SettingTableViewCell.self, VCentereButnTableViewCell.self]
         cellNibs.forEach { tableView.register($0.nib, forCellReuseIdentifier: $0.identifier) }
     }
     
     private func configureDataSource() {
         let avaliableMicrophones = AudioKitService.shared.connectedHeadphones ? MicroFineType.allCases : [.bottom, .front, .back]
-        let segmentCellModel = SimpleSegmentTableViewCellModel(mainTitle: "Active microphone".localized(), titles: avaliableMicrophones.compactMap { $0.title }, selectedIndex: MicroFineType.selectedMicrophone.rawValue, delegate: self)
-        let segmentCellConfig = SimpleSegmentTableViewCellConfig(item: segmentCellModel)
+        let segmentCellModel = NSimplSementTablViewCellModel(mainTitle: "Active microphone".localized(), titles: avaliableMicrophones.compactMap { $0.title }, selectedIndex: MicroFineType.selectedMicrophone.rawValue, delegate: self)
+        let segmentCellConfig = NSimplSementTablViewCellConfig(item: segmentCellModel)
         
         let musicModeCellModel = SettingTableViewCellModel(title: "Music mode".localized(), buttonTypes: [.info, .switchButton], switchState: AudioKitService.shared.isMusicModeEnabled, delegate: self)
         let musicCellConfig = SettingTableViewCellConfig(item: musicModeCellModel)
@@ -89,7 +89,7 @@ final class ProSetupViewController: PMUMainViewController {
 }
 
 // MARK: - UITableViewDataSource, UITableViewDelegate
-extension ProSetupViewController: UITableViewDataSource, UITableViewDelegate {
+extension EPSetupApViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataSource.count
@@ -111,12 +111,12 @@ extension ProSetupViewController: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
-// MARK: - SimpleSegmentTableViewCellDelegate
-extension ProSetupViewController: SimpleSegmentTableViewCellDelegate {
+// MARK: - NSimplSementTablViewCellDelegate
+extension EPSetupApViewController: NSimplSementTablViewCellDelegate {
     
     func didSelectSegment(with index: Int, from cell: UITableViewCell) {
         guard let indexPath = tableView.indexPath(for: cell),
-              var cellModel = dataSource[safe: indexPath.row]?.getItem() as? SimpleSegmentTableViewCellModel else {
+              var cellModel = dataSource[safe: indexPath.row]?.getItem() as? NSimplSementTablViewCellModel else {
             return
         }
         
@@ -124,7 +124,7 @@ extension ProSetupViewController: SimpleSegmentTableViewCellDelegate {
         AudioKitService.shared.changeMicrophone(on: MicroFineType(rawValue: index)!)
         
         cellModel.selectedIndex = MicroFineType.selectedMicrophone.rawValue
-        let cellConfig = SimpleSegmentTableViewCellConfig(item: cellModel)
+        let cellConfig = NSimplSementTablViewCellConfig(item: cellModel)
         dataSource[indexPath.row] = cellConfig
         delegate?.didChangeMicrophone()
         
@@ -134,7 +134,7 @@ extension ProSetupViewController: SimpleSegmentTableViewCellDelegate {
 }
 
 // MARK: - VCentereButnTableViewCellDelegate
-extension ProSetupViewController: VCentereButnTableViewCellDelegate {
+extension EPSetupApViewController: VCentereButnTableViewCellDelegate {
     
     func didSelectButton(from cell: VCentereButnTableViewCell) {
         TapticEngine.impact.feedback(.medium)
@@ -151,7 +151,7 @@ extension ProSetupViewController: VCentereButnTableViewCellDelegate {
 }
 
 // MARK: - SettingTableViewCellDelegate
-extension ProSetupViewController: SettingTableViewCellDelegate {
+extension EPSetupApViewController: SettingTableViewCellDelegate {
     
     func didSelectButton(with type: SettingTableViewButtonType, from cell: SettingTableViewCell) {
         guard let indexRow = tableView.indexPath(for: cell)?.row,
@@ -214,16 +214,16 @@ extension ProSetupViewController: SettingTableViewCellDelegate {
                 break
             }
         case 4:
-            AppsNavManager.shared.pushVoiceChangerViewController()
+            AppsNavManager.shared.pushRVoicChangeJViewController()
             AppConfiguration.shared.analytics.track(action: .v2HearingProSetupScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.voiceChanger.rawValue])
         case 5: // Compressor
-            AppsNavManager.shared.pushCompressorViewController()
+            AppsNavManager.shared.pushKCompresViewController()
             AppConfiguration.shared.analytics.track(action: .v2HearingProSetupScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.compressor.rawValue])
         case 6: // Limiter
-            AppsNavManager.shared.pushLimiterViewController()
+            AppsNavManager.shared.pushYLimitApViewController()
             AppConfiguration.shared.analytics.track(action: .v2HearingProSetupScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.limiter.rawValue])
         case 7: // Equalizer
-            AppsNavManager.shared.pushEqualizerViewController()
+            AppsNavManager.shared.pushUEqualizeApViewController()
             AppConfiguration.shared.analytics.track(action: .v2HearingProSetupScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.equalizer.rawValue])
         default:
             break

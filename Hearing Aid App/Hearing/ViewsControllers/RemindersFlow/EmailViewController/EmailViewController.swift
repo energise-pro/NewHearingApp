@@ -1,6 +1,6 @@
 import UIKit
 
-final class EmailViewController: PMUMainViewController {
+final class WEmailApViewController: PMUMainViewController {
 
     // MARK: - Properties
     @IBOutlet private weak var titleLabel: UILabel!
@@ -71,7 +71,7 @@ final class EmailViewController: PMUMainViewController {
 }
 
 // MARK: - UITextFieldDelegate
-extension EmailViewController: UITextFieldDelegate {
+extension WEmailApViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         nextAction()

@@ -1,6 +1,6 @@
 import UIKit
 
-final class OnboardingSpeechViewCell: UICollectionViewCell {
+final class GOnbBSpeechViewCell: UICollectionViewCell {
 
     //MARK: - @IBOutlet
     @IBOutlet private weak var titleLabel: UILabel!
@@ -18,7 +18,7 @@ final class OnboardingSpeechViewCell: UICollectionViewCell {
     @IBOutlet private weak var typographyLabelTopConstraint: NSLayoutConstraint!
     
     //MARK: - Properties
-    private weak var delegate: OnboardingCollectionViewCellDelegate?
+    private weak var delegate: JOnbrdCollectViewCellDelegate?
     private var onboardingType: TOnboardHvTabs?
     
     // MARK: - Lifecycle

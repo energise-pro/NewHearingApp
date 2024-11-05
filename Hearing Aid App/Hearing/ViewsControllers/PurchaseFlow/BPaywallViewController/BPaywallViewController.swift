@@ -1,6 +1,6 @@
 import UIKit
 
-final class BPaywallViewController: PMUMainViewController {
+final class DBPaywlApViewController: PMUMainViewController {
 
     // MARK: - @IBoutlets
     @IBOutlet private weak var purchaseContainerView: UIView!

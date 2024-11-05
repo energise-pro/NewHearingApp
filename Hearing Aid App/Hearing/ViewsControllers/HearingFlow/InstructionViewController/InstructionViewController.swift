@@ -1,7 +1,7 @@
 import UIKit
 import AVFoundation
 
-final class InstructionViewController: PMUMainViewController {
+final class FInstructApViewController: PMUMainViewController {
     
     // MARK: - Properties
     @IBOutlet private weak var thumbnailImageView: UIImageView!

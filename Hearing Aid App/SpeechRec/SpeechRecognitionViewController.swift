@@ -205,7 +205,7 @@ final class USpeechRecViewController: UMainViewController, OrientationalProtocol
         SpeechRecognition.requestAuthorization {[weak self] isAuthorization in
             guard let self = self else { return }
             if !isAuthorization {
-                AppsNavManager.shared.presentRequestVoiceRecordingViewController()
+                AppsNavManager.shared.presentSReqVoiceRecordApViewController()
                 return
             } else {
                 self.speech.stopRecognition()

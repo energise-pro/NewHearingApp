@@ -1,10 +1,6 @@
 import UIKit
 
-private struct Defaults {
-    static let iconAlertSize = CGSize(width: 340, height: 172)
-}
-
-final class SettingsViewController: PMUMainViewController {
+final class ASettingAppViewController: PMUMainViewController {
 
     @IBOutlet private weak var tableView: UITableView!
     
@@ -29,13 +25,13 @@ final class SettingsViewController: PMUMainViewController {
         
         tableView.contentInset = UIEdgeInsets(top: 25.0, left: .zero, bottom: .zero, right: .zero)
         
-        let cellNibs: [UIViewCellNib.Type] = [ThemeTableViewCell.self, SettingTableViewCell.self]
+        let cellNibs: [UIViewCellNib.Type] = [UThemNTablViewCell.self, SettingTableViewCell.self]
         cellNibs.forEach { tableView.register($0.nib, forCellReuseIdentifier: $0.identifier) }
     }
     
     private func configureDataSource() {
-        let themeCellModel = ThemeTableViewCellModel(title: "Color Theme".localized(), selectedTheme: ThemeService.shared.currentColorType, themes: [.blue, .orange, .red, .green, .purpule], delegate: self)
-        let themeCellConfig = ThemeTableViewCellConfig(item: themeCellModel)
+        let themeCellModel = UThemNTablViewCellModel(title: "Color Theme".localized(), selectedTheme: ThemeService.shared.currentColorType, themes: [.blue, .orange, .red, .green, .purpule], delegate: self)
+        let themeCellConfig = UThemNTablViewCellConfig(item: themeCellModel)
         
         let premiumCellModel = SettingTableViewCellModel(title: "Unlock Premium".localized(), buttonTypes: [.rightButton], delegate: self)
         let premiumCellConfig = SettingTableViewCellConfig(item: premiumCellModel)
@@ -67,7 +63,7 @@ final class SettingsViewController: PMUMainViewController {
 }
 
 // MARK: - UITableViewDataSource, UITableViewDelegate
-extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
+extension ASettingAppViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataSource.count
@@ -90,7 +86,7 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
 }
 
 // MARK: - SettingTableViewCellDelegate
-extension SettingsViewController: SettingTableViewCellDelegate {
+extension ASettingAppViewController: SettingTableViewCellDelegate {
     
     func didSelectButton(with type: SettingTableViewButtonType, from cell: SettingTableViewCell) {
         guard let indexRow = tableView.indexPath(for: cell)?.row,
@@ -147,7 +143,7 @@ extension SettingsViewController: SettingTableViewCellDelegate {
             
             AppConfiguration.shared.analytics.track(.v2SettingsScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.ourWebsite.rawValue])
         case 7: // More
-            AppsNavManager.shared.presentMoreViewController()
+            AppsNavManager.shared.presentOMoreApViewController()
             
             AppConfiguration.shared.analytics.track(action: .v2SettingsScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.more.rawValue])
         case 8: // Support
@@ -160,12 +156,12 @@ extension SettingsViewController: SettingTableViewCellDelegate {
     }
 }
 
-// MARK:  ThemeTableViewCellDelegate
-extension SettingsViewController: ThemeTableViewCellDelegate {
+// MARK:  UThemNTablViewCellDelegate
+extension ASettingAppViewController: UThemNTablViewCellDelegate {
     
-    func didSelectTheme(with type: ColorType, from cell: ThemeTableViewCell) {
+    func didSelectTheme(with type: ColorType, from cell: UThemNTablViewCell) {
         guard let indexRow = tableView.indexPath(for: cell)?.row,
-              let cellModel = dataSource[indexRow].getItem() as? ThemeTableViewCellModel else {
+              let cellModel = dataSource[indexRow].getItem() as? UThemNTablViewCellModel else {
             return
         }
         
@@ -173,9 +169,13 @@ extension SettingsViewController: ThemeTableViewCellDelegate {
         ThemeService.shared.setColorType(type)
         AppConfiguration.shared.settings.presentAppRatingAlert()
         
-        let newCellModel = ThemeTableViewCellModel(title: cellModel.title, selectedTheme: ThemeService.shared.currentColorType, themes: cellModel.themes, delegate: self)
-        dataSource[indexRow] = ThemeTableViewCellConfig(item: newCellModel)
+        let newCellModel = UThemNTablViewCellModel(title: cellModel.title, selectedTheme: ThemeService.shared.currentColorType, themes: cellModel.themes, delegate: self)
+        dataSource[indexRow] = UThemNTablViewCellConfig(item: newCellModel)
         
         AppConfiguration.shared.analytics.track(action: .v2SettingsScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.select.rawValue)_\(type.analyticAction.rawValue)"])
     }
+}
+
+private struct Defaults {
+    static let iconAlertSize = CGSize(width: 340, height: 172)
 }

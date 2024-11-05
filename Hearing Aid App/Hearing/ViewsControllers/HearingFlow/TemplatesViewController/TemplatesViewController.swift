@@ -1,21 +1,21 @@
 import UIKit
 
-protocol TemplatesViewControllerDelegate: AnyObject {
+protocol QTemplateApViewControllerDelegate: AnyObject {
     func didChangeTemplatesValue()
 }
 
-final class TemplatesViewController: PMUMainViewController {
+final class QTemplateApViewController: PMUMainViewController {
 
     @IBOutlet private weak var tableView: UITableView!
     
     private var dataSource: [CellConfigurator] = []
     
-    weak var delegate: TemplatesViewControllerDelegate?
+    weak var delegate: QTemplateApViewControllerDelegate?
     
     private var volumeTimer: Timer?
     
     // MARK: - Init
-    init(delegate: TemplatesViewControllerDelegate?) {
+    init(delegate: QTemplateApViewControllerDelegate?) {
         self.delegate = delegate
         super.init(nibName: nil, bundle: nil)
     }
@@ -44,7 +44,7 @@ final class TemplatesViewController: PMUMainViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Close".localized(), style: .plain, target: self, action: #selector(closeButtonAction))
         navigationItem.rightBarButtonItem?.tintColor = ThemeService.shared.activeColor
         
-        let cellNibs: [UIViewCellNib.Type] = [SettingTableViewCell.self, SliderTableViewCell.self, GCenterPickrTablViewCell.self, VCentereButnTableViewCell.self]
+        let cellNibs: [UIViewCellNib.Type] = [SettingTableViewCell.self, GSlideBTablViewCell.self, GCenterPickrTablViewCell.self, VCentereButnTableViewCell.self]
         cellNibs.forEach { tableView.register($0.nib, forCellReuseIdentifier: $0.identifier) }
     }
     
@@ -52,8 +52,8 @@ final class TemplatesViewController: PMUMainViewController {
         let templatesCellModel = SettingTableViewCellModel(title: "Templates".localized(), buttonTypes: [.info, .switchButton], switchState: AudioKitService.shared.isTemplatesEnabled, delegate: self)
         let templatesCellConfig = SettingTableViewCellConfig(item: templatesCellModel)
         
-        let volumeCellModel = SliderTableViewCellModel(title: "effect volume".localized().capitalizingFirstLetter(), sliderValue: Float(TemplatesParameter.dryWet.value), topInset: 70.0, delegate: self)
-        let volumeCellConfig = SliderTableViewCellConfig(item: volumeCellModel)
+        let volumeCellModel = GSlideBTablViewCellModel(title: "effect volume".localized().capitalizingFirstLetter(), sliderValue: Float(TemplatesParameter.dryWet.value), topInset: 70.0, delegate: self)
+        let volumeCellConfig = GSlideBTablViewCellConfig(item: volumeCellModel)
         
         let pickerCellModel = GCenterPickrTablViewCellModel(dataSource: TemplatesType.allCases.compactMap { $0.title }, selectedValue: TemplatesType.selectedTemplate.title, delegate: self)
         let pickerCellConfig = GCenterPickrTablViewCellConfig(item: pickerCellModel, height: 250.0)
@@ -74,7 +74,7 @@ final class TemplatesViewController: PMUMainViewController {
 }
 
 // MARK: - UITableViewDataSource, UITableViewDelegate
-extension TemplatesViewController: UITableViewDataSource, UITableViewDelegate {
+extension QTemplateApViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataSource.count
@@ -97,7 +97,7 @@ extension TemplatesViewController: UITableViewDataSource, UITableViewDelegate {
 }
 
 // MARK: - VCentereButnTableViewCellDelegate
-extension TemplatesViewController: VCentereButnTableViewCellDelegate {
+extension QTemplateApViewController: VCentereButnTableViewCellDelegate {
     
     func didSelectButton(from cell: VCentereButnTableViewCell) {
         TapticEngine.impact.feedback(.medium)
@@ -112,7 +112,7 @@ extension TemplatesViewController: VCentereButnTableViewCellDelegate {
 }
 
 // MARK: - SettingTableViewCellDelegate
-extension TemplatesViewController: SettingTableViewCellDelegate {
+extension QTemplateApViewController: SettingTableViewCellDelegate {
     
     func didSelectButton(with type: SettingTableViewButtonType, from cell: SettingTableViewCell) {
         guard let indexRow = tableView.indexPath(for: cell)?.row,
@@ -141,17 +141,17 @@ extension TemplatesViewController: SettingTableViewCellDelegate {
     }
 }
 
-// MARK: - SliderTableViewCellDelegate
-extension TemplatesViewController: SliderTableViewCellDelegate {
+// MARK: - GSlideBTablViewCellDelegate
+extension QTemplateApViewController: GSlideBTablViewCellDelegate {
     
-    func didChangeSliderValue(on value: Float, from cell: SliderTableViewCell) {
+    func didChangeSliderValue(on value: Float, from cell: GSlideBTablViewCell) {
         guard let indexRow = tableView.indexPath(for: cell)?.row,
-              let cellModel = dataSource[indexRow].getItem() as? SliderTableViewCellModel else {
+              let cellModel = dataSource[indexRow].getItem() as? GSlideBTablViewCellModel else {
             return
         }
         AudioKitService.shared.changeTemplatesVolume(on: Double(value))
-        let newCellModel = SliderTableViewCellModel(title: cellModel.title, sliderValue: value, minSliderValue: cellModel.minSliderValue, maxSliderValue: cellModel.maxSliderValue, topInset: cellModel.topInset, delegate: self)
-        dataSource[indexRow] = SliderTableViewCellConfig(item: newCellModel)
+        let newCellModel = GSlideBTablViewCellModel(title: cellModel.title, sliderValue: value, minSliderValue: cellModel.minSliderValue, maxSliderValue: cellModel.maxSliderValue, topInset: cellModel.topInset, delegate: self)
+        dataSource[indexRow] = GSlideBTablViewCellConfig(item: newCellModel)
         
         volumeTimer?.invalidate()
         volumeTimer = Timer.scheduledTimer(withTimeInterval: GAppAnalyticActions.delaySliderInterval, repeats: false) { _ in
@@ -161,7 +161,7 @@ extension TemplatesViewController: SliderTableViewCellDelegate {
 }
 
 // MARK: - GCenterPickrTablViewCellDelegate
-extension TemplatesViewController: GCenterPickrTablViewCellDelegate {
+extension QTemplateApViewController: GCenterPickrTablViewCellDelegate {
     
     func didSelect(_ value: String?, from cell: GCenterPickrTablViewCell) {
         guard let indexRow = tableView.indexPath(for: cell)?.row, let cellModel = dataSource[indexRow].getItem() as? GCenterPickrTablViewCellModel, let selectedTemplate = value, let templatesType = TemplatesType.allCases.first(where: { $0.title == selectedTemplate }) else {

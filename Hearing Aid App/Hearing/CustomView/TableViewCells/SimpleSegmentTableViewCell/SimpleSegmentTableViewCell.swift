@@ -1,28 +1,28 @@
 import UIKit
 
-protocol SimpleSegmentTableViewCellDelegate: AnyObject {
+protocol NSimplSementTablViewCellDelegate: AnyObject {
     func didSelectSegment(with index: Int, from cell: UITableViewCell)
 }
 
-struct SimpleSegmentTableViewCellModel {
+struct NSimplSementTablViewCellModel {
     var mainTitle: String
     var titles: [String]
     var selectedIndex: Int
-    weak var delegate: SimpleSegmentTableViewCellDelegate?
+    weak var delegate: NSimplSementTablViewCellDelegate?
 }
 
-typealias SimpleSegmentTableViewCellConfig = АViewCellConfig<SimpleSegmentTableViewCell, SimpleSegmentTableViewCellModel>
+typealias NSimplSementTablViewCellConfig = АViewCellConfig<NSimplSementTablViewCell, NSimplSementTablViewCellModel>
 
-final class SimpleSegmentTableViewCell: UITableViewCell, HConfigCellProtocol, UIViewCellNib {
+final class NSimplSementTablViewCell: UITableViewCell, HConfigCellProtocol, UIViewCellNib {
     
-    typealias DataType = SimpleSegmentTableViewCellModel
+    typealias DataType = NSimplSementTablViewCellModel
 
     // MARK: - Properties
     @IBOutlet private weak var titleLabel: UILabel!
     
     @IBOutlet private weak var segmentControll: UISegmentedControl!
     
-    private weak var delegate: SimpleSegmentTableViewCellDelegate?
+    private weak var delegate: NSimplSementTablViewCellDelegate?
     
     // MARK: - Lifecycle
     func configure(data: DataType) {

@@ -118,7 +118,7 @@ final class OneSignalService: NSObject, IServiceProtocol {
             }
         case CAppConstants.Keys.catchUpScreenName:
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                AppsNavManager.shared.presentCatchUpViewController()
+                AppsNavManager.shared.presentSCatchUpApViewController()
             }
         default:
             break

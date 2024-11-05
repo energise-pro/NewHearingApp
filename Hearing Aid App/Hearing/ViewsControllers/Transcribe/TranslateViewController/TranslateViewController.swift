@@ -313,7 +313,7 @@ final class TranslateViewController: PMUMainViewController {
             }
             
             TranscribeService.shared.requestRecognitionPermission { [weak self] isAllowed in
-                isAllowed ? self?.changeTranscribeState(isSaveRecognitionText: true): AppsNavManager.shared.presentRequestVoiceRecordingViewController()
+                isAllowed ? self?.changeTranscribeState(isSaveRecognitionText: true): AppsNavManager.shared.presentSReqVoiceRecordApViewController()
             }
         case .textSetup:
             TapticEngine.impact.feedback(.medium)

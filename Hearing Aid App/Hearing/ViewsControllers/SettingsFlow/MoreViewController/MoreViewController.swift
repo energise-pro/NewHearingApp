@@ -1,6 +1,6 @@
 import UIKit
 
-final class MoreViewController: PMUMainViewController {
+final class OMoreApViewController: PMUMainViewController {
 
     @IBOutlet private weak var tableView: UITableView!
     
@@ -26,13 +26,13 @@ final class MoreViewController: PMUMainViewController {
         
         tableView.contentInset = UIEdgeInsets(top: 25.0, left: .zero, bottom: .zero, right: .zero)
         
-        let cellNibs: [UIViewCellNib.Type] = [SettingTableViewCell.self, SimpleSegmentTableViewCell.self]
+        let cellNibs: [UIViewCellNib.Type] = [SettingTableViewCell.self, NSimplSementTablViewCell.self]
         cellNibs.forEach { tableView.register($0.nib, forCellReuseIdentifier: $0.identifier) }
     }
     
     private func configureDataSource() {
-        let segmentCellModel = SimpleSegmentTableViewCellModel(mainTitle: "Main Screen".localized(), titles: [TabBarViewController.TabBarButton.hearing.title, TabBarViewController.TabBarButton.transcribe.title], selectedIndex: AppConfiguration.shared.settings.mainScreen, delegate: self)
-        let segmentCellConfig = SimpleSegmentTableViewCellConfig(item: segmentCellModel)
+        let segmentCellModel = NSimplSementTablViewCellModel(mainTitle: "Main Screen".localized(), titles: [AppTabBarViewController.TabBarButton.hearing.title, AppTabBarViewController.TabBarButton.transcribe.title], selectedIndex: AppConfiguration.shared.settings.mainScreen, delegate: self)
+        let segmentCellConfig = NSimplSementTablViewCellConfig(item: segmentCellModel)
         
         let manageCellModel = SettingTableViewCellModel(title: "Manage subscriptions".localized(), buttonTypes: [.rightButton], delegate: self)
         let manageCellConfig = SettingTableViewCellConfig(item: manageCellModel)
@@ -53,7 +53,7 @@ final class MoreViewController: PMUMainViewController {
 }
 
 // MARK: - UITableViewDataSource, UITableViewDelegate
-extension MoreViewController: UITableViewDataSource, UITableViewDelegate {
+extension OMoreApViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataSource.count
@@ -76,7 +76,7 @@ extension MoreViewController: UITableViewDataSource, UITableViewDelegate {
 }
 
 // MARK: - SettingTableViewCellDelegate
-extension MoreViewController: SettingTableViewCellDelegate {
+extension OMoreApViewController: SettingTableViewCellDelegate {
     
     func didSelectButton(with type: SettingTableViewButtonType, from cell: SettingTableViewCell) {
         guard let indexRow = tableView.indexPath(for: cell)?.row else {
@@ -99,12 +99,12 @@ extension MoreViewController: SettingTableViewCellDelegate {
     }
 }
 
-// MARK: - SimpleSegmentTableViewCellDelegate
-extension MoreViewController: SimpleSegmentTableViewCellDelegate {
+// MARK: - NSimplSementTablViewCellDelegate
+extension OMoreApViewController: NSimplSementTablViewCellDelegate {
     
     func didSelectSegment(with index: Int, from cell: UITableViewCell) {
         guard let indexPath = tableView.indexPath(for: cell),
-              var cellModel = dataSource[safe: indexPath.row]?.getItem() as? SimpleSegmentTableViewCellModel,
+              var cellModel = dataSource[safe: indexPath.row]?.getItem() as? NSimplSementTablViewCellModel,
               AppConfiguration.shared.settings.mainScreen != index else {
             return
         }
@@ -113,12 +113,12 @@ extension MoreViewController: SimpleSegmentTableViewCellDelegate {
         AppConfiguration.shared.settings.mainScreen = index
         
         cellModel.selectedIndex = MicroFineType.selectedMicrophone.rawValue
-        let cellConfig = SimpleSegmentTableViewCellConfig(item: cellModel)
+        let cellConfig = NSimplSementTablViewCellConfig(item: cellModel)
         dataSource[indexPath.row] = cellConfig
         
         AppsNavManager.shared.tabBarViewController?.reconfigureUI()
         
-        let selectedMainScreenString = String(describing: TabBarViewController.TabBarButton(rawValue: index)!)
+        let selectedMainScreenString = String(describing: AppTabBarViewController.TabBarButton(rawValue: index)!)
         AppConfiguration.shared.analytics.track(.v2MoreScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.changeMainScreen.rawValue)_\(selectedMainScreenString)"])
     }
 }

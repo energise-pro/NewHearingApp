@@ -1,6 +1,6 @@
 import UIKit
 
-final class PreOnboardingViewController: UIViewController {
+final class GPOnboardApViewController: UIViewController {
     
     enum QuestionType: Int {
         case hearing

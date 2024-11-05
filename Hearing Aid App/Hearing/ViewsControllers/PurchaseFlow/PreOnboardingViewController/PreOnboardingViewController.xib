@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PreOnboardingViewController" customModule="Hearing_Aid_App" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GPOnboardApViewController" customModule="Hearing_Aid_App" customModuleProvider="target">
             <connections>
                 <outlet property="appIconImageView" destination="F7M-OJ-Qet" id="8rV-gI-Aoz"/>
                 <outlet property="introContainerView" destination="8Pq-yl-ct1" id="aOX-VR-dEB"/>
@@ -334,6 +333,7 @@
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="F7M-OJ-Qet" secondAttribute="height" multiplier="1:1" id="LFR-ze-ST0"/>
                                 <constraint firstAttribute="height" constant="45" id="irM-Cl-rgO"/>
+                                <constraint firstAttribute="width" secondItem="F7M-OJ-Qet" secondAttribute="height" multiplier="1:1" id="rG7-ho-bvW"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -353,7 +353,6 @@
                         <constraint firstAttribute="trailing" secondItem="cca-Cs-XNU" secondAttribute="trailing" id="Ybk-Qb-uzW"/>
                         <constraint firstItem="F7M-OJ-Qet" firstAttribute="top" secondItem="kOT-wF-ltH" secondAttribute="top" constant="50" id="gs2-3v-N7J"/>
                         <constraint firstAttribute="trailing" secondItem="F7M-OJ-Qet" secondAttribute="trailing" constant="40" id="ppI-Ur-JZO"/>
-                        <constraint firstItem="F7M-OJ-Qet" firstAttribute="width" secondItem="F7M-OJ-Qet" secondAttribute="height" multiplier="1:1" id="rG7-ho-bvW"/>
                     </constraints>
                 </view>
             </subviews>
@@ -373,7 +372,7 @@
         </view>
     </objects>
     <resources>
-        <image name="arrow.right" catalog="system" width="128" height="98"/>
+        <image name="arrow.right" catalog="system" width="128" height="95"/>
         <image name="icCatchUp" width="375" height="494"/>
         <image name="icIntroBackground" width="375" height="812"/>
         <image name="icPetal" width="77" height="151"/>

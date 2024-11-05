@@ -1,6 +1,6 @@
 import UIKit
 
-final class PermissionsListViewController: PMUMainViewController {
+final class TPermissListApViewController: PMUMainViewController {
     
     enum PermissionType: Int {
         case micro

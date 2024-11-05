@@ -1,9 +1,9 @@
 import UIKit
 
-protocol OnboardingCollectionViewCellDelegate: AnyObject {
+protocol JOnbrdCollectViewCellDelegate: AnyObject {
     
-    func tapBeforeButton(from cell: OnboardingCollectionViewCell)
-    func tapAfterButton(from cell: OnboardingCollectionViewCell)
+    func tapBeforeButton(from cell: JOnbrdCollectViewCell)
+    func tapAfterButton(from cell: JOnbrdCollectViewCell)
     func tapContinueButton()
 }
 
@@ -12,7 +12,7 @@ enum OnboardingButtons {
     case before
 }
 
-final class OnboardingCollectionViewCell: UICollectionViewCell {
+final class JOnbrdCollectViewCell: UICollectionViewCell {
 
     //MARK: - @IBOutlet
     @IBOutlet private weak var buttonsContainerView: UIView!
@@ -35,7 +35,7 @@ final class OnboardingCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var continueBottomConstraint: NSLayoutConstraint!
     
     //MARK: - Properties
-    private weak var delegate: OnboardingCollectionViewCellDelegate?
+    private weak var delegate: JOnbrdCollectViewCellDelegate?
     private var duplicateLeftView: UIView?
     
     //MARK: - Functions

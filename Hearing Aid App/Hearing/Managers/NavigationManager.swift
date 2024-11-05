@@ -25,19 +25,19 @@ final class AppsNavManager: NSObject {
         return appDelegate?.window?.rootViewController?.topDAppViewController()
     }
     
-    var tabBarViewController: TabBarViewController? {
-        return appDelegate?.window?.rootViewController as? TabBarViewController
+    var tabBarViewController: AppTabBarViewController? {
+        return appDelegate?.window?.rootViewController as? AppTabBarViewController
     }
     
     func setTabBarAsRootViewController() {
-        let tabBarViewController = TabBarViewController()
+        let tabBarViewController = AppTabBarViewController()
         appDelegate?.window?.rootViewController = tabBarViewController
         appDelegate?.window?.makeKeyAndVisible()
     }
     
     func setOnboardingAsRootViewController() {
-        let onboardingViewController = OnboardingViewController()
-        appDelegate?.window?.rootViewController = onboardingViewController
+        let FOnboardApViewController = FOnboardApViewController()
+        appDelegate?.window?.rootViewController = FOnboardApViewController
         appDelegate?.window?.makeKeyAndVisible()
     }
     
@@ -48,8 +48,8 @@ final class AppsNavManager: NSObject {
     }
     
     func setPreOnboardingAsRootViewController() {
-        let preOnboardingViewController = PreOnboardingViewController()
-        appDelegate?.window?.rootViewController = preOnboardingViewController
+        let GPOnboardApViewController = GPOnboardApViewController()
+        appDelegate?.window?.rootViewController = GPOnboardApViewController
         appDelegate?.window?.makeKeyAndVisible()
     }
     
@@ -62,50 +62,50 @@ final class AppsNavManager: NSObject {
             guard UserDefaults.standard.bool(forKey: CAppConstants.Keys.wasPresentedCatchUp) == false else {
                 return
             }
-            AppsNavManager.shared.presentCatchUpViewController()
+            AppsNavManager.shared.presentSCatchUpApViewController()
         }
     }
     
-    func presentCatchUpViewController() {
-        guard (topViewController is CatchUpViewController) == false, (topViewController is PaywallViewController) == false, !InAppPurchasesService.shared.isPremium else {
+    func presentSCatchUpApViewController() {
+        guard (topViewController is SCatchUpApViewController) == false, (topViewController is PaywallViewController) == false, !InAppPurchasesService.shared.isPremium else {
             return
         }
-        let catchUpViewController = CatchUpViewController()
-        catchUpViewController.modalPresentationStyle = .fullScreen
-        topViewController?.present(catchUpViewController, animated: true)
+        let SCatchUpApViewController = SCatchUpApViewController()
+        SCatchUpApViewController.modalPresentationStyle = .fullScreen
+        topViewController?.present(SCatchUpApViewController, animated: true)
     }
 
-    func presentHeadphonesReminderViewControllerIfNeeded(_ animated: Bool = true, completion: AppsNavManagerCompletion?) {
+    func presentAHeadphRemindApViewControllerIfNeeded(_ animated: Bool = true, completion: AppsNavManagerCompletion?) {
         guard !AudioKitService.shared.connectedHeadphones else {
             completion?(false)
             return
         }
-        let headphonesReminderViewController: HeadphonesReminderViewController = HeadphonesReminderViewController()
-        headphonesReminderViewController.modalPresentationStyle = .fullScreen
-        headphonesReminderViewController.modalTransitionStyle = .crossDissolve
+        let AHeadphRemindApViewController: AHeadphRemindApViewController = AHeadphRemindApViewController()
+        AHeadphRemindApViewController.modalPresentationStyle = .fullScreen
+        AHeadphRemindApViewController.modalTransitionStyle = .crossDissolve
         if animated {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
-                self?.topViewController?.present(headphonesReminderViewController, animated: true)
+                self?.topViewController?.present(AHeadphRemindApViewController, animated: true)
                 completion?(true)
             }
         } else {
-            topViewController?.present(headphonesReminderViewController, animated: false)
+            topViewController?.present(AHeadphRemindApViewController, animated: false)
             completion?(true)
         }
     }
     
-    func presentHeadphonesReminderViewController() {
-        let headphonesReminderViewController: HeadphonesReminderViewController = HeadphonesReminderViewController()
-        headphonesReminderViewController.modalPresentationStyle = .fullScreen
-        headphonesReminderViewController.modalTransitionStyle = .crossDissolve
+    func presentAHeadphRemindApViewController() {
+        let AHeadphRemindApViewController: AHeadphRemindApViewController = AHeadphRemindApViewController()
+        AHeadphRemindApViewController.modalPresentationStyle = .fullScreen
+        AHeadphRemindApViewController.modalTransitionStyle = .crossDissolve
         #if targetEnvironment(simulator)
-        print("presentHeadphonesReminderViewController")
+        print("presentAHeadphRemindApViewController")
         #else
-        topViewController?.present(headphonesReminderViewController, animated: true)
+        topViewController?.present(AHeadphRemindApViewController, animated: true)
         #endif
     }
     
-    func presentVideoInstructionViewController(with url: URL?) {
+    func presentVideoFInstructApViewController(with url: URL?) {
         guard let videoURL = url else {
             return
         }
@@ -117,11 +117,11 @@ final class AppsNavManager: NSObject {
         }
     }
     
-    func presentCustomVideoInstructionViewController() {
-        let instructionViewController = InstructionViewController()
-        instructionViewController.modalPresentationStyle = .fullScreen
-        instructionViewController.modalTransitionStyle = .crossDissolve
-        topViewController?.present(instructionViewController, animated: true)
+    func presentCustomVideoFInstructApViewController() {
+        let FInstructApViewController = FInstructApViewController()
+        FInstructApViewController.modalPresentationStyle = .fullScreen
+        FInstructApViewController.modalTransitionStyle = .crossDissolve
+        topViewController?.present(FInstructApViewController, animated: true)
     }
     
     func presentSupportViewController() {
@@ -155,11 +155,11 @@ final class AppsNavManager: NSObject {
         topViewController?.present(activityViewController, animated: true)
     }
     
-    func presentRequestVoiceRecordingViewController() {
-        let requestVoiceRecordingViewController: RequestVoiceRecordingViewController = RequestVoiceRecordingViewController()
-        requestVoiceRecordingViewController.modalPresentationStyle = .fullScreen
-        requestVoiceRecordingViewController.modalTransitionStyle = .crossDissolve
-        topViewController?.present(requestVoiceRecordingViewController, animated: true)
+    func presentSReqVoiceRecordApViewController() {
+        let SReqVoiceRecordApViewController: SReqVoiceRecordApViewController = SReqVoiceRecordApViewController()
+        SReqVoiceRecordApViewController.modalPresentationStyle = .fullScreen
+        SReqVoiceRecordApViewController.modalTransitionStyle = .crossDissolve
+        topViewController?.present(SReqVoiceRecordApViewController, animated: true)
     }
     
     func presentPaywallViewController(with openAction: GAppAnalyticActions, _ screenType: ВTypPwlScreen? = nil) {
@@ -175,11 +175,11 @@ final class AppsNavManager: NSObject {
         topViewController?.present(paywallViewController, animated: true)
     }
     
-    func presentMicrophonePermissionViewController() {
-        let microphonePermissionViewController = MicrophonePermissionViewController()
-        microphonePermissionViewController.modalPresentationStyle = .fullScreen
-        microphonePermissionViewController.modalTransitionStyle = .crossDissolve
-        topViewController?.present(microphonePermissionViewController, animated: false)
+    func presentHMicrophPermisApViewController() {
+        let HMicrophPermisApViewController = HMicrophPermisApViewController()
+        HMicrophPermisApViewController.modalPresentationStyle = .fullScreen
+        HMicrophPermisApViewController.modalTransitionStyle = .crossDissolve
+        topViewController?.present(HMicrophPermisApViewController, animated: false)
     }
     
     func presentSafariViewController(with link: URL) {
@@ -188,36 +188,36 @@ final class AppsNavManager: NSObject {
         topViewController?.present(safariViewController, animated: true)
     }
     
-    func presentProSetupViewController(with delegate: ProSetupViewControllerDelegate?) {
-        let proSetupViewController = ProSetupViewController(delegate: delegate)
-        let navigationViewController = UINavigationController(rootViewController: proSetupViewController)
+    func presentEPSetupApViewController(with delegate: EPSetupApViewControllerDelegate?) {
+        let EPSetupApViewController = EPSetupApViewController(delegate: delegate)
+        let navigationViewController = UINavigationController(rootViewController: EPSetupApViewController)
         topViewController?.present(navigationViewController, animated: true)
     }
     
-    func presentTemplatesViewController(with delegate: TemplatesViewControllerDelegate?) {
-        let templatesViewController = TemplatesViewController(delegate: delegate)
-        let navigationViewController = UINavigationController(rootViewController: templatesViewController)
+    func presentQTemplateApViewController(with delegate: QTemplateApViewControllerDelegate?) {
+        let QTemplateApViewController = QTemplateApViewController(delegate: delegate)
+        let navigationViewController = UINavigationController(rootViewController: QTemplateApViewController)
         topViewController?.present(navigationViewController, animated: true)
     }
     
-    func pushCompressorViewController() {
-        let compressorViewController = CompressorViewController()
-        topViewController?.navigationController?.pushViewController(compressorViewController, animated: true)
+    func pushKCompresViewController() {
+        let KCompresViewController = KCompresViewController()
+        topViewController?.navigationController?.pushViewController(KCompresViewController, animated: true)
     }
     
-    func pushVoiceChangerViewController() {
-        let voiceChangerViewController = VoiceChangerViewController()
-        topViewController?.navigationController?.pushViewController(voiceChangerViewController, animated: true)
+    func pushRVoicChangeJViewController() {
+        let RVoicChangeJViewController = RVoicChangeJViewController()
+        topViewController?.navigationController?.pushViewController(RVoicChangeJViewController, animated: true)
     }
     
-    func pushLimiterViewController() {
-        let limiterViewController = LimiterViewController()
-        topViewController?.navigationController?.pushViewController(limiterViewController, animated: true)
+    func pushYLimitApViewController() {
+        let YLimitApViewController = YLimitApViewController()
+        topViewController?.navigationController?.pushViewController(YLimitApViewController, animated: true)
     }
     
-    func pushEqualizerViewController() {
-        let equalizerViewController = EqualizerViewController()
-        topViewController?.navigationController?.pushViewController(equalizerViewController, animated: true)
+    func pushUEqualizeApViewController() {
+        let UEqualizeApViewController = UEqualizeApViewController()
+        topViewController?.navigationController?.pushViewController(UEqualizeApViewController, animated: true)
     }
     
     func presentZAppIconViewController() {
@@ -295,9 +295,9 @@ final class AppsNavManager: NSObject {
         topViewController?.present(navigationViewController, animated: true)
     }
     
-    func presentMoreViewController() {
-        let moreViewController = MoreViewController()
-        let navigationViewController = UINavigationController(rootViewController: moreViewController)
+    func presentOMoreApViewController() {
+        let OMoreApViewController = OMoreApViewController()
+        let navigationViewController = UINavigationController(rootViewController: OMoreApViewController)
         topViewController?.present(navigationViewController, animated: true)
     }
     
@@ -305,18 +305,18 @@ final class AppsNavManager: NSObject {
         UIApplication.shared.open(URL(string: "https://apps.apple.com/account/subscriptions")!)
     }
     
-    func presentEmailViewController() {
-        let emailViewController = EmailViewController()
-        emailViewController.modalPresentationStyle = .fullScreen
-        emailViewController.modalTransitionStyle = .crossDissolve
-        topViewController?.present(emailViewController, animated: true)
+    func presentWEmailApViewController() {
+        let WEmailApViewController = WEmailApViewController()
+        WEmailApViewController.modalPresentationStyle = .fullScreen
+        WEmailApViewController.modalTransitionStyle = .crossDissolve
+        topViewController?.present(WEmailApViewController, animated: true)
     }
     
-    func presentPermissionsListViewController() {
-        let permissionsListViewController = PermissionsListViewController()
-        permissionsListViewController.modalPresentationStyle = .fullScreen
-        permissionsListViewController.modalTransitionStyle = .crossDissolve
-        topViewController?.present(permissionsListViewController, animated: true)
+    func presentTPermissListApViewController() {
+        let TPermissListApViewController = TPermissListApViewController()
+        TPermissListApViewController.modalPresentationStyle = .fullScreen
+        TPermissListApViewController.modalTransitionStyle = .crossDissolve
+        topViewController?.present(TPermissListApViewController, animated: true)
     }
     
     func presentCrossPromoViewController() {
@@ -326,8 +326,8 @@ final class AppsNavManager: NSObject {
         topViewController?.present(crossPromoViewController, animated: true)
     }
     
-    func presentBPaywallViewController() {
-        let paywallViewController = BPaywallViewController()
+    func presentDBPaywlApViewController() {
+        let paywallViewController = DBPaywlApViewController()
         paywallViewController.modalPresentationStyle = .fullScreen
         paywallViewController.modalTransitionStyle = .crossDissolve
         topViewController?.present(paywallViewController, animated: true)

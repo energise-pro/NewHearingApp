@@ -1,23 +1,23 @@
 import UIKit
 
-protocol SliderTableViewCellDelegate: AnyObject {
-    func didChangeSliderValue(on value: Float, from cell: SliderTableViewCell)
+protocol GSlideBTablViewCellDelegate: AnyObject {
+    func didChangeSliderValue(on value: Float, from cell: GSlideBTablViewCell)
 }
 
-struct SliderTableViewCellModel {
+struct GSlideBTablViewCellModel {
     var title: String
     var sliderValue: Float
     var minSliderValue: Float = 0.0
     var maxSliderValue: Float = 1.0
     var topInset: CGFloat = 0.0
-    weak var delegate: SliderTableViewCellDelegate?
+    weak var delegate: GSlideBTablViewCellDelegate?
 }
 
-typealias SliderTableViewCellConfig = АViewCellConfig<SliderTableViewCell, SliderTableViewCellModel>
+typealias GSlideBTablViewCellConfig = АViewCellConfig<GSlideBTablViewCell, GSlideBTablViewCellModel>
 
-final class SliderTableViewCell: UITableViewCell, HConfigCellProtocol, UIViewCellNib {
+final class GSlideBTablViewCell: UITableViewCell, HConfigCellProtocol, UIViewCellNib {
 
-    typealias DataType = SliderTableViewCellModel
+    typealias DataType = GSlideBTablViewCellModel
     
     @IBOutlet private weak var titleLabel: UILabel!
     
@@ -27,7 +27,7 @@ final class SliderTableViewCell: UITableViewCell, HConfigCellProtocol, UIViewCel
     
     @IBOutlet private weak var containerViewTopConstraint: NSLayoutConstraint!
     
-    private weak var delegate: SliderTableViewCellDelegate?
+    private weak var delegate: GSlideBTablViewCellDelegate?
     
     // MARK: - Lifecycle
     override func awakeFromNib() {

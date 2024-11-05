@@ -1,6 +1,6 @@
 import UIKit
 
-final class EqualizerViewController: PMUMainViewController {
+final class UEqualizeApViewController: PMUMainViewController {
 
     @IBOutlet private weak var tableView: UITableView!
     
@@ -29,7 +29,7 @@ final class EqualizerViewController: PMUMainViewController {
         navigationItem.rightBarButtonItem?.tintColor = ThemeService.shared.activeColor
         navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
-        let cellNibs: [UIViewCellNib.Type] = [SettingTableViewCell.self, JEqlizeTableViewCell.self, SliderTableViewCell.self, VCentereButnTableViewCell.self]
+        let cellNibs: [UIViewCellNib.Type] = [SettingTableViewCell.self, JEqlizeTableViewCell.self, GSlideBTablViewCell.self, VCentereButnTableViewCell.self]
         cellNibs.forEach { tableView.register($0.nib, forCellReuseIdentifier: $0.identifier) }
     }
     
@@ -45,8 +45,8 @@ final class EqualizerViewController: PMUMainViewController {
         dataSource = [statusCellConfig, equalizerChartCellConfig]
         
         EqualizerBands.allCases.enumerated().forEach { index, band in
-            let cellModel = SliderTableViewCellModel(title: band.hzTitle, sliderValue: Float(band.value), minSliderValue: Float(EqualizerBands.minValue), maxSliderValue: Float(EqualizerBands.maxValue), topInset: index == 0 ? 20.0 : 0.0, delegate: self)
-            let cellConfig = SliderTableViewCellConfig(item: cellModel)
+            let cellModel = GSlideBTablViewCellModel(title: band.hzTitle, sliderValue: Float(band.value), minSliderValue: Float(EqualizerBands.minValue), maxSliderValue: Float(EqualizerBands.maxValue), topInset: index == 0 ? 20.0 : 0.0, delegate: self)
+            let cellConfig = GSlideBTablViewCellConfig(item: cellModel)
             dataSource.append(cellConfig)
         }
         
@@ -75,7 +75,7 @@ final class EqualizerViewController: PMUMainViewController {
 }
 
 // MARK: - UITableViewDataSource, UITableViewDelegate
-extension EqualizerViewController: UITableViewDataSource, UITableViewDelegate {
+extension UEqualizeApViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataSource.count
@@ -98,7 +98,7 @@ extension EqualizerViewController: UITableViewDataSource, UITableViewDelegate {
 }
 
 // MARK: - VCentereButnTableViewCellDelegate
-extension EqualizerViewController: VCentereButnTableViewCellDelegate {
+extension UEqualizeApViewController: VCentereButnTableViewCellDelegate {
     
     func didSelectButton(from cell: VCentereButnTableViewCell) {
         TapticEngine.impact.feedback(.medium)
@@ -112,7 +112,7 @@ extension EqualizerViewController: VCentereButnTableViewCellDelegate {
 }
 
 // MARK: - SettingTableViewCellDelegate
-extension EqualizerViewController: SettingTableViewCellDelegate {
+extension UEqualizeApViewController: SettingTableViewCellDelegate {
     
     func didSelectButton(with type: SettingTableViewButtonType, from cell: SettingTableViewCell) {
         guard let indexRow = tableView.indexPath(for: cell)?.row,
@@ -136,19 +136,19 @@ extension EqualizerViewController: SettingTableViewCellDelegate {
     }
 }
 
-// MARK: - SliderTableViewCellDelegate
-extension EqualizerViewController: SliderTableViewCellDelegate {
+// MARK: - GSlideBTablViewCellDelegate
+extension UEqualizeApViewController: GSlideBTablViewCellDelegate {
     
-    func didChangeSliderValue(on value: Float, from cell: SliderTableViewCell) {
+    func didChangeSliderValue(on value: Float, from cell: GSlideBTablViewCell) {
         guard let indexRow = tableView.indexPath(for: cell)?.row,
-              let cellModel = dataSource[indexRow].getItem() as? SliderTableViewCellModel,
+              let cellModel = dataSource[indexRow].getItem() as? GSlideBTablViewCellModel,
               let equalizerParameter = EqualizerBands.allCases[safe: indexRow - 2] else {
             return
         }
         equalizerParameter.setNew(Double(value))
         updateChartCell()
-        let newCellModel = SliderTableViewCellModel(title: cellModel.title, sliderValue: value, minSliderValue: cellModel.minSliderValue, maxSliderValue: cellModel.maxSliderValue, topInset: cellModel.topInset, delegate: self)
-        dataSource[indexRow] = SliderTableViewCellConfig(item: newCellModel)
+        let newCellModel = GSlideBTablViewCellModel(title: cellModel.title, sliderValue: value, minSliderValue: cellModel.minSliderValue, maxSliderValue: cellModel.maxSliderValue, topInset: cellModel.topInset, delegate: self)
+        dataSource[indexRow] = GSlideBTablViewCellConfig(item: newCellModel)
         
         sliderTimer?.invalidate()
         sliderTimer = Timer.scheduledTimer(withTimeInterval: GAppAnalyticActions.delaySliderInterval, repeats: false) { _ in
