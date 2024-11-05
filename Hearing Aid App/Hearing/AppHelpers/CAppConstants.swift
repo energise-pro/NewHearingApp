@@ -13,7 +13,7 @@ struct CAppConstants {
         static let wasPresentedRatingAlert = "kPresentedRatingAlert"
         static let wasSentASAInstall = "wasSentASAInstall"
         
-        /// These keys related with https://appstoreconnect.apple.com and can't be changed only in the one place.
+        
         static let weeklySubscriptionId = "hearing_aid_weekly"
         static let monthlySubscriptionId = "hearing_aid_monthly_new"
         static let annualSubscriptionId = "hearing_aid_annual"
@@ -32,8 +32,7 @@ struct CAppConstants {
     
     struct General {
         static let appStoreAppID = ""
-        static let amplitudeKey = ""
-        static let oneSignalKey = ""
+        static let amplitudeKey = "216178a637a448232b73b4f8c617b1d0"
         static let supportEmail = "m.sulg@matu-app.online"
         static let appHudKey = "app_bpzbC3YNmvZGDYgMHxzqw3Jr698XTr"
         static let asaToolsKey = ""
@@ -70,10 +69,10 @@ struct CAppConstants {
     }
     
     struct URLs {
-        static let termsURL = URL(string: "https://hearing.energise.pro/terms/")!
-        static let privacyPolicyURL = URL(string: "https://hearing.energise.pro/privacy/")!
-        static let faqURL = URL(string: "https://hearing.energise.pro/faq/")!
-        static let ourWebSiteURL = URL(string: "https://hearing.energise.pro/hearingAid/")!
+        static let termsURL = URL(string: "https://sites.google.com/energise.pro/hearingaidnews/terms-conditions")!
+        static let privacyPolicyURL = URL(string: "https://sites.google.com/energise.pro/hearingaidnews/privacy-policy")!
+        static let faqURL = URL(string: "https://sites.google.com/energise.pro/hearingaidnews/")!
+        static let ourWebSiteURL = URL(string: "https://sites.google.com/energise.pro/hearingaidnews/home")!
         static let appStoreUrl = URL(string: "https://apps.apple.com/app/id\(CAppConstants.General.appStoreAppID)")!
       
         
