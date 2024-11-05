@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		11225B412CDAA4F700C43353 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 11225B402CDAA4F700C43353 /* GoogleService-Info.plist */; };
 		1179064B2CD2CB080089B308 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1197E8D22CD2A76C007F05B3 /* AdSupport.framework */; };
 		1179064D2CD2CB160089B308 /* AdServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1179064C2CD2CB160089B308 /* AdServices.framework */; };
 		118EDAF32CD2643900C3F2CF /* AudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = 118EDAF22CD2643900C3F2CF /* AudioKit */; };
@@ -57,7 +58,6 @@
 		83AA6D8E26777DD800AFFB7F /* JTranslrToLangSelecController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AA6D8D26777DD800AFFB7F /* JTranslrToLangSelecController.swift */; };
 		83ABA251264BE340001784B8 /* USpeechRecViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83ABA250264BE340001784B8 /* USpeechRecViewController.swift */; };
 		83ABA254264BE346001784B8 /* USpeechRecViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83ABA253264BE346001784B8 /* USpeechRecViewController.storyboard */; };
-		83ABAC50265BBA3C00A20D0E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 83ABAC4F265BBA3C00A20D0E /* GoogleService-Info.plist */; };
 		83AF2C23264D660E00DB9909 /* DSpeechRecLocaleSelecViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AF2C22264D660E00DB9909 /* DSpeechRecLocaleSelecViewController.swift */; };
 		83AF2C76264D9CD100DB9909 /* RTextVFullScrViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AF2C75264D9CD100DB9909 /* RTextVFullScrViewController.swift */; };
 		83AF2C79264D9CEF00DB9909 /* RTextVFullScrViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83AF2C78264D9CEF00DB9909 /* RTextVFullScrViewController.storyboard */; };
@@ -213,10 +213,10 @@
 		9AE950AE283FBDD00044CAB1 /* GPOnboardApViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AE950AC283FBDD00044CAB1 /* GPOnboardApViewController.xib */; };
 		9AEC02F0283533FF00E9E88B /* HTexParamTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEC02EE283533FF00E9E88B /* HTexParamTableViewCell.swift */; };
 		9AEC02F1283533FF00E9E88B /* HTexParamTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AEC02EF283533FF00E9E88B /* HTexParamTableViewCell.xib */; };
-		A51EBD3426D9572E00674657 /* dialogAfter.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A51EBD3226D9572E00674657 /* dialogAfter.mp3 */; };
-		A51EBD3526D9572E00674657 /* guitarAfter.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A51EBD3326D9572E00674657 /* guitarAfter.mp3 */; };
-		A51EBD3826D9575600674657 /* dialogBefore.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A51EBD3626D9575600674657 /* dialogBefore.mp3 */; };
-		A51EBD3926D9575600674657 /* guitarBefore.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A51EBD3726D9575600674657 /* guitarBefore.mp3 */; };
+		A51EBD3426D9572E00674657 /* AppdialogAfter.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A51EBD3226D9572E00674657 /* AppdialogAfter.mp3 */; };
+		A51EBD3526D9572E00674657 /* AppguitarAfter.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A51EBD3326D9572E00674657 /* AppguitarAfter.mp3 */; };
+		A51EBD3826D9575600674657 /* AppdialogBefore.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A51EBD3626D9575600674657 /* AppdialogBefore.mp3 */; };
+		A51EBD3926D9575600674657 /* AppguitarBefore.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A51EBD3726D9575600674657 /* AppguitarBefore.mp3 */; };
 		A51EBD3D26D957C600674657 /* FOnboardApViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51EBD3B26D957C600674657 /* FOnboardApViewController.swift */; };
 		A51EBD3E26D957C600674657 /* FOnboardApViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A51EBD3C26D957C600674657 /* FOnboardApViewController.xib */; };
 		A51EBD4926D95B5100674657 /* GOnboModelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51EBD4826D95B5100674657 /* GOnboModelCollectionViewCell.swift */; };
@@ -263,6 +263,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		11225B402CDAA4F700C43353 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1179064C2CD2CB160089B308 /* AdServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdServices.framework; path = System/Library/Frameworks/AdServices.framework; sourceTree = SDKROOT; };
 		1197E8D22CD2A76C007F05B3 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		11DC52242CD403E400A9589A /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
@@ -326,7 +327,6 @@
 		83AA6D8D26777DD800AFFB7F /* JTranslrToLangSelecController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JTranslrToLangSelecController.swift; sourceTree = "<group>"; };
 		83ABA250264BE340001784B8 /* USpeechRecViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = USpeechRecViewController.swift; sourceTree = "<group>"; };
 		83ABA253264BE346001784B8 /* USpeechRecViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = USpeechRecViewController.storyboard; sourceTree = "<group>"; };
-		83ABAC4F265BBA3C00A20D0E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		83AF2C22264D660E00DB9909 /* DSpeechRecLocaleSelecViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSpeechRecLocaleSelecViewController.swift; sourceTree = "<group>"; };
 		83AF2C75264D9CD100DB9909 /* RTextVFullScrViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTextVFullScrViewController.swift; sourceTree = "<group>"; };
 		83AF2C78264D9CEF00DB9909 /* RTextVFullScrViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RTextVFullScrViewController.storyboard; sourceTree = "<group>"; };
@@ -495,10 +495,10 @@
 		9AEC02EE283533FF00E9E88B /* HTexParamTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTexParamTableViewCell.swift; sourceTree = "<group>"; };
 		9AEC02EF283533FF00E9E88B /* HTexParamTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HTexParamTableViewCell.xib; sourceTree = "<group>"; };
 		9D9EBDD51084828864D7BA3C /* Pods_Hearing_Aid_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hearing_Aid_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A51EBD3226D9572E00674657 /* dialogAfter.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = dialogAfter.mp3; sourceTree = "<group>"; };
-		A51EBD3326D9572E00674657 /* guitarAfter.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = guitarAfter.mp3; sourceTree = "<group>"; };
-		A51EBD3626D9575600674657 /* dialogBefore.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = dialogBefore.mp3; sourceTree = "<group>"; };
-		A51EBD3726D9575600674657 /* guitarBefore.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = guitarBefore.mp3; sourceTree = "<group>"; };
+		A51EBD3226D9572E00674657 /* AppdialogAfter.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = AppdialogAfter.mp3; sourceTree = "<group>"; };
+		A51EBD3326D9572E00674657 /* AppguitarAfter.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = AppguitarAfter.mp3; sourceTree = "<group>"; };
+		A51EBD3626D9575600674657 /* AppdialogBefore.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = AppdialogBefore.mp3; sourceTree = "<group>"; };
+		A51EBD3726D9575600674657 /* AppguitarBefore.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = AppguitarBefore.mp3; sourceTree = "<group>"; };
 		A51EBD3B26D957C600674657 /* FOnboardApViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FOnboardApViewController.swift; sourceTree = "<group>"; };
 		A51EBD3C26D957C600674657 /* FOnboardApViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FOnboardApViewController.xib; sourceTree = "<group>"; };
 		A51EBD4826D95B5100674657 /* GOnboModelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GOnboModelCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -562,22 +562,22 @@
 			path = DParticleView;
 			sourceTree = "<group>";
 		};
-		839DE07026529F1B00A65DD7 /* Progressview */ = {
+		839DE07026529F1B00A65DD7 /* AProgressview */ = {
 			isa = PBXGroup;
 			children = (
 				839DE07126529F1B00A65DD7 /* NIndicatShaper.swift */,
 				839DE07226529F1B00A65DD7 /* ActivityIndicatorView.swift */,
 			);
-			path = Progressview;
+			path = AProgressview;
 			sourceTree = "<group>";
 		};
-		839FAC22264EE846004910D9 /* Settings */ = {
+		839FAC22264EE846004910D9 /* ASpeechReco */ = {
 			isa = PBXGroup;
 			children = (
 				839FAC1F264EE383004910D9 /* JSpeechRecoSetViewController.swift */,
 				839FAC23264EE87D004910D9 /* JSpeechRecoSetViewController.storyboard */,
 			);
-			path = Settings;
+			path = ASpeechReco;
 			sourceTree = "<group>";
 		};
 		83A0A0C2267E02C700D06F35 /* Haptic */ = {
@@ -615,6 +615,10 @@
 			isa = PBXGroup;
 			children = (
 				83A8E8AC2645898B0080AEE5 /* Info.plist */,
+				11225B402CDAA4F700C43353 /* GoogleService-Info.plist */,
+				83A8E89E2645898A0080AEE5 /* AppDelegate.swift */,
+				11DC52242CD403E400A9589A /* Theme.swift */,
+				9A27ED8126CDA9F200D8EF09 /* AppResource */,
 				A5B2323D26CC44BC0042AA7B /* Hearing */,
 				83EAFE89264C263700FF9CAC /* General */,
 				83ABA24F264BE316001784B8 /* AppSpeechRec */,
@@ -661,13 +665,13 @@
 			path = ZSpringApp;
 			sourceTree = "<group>";
 		};
-		83AA6D892677747800AFFB7F /* SpeechRecognition */ = {
+		83AA6D892677747800AFFB7F /* ASpeechRecognition */ = {
 			isa = PBXGroup;
 			children = (
 				83BCCDD6264C797100AAAF9B /* SpeechRecognition.swift */,
 				83AF2C22264D660E00DB9909 /* DSpeechRecLocaleSelecViewController.swift */,
 			);
-			path = SpeechRecognition;
+			path = ASpeechRecognition;
 			sourceTree = "<group>";
 		};
 		83AA6D8A2677749300AFFB7F /* ApGoogleTranslator */ = {
@@ -687,8 +691,8 @@
 				83AF2C78264D9CEF00DB9909 /* RTextVFullScrViewController.storyboard */,
 				83ABA253264BE346001784B8 /* USpeechRecViewController.storyboard */,
 				83AA6D8A2677749300AFFB7F /* ApGoogleTranslator */,
-				83AA6D892677747800AFFB7F /* SpeechRecognition */,
-				839FAC22264EE846004910D9 /* Settings */,
+				83AA6D892677747800AFFB7F /* ASpeechRecognition */,
+				839FAC22264EE846004910D9 /* ASpeechReco */,
 			);
 			path = AppSpeechRec;
 			sourceTree = "<group>";
@@ -709,7 +713,7 @@
 				83C81AA0264A86F300B3F8E2 /* AppExt.swift */,
 				83A8E8BE2645A76D0080AEE5 /* KGradientablView.swift */,
 				834EB73126482F9600026F01 /* DParticleView */,
-				839DE07026529F1B00A65DD7 /* Progressview */,
+				839DE07026529F1B00A65DD7 /* AProgressview */,
 				83A8E8C12645A7FD0080AEE5 /* ZSpringApp */,
 			);
 			path = General;
@@ -846,19 +850,18 @@
 			path = TranscriptDetailsViewController;
 			sourceTree = "<group>";
 		};
-		9A27ED8126CDA9F200D8EF09 /* SupportingFiles */ = {
+		9A27ED8126CDA9F200D8EF09 /* AppResource */ = {
 			isa = PBXGroup;
 			children = (
 				9A122CF2283B9FA800944287 /* hearing_aid_instruction.mp4 */,
 				83A8E8A72645898B0080AEE5 /* Assets.xcassets */,
-				83ABAC4F265BBA3C00A20D0E /* GoogleService-Info.plist */,
 				83A8E8A92645898B0080AEE5 /* LaunchScreen.storyboard */,
 				83AC1EF92693A9FD0019C36F /* Localizations */,
 				A51C52BF26CEF7FF00D90673 /* Fonts */,
-				A51EBD3126D956BE00674657 /* Ringtone */,
+				A51EBD3126D956BE00674657 /* AppRingtone */,
 				A52F8AFE26D19FF100034120 /* Video */,
 			);
-			path = SupportingFiles;
+			path = AppResource;
 			sourceTree = "<group>";
 		};
 		9A3328B426E203D700D5F32B /* AppManagers */ = {
@@ -1277,15 +1280,15 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
-		A51EBD3126D956BE00674657 /* Ringtone */ = {
+		A51EBD3126D956BE00674657 /* AppRingtone */ = {
 			isa = PBXGroup;
 			children = (
-				A51EBD3226D9572E00674657 /* dialogAfter.mp3 */,
-				A51EBD3626D9575600674657 /* dialogBefore.mp3 */,
-				A51EBD3326D9572E00674657 /* guitarAfter.mp3 */,
-				A51EBD3726D9575600674657 /* guitarBefore.mp3 */,
+				A51EBD3226D9572E00674657 /* AppdialogAfter.mp3 */,
+				A51EBD3626D9575600674657 /* AppdialogBefore.mp3 */,
+				A51EBD3326D9572E00674657 /* AppguitarAfter.mp3 */,
+				A51EBD3726D9575600674657 /* AppguitarBefore.mp3 */,
 			);
-			path = Ringtone;
+			path = AppRingtone;
 			sourceTree = "<group>";
 		};
 		A51EBD3A26D957AC00674657 /* OnboardingViewController */ = {
@@ -1369,8 +1372,6 @@
 			isa = PBXGroup;
 			children = (
 				11DC523D2CD4139200A9589A /* HAnalliticAViewController.swift */,
-				11DC52242CD403E400A9589A /* Theme.swift */,
-				83A8E89E2645898A0080AEE5 /* AppDelegate.swift */,
 				A5E9ADD626E0962100B7DA17 /* AppCustomView */,
 				9A87D76526CF06F70077C9D0 /* AppViewsControllers */,
 				A5B2324F26CC47B40042AA7B /* AppEntities */,
@@ -1380,7 +1381,6 @@
 				A5B2325226CC48080042AA7B /* AppHelpers */,
 				9A3328B426E203D700D5F32B /* AppManagers */,
 				A5B2324126CC44C70042AA7B /* AppService */,
-				9A27ED8126CDA9F200D8EF09 /* SupportingFiles */,
 			);
 			path = Hearing;
 			sourceTree = "<group>";
@@ -1578,15 +1578,16 @@
 				9ACB45E92812D0CD00FAF44E /* QTemplateApViewController.xib in Resources */,
 				9A60EDC8281A955C00112720 /* YLimitApViewController.xib in Resources */,
 				83A71C572694531D00311937 /* Localizable.strings in Resources */,
-				A51EBD3526D9572E00674657 /* guitarAfter.mp3 in Resources */,
+				A51EBD3526D9572E00674657 /* AppguitarAfter.mp3 in Resources */,
 				9ABEB29A26D3FF5600A8252D /* DHeadphsRemindApViewController.xib in Resources */,
 				83A0A0C9267E02C700D06F35 /* Spawn.ahap in Resources */,
-				A51EBD3426D9572E00674657 /* dialogAfter.mp3 in Resources */,
+				A51EBD3426D9572E00674657 /* AppdialogAfter.mp3 in Resources */,
 				9A60EDFC281FE99600112720 /* ASettingAppViewController.xib in Resources */,
 				A58219B026F9196D005BFCD6 /* JOnbrdCollectViewCell.xib in Resources */,
 				9A949F5828A293E800F7D7D4 /* SFakSplasApViewController.xib in Resources */,
 				83A8E8AB2645898B0080AEE5 /* LaunchScreen.storyboard in Resources */,
-				A51EBD3826D9575600674657 /* dialogBefore.mp3 in Resources */,
+				A51EBD3826D9575600674657 /* AppdialogBefore.mp3 in Resources */,
+				11225B412CDAA4F700C43353 /* GoogleService-Info.plist in Resources */,
 				9A60EDD4281AE17800112720 /* JEqlizeTableViewCell.xib in Resources */,
 				9A1B0B7B2833842B003588B5 /* FTextSetupApViewController.xib in Resources */,
 				9AEC02F1283533FF00E9E88B /* HTexParamTableViewCell.xib in Resources */,
@@ -1597,7 +1598,6 @@
 				9A836AF428198B4C00FD5AF2 /* GSlideBTablViewCell.xib in Resources */,
 				A5774AB626EAB00800AA4780 /* Gotham-Bold.otf in Resources */,
 				9A2452D92837926A0019DAC1 /* GTranscriptionTablViewCell.xib in Resources */,
-				83ABAC50265BBA3C00A20D0E /* GoogleService-Info.plist in Resources */,
 				9A122CF3283B9FA800944287 /* hearing_aid_instruction.mp4 in Resources */,
 				9A635DD126F3811900A6C0EF /* SCatchUpApViewController.xib in Resources */,
 				9A8EE3EC28379C630038E58F /* YTranscriptDetailApViewController.xib in Resources */,
@@ -1605,7 +1605,7 @@
 				9A836AEF281929CE00FD5AF2 /* SettingTableViewCell.xib in Resources */,
 				9ACB45DF2812CE7000FAF44E /* ErdSetupViewController.xib in Resources */,
 				83A0A0CC267E02C700D06F35 /* Spawn.wav in Resources */,
-				A51EBD3926D9575600674657 /* guitarBefore.mp3 in Resources */,
+				A51EBD3926D9575600674657 /* AppguitarBefore.mp3 in Resources */,
 				9AC90E662886B74C00A43212 /* TPermissListApViewController.xib in Resources */,
 				A552868926FA711500A92066 /* GOnbBSpeechViewCell.xib in Resources */,
 				9ADD32C428365A24002ADA43 /* JLocaleListApViewController.xib in Resources */,
@@ -2053,7 +2053,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.3.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hair.ap2p.fac1e.swa1p;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2081,7 +2081,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.3.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hair.ap2p.fac1e.swa1p;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

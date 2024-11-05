@@ -49,9 +49,9 @@ enum TOnboardHvTabs: Int, CaseIterable {
     var afterRingtonePath: String {
         switch self {
         case .volumeBoost:
-            return "guitarAfter"
+            return "AppguitarAfter"
         case .noiseSuppression:
-            return "dialogAfter"
+            return "AppdialogAfter"
         case .speachRecognition, .speechTranslate:
             return ""
         }
@@ -60,9 +60,9 @@ enum TOnboardHvTabs: Int, CaseIterable {
     var beforeRingtonePath: String {
         switch self {
         case .volumeBoost:
-            return "guitarBefore"
+            return "AppguitarBefore"
         case .noiseSuppression:
-            return "dialogBefore"
+            return "AppdialogBefore"
         case .speachRecognition, .speechTranslate:
             return ""
         }
