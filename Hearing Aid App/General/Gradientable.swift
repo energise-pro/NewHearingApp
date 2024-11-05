@@ -1,10 +1,10 @@
 import UIKit
 
-protocol Gradientable {
+protocol KGradientablView {
     var gradient: CAGradientLayer { get }
 }
 
-extension Gradientable {
+extension KGradientablView {
 
     func updateGradientLayerFrame() {
         if let superLayerFrame =  gradient.superlayer?.bounds {

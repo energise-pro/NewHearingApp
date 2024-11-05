@@ -178,7 +178,7 @@ public final class ActivityIndicatorView: UIView {
 
         layer.sublayers = nil
         animationRect.size = CGSize(width: minEdge, height: minEdge)
-        IndicatorShape.setUpAnimation(in: layer, size: animationRect.size, color: color)
+        NIndicatShaper.setUpAnimation(in: layer, size: animationRect.size, color: color)
     }
 
     static var indicator: ActivityIndicatorView?

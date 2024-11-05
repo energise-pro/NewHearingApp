@@ -1,6 +1,6 @@
 import UIKit
 
-open class SpringButton: UIButton, Springable, Gradientable {
+open class SpringButton: UIButton, Springable, KGradientablView {
     let gradient: CAGradientLayer = CAGradientLayer()
 
     public var isAnimationInProgress: Bool = false

@@ -1,16 +1,5 @@
 import UIKit
 
-extension String {
-    func localized() -> String {
-        return NSLocalizedString(self, comment: "")
-    }
-    
-    func localized(with arguments: [CVarArg]) -> String {
-        let stringArguments = arguments.compactMap { "\($0)" }
-        return String(format: self.localized(), locale: nil, arguments: stringArguments)
-    }
-}
-
 extension UIView {
     func addShadow(color: UIColor = #colorLiteral(red: 0.370555222, green: 0.3705646992, blue: 0.3705595732, alpha: 1),
                    shadowRadius: CGFloat = 5,
@@ -84,37 +73,47 @@ extension UIView {
     }
 }
 
-extension Collection {
-    /// Returns the element at the specified index iff it is within bounds, otherwise nil.
-    subscript (safe index: Index) -> Iterator.Element? {
-        return indices.contains(index) ? self[index] : nil
-    }
-}
-
 extension UIViewController {
-    func topMostViewController() -> UIViewController? {
+    func addChildController(_ child: UIViewController,
+                            inView container: UIView, withFrame frame: CGRect? = nil,
+                            atIndex index: Int? = nil) {
+        self.addChild(child)
+
+        if let frame = frame {
+            child.view.frame = frame
+        } else {
+            child.view.frame = container.bounds
+        }
+
+        if let index = index {
+            container.insertSubview(child.view, at: index)
+        } else {
+            container.addSubview(child.view)
+        }
+        child.didMove(toParent: self)
+    }
+
+    func removeChildController(_ child: UIViewController) {
+        child.willMove(toParent: nil)
+        child.view.removeFromSuperview()
+        child.removeFromParent()
+    }
+    func topDAppViewController() -> UIViewController? {
         if self.presentedViewController == nil {
             return self
         }
         if let navigation = self.presentedViewController as? UINavigationController {
-            return navigation.visibleViewController?.topMostViewController()
+            return navigation.visibleViewController?.topDAppViewController()
         }
         if let tab = self.presentedViewController as? UITabBarController {
             if let selectedTab = tab.selectedViewController {
-                return selectedTab.topMostViewController()
+                return selectedTab.topDAppViewController()
             }
-            return tab.topMostViewController()
+            return tab.topDAppViewController()
         }
-        return self.presentedViewController?.topMostViewController()
+        return self.presentedViewController?.topDAppViewController()
     }
 }
-
-extension UIApplication {
-    func topMostViewController() -> UIViewController? {
-        return self.windows.first?.rootViewController?.topMostViewController()
-    }
-}
-
 extension UITextView {
 
     @IBInspectable var actionsBar: Bool{
@@ -170,30 +169,27 @@ extension UITextView {
     }
 }
 
-extension UIViewController {
-    func addChildController(_ child: UIViewController,
-                            inView container: UIView, withFrame frame: CGRect? = nil,
-                            atIndex index: Int? = nil) {
-        self.addChild(child)
-
-        if let frame = frame {
-            child.view.frame = frame
-        } else {
-            child.view.frame = container.bounds
-        }
-
-        if let index = index {
-            container.insertSubview(child.view, at: index)
-        } else {
-            container.addSubview(child.view)
-        }
-        child.didMove(toParent: self)
+extension UIApplication {
+    func topDAppViewController() -> UIViewController? {
+        return self.windows.first?.rootViewController?.topDAppViewController()
     }
+}
 
-    func removeChildController(_ child: UIViewController) {
-        child.willMove(toParent: nil)
-        child.view.removeFromSuperview()
-        child.removeFromParent()
+extension String {
+    func localized() -> String {
+        return NSLocalizedString(self, comment: "")
+    }
+    
+    func localized(with arguments: [CVarArg]) -> String {
+        let stringArguments = arguments.compactMap { "\($0)" }
+        return String(format: self.localized(), locale: nil, arguments: stringArguments)
+    }
+}
+
+extension Collection {
+    /// Returns the element at the specified index iff it is within bounds, otherwise nil.
+    subscript (safe index: Index) -> Iterator.Element? {
+        return indices.contains(index) ? self[index] : nil
     }
 }
 
@@ -205,5 +201,41 @@ extension UITableView {
         }
 
         return superview as? UITableViewCell
+    }
+}
+
+extension UMainViewController: UIPopoverPresentationControllerDelegate {
+
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
+    }
+
+    func prepareForPopoverPresentation(_ popoverPresentationController: UIPopoverPresentationController) {
+        popoverPresentationController.permittedArrowDirections = .up
+        popoverPresentationController.barButtonItem = navigationItem.rightBarButtonItem
+    }
+
+    func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {}
+}
+
+extension UIView {
+    
+    @available(iOS 9, *)
+    @discardableResult
+    public func addBaseConstraintsFor(view: UIView, layoutGuide: UILayoutGuide? = nil, edgeInsets: UIEdgeInsets = .zero) -> [NSLayoutConstraint] {
+        view.translatesAutoresizingMaskIntoConstraints = false
+    
+        var constraints: [NSLayoutConstraint] = []
+        let topAnchor = layoutGuide?.topAnchor ?? self.topAnchor
+        let bottomAnchor = layoutGuide?.bottomAnchor ?? self.bottomAnchor
+        constraints.append(view.topAnchor.constraint(equalTo: topAnchor, constant: edgeInsets.top))
+        constraints.append(view.bottomAnchor.constraint(equalTo: bottomAnchor, constant: edgeInsets.bottom))
+        let leftAnchor = layoutGuide?.leftAnchor ?? self.leftAnchor
+        let rightAnchor = layoutGuide?.rightAnchor ?? self.rightAnchor
+        constraints.append(view.leftAnchor.constraint(equalTo: leftAnchor, constant: edgeInsets.left))
+        constraints.append(view.rightAnchor.constraint(equalTo: rightAnchor, constant: edgeInsets.right))
+        constraints.forEach { $0.isActive = true }
+        
+        return constraints
     }
 }

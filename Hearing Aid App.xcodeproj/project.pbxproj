@@ -17,7 +17,7 @@
 		11DC523E2CD4139200A9589A /* AnalliticAmplViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DC523D2CD4139200A9589A /* AnalliticAmplViewController.swift */; };
 		834EB73526482F9600026F01 /* ParticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834EB73326482F9600026F01 /* ParticleView.swift */; };
 		834EB73926482FEC00026F01 /* Particle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 834EB73826482FEC00026F01 /* Particle.sks */; };
-		839DE07326529F1B00A65DD7 /* IndicatorShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DE07126529F1B00A65DD7 /* IndicatorShape.swift */; };
+		839DE07326529F1B00A65DD7 /* NIndicatShaper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DE07126529F1B00A65DD7 /* NIndicatShaper.swift */; };
 		839DE07426529F1B00A65DD7 /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DE07226529F1B00A65DD7 /* ActivityIndicatorView.swift */; };
 		839FAC20264EE383004910D9 /* SpeechRecognitionSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839FAC1F264EE383004910D9 /* SpeechRecognitionSettingsViewController.swift */; };
 		839FAC24264EE87D004910D9 /* SpeechRecognitionSettingsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 839FAC23264EE87D004910D9 /* SpeechRecognitionSettingsViewController.storyboard */; };
@@ -33,10 +33,8 @@
 		83A8E8A82645898B0080AEE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83A8E8A72645898B0080AEE5 /* Assets.xcassets */; };
 		83A8E8AB2645898B0080AEE5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83A8E8A92645898B0080AEE5 /* LaunchScreen.storyboard */; };
 		83A8E8B726458AE50080AEE5 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83A8E8B626458AE50080AEE5 /* StoreKit.framework */; };
-		83A8E8BC2645A71D0080AEE5 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A8E8BB2645A71D0080AEE5 /* BaseViewController.swift */; };
+		83A8E8BC2645A71D0080AEE5 /* UMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A8E8BB2645A71D0080AEE5 /* UMainViewController.swift */; };
 		83A8E8BF2645A76D0080AEE5 /* Gradientable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A8E8BE2645A76D0080AEE5 /* Gradientable.swift */; };
-		83A8E8DB2645A7FD0080AEE5 /* TransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A8E8C42645A7FD0080AEE5 /* TransitionManager.swift */; };
-		83A8E8DC2645A7FD0080AEE5 /* TransitionZoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A8E8C52645A7FD0080AEE5 /* TransitionZoom.swift */; };
 		83A8E8DD2645A7FD0080AEE5 /* Spring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A8E8C62645A7FD0080AEE5 /* Spring.swift */; };
 		83A8E8DE2645A7FD0080AEE5 /* SpringImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A8E8C72645A7FD0080AEE5 /* SpringImageView.swift */; };
 		83A8E8DF2645A7FD0080AEE5 /* DesignableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A8E8C82645A7FD0080AEE5 /* DesignableLabel.swift */; };
@@ -232,7 +230,6 @@
 		A51EBD3D26D957C600674657 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51EBD3B26D957C600674657 /* OnboardingViewController.swift */; };
 		A51EBD3E26D957C600674657 /* OnboardingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A51EBD3C26D957C600674657 /* OnboardingViewController.xib */; };
 		A51EBD4926D95B5100674657 /* OnboardingModelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51EBD4826D95B5100674657 /* OnboardingModelCollectionViewCell.swift */; };
-		A51EBD5226D98F6000674657 /* OnboardingSpeechViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51EBD5126D98F6000674657 /* OnboardingSpeechViewCellModel.swift */; };
 		A52F8B0126D1A8CB00034120 /* headphones.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = A52F8B0026D1A0B700034120 /* headphones.mp4 */; };
 		A52F8B0426D1B0E100034120 /* CGFloat+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52F8B0326D1B0E100034120 /* CGFloat+Extension.swift */; };
 		A53D650626E91FDD00C9882D /* RequestVoiceRecordingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53D650426E91FDD00C9882D /* RequestVoiceRecordingViewController.swift */; };
@@ -297,7 +294,7 @@
 		6CADFEADBA8A46FF205E30F6 /* Pods-OneSignalServiceExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalServiceExtension.debug.xcconfig"; path = "Target Support Files/Pods-OneSignalServiceExtension/Pods-OneSignalServiceExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		834EB73326482F9600026F01 /* ParticleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticleView.swift; sourceTree = "<group>"; };
 		834EB73826482FEC00026F01 /* Particle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Particle.sks; sourceTree = "<group>"; };
-		839DE07126529F1B00A65DD7 /* IndicatorShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndicatorShape.swift; sourceTree = "<group>"; };
+		839DE07126529F1B00A65DD7 /* NIndicatShaper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NIndicatShaper.swift; sourceTree = "<group>"; };
 		839DE07226529F1B00A65DD7 /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
 		839FAC1F264EE383004910D9 /* SpeechRecognitionSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognitionSettingsViewController.swift; sourceTree = "<group>"; };
 		839FAC23264EE87D004910D9 /* SpeechRecognitionSettingsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SpeechRecognitionSettingsViewController.storyboard; sourceTree = "<group>"; };
@@ -325,10 +322,8 @@
 		83A8E8AA2645898B0080AEE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		83A8E8AC2645898B0080AEE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		83A8E8B626458AE50080AEE5 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		83A8E8BB2645A71D0080AEE5 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		83A8E8BB2645A71D0080AEE5 /* UMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UMainViewController.swift; sourceTree = "<group>"; };
 		83A8E8BE2645A76D0080AEE5 /* Gradientable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gradientable.swift; sourceTree = "<group>"; };
-		83A8E8C42645A7FD0080AEE5 /* TransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionManager.swift; sourceTree = "<group>"; };
-		83A8E8C52645A7FD0080AEE5 /* TransitionZoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionZoom.swift; sourceTree = "<group>"; };
 		83A8E8C62645A7FD0080AEE5 /* Spring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spring.swift; sourceTree = "<group>"; };
 		83A8E8C72645A7FD0080AEE5 /* SpringImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpringImageView.swift; sourceTree = "<group>"; };
 		83A8E8C82645A7FD0080AEE5 /* DesignableLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableLabel.swift; sourceTree = "<group>"; };
@@ -538,7 +533,6 @@
 		A51EBD3B26D957C600674657 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		A51EBD3C26D957C600674657 /* OnboardingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingViewController.xib; sourceTree = "<group>"; };
 		A51EBD4826D95B5100674657 /* OnboardingModelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingModelCollectionViewCell.swift; sourceTree = "<group>"; };
-		A51EBD5126D98F6000674657 /* OnboardingSpeechViewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSpeechViewCellModel.swift; sourceTree = "<group>"; };
 		A52F8B0026D1A0B700034120 /* headphones.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = headphones.mp4; sourceTree = "<group>"; };
 		A52F8B0326D1B0E100034120 /* CGFloat+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extension.swift"; sourceTree = "<group>"; };
 		A53D650426E91FDD00C9882D /* RequestVoiceRecordingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestVoiceRecordingViewController.swift; sourceTree = "<group>"; };
@@ -598,31 +592,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		11DC52202CD403E400A9589A /* Amplitud */ = {
-			isa = PBXGroup;
-			children = (
-				11DC523D2CD4139200A9589A /* AnalliticAmplViewController.swift */,
-			);
-			path = Amplitud;
-			sourceTree = "<group>";
-		};
-		11DC52272CD403E400A9589A /* Theme */ = {
-			isa = PBXGroup;
-			children = (
-				11DC52242CD403E400A9589A /* Theme.swift */,
-			);
-			path = Theme;
-			sourceTree = "<group>";
-		};
-		11DC52282CD403E400A9589A /* Old */ = {
-			isa = PBXGroup;
-			children = (
-				11DC52202CD403E400A9589A /* Amplitud */,
-				11DC52272CD403E400A9589A /* Theme */,
-			);
-			path = Old;
-			sourceTree = "<group>";
-		};
 		834EB73126482F9600026F01 /* ParticleView */ = {
 			isa = PBXGroup;
 			children = (
@@ -635,7 +604,7 @@
 		839DE07026529F1B00A65DD7 /* Progressview */ = {
 			isa = PBXGroup;
 			children = (
-				839DE07126529F1B00A65DD7 /* IndicatorShape.swift */,
+				839DE07126529F1B00A65DD7 /* NIndicatShaper.swift */,
 				839DE07226529F1B00A65DD7 /* ActivityIndicatorView.swift */,
 			);
 			path = Progressview;
@@ -688,10 +657,9 @@
 			children = (
 				83A8E8AC2645898B0080AEE5 /* Info.plist */,
 				9A27ED7E26CDA94400D8EF09 /* Hearing Aid App.entitlements */,
-				11DC52282CD403E400A9589A /* Old */,
-				A5B2323D26CC44BC0042AA7B /* New */,
+				A5B2323D26CC44BC0042AA7B /* Hearing */,
 				83EAFE89264C263700FF9CAC /* General */,
-				83ABA24F264BE316001784B8 /* SpeechRecoginiton */,
+				83ABA24F264BE316001784B8 /* SpeechRec */,
 			);
 			path = "Hearing Aid App";
 			sourceTree = "<group>";
@@ -712,8 +680,6 @@
 		83A8E8C12645A7FD0080AEE5 /* Spring */ = {
 			isa = PBXGroup;
 			children = (
-				83A8E8C42645A7FD0080AEE5 /* TransitionManager.swift */,
-				83A8E8C52645A7FD0080AEE5 /* TransitionZoom.swift */,
 				83A8E8C62645A7FD0080AEE5 /* Spring.swift */,
 				83A8E8C72645A7FD0080AEE5 /* SpringImageView.swift */,
 				83A8E8C82645A7FD0080AEE5 /* DesignableLabel.swift */,
@@ -755,7 +721,7 @@
 			path = GoogleTranslator;
 			sourceTree = "<group>";
 		};
-		83ABA24F264BE316001784B8 /* SpeechRecoginiton */ = {
+		83ABA24F264BE316001784B8 /* SpeechRec */ = {
 			isa = PBXGroup;
 			children = (
 				83ABA250264BE340001784B8 /* SpeechRecognitionViewController.swift */,
@@ -766,7 +732,7 @@
 				83AA6D892677747800AFFB7F /* SpeechRecognition */,
 				839FAC22264EE846004910D9 /* Settings */,
 			);
-			path = SpeechRecoginiton;
+			path = SpeechRec;
 			sourceTree = "<group>";
 		};
 		83AC1EF92693A9FD0019C36F /* Localizations */ = {
@@ -781,7 +747,7 @@
 		83EAFE89264C263700FF9CAC /* General */ = {
 			isa = PBXGroup;
 			children = (
-				83A8E8BB2645A71D0080AEE5 /* BaseViewController.swift */,
+				83A8E8BB2645A71D0080AEE5 /* UMainViewController.swift */,
 				83C81AA0264A86F300B3F8E2 /* Extensions.swift */,
 				83A8E8BE2645A76D0080AEE5 /* Gradientable.swift */,
 				834EB73126482F9600026F01 /* ParticleView */,
@@ -1091,7 +1057,6 @@
 			isa = PBXGroup;
 			children = (
 				A51EBD4826D95B5100674657 /* OnboardingModelCollectionViewCell.swift */,
-				A51EBD5126D98F6000674657 /* OnboardingSpeechViewCellModel.swift */,
 			);
 			path = CollectionCellModels;
 			sourceTree = "<group>";
@@ -1471,9 +1436,11 @@
 			path = OnboardingCollectionViewCell;
 			sourceTree = "<group>";
 		};
-		A5B2323D26CC44BC0042AA7B /* New */ = {
+		A5B2323D26CC44BC0042AA7B /* Hearing */ = {
 			isa = PBXGroup;
 			children = (
+				11DC523D2CD4139200A9589A /* AnalliticAmplViewController.swift */,
+				11DC52242CD403E400A9589A /* Theme.swift */,
 				83A8E89E2645898A0080AEE5 /* AppDelegate.swift */,
 				A5E9ADD626E0962100B7DA17 /* CustomView */,
 				9A87D76526CF06F70077C9D0 /* ViewsControllers */,
@@ -1486,7 +1453,7 @@
 				A5B2324126CC44C70042AA7B /* Services */,
 				9A27ED8126CDA9F200D8EF09 /* SupportingFiles */,
 			);
-			path = New;
+			path = Hearing;
 			sourceTree = "<group>";
 		};
 		A5B2323E26CC44C70042AA7B /* Protocols */ = {
@@ -1866,7 +1833,6 @@
 				9ACB45C62812B9BF00FAF44E /* Waveform.swift in Sources */,
 				9A27ED7D26CDA67F00D8EF09 /* OneSignalService.swift in Sources */,
 				9A635DD226F3811900A6C0EF /* CatchUpViewController.swift in Sources */,
-				83A8E8DC2645A7FD0080AEE5 /* TransitionZoom.swift in Sources */,
 				83A8E8E42645A7FD0080AEE5 /* Misc.swift in Sources */,
 				9A635DD426F389F900A6C0EF /* NativeLoaderView.swift in Sources */,
 				9A42A9C526CEFAC400496DC9 /* InAppPurchasesService.swift in Sources */,
@@ -1895,7 +1861,6 @@
 				11DC523C2CD412CB00A9589A /* ButtonView.swift in Sources */,
 				A53D650626E91FDD00C9882D /* RequestVoiceRecordingViewController.swift in Sources */,
 				9A60EDCC281A957300112720 /* EqualizerViewController.swift in Sources */,
-				83A8E8DB2645A7FD0080AEE5 /* TransitionManager.swift in Sources */,
 				83A8E8E32645A7FD0080AEE5 /* SpringTextView.swift in Sources */,
 				9A1F9B26273E59EC0079C4F0 /* OrientationProtocol.swift in Sources */,
 				9ACB45F5281307EE00FAF44E /* CenterButtonTableViewCell.swift in Sources */,
@@ -1915,7 +1880,7 @@
 				9A09434D282D78F500F7AEC5 /* ThemeService.swift in Sources */,
 				9A2452D328378C3D0019DAC1 /* TranscriptsListViewController.swift in Sources */,
 				9A3328B826E20BB400D5F32B /* AudioKitService.swift in Sources */,
-				839DE07326529F1B00A65DD7 /* IndicatorShape.swift in Sources */,
+				839DE07326529F1B00A65DD7 /* NIndicatShaper.swift in Sources */,
 				9ACB45D12812B9BF00FAF44E /* SpectrumPopupView.swift in Sources */,
 				83A8E8E12645A7FD0080AEE5 /* DesignableTextField.swift in Sources */,
 				9A635DD626F38C9300A6C0EF /* UIViewController+Extensions.swift in Sources */,
@@ -1936,7 +1901,7 @@
 				83AA6D8C267774BD00AFFB7F /* MLTranslator.swift in Sources */,
 				A5B2324726CC44C70042AA7B /* IAnalyticsProtocol.swift in Sources */,
 				83A8E8BF2645A76D0080AEE5 /* Gradientable.swift in Sources */,
-				83A8E8BC2645A71D0080AEE5 /* BaseViewController.swift in Sources */,
+				83A8E8BC2645A71D0080AEE5 /* UMainViewController.swift in Sources */,
 				9ACB45DE2812CE7000FAF44E /* ProSetupViewController.swift in Sources */,
 				9AD6C64B28A101CC0055C518 /* BPaywallViewController.swift in Sources */,
 				9A949F5328A2917F00F7D7D4 /* AppHudService.swift in Sources */,
@@ -1946,7 +1911,6 @@
 				83A8E89F2645898A0080AEE5 /* AppDelegate.swift in Sources */,
 				9AC90E652886B74C00A43212 /* PermissionsListViewController.swift in Sources */,
 				9A8809E22840D5A6008D3B66 /* EmailViewController.swift in Sources */,
-				A51EBD5226D98F6000674657 /* OnboardingSpeechViewCellModel.swift in Sources */,
 				83A0A0CD267E02C700D06F35 /* TapticEngine.swift in Sources */,
 				9AC37F6A2833DBC100F95E24 /* TranscribeService.swift in Sources */,
 				9A60EDD3281AE17800112720 /* EqualizerTableViewCell.swift in Sources */,
