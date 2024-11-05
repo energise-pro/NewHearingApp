@@ -1,7 +1,7 @@
 import UIKit
 import AVFoundation
 
-final class FOnboardApViewController: UIViewController, AOneSignalProtocols {
+final class FOnboardApViewController: UIViewController {
     
     //MARK: - @IBOutlet
     @IBOutlet private weak var pageControl: UIPageControl!
@@ -32,11 +32,7 @@ final class FOnboardApViewController: UIViewController, AOneSignalProtocols {
         super.viewDidAppear(animated)
         (collectionView.cellForItem(at: IndexPath(item: currentIndex, section: 0)) as? JOnbrdCollectViewCell)?.setDefaultStatesForButtons()
         
-        KAppConfigServic.shared.requestIDFA {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
-                self?.notificationPermissionStatus == .notDetermined ? self?.showPushNotificationsAlert() : Void()
-            }
-        }
+        KAppConfigServic.shared.requestIDFA{}
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {

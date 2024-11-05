@@ -65,7 +65,6 @@
 		83C81AA1264A86F300B3F8E2 /* AppExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C81AA0264A86F300B3F8E2 /* AppExt.swift */; };
 		9A0441A926E8D97E0030AF77 /* HMicrophPermisApViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0441A726E8D97E0030AF77 /* HMicrophPermisApViewController.swift */; };
 		9A0441AA26E8D97E0030AF77 /* HMicrophPermisApViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A0441A826E8D97E0030AF77 /* HMicrophPermisApViewController.xib */; };
-		9A0441AC26E8EDC80030AF77 /* AOneSignalProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0441AB26E8EDC80030AF77 /* AOneSignalProtocols.swift */; };
 		9A09434A282D654800F7AEC5 /* ZAppIconViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A094348282D654800F7AEC5 /* ZAppIconViewController.swift */; };
 		9A09434B282D654800F7AEC5 /* ZAppIconViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A094349282D654800F7AEC5 /* ZAppIconViewController.xib */; };
 		9A09434D282D78F500F7AEC5 /* AThemeServicesAp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A09434C282D78F500F7AEC5 /* AThemeServicesAp.swift */; };
@@ -271,7 +270,6 @@
 		11DC523D2CD4139200A9589A /* HAnalliticAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HAnalliticAViewController.swift; sourceTree = "<group>"; };
 		1A072DD98EA6DE92C46C80E2 /* Pods-Hearing Aid App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hearing Aid App.release.xcconfig"; path = "Target Support Files/Pods-Hearing Aid App/Pods-Hearing Aid App.release.xcconfig"; sourceTree = "<group>"; };
 		4BFC181DF387069A4E37B1D0 /* Pods-Hearing Aid App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hearing Aid App.debug.xcconfig"; path = "Target Support Files/Pods-Hearing Aid App/Pods-Hearing Aid App.debug.xcconfig"; sourceTree = "<group>"; };
-		6CADFEADBA8A46FF205E30F6 /* Pods-OneSignalServiceExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalServiceExtension.debug.xcconfig"; path = "Target Support Files/Pods-OneSignalServiceExtension/Pods-OneSignalServiceExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		834EB73326482F9600026F01 /* ParticleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticleView.swift; sourceTree = "<group>"; };
 		834EB73826482FEC00026F01 /* Particle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Particle.sks; sourceTree = "<group>"; };
 		839DE07126529F1B00A65DD7 /* NIndicatShaper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NIndicatShaper.swift; sourceTree = "<group>"; };
@@ -334,7 +332,6 @@
 		83C81AA0264A86F300B3F8E2 /* AppExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppExt.swift; sourceTree = "<group>"; };
 		9A0441A726E8D97E0030AF77 /* HMicrophPermisApViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMicrophPermisApViewController.swift; sourceTree = "<group>"; };
 		9A0441A826E8D97E0030AF77 /* HMicrophPermisApViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HMicrophPermisApViewController.xib; sourceTree = "<group>"; };
-		9A0441AB26E8EDC80030AF77 /* AOneSignalProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AOneSignalProtocols.swift; sourceTree = "<group>"; };
 		9A094348282D654800F7AEC5 /* ZAppIconViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZAppIconViewController.swift; sourceTree = "<group>"; };
 		9A094349282D654800F7AEC5 /* ZAppIconViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZAppIconViewController.xib; sourceTree = "<group>"; };
 		9A09434C282D78F500F7AEC5 /* AThemeServicesAp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AThemeServicesAp.swift; sourceTree = "<group>"; };
@@ -528,8 +525,6 @@
 		A5E542AC26EFF08A001D3AB4 /* PaywallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallViewController.swift; sourceTree = "<group>"; };
 		A5E542AD26EFF08A001D3AB4 /* PaywallViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaywallViewController.xib; sourceTree = "<group>"; };
 		A5E9ADD726E096AF00B7DA17 /* Float+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Float+Extension.swift"; sourceTree = "<group>"; };
-		C4D5ED65929C0ED929455231 /* Pods_OneSignalServiceExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneSignalServiceExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C75DA84CC8C1D90FC88E459A /* Pods-OneSignalServiceExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalServiceExtension.release.xcconfig"; path = "Target Support Files/Pods-OneSignalServiceExtension/Pods-OneSignalServiceExtension.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -634,7 +629,6 @@
 				9A27ED7F26CDA94400D8EF09 /* ExternalAccessory.framework */,
 				83A8E8B626458AE50080AEE5 /* StoreKit.framework */,
 				9D9EBDD51084828864D7BA3C /* Pods_Hearing_Aid_App.framework */,
-				C4D5ED65929C0ED929455231 /* Pods_OneSignalServiceExtension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -724,8 +718,6 @@
 			children = (
 				4BFC181DF387069A4E37B1D0 /* Pods-Hearing Aid App.debug.xcconfig */,
 				1A072DD98EA6DE92C46C80E2 /* Pods-Hearing Aid App.release.xcconfig */,
-				6CADFEADBA8A46FF205E30F6 /* Pods-OneSignalServiceExtension.debug.xcconfig */,
-				C75DA84CC8C1D90FC88E459A /* Pods-OneSignalServiceExtension.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -1390,7 +1382,6 @@
 			children = (
 				A5B2323F26CC44C70042AA7B /* DIServicProtocols.swift */,
 				A5B2324026CC44C70042AA7B /* FIAnalyticProtocols.swift */,
-				9A0441AB26E8EDC80030AF77 /* AOneSignalProtocols.swift */,
 				A53D650826E9483000C9882D /* SIAppStateListeners.swift */,
 				9A1F9B25273E59EC0079C4F0 /* AOrientationalApProtocol.swift */,
 			);
@@ -1739,7 +1730,6 @@
 				9AC37F682833D3EB00F95E24 /* UITextView+Extension.swift in Sources */,
 				A58219AF26F9196D005BFCD6 /* JOnbrdCollectViewCell.swift in Sources */,
 				9A2452DB283798440019DAC1 /* Date+Formatter.swift in Sources */,
-				9A0441AC26E8EDC80030AF77 /* AOneSignalProtocols.swift in Sources */,
 				A5E9ADD826E096AF00B7DA17 /* Float+Extension.swift in Sources */,
 				9A171CAE26D40FF400714425 /* UIColor+Extensions.swift in Sources */,
 				9ACB45E32812D05F00FAF44E /* KCompresViewController.swift in Sources */,
