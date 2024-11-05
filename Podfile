@@ -10,7 +10,6 @@ target 'Hearing Aid App' do
   pod 'Firebase/Analytics', '~> 8.7.0'
   pod 'Firebase/Crashlytics', '~> 8.7.0'
   pod 'Amplitude', '~> 7.2.0'
-  pod 'OneSignalXCFramework', '>= 3.0.0', '< 4.0'
   pod 'ApphudSDK', '2.8.5'
   pod 'lottie-ios', '3.2.3'
   pod 'ASATools', '~> 1.2.0'
@@ -18,10 +17,6 @@ target 'Hearing Aid App' do
   pod 'FBSDKCoreKit', '13.2.0'
 end
 
-target 'OneSignalServiceExtension' do
-  use_frameworks!
-  pod 'OneSignalXCFramework', '>= 3.0.0', '< 4.0'
-end
 
 post_install do |installer|
   installer.pods_project.targets.each do |target|

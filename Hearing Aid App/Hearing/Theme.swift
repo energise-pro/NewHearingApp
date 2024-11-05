@@ -59,7 +59,7 @@ struct Theme {
     static var current: Color = .red
 
     static func setupAppearance() {
-        let theme = Color(rawValue: ThemeService.shared.currentColorType.rawValue) ?? .red
+        let theme = Color(rawValue: AThemeServicesAp.shared.currentColorType.rawValue) ?? .red
         current = theme
         buttonActiveColor = theme.color
 
