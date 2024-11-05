@@ -31,7 +31,7 @@ struct CAppConstants {
     }
     
     struct General {
-        static let appStoreAppID = ""
+        static let appStoreAppID = "6737814326"
         static let amplitudeKey = "216178a637a448232b73b4f8c617b1d0"
         static let supportEmail = "m.sulg@matu-app.online"
         static let appHudKey = "app_bpzbC3YNmvZGDYgMHxzqw3Jr698XTr"
