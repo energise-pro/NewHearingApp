@@ -34,7 +34,7 @@ final class KAppConfigServic: NSObject, DIServicProtocols {
         AThemeServicesAp.shared.initializeService()
         BTranslServicesNew.shared.prepareService()
         
-        settings.appLaunchCount < 2 ? AppsNavManager.shared.setFakeSplashAsRootViewController() : AppsNavManager.shared.setTabBarAsRootViewController()
+        settings.appLaunchCount < 2 ? AppsNavManager.shared.setOnboardingAsRootViewController() : AppsNavManager.shared.setTabBarAsRootViewController()
         
         asaServiceAp.initializeASATools()
         asaServiceAp.sendAppleAttribution()
