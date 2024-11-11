@@ -15,6 +15,7 @@ target 'Hearing Aid App' do
   pod 'ASATools', '~> 1.2.0'
   
   pod 'FBSDKCoreKit', '13.2.0'
+  pod 'JXPageControl'
 end
 
 

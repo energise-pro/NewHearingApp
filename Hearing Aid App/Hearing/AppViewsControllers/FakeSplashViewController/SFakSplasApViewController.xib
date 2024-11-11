@@ -30,16 +30,16 @@
                         <constraint firstAttribute="height" constant="108" id="sl6-0j-sXl"/>
                     </constraints>
                 </imageView>
-                <imageView clipsSubviews="YES" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchLogo" translatesAutoresizingMaskIntoConstraints="NO" id="LEe-5j-AzC">
-                    <rect key="frame" x="159" y="407" width="96" height="96"/>
+                <imageView clipsSubviews="YES" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchAppIcon" translatesAutoresizingMaskIntoConstraints="NO" id="LEe-5j-AzC">
+                    <rect key="frame" x="137" y="343" width="140" height="140"/>
                     <color key="tintColor" systemColor="systemRedColor"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="96" id="etr-Ur-lQN"/>
-                        <constraint firstAttribute="width" constant="96" id="tfs-0G-l8N"/>
+                        <constraint firstAttribute="height" constant="140" id="etr-Ur-lQN"/>
+                        <constraint firstAttribute="width" constant="140" id="tfs-0G-l8N"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hearing Aid &amp; Transcribe" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d7D-aU-kYT">
-                    <rect key="frame" x="0.0" y="519" width="414" height="29"/>
+                    <rect key="frame" x="0.0" y="499" width="414" height="29"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                     <color key="textColor" name="White100"/>
                     <nil key="highlightedColor"/>
@@ -54,7 +54,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="d7D-aU-kYT" secondAttribute="trailing" id="Oke-6f-LBn"/>
                 <constraint firstItem="LEe-5j-AzC" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="TVC-bg-a5B"/>
                 <constraint firstItem="d7D-aU-kYT" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="cNc-4d-OGg"/>
-                <constraint firstItem="gTG-Uq-ekD" firstAttribute="top" secondItem="d7D-aU-kYT" secondAttribute="bottom" constant="150" id="ei3-s1-Ka0"/>
+                <constraint firstItem="gTG-Uq-ekD" firstAttribute="top" secondItem="d7D-aU-kYT" secondAttribute="bottom" constant="170" id="ei3-s1-Ka0"/>
                 <constraint firstAttribute="trailing" secondItem="5X9-AZ-g4P" secondAttribute="trailing" id="jl6-mh-G70"/>
                 <constraint firstItem="gTG-Uq-ekD" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="wg4-DC-83z"/>
                 <constraint firstAttribute="bottom" secondItem="5X9-AZ-g4P" secondAttribute="bottom" id="xnS-8d-Onc"/>
@@ -63,7 +63,7 @@
         </view>
     </objects>
     <resources>
-        <image name="launchLogo" width="142.5" height="166.5"/>
+        <image name="launchAppIcon" width="140" height="140"/>
         <image name="launchScreenAward" width="254" height="108"/>
         <image name="launchScreenBackground" width="375" height="812"/>
         <namedColor name="White100">

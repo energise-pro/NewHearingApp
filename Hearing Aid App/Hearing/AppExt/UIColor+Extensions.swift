@@ -9,6 +9,8 @@ enum AssetsColor: String {
     case TextColor_1
     case ActiveColor_1
     case ActiveColor_2
+    case Red100
+    case White100
 }
 
 extension UIColor {

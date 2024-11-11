@@ -41,6 +41,12 @@ final class AppsNavManager: NSObject {
         appDelegate?.window?.makeKeyAndVisible()
     }
     
+    func setNewOnboardingAsRootViewController() {
+        let newOnboardingViewController = NewOnboardingViewController()
+        appDelegate?.window?.rootViewController = newOnboardingViewController
+        appDelegate?.window?.makeKeyAndVisible()
+    }
+    
     func setFakeSplashAsRootViewController() {
         let SFakSplasApViewController = SFakSplasApViewController()
         appDelegate?.window?.rootViewController = SFakSplasApViewController

@@ -63,6 +63,12 @@
 		83AF2C79264D9CEF00DB9909 /* RTextVFullScrViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83AF2C78264D9CEF00DB9909 /* RTextVFullScrViewController.storyboard */; };
 		83BCCDD7264C797100AAAF9B /* SpeechRecognition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BCCDD6264C797100AAAF9B /* SpeechRecognition.swift */; };
 		83C81AA1264A86F300B3F8E2 /* AppExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C81AA0264A86F300B3F8E2 /* AppExt.swift */; };
+		86053B1B2CDE3B24004BA772 /* NewOnboardingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86053B1A2CDE3B24004BA772 /* NewOnboardingViewController.xib */; };
+		86053B1C2CDE3B24004BA772 /* NewOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86053B192CDE3B24004BA772 /* NewOnboardingViewController.swift */; };
+		86053B202CE20A82004BA772 /* NewOnboardingPagesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86053B1F2CE20A82004BA772 /* NewOnboardingPagesModel.swift */; };
+		86053B222CE20C27004BA772 /* NewOnbordingPageModelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86053B212CE20C27004BA772 /* NewOnbordingPageModelCollectionViewCell.swift */; };
+		86053B262CE20D33004BA772 /* NewOnboardPageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86053B242CE20D33004BA772 /* NewOnboardPageCollectionViewCell.swift */; };
+		86053B272CE20D33004BA772 /* NewOnboardPageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86053B252CE20D33004BA772 /* NewOnboardPageCollectionViewCell.xib */; };
 		9A0441A926E8D97E0030AF77 /* HMicrophPermisApViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0441A726E8D97E0030AF77 /* HMicrophPermisApViewController.swift */; };
 		9A0441AA26E8D97E0030AF77 /* HMicrophPermisApViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A0441A826E8D97E0030AF77 /* HMicrophPermisApViewController.xib */; };
 		9A09434A282D654800F7AEC5 /* ZAppIconViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A094348282D654800F7AEC5 /* ZAppIconViewController.swift */; };
@@ -330,6 +336,12 @@
 		83AF2C78264D9CEF00DB9909 /* RTextVFullScrViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RTextVFullScrViewController.storyboard; sourceTree = "<group>"; };
 		83BCCDD6264C797100AAAF9B /* SpeechRecognition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognition.swift; sourceTree = "<group>"; };
 		83C81AA0264A86F300B3F8E2 /* AppExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppExt.swift; sourceTree = "<group>"; };
+		86053B192CDE3B24004BA772 /* NewOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOnboardingViewController.swift; sourceTree = "<group>"; };
+		86053B1A2CDE3B24004BA772 /* NewOnboardingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewOnboardingViewController.xib; sourceTree = "<group>"; };
+		86053B1F2CE20A82004BA772 /* NewOnboardingPagesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOnboardingPagesModel.swift; sourceTree = "<group>"; };
+		86053B212CE20C27004BA772 /* NewOnbordingPageModelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOnbordingPageModelCollectionViewCell.swift; sourceTree = "<group>"; };
+		86053B242CE20D33004BA772 /* NewOnboardPageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOnboardPageCollectionViewCell.swift; sourceTree = "<group>"; };
+		86053B252CE20D33004BA772 /* NewOnboardPageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewOnboardPageCollectionViewCell.xib; sourceTree = "<group>"; };
 		9A0441A726E8D97E0030AF77 /* HMicrophPermisApViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMicrophPermisApViewController.swift; sourceTree = "<group>"; };
 		9A0441A826E8D97E0030AF77 /* HMicrophPermisApViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HMicrophPermisApViewController.xib; sourceTree = "<group>"; };
 		9A094348282D654800F7AEC5 /* ZAppIconViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZAppIconViewController.swift; sourceTree = "<group>"; };
@@ -713,6 +725,24 @@
 			path = General;
 			sourceTree = "<group>";
 		};
+		86053B182CDE3ADD004BA772 /* NewOnboardingViewController */ = {
+			isa = PBXGroup;
+			children = (
+				86053B192CDE3B24004BA772 /* NewOnboardingViewController.swift */,
+				86053B1A2CDE3B24004BA772 /* NewOnboardingViewController.xib */,
+			);
+			path = NewOnboardingViewController;
+			sourceTree = "<group>";
+		};
+		86053B232CE20CE0004BA772 /* NewOnboardingCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				86053B242CE20D33004BA772 /* NewOnboardPageCollectionViewCell.swift */,
+				86053B252CE20D33004BA772 /* NewOnboardPageCollectionViewCell.xib */,
+			);
+			path = NewOnboardingCollectionViewCell;
+			sourceTree = "<group>";
+		};
 		9094A7AF71082B3103E99273 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1000,6 +1030,7 @@
 			isa = PBXGroup;
 			children = (
 				A51EBD4826D95B5100674657 /* GOnboModelCollectionViewCell.swift */,
+				86053B212CE20C27004BA772 /* NewOnbordingPageModelCollectionViewCell.swift */,
 			);
 			path = CollectionCellModels;
 			sourceTree = "<group>";
@@ -1286,6 +1317,7 @@
 		A51EBD3A26D957AC00674657 /* OnboardingViewController */ = {
 			isa = PBXGroup;
 			children = (
+				86053B182CDE3ADD004BA772 /* NewOnboardingViewController */,
 				A51EBD3B26D957C600674657 /* FOnboardApViewController.swift */,
 				A51EBD3C26D957C600674657 /* FOnboardApViewController.xib */,
 			);
@@ -1297,6 +1329,7 @@
 			children = (
 				A552868526FA70E400A92066 /* OnboardingSpeechViewCell */,
 				A58219A826F91922005BFCD6 /* OnboardingCollectionViewCell */,
+				86053B232CE20CE0004BA772 /* NewOnboardingCollectionViewCell */,
 			);
 			path = CollectionViewCells;
 			sourceTree = "<group>";
@@ -1416,6 +1449,7 @@
 				A55EECF426DFDF0A001CA6B5 /* TOnboardHvTabs.swift */,
 				A5BEDCE526F2967000CF1381 /* ВTypPwlScreen.swift */,
 				9AC37F6B2833E3A100F95E24 /* GTranscribTextParam.swift */,
+				86053B1F2CE20A82004BA772 /* NewOnboardingPagesModel.swift */,
 			);
 			path = AppEnums;
 			sourceTree = "<group>";
@@ -1574,6 +1608,8 @@
 				83A0A0C9267E02C700D06F35 /* Spawn.ahap in Resources */,
 				A51EBD3426D9572E00674657 /* AppdialogAfter.mp3 in Resources */,
 				9A60EDFC281FE99600112720 /* ASettingAppViewController.xib in Resources */,
+				86053B1B2CDE3B24004BA772 /* NewOnboardingViewController.xib in Resources */,
+				86053B272CE20D33004BA772 /* NewOnboardPageCollectionViewCell.xib in Resources */,
 				A58219B026F9196D005BFCD6 /* JOnbrdCollectViewCell.xib in Resources */,
 				9A949F5828A293E800F7D7D4 /* SFakSplasApViewController.xib in Resources */,
 				83A8E8AB2645898B0080AEE5 /* LaunchScreen.storyboard in Resources */,
@@ -1776,6 +1812,7 @@
 				9ACB45EE2812F29900FAF44E /* NSimplSementTablViewCell.swift in Sources */,
 				11DC52332CD403E400A9589A /* Theme.swift in Sources */,
 				9ADD32C328365A24002ADA43 /* JLocaleListApViewController.swift in Sources */,
+				86053B1C2CDE3B24004BA772 /* NewOnboardingViewController.swift in Sources */,
 				9AAB268C26FA23DA007F4A67 /* (null) in Sources */,
 				9A5512E628097A270078C5E5 /* PMUMainViewController.swift in Sources */,
 				9A5CCE972819906700B8F89D /* GCenterPickrTablViewCell.swift in Sources */,
@@ -1791,6 +1828,7 @@
 				83C81AA1264A86F300B3F8E2 /* AppExt.swift in Sources */,
 				83ABA251264BE340001784B8 /* USpeechRecViewController.swift in Sources */,
 				9A122CF5283BA6B600944287 /* BTranslServicesNew.swift in Sources */,
+				86053B202CE20A82004BA772 /* NewOnboardingPagesModel.swift in Sources */,
 				9A42A9C726CF00A500496DC9 /* Codable+Extension.swift in Sources */,
 				83A8E8E52645A7FD0080AEE5 /* SpringView.swift in Sources */,
 				9A52DD1228324E7100307F2A /* WSpeechApViewController.swift in Sources */,
@@ -1808,11 +1846,13 @@
 				A51EBD3D26D957C600674657 /* FOnboardApViewController.swift in Sources */,
 				9A836AF328198B4C00FD5AF2 /* GSlideBTablViewCell.swift in Sources */,
 				9ACB45CE2812B9BF00FAF44E /* FragmentBuilder.swift in Sources */,
+				86053B262CE20D33004BA772 /* NewOnboardPageCollectionViewCell.swift in Sources */,
 				9A9D2D062840B3A900332B10 /* MMPPulseLayer.swift in Sources */,
 				83A8E8ED2645A7FD0080AEE5 /* AutoTextView.swift in Sources */,
 				9A09434A282D654800F7AEC5 /* ZAppIconViewController.swift in Sources */,
 				9ACB45CA2812B9BF00FAF44E /* FloatPlotView.swift in Sources */,
 				83A8E8E02645A7FD0080AEE5 /* BlurView.swift in Sources */,
+				86053B222CE20C27004BA772 /* NewOnbordingPageModelCollectionViewCell.swift in Sources */,
 				A5B2324926CC44C70042AA7B /* UKeyServices.swift in Sources */,
 				9A42A9C926CF01EC00496DC9 /* SKProduct+Extensions.swift in Sources */,
 				A5B2324B26CC44C70042AA7B /* HAmplitudeApService.swift in Sources */,
