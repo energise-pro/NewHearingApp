@@ -46,11 +46,13 @@ struct CAppConstants {
         static let icVolumeUpUnactive = UIImage(named: "icVolumeUpUnactive")!
         static let icAppIcon = UIImage(named: "settingsAppIcon")!
         
-        static let icProSetup = UIImage(named: "icProSetup")!
-        static let icNoiseOff = UIImage(named: "icNoiseOff")!
-        static let icStereo = UIImage(named: "icStereo")!
-        static let icTemplates = UIImage(named: "icTemplates")!
-        static let icInstructionInfo = UIImage(named: "icInstructionInfo")!
+        static let icProSetup = UIImage(named: "setupButtonIcon")!
+        static let icNoiseOff = UIImage(named: "noNoiseButtonIcon")!
+        static let icNoiseOffSelected = UIImage(named: "noNoiseButtonSelectedIcon")!
+        static let icStereo = UIImage(named: "stereoButtonIcon")!
+        static let icStereoSelected = UIImage(named: "stereoButtonSelectedIcon")!
+        static let icTemplates = UIImage(named: "templatesButtonIcon")!
+        static let icInstructionInfo = UIImage(named: "infoIcon")!
         
         static let icLogo = UIImage(named: "icVectorLogo")!
         
@@ -63,9 +65,12 @@ struct CAppConstants {
         static let icFlip = UIImage(named: "icFlip")!
         static let icTranslateMic = UIImage(named: "icTranslateMic")!
         
-        static let icTabHearing = UIImage(named: "icTabHearing")!
+        static let icTabHearing = UIImage(named: "hearingTabbarIcon")!
         static let icTabMicro = UIImage(named: "icTabMicro")!
-        static let icTabSettings = UIImage(named: "icTabSettings")!
+        static let icTabSettings = UIImage(named: "settingTabbarIcon")!
+        
+        static let powerOn = UIImage(named: "powerOnButtonImage")!
+        static let powerOff = UIImage(named: "powerOffButtonImage")!
     }
     
     struct URLs {

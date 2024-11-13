@@ -31,7 +31,8 @@ final class OMoreApViewController: PMUMainViewController {
     }
     
     private func configureDataSource() {
-        let segmentCellModel = NSimplSementTablViewCellModel(mainTitle: "Main Screen".localized(), titles: [TabBarViewController.TabBarButton.hearing.title, TabBarViewController.TabBarButton.transcribe.title], selectedIndex: KAppConfigServic.shared.settings.mainScreen, delegate: self)
+//        let segmentCellModel = NSimplSementTablViewCellModel(mainTitle: "Main Screen".localized(), titles: [TabBarViewController.TabBarButton.hearing.title, TabBarViewController.TabBarButton.transcribe.title], selectedIndex: KAppConfigServic.shared.settings.mainScreen, delegate: self)
+        let segmentCellModel = NSimplSementTablViewCellModel(mainTitle: "Main Screen".localized(), titles: [TabBarViewController.TabBarButton.hearing.title], selectedIndex: KAppConfigServic.shared.settings.mainScreen, delegate: self)
         let segmentCellConfig = NSimplSementTablViewCellConfig(item: segmentCellModel)
         
         let manageCellModel = SettingTableViewCellModel(title: "Manage subscriptions".localized(), buttonTypes: [.rightButton], delegate: self)

@@ -69,6 +69,7 @@
 		86053B222CE20C27004BA772 /* NewOnbordingPageModelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86053B212CE20C27004BA772 /* NewOnbordingPageModelCollectionViewCell.swift */; };
 		86053B262CE20D33004BA772 /* NewOnboardPageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86053B242CE20D33004BA772 /* NewOnboardPageCollectionViewCell.swift */; };
 		86053B272CE20D33004BA772 /* NewOnboardPageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86053B252CE20D33004BA772 /* NewOnboardPageCollectionViewCell.xib */; };
+		86DFB1F82CE4B1DE00CBD94F /* TooltipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DFB1F72CE4B1DE00CBD94F /* TooltipView.swift */; };
 		9A0441A926E8D97E0030AF77 /* HMicrophPermisApViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0441A726E8D97E0030AF77 /* HMicrophPermisApViewController.swift */; };
 		9A0441AA26E8D97E0030AF77 /* HMicrophPermisApViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A0441A826E8D97E0030AF77 /* HMicrophPermisApViewController.xib */; };
 		9A09434A282D654800F7AEC5 /* ZAppIconViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A094348282D654800F7AEC5 /* ZAppIconViewController.swift */; };
@@ -342,6 +343,7 @@
 		86053B212CE20C27004BA772 /* NewOnbordingPageModelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOnbordingPageModelCollectionViewCell.swift; sourceTree = "<group>"; };
 		86053B242CE20D33004BA772 /* NewOnboardPageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOnboardPageCollectionViewCell.swift; sourceTree = "<group>"; };
 		86053B252CE20D33004BA772 /* NewOnboardPageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewOnboardPageCollectionViewCell.xib; sourceTree = "<group>"; };
+		86DFB1F72CE4B1DE00CBD94F /* TooltipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TooltipView.swift; sourceTree = "<group>"; };
 		9A0441A726E8D97E0030AF77 /* HMicrophPermisApViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMicrophPermisApViewController.swift; sourceTree = "<group>"; };
 		9A0441A826E8D97E0030AF77 /* HMicrophPermisApViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HMicrophPermisApViewController.xib; sourceTree = "<group>"; };
 		9A094348282D654800F7AEC5 /* ZAppIconViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZAppIconViewController.swift; sourceTree = "<group>"; };
@@ -715,6 +717,7 @@
 		83EAFE89264C263700FF9CAC /* General */ = {
 			isa = PBXGroup;
 			children = (
+				86DFB1F62CE4B1C100CBD94F /* TooltipView */,
 				83A8E8BB2645A71D0080AEE5 /* HomeTabBarController.swift */,
 				83C81AA0264A86F300B3F8E2 /* AppExt.swift */,
 				83A8E8BE2645A76D0080AEE5 /* KGradientablView.swift */,
@@ -741,6 +744,14 @@
 				86053B252CE20D33004BA772 /* NewOnboardPageCollectionViewCell.xib */,
 			);
 			path = NewOnboardingCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		86DFB1F62CE4B1C100CBD94F /* TooltipView */ = {
+			isa = PBXGroup;
+			children = (
+				86DFB1F72CE4B1DE00CBD94F /* TooltipView.swift */,
+			);
+			path = TooltipView;
 			sourceTree = "<group>";
 		};
 		9094A7AF71082B3103E99273 /* Pods */ = {
@@ -1763,6 +1774,7 @@
 				9A1F9B26273E59EC0079C4F0 /* AOrientationalApProtocol.swift in Sources */,
 				9ACB45F5281307EE00FAF44E /* VCentereButnTableViewCell.swift in Sources */,
 				83A8E8E92645A7FD0080AEE5 /* DesignableTabBarController.swift in Sources */,
+				86DFB1F82CE4B1DE00CBD94F /* TooltipView.swift in Sources */,
 				9AC37F682833D3EB00F95E24 /* UITextView+Extension.swift in Sources */,
 				A58219AF26F9196D005BFCD6 /* JOnbrdCollectViewCell.swift in Sources */,
 				9A2452DB283798440019DAC1 /* Date+Formatter.swift in Sources */,

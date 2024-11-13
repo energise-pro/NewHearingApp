@@ -12,8 +12,8 @@ final class HomeTabBarController: UITabBarController, UITabBarControllerDelegate
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tabBar.items?[0].title = "Hearing Aid".localized()
-        tabBar.items?[1].title = "Speech Recognition".localized()
-        tabBar.items?[2].title = "Settings".localized()
+//        tabBar.items?[1].title = "Speech Recognition".localized()
+        tabBar.items?[1].title = "Settings".localized()
     }
 
     deinit {

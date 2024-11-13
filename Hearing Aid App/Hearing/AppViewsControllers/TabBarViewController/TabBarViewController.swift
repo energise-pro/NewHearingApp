@@ -5,15 +5,15 @@ final class TabBarViewController: PMUMainViewController {
     
     enum TabBarButton: Int {
         case hearing
-        case transcribe
+//        case transcribe
         case settings
         
         var title: String {
             switch self {
             case .hearing:
                 return "Hearing Aid".localized()
-            case .transcribe:
-                return "Speech Recognition".localized()
+//            case .transcribe:
+//                return "Speech Recognition".localized()
             case .settings:
                 return "Settings".localized()
             }
@@ -23,8 +23,8 @@ final class TabBarViewController: PMUMainViewController {
             switch self {
             case .hearing:
                 return CAppConstants.Images.icTabHearing
-            case .transcribe:
-                return CAppConstants.Images.icTabMicro
+//            case .transcribe:
+//                return CAppConstants.Images.icTabMicro
             case .settings:
                 return CAppConstants.Images.icTabSettings
             }
@@ -34,8 +34,8 @@ final class TabBarViewController: PMUMainViewController {
             switch self {
             case .hearing:
                 return SHearinApViewController()
-            case .transcribe:
-                return WSpeechApViewController()
+//            case .transcribe:
+//                return WSpeechApViewController()
             case .settings:
                 return ASettingAppViewController()
             }
@@ -45,8 +45,8 @@ final class TabBarViewController: PMUMainViewController {
             switch self {
             case .hearing:
                 return GAppAnalyticActions.hearing
-            case .transcribe:
-                return GAppAnalyticActions.transcribe
+//            case .transcribe:
+//                return GAppAnalyticActions.transcribe
             case .settings:
                 return GAppAnalyticActions.settings
             }
@@ -67,7 +67,8 @@ final class TabBarViewController: PMUMainViewController {
     
     private var navigationControllers: [UINavigationController] = []
     private var tabBarButtons: [TabBarButton] {
-        return KAppConfigServic.shared.settings.mainScreen == TabBarButton.hearing.rawValue ? [.hearing, .transcribe, .settings] : [.transcribe, .hearing, .settings]
+        return [.hearing, .settings]
+//        return KAppConfigServic.shared.settings.mainScreen == TabBarButton.hearing.rawValue ? [.hearing, .transcribe, .settings] : [.transcribe, .hearing, .settings]
     }
     
     override func viewDidLoad() {
@@ -97,16 +98,16 @@ final class TabBarViewController: PMUMainViewController {
  
     }
     
-    override func didChangeTheme() {
-        super.didChangeTheme()
-        guard let currentTabIndex = currentTabIndex else {
-            return
-        }
-        for (titleIndex, _) in buttonTitles.enumerated() {
-            buttonTitles[titleIndex].textColor = titleIndex == currentTabIndex ? AThemeServicesAp.shared.activeColor : UIColor.appColor(.UnactiveButton_2)
-            buttonImages[titleIndex].tintColor = titleIndex == currentTabIndex ? AThemeServicesAp.shared.activeColor : UIColor.appColor(.UnactiveButton_2)
-        }
-    }
+//    override func didChangeTheme() {
+//        super.didChangeTheme()
+//        guard let currentTabIndex = currentTabIndex else {
+//            return
+//        }
+//        for (titleIndex, _) in buttonTitles.enumerated() {
+//            buttonTitles[titleIndex].textColor = titleIndex == currentTabIndex ? UIColor.appColor(.White100) : UIColor.appColor(.UnactiveButton_2)
+//            buttonImages[titleIndex].tintColor = titleIndex == currentTabIndex ? AThemeServicesAp.shared.activeColor : UIColor.appColor(.UnactiveButton_2)
+//        }
+//    }
     
     func reconfigureUI() {
         configureUI()
@@ -139,11 +140,11 @@ final class TabBarViewController: PMUMainViewController {
             navigationController.isNavigationBarHidden = index != 2
             navigationControllers.append(navigationController)
             buttonImages[index].tintColor = index == (currentTabIndex ?? 0) ? AThemeServicesAp.shared.activeColor : UIColor.appColor(.UnactiveButton_2)
-            buttonTitles[index].textColor = index == (currentTabIndex ?? 0) ? AThemeServicesAp.shared.activeColor : UIColor.appColor(.UnactiveButton_2)
+            buttonTitles[index].textColor = index == (currentTabIndex ?? 0) ? UIColor.appColor(.White100) : UIColor.appColor(.UnactiveButton_2)
             buttonImages[index].tintAdjustmentMode = .normal
         }
         tabBarContainerView.backgroundColor = UIColor.appColor(.BackgroundColor_1)
-        separatorView.backgroundColor = UIColor.appColor(.UnactiveButton_2)
+        separatorView.backgroundColor = UIColor.appColor(.Separator100)
     }
 
     private func updateMainView(with index: Int) {
@@ -153,7 +154,7 @@ final class TabBarViewController: PMUMainViewController {
         }
         
         for (titleIndex, _) in buttonTitles.enumerated() {
-            buttonTitles[titleIndex].textColor = titleIndex == index ? AThemeServicesAp.shared.activeColor : UIColor.appColor(.UnactiveButton_2)
+            buttonTitles[titleIndex].textColor = titleIndex == index ? UIColor.appColor(.White100) : UIColor.appColor(.UnactiveButton_2)
             buttonImages[titleIndex].tintColor = titleIndex == index ? AThemeServicesAp.shared.activeColor : UIColor.appColor(.UnactiveButton_2)
         }
         
