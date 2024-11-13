@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,23 +19,23 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mgE-Oi-e0L">
-                        <rect key="frame" x="109" y="30" width="102.5" height="35"/>
+                        <rect key="frame" x="115" y="30" width="90.5" height="34"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Nv9-J7-lQa">
-                                <rect key="frame" x="5" y="5" width="25" height="25"/>
+                                <rect key="frame" x="5" y="5" width="24" height="24"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="9eb-xK-QKz"/>
+                                    <constraint firstAttribute="height" constant="24" id="9eb-xK-QKz"/>
                                     <constraint firstAttribute="width" secondItem="Nv9-J7-lQa" secondAttribute="height" multiplier="1:1" id="Gzl-aj-Acz"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0yN-JT-RKs">
-                                <rect key="frame" x="45" y="7" width="42.5" height="21"/>
+                                <rect key="frame" x="33" y="6.5" width="42.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" name="Purple100"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HlB-XC-liI">
-                                <rect key="frame" x="0.0" y="0.0" width="102.5" height="35"/>
+                                <rect key="frame" x="0.0" y="0.0" width="90.5" height="34"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <connections>
                                     <action selector="buttonAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="9YD-FP-DxG"/>
@@ -46,7 +47,7 @@
                             <constraint firstItem="HlB-XC-liI" firstAttribute="leading" secondItem="mgE-Oi-e0L" secondAttribute="leading" id="4CA-Ja-De7"/>
                             <constraint firstItem="Nv9-J7-lQa" firstAttribute="leading" secondItem="mgE-Oi-e0L" secondAttribute="leading" constant="5" id="A61-5u-Dam"/>
                             <constraint firstAttribute="bottom" secondItem="HlB-XC-liI" secondAttribute="bottom" id="B2V-JP-TaX"/>
-                            <constraint firstItem="0yN-JT-RKs" firstAttribute="leading" secondItem="Nv9-J7-lQa" secondAttribute="trailing" constant="15" id="RcQ-dt-Zha"/>
+                            <constraint firstItem="0yN-JT-RKs" firstAttribute="leading" secondItem="Nv9-J7-lQa" secondAttribute="trailing" constant="4" id="RcQ-dt-Zha"/>
                             <constraint firstItem="Nv9-J7-lQa" firstAttribute="top" secondItem="mgE-Oi-e0L" secondAttribute="top" constant="5" id="a1n-lr-5j5"/>
                             <constraint firstItem="0yN-JT-RKs" firstAttribute="centerY" secondItem="mgE-Oi-e0L" secondAttribute="centerY" id="bWt-Ts-j3c"/>
                             <constraint firstAttribute="trailing" secondItem="0yN-JT-RKs" secondAttribute="trailing" constant="15" id="fCG-DV-6v6"/>
@@ -74,4 +75,9 @@
             <point key="canvasLocation" x="137.68115942028987" y="168.08035714285714"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <namedColor name="Purple100">
+            <color red="0.066666666666666666" green="0.0" blue="0.28627450980392155" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

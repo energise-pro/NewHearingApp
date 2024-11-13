@@ -466,7 +466,7 @@
                 </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" name="HearingBackground100"/>
+            <color key="backgroundColor" name="Purple10"/>
             <constraints>
                 <constraint firstItem="hdJ-6f-WNl" firstAttribute="centerY" secondItem="2NC-3T-i0K" secondAttribute="centerY" id="1AS-Tc-pKf"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Pze-df-kN9" secondAttribute="trailing" constant="15" id="29v-Le-ynP"/>
@@ -504,7 +504,7 @@
     <resources>
         <image name="hearingBackgroundImage" width="375" height="704"/>
         <image name="underTabbarBackground" width="375" height="124"/>
-        <namedColor name="HearingBackground100">
+        <namedColor name="Purple10">
             <color red="0.96862745098039216" green="0.96470588235294119" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">

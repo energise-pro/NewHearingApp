@@ -18,7 +18,7 @@ struct SettingTableViewCellModel {
     var switchState: Bool = false
     var topInset: CGFloat = 0.0
     var rightImage: UIImage? = UIImage.init(systemName: "chevron.right")
-    var rightTintColor: UIColor? = UIColor.label.withAlphaComponent(0.3)
+    var rightTintColor: UIColor? = UIColor.appColor(.Purple100)
     weak var delegate: SettingTableViewCellDelegate?
 }
 
@@ -49,10 +49,10 @@ final class SettingTableViewCell: UITableViewCell, HConfigCellProtocol, UIViewCe
     // MARK: - Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
-        NotificationCenter.default.addObserver(self, selector: #selector(didChangeTheme), name: ThemeDidChangeNotificationName, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(didChangeTheme), name: ThemeDidChangeNotificationName, object: nil)
         
         infoImageView.image = UIImage.init(systemName: "info.circle")
-        separatorView.backgroundColor = UIColor.label.withAlphaComponent(0.3)
+        separatorView.backgroundColor = UIColor.appColor(.TableSeparator100)
         
         didChangeTheme()
     }

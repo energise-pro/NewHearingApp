@@ -27,7 +27,10 @@ final class UEqualizeApViewController: PMUMainViewController {
         title = "Equalizer".localized()
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Close".localized(), style: .plain, target: self, action: #selector(closeButtonAction))
         navigationItem.rightBarButtonItem?.tintColor = AThemeServicesAp.shared.activeColor
-        navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "Back".localized(), style: .plain, target: nil, action: nil)
+        navigationController?.navigationBar.topItem?.backBarButtonItem?.tintColor = UIColor.appColor(.Red100)!
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.appColor(.Purple100)!]
+        navigationController?.navigationBar.barTintColor = UIColor.appColor(.White100)!
         
         let cellNibs: [UIViewCellNib.Type] = [SettingTableViewCell.self, JEqlizeTableViewCell.self, GSlideBTablViewCell.self, VCentereButnTableViewCell.self]
         cellNibs.forEach { tableView.register($0.nib, forCellReuseIdentifier: $0.identifier) }
@@ -36,7 +39,10 @@ final class UEqualizeApViewController: PMUMainViewController {
     private func configureDataSource() {
         var dataSource: [CellConfigurator] = []
         
-        let statusCellModel = SettingTableViewCellModel(title: "Equalizer".localized(), buttonTypes: [.switchButton], switchState: SAudioKitServicesAp.shared.isEqualizedEnabled, delegate: self)
+        let statusCellModel = SettingTableViewCellModel(attributedTitle: NSAttributedString(string: "Equalizer".localized(), attributes: [.font: UIFont.systemFont(ofSize: 17.0, weight: .bold), .foregroundColor: UIColor.appColor(.Purple100)!]),
+                                                        buttonTypes: [.switchButton],
+                                                        switchState: SAudioKitServicesAp.shared.isEqualizedEnabled,
+                                                        delegate: self)
         let statusCellConfig = SettingTableViewCellConfig(item: statusCellModel)
         
         let equalizerChartCellModel = JEqlizeTableViewCellModel(dataSource: EqualizerBands.allCases.compactMap { $0.value })
@@ -50,7 +56,7 @@ final class UEqualizeApViewController: PMUMainViewController {
             dataSource.append(cellConfig)
         }
         
-        let resetCellModel = VCentereButnTableViewCellModel(buttonTitle: "Reset setup".localized(), buttonImage: UIImage(systemName: "trash.fill")!, delegate: self)
+        let resetCellModel = VCentereButnTableViewCellModel(buttonTitle: "Reset setup".localized(), buttonImage: UIImage(named: "trashIcon")!, delegate: self)
         let resetCellConfig = VCentereButnTableViewCellConfig(item: resetCellModel)
         
         dataSource.append(resetCellConfig)

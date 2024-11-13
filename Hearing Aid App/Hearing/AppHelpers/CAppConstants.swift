@@ -30,6 +30,10 @@ struct CAppConstants {
         static let lightRed: UIColor = UIColor(hex: "#FF6D6D")!
     }
     
+    struct HEXStringColors {
+        static let purple100: String = "#110049"
+    }
+    
     struct General {
         static let appStoreAppID = "6737814326"
         static let amplitudeKey = "216178a637a448232b73b4f8c617b1d0"

@@ -27,7 +27,10 @@ final class YLimitApViewController: PMUMainViewController {
         title = "Limiter".localized()
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Close".localized(), style: .plain, target: self, action: #selector(closeButtonAction))
         navigationItem.rightBarButtonItem?.tintColor = AThemeServicesAp.shared.activeColor
-        navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "Back".localized(), style: .plain, target: nil, action: nil)
+        navigationController?.navigationBar.topItem?.backBarButtonItem?.tintColor = UIColor.appColor(.Red100)!
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.appColor(.Purple100)!]
+        navigationController?.navigationBar.barTintColor = UIColor.appColor(.White100)!
         
         let cellNibs: [UIViewCellNib.Type] = [SettingTableViewCell.self, GSlideBTablViewCell.self, VCentereButnTableViewCell.self]
         cellNibs.forEach { tableView.register($0.nib, forCellReuseIdentifier: $0.identifier) }
@@ -36,7 +39,10 @@ final class YLimitApViewController: PMUMainViewController {
     private func configureDataSource() {
         var dataSource: [CellConfigurator] = []
         
-        let statusCellModel = SettingTableViewCellModel(title: "Limiter status".localized(), buttonTypes: [.info, .switchButton], switchState: SAudioKitServicesAp.shared.isLimiterEnabled, delegate: self)
+        let statusCellModel = SettingTableViewCellModel(attributedTitle: NSAttributedString(string: "Limiter status".localized(), attributes: [.font: UIFont.systemFont(ofSize: 17.0, weight: .bold), .foregroundColor: UIColor.appColor(.Purple100)!]),
+                                                        buttonTypes: [.info, .switchButton],
+                                                        switchState: SAudioKitServicesAp.shared.isLimiterEnabled,
+                                                        delegate: self)
         let statusCellConfig = SettingTableViewCellConfig(item: statusCellModel)
         
         dataSource = [statusCellConfig]

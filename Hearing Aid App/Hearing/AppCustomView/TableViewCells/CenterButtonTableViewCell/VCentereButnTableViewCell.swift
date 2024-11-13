@@ -27,7 +27,7 @@ final class VCentereButnTableViewCell: UITableViewCell, HConfigCellProtocol, UIV
         delegate = data.delegate
         buttonTitleLabel.text = data.buttonTitle
         buttonImageView.image = data.buttonImage
-        buttonImageView.tintColor = UIColor.label
+        buttonImageView.tintColor = UIColor.appColor(.Red100)
     }
     
     // MARK: - IBActions

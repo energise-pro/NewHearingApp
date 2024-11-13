@@ -31,17 +31,19 @@ final class ErdSetupViewController: PMUMainViewController {
         KAppConfigServic.shared.analytics.track(action: .v2HearingProSetupScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.open.rawValue])
     }
     
-    override func didChangeTheme() {
-        super.didChangeTheme()
-        navigationItem.rightBarButtonItem?.tintColor = AThemeServicesAp.shared.activeColor
-    }
+//    override func didChangeTheme() {
+//        super.didChangeTheme()
+//        navigationItem.rightBarButtonItem?.tintColor = AThemeServicesAp.shared.activeColor
+//    }
     
     // MARK: - Private methods
     private func configureUI() {
-        title = "Pro Setup".localized()
+        title = "Setup".localized()
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Close".localized(), style: .plain, target: self, action: #selector(closeButtonAction))
         navigationItem.rightBarButtonItem?.tintColor = AThemeServicesAp.shared.activeColor
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.appColor(.Purple100)!]
+        navigationController?.navigationBar.barTintColor = UIColor.appColor(.White100)!
         
         let cellNibs: [UIViewCellNib.Type] = [NSimplSementTablViewCell.self, SettingTableViewCell.self, VCentereButnTableViewCell.self]
         cellNibs.forEach { tableView.register($0.nib, forCellReuseIdentifier: $0.identifier) }
@@ -73,7 +75,7 @@ final class ErdSetupViewController: PMUMainViewController {
         let equalizerCellModel = SettingTableViewCellModel(title: "Equalizer".localized(), buttonTypes: [.rightButton], delegate: self)
         let equalizerCellConfig = SettingTableViewCellConfig(item: equalizerCellModel)
         
-        let resetCellModel = VCentereButnTableViewCellModel(buttonTitle: "Reset setup".localized(), buttonImage: UIImage(systemName: "trash.fill")!, delegate: self)
+        let resetCellModel = VCentereButnTableViewCellModel(buttonTitle: "Reset setup".localized(), buttonImage: UIImage(named: "trashIcon")!, delegate: self)
         let resetCellConfig = VCentereButnTableViewCellConfig(item: resetCellModel)
         
         dataSource = [segmentCellConfig, musicCellConfig, systemVolumeCellConfig, clearVoiceCellConfig, voiceChangerCellConfig, compressorCellConfig, limiterCellConfig, equalizerCellConfig, resetCellConfig]

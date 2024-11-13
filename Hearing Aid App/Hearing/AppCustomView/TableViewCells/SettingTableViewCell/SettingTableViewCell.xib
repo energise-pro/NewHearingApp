@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,7 +24,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="751" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UvD-sw-rWl">
                                 <rect key="frame" x="15" y="10" width="93" height="58"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" name="Purple100"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zHH-bj-OYY">
@@ -96,6 +97,7 @@
                                             <constraint firstItem="qJf-Cw-A3O" firstAttribute="centerY" secondItem="0tr-Po-Y0r" secondAttribute="centerY" id="90T-BJ-2Z3"/>
                                             <constraint firstAttribute="width" constant="40" id="ADh-eR-Z2m"/>
                                             <constraint firstItem="qJf-Cw-A3O" firstAttribute="centerX" secondItem="0tr-Po-Y0r" secondAttribute="centerX" id="In5-zT-nzH"/>
+                                            <constraint firstAttribute="width" secondItem="0tr-Po-Y0r" secondAttribute="height" multiplier="1:1" id="hMn-WN-ZhN"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gSP-dn-Dt4" userLabel="RIght - View">
@@ -109,14 +111,11 @@
                                         <constraints>
                                             <constraint firstItem="MGh-2i-9q6" firstAttribute="centerY" secondItem="gSP-dn-Dt4" secondAttribute="centerY" id="J7J-No-0Jy"/>
                                             <constraint firstAttribute="width" constant="40" id="VRb-Mt-pA7"/>
+                                            <constraint firstAttribute="width" secondItem="gSP-dn-Dt4" secondAttribute="height" multiplier="1:1" id="cq8-lR-wMJ"/>
                                             <constraint firstItem="MGh-2i-9q6" firstAttribute="centerX" secondItem="gSP-dn-Dt4" secondAttribute="centerX" id="dEQ-UF-LYY"/>
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="gSP-dn-Dt4" firstAttribute="width" secondItem="gSP-dn-Dt4" secondAttribute="height" multiplier="1:1" id="cq8-lR-wMJ"/>
-                                    <constraint firstItem="0tr-Po-Y0r" firstAttribute="width" secondItem="0tr-Po-Y0r" secondAttribute="height" multiplier="1:1" id="hMn-WN-ZhN"/>
-                                </constraints>
                             </stackView>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n7D-Yj-gzd">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="78"/>
@@ -169,4 +168,9 @@
             <point key="canvasLocation" x="137.68115942028987" y="133.59375"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <namedColor name="Purple100">
+            <color red="0.066666666666666666" green="0.0" blue="0.28627450980392155" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

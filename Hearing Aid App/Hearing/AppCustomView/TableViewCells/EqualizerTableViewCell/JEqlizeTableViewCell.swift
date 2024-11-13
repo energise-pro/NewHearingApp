@@ -44,6 +44,9 @@ final class JEqlizeTableViewCell: UITableViewCell, HConfigCellProtocol, UIViewCe
         chartView.translatesAutoresizingMaskIntoConstraints = false
         chartView.addBaseConstraintsFor(view: chartContainerView)
         chartView.isScrollEnabled = false
+        chartView.isClearBackgroundColor = true
+        
+        let style = AAStyle(color: CAppConstants.HEXStringColors.purple100)
         
         let aaChartModel = AAChartModel()
         aaChartModel.chartType(.areaspline)
@@ -60,6 +63,8 @@ final class JEqlizeTableViewCell: UITableViewCell, HConfigCellProtocol, UIViewCe
                     .categories(EqualizerBands.allCases.compactMap { $0.hzTitle })
                     .legendEnabled(false)
                     .series([dataModel])
+                    .xAxisLabelsStyle(style)
+                    .yAxisLabelsStyle(style)
         chartView.aa_drawChartWithChartModel(aaChartModel)
     }
 }

@@ -13,6 +13,8 @@ enum AssetsColor: String {
     case White100
     case Separator100
     case Purple100
+    case Purple10
+    case TableSeparator100
 }
 
 extension UIColor {
