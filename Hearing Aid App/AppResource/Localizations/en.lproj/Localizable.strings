@@ -140,18 +140,18 @@
 
 // Templates
 "effect volume" = "effect volume";
-"smallRoom" = "small Room";
-"mediumRoom" = "medium Room";
-"largeRoom" = "large Room 1";
-"largeRoom2" = "large Room 2";
-"mediumHall" = "medium Hall 1";
-"mediumHall2" = "medium Hall 2";
-"mediumHall3" = "medium Hall 3";
-"largeHall" = "large Hall 1";
-"largeHall2" = "large Hall 2";
-"plate" = "small Chamber";
-"mediumChamber" = "medium Chamber";
-"largeChamber" = "large Chamber";
+"smallRoom" = "small room";
+"mediumRoom" = "medium room";
+"largeRoom" = "large room 1";
+"largeRoom2" = "large room 2";
+"mediumHall" = "medium hall 1";
+"mediumHall2" = "medium hall 2";
+"mediumHall3" = "medium hall 3";
+"largeHall" = "large hall 1";
+"largeHall2" = "large hall 2";
+"plate" = "small chamber";
+"mediumChamber" = "medium chamber";
+"largeChamber" = "large chamber";
 "cathedral" = "restaurant";
 
 "The Reverberation allows you to simulate the environment, space, room around you" = "The Reverberation allows you to simulate the environment, space, room around you";

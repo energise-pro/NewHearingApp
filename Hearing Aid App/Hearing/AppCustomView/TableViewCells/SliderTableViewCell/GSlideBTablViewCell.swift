@@ -21,7 +21,7 @@ final class GSlideBTablViewCell: UITableViewCell, HConfigCellProtocol, UIViewCel
     
     @IBOutlet private weak var titleLabel: UILabel!
     
-    @IBOutlet private weak var mainSlider: UISlider!
+    @IBOutlet private weak var mainSlider: GSlideBTablViewCellSlider!
     
     @IBOutlet private weak var separatorView: UIView!
     
@@ -34,7 +34,7 @@ final class GSlideBTablViewCell: UITableViewCell, HConfigCellProtocol, UIViewCel
         super.awakeFromNib()
         NotificationCenter.default.addObserver(self, selector: #selector(didChangeTheme), name: ThemeDidChangeNotificationName, object: nil)
         
-        separatorView.backgroundColor = UIColor.label.withAlphaComponent(0.3)
+        separatorView.backgroundColor = UIColor.appColor(.TableSeparator100)!
         
         didChangeTheme()
     }
@@ -61,7 +61,7 @@ final class GSlideBTablViewCell: UITableViewCell, HConfigCellProtocol, UIViewCel
     
     // MARK: - Private methods
     @objc private func didChangeTheme() {
-        mainSlider.tintColor = AThemeServicesAp.shared.activeColor.withAlphaComponent(0.7)
+        mainSlider.tintColor = UIColor.appColor(.Red100)!
     }
     
     // MARK: - IBActions
@@ -69,4 +69,15 @@ final class GSlideBTablViewCell: UITableViewCell, HConfigCellProtocol, UIViewCel
         TapticEngine.selection.feedback()
         delegate?.didChangeSliderValue(on: sender.value, from: self)
     }
+}
+
+class GSlideBTablViewCellSlider: UISlider {
+  
+  //Set line height value from Interface Builder,i.e. here ten is default value
+  @IBInspectable var trackLineHeight: CGFloat = 2
+  
+  //Set custom size of track so here override trackRect function of slider control
+  override func trackRect(forBounds bound: CGRect) -> CGRect {
+    return CGRect(origin: bound.origin, size: CGSize(width: bound.width, height: trackLineHeight))
+  }
 }

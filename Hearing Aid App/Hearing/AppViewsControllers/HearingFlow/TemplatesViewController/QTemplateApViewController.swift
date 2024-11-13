@@ -33,23 +33,28 @@ final class QTemplateApViewController: PMUMainViewController {
         KAppConfigServic.shared.analytics.track(action: .v2TemplatesScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.open.rawValue])
     }
     
-    override func didChangeTheme() {
-        super.didChangeTheme()
-        navigationItem.rightBarButtonItem?.tintColor = AThemeServicesAp.shared.activeColor
-    }
+//    override func didChangeTheme() {
+//        super.didChangeTheme()
+//        navigationItem.rightBarButtonItem?.tintColor = AThemeServicesAp.shared.activeColor
+//    }
     
     // MARK: - Private methods
     private func configureUI() {
         title = "Templates".localized()
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Close".localized(), style: .plain, target: self, action: #selector(closeButtonAction))
         navigationItem.rightBarButtonItem?.tintColor = AThemeServicesAp.shared.activeColor
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.appColor(.Purple100)!]
+        navigationController?.navigationBar.barTintColor = UIColor.appColor(.White100)!
         
         let cellNibs: [UIViewCellNib.Type] = [SettingTableViewCell.self, GSlideBTablViewCell.self, GCenterPickrTablViewCell.self, VCentereButnTableViewCell.self]
         cellNibs.forEach { tableView.register($0.nib, forCellReuseIdentifier: $0.identifier) }
     }
     
     private func configureDataSource() {
-        let templatesCellModel = SettingTableViewCellModel(title: "Templates".localized(), buttonTypes: [.info, .switchButton], switchState: SAudioKitServicesAp.shared.isTemplatesEnabled, delegate: self)
+        let templatesCellModel = SettingTableViewCellModel(attributedTitle: NSAttributedString(string: "Templates".localized(), attributes: [.font: UIFont.systemFont(ofSize: 17.0, weight: .bold), .foregroundColor: UIColor.appColor(.Purple100)!]),
+                                                        buttonTypes: [.info, .switchButton],
+                                                        switchState: SAudioKitServicesAp.shared.isTemplatesEnabled,
+                                                        delegate: self)
         let templatesCellConfig = SettingTableViewCellConfig(item: templatesCellModel)
         
         let volumeCellModel = GSlideBTablViewCellModel(title: "effect volume".localized().capitalizingFirstLetter(), sliderValue: Float(TemplatesParameter.dryWet.value), topInset: 70.0, delegate: self)
@@ -58,7 +63,7 @@ final class QTemplateApViewController: PMUMainViewController {
         let pickerCellModel = GCenterPickrTablViewCellModel(dataSource: TemplatesType.allCases.compactMap { $0.title }, selectedValue: TemplatesType.selectedTemplate.title, delegate: self)
         let pickerCellConfig = GCenterPickrTablViewCellConfig(item: pickerCellModel, height: 250.0)
         
-        let resetCellModel = VCentereButnTableViewCellModel(buttonTitle: "Reset setup".localized(), buttonImage: UIImage(systemName: "trash.fill")!, delegate: self)
+        let resetCellModel = VCentereButnTableViewCellModel(buttonTitle: "Reset setup".localized(), buttonImage: UIImage(named: "trashIcon")!, delegate: self)
         let resetCellConfig = VCentereButnTableViewCellConfig(item: resetCellModel)
         
         dataSource = [templatesCellConfig, volumeCellConfig, pickerCellConfig, resetCellConfig]

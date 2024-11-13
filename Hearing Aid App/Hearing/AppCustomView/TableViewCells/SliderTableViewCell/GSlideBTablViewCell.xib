@@ -27,7 +27,7 @@
                                 <color key="textColor" name="Purple100"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="daQ-Qg-QAM">
+                            <slider opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="daQ-Qg-QAM" customClass="GSlideBTablViewCellSlider" customModule="Hearing_Aid_App" customModuleProvider="target">
                                 <rect key="frame" x="13" y="43" width="294" height="41"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="sqF-cL-OvX"/>
