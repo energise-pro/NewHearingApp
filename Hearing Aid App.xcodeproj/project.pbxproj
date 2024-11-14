@@ -70,6 +70,10 @@
 		86053B262CE20D33004BA772 /* NewOnboardPageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86053B242CE20D33004BA772 /* NewOnboardPageCollectionViewCell.swift */; };
 		86053B272CE20D33004BA772 /* NewOnboardPageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86053B252CE20D33004BA772 /* NewOnboardPageCollectionViewCell.xib */; };
 		86DFB1F82CE4B1DE00CBD94F /* TooltipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DFB1F72CE4B1DE00CBD94F /* TooltipView.swift */; };
+		86DFB20B2CE670AD00CBD94F /* NewSettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DFB20A2CE670AD00CBD94F /* NewSettingTableViewCell.swift */; };
+		86DFB20D2CE671A600CBD94F /* NewSettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86DFB20C2CE671A600CBD94F /* NewSettingTableViewCell.xib */; };
+		86DFB20F2CE67E8700CBD94F /* NewSettingTableViewEmptyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DFB20E2CE67E8700CBD94F /* NewSettingTableViewEmptyCell.swift */; };
+		86DFB2112CE67F6600CBD94F /* NewSettingTableViewEmptyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86DFB2102CE67F6600CBD94F /* NewSettingTableViewEmptyCell.xib */; };
 		9A0441A926E8D97E0030AF77 /* HMicrophPermisApViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0441A726E8D97E0030AF77 /* HMicrophPermisApViewController.swift */; };
 		9A0441AA26E8D97E0030AF77 /* HMicrophPermisApViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A0441A826E8D97E0030AF77 /* HMicrophPermisApViewController.xib */; };
 		9A09434A282D654800F7AEC5 /* ZAppIconViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A094348282D654800F7AEC5 /* ZAppIconViewController.swift */; };
@@ -344,6 +348,10 @@
 		86053B242CE20D33004BA772 /* NewOnboardPageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOnboardPageCollectionViewCell.swift; sourceTree = "<group>"; };
 		86053B252CE20D33004BA772 /* NewOnboardPageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewOnboardPageCollectionViewCell.xib; sourceTree = "<group>"; };
 		86DFB1F72CE4B1DE00CBD94F /* TooltipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TooltipView.swift; sourceTree = "<group>"; };
+		86DFB20A2CE670AD00CBD94F /* NewSettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSettingTableViewCell.swift; sourceTree = "<group>"; };
+		86DFB20C2CE671A600CBD94F /* NewSettingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewSettingTableViewCell.xib; sourceTree = "<group>"; };
+		86DFB20E2CE67E8700CBD94F /* NewSettingTableViewEmptyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSettingTableViewEmptyCell.swift; sourceTree = "<group>"; };
+		86DFB2102CE67F6600CBD94F /* NewSettingTableViewEmptyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewSettingTableViewEmptyCell.xib; sourceTree = "<group>"; };
 		9A0441A726E8D97E0030AF77 /* HMicrophPermisApViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMicrophPermisApViewController.swift; sourceTree = "<group>"; };
 		9A0441A826E8D97E0030AF77 /* HMicrophPermisApViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HMicrophPermisApViewController.xib; sourceTree = "<group>"; };
 		9A094348282D654800F7AEC5 /* ZAppIconViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZAppIconViewController.swift; sourceTree = "<group>"; };
@@ -752,6 +760,17 @@
 				86DFB1F72CE4B1DE00CBD94F /* TooltipView.swift */,
 			);
 			path = TooltipView;
+			sourceTree = "<group>";
+		};
+		86DFB2092CE6709000CBD94F /* NewSettingTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				86DFB20A2CE670AD00CBD94F /* NewSettingTableViewCell.swift */,
+				86DFB20C2CE671A600CBD94F /* NewSettingTableViewCell.xib */,
+				86DFB20E2CE67E8700CBD94F /* NewSettingTableViewEmptyCell.swift */,
+				86DFB2102CE67F6600CBD94F /* NewSettingTableViewEmptyCell.xib */,
+			);
+			path = NewSettingTableViewCell;
 			sourceTree = "<group>";
 		};
 		9094A7AF71082B3103E99273 /* Pods */ = {
@@ -1235,6 +1254,7 @@
 		9ACB45EA2812F1FA00FAF44E /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				86DFB2092CE6709000CBD94F /* NewSettingTableViewCell */,
 				9A2452D52837924B0019DAC1 /* TranscriptTableViewCell */,
 				9AEC02ED283533E900E9E88B /* TextParametersTableViewCell */,
 				9ACB45F2281307D900FAF44E /* CenterButtonTableViewCell */,
@@ -1605,6 +1625,7 @@
 				A5E542AF26EFF08A001D3AB4 /* PaywallViewController.xib in Resources */,
 				9A60EE012820074100112720 /* UThemNTablViewCell.xib in Resources */,
 				9A2452D428378C3D0019DAC1 /* HTranscriptListApViewController.xib in Resources */,
+				86DFB20D2CE671A600CBD94F /* NewSettingTableViewCell.xib in Resources */,
 				83A71C5A2694533200311937 /* InfoPlist.strings in Resources */,
 				83AF2C79264D9CEF00DB9909 /* RTextVFullScrViewController.storyboard in Resources */,
 				9A52DD182832A90400307F2A /* UTranscribApViewController.xib in Resources */,
@@ -1647,6 +1668,7 @@
 				9AC90E662886B74C00A43212 /* TPermissListApViewController.xib in Resources */,
 				A552868926FA711500A92066 /* GOnbBSpeechViewCell.xib in Resources */,
 				9ADD32C428365A24002ADA43 /* JLocaleListApViewController.xib in Resources */,
+				86DFB2112CE67F6600CBD94F /* NewSettingTableViewEmptyCell.xib in Resources */,
 				9A4DA22128464DEA00DCBC87 /* RVoicChangeJViewController.xib in Resources */,
 				A51EBD3E26D957C600674657 /* FOnboardApViewController.xib in Resources */,
 				9AD6C64C28A101CC0055C518 /* DBPaywlApViewController.xib in Resources */,
@@ -1738,6 +1760,7 @@
 				A5BEDCE626F2967000CF1381 /* ВTypPwlScreen.swift in Sources */,
 				83A8E8EB2645A7FD0080AEE5 /* SpringLabel.swift in Sources */,
 				9A80746526E8045E00E89B83 /* NSLayoutConstraint+Extensions.swift in Sources */,
+				86DFB20B2CE670AD00CBD94F /* NewSettingTableViewCell.swift in Sources */,
 				9A122CF0283B8DB900944287 /* GLangSetupApViewController.swift in Sources */,
 				9ACB45E82812D0CD00FAF44E /* QTemplateApViewController.swift in Sources */,
 				9ACB45C62812B9BF00FAF44E /* Waveform.swift in Sources */,
@@ -1755,6 +1778,7 @@
 				9A2452D82837926A0019DAC1 /* GTranscriptionTablViewCell.swift in Sources */,
 				A53D650926E9483000C9882D /* SIAppStateListeners.swift in Sources */,
 				9AE950AD283FBDD00044CAB1 /* GPOnboardApViewController.swift in Sources */,
+				86DFB20F2CE67E8700CBD94F /* NewSettingTableViewEmptyCell.swift in Sources */,
 				9A60EDCF281A9B9A00112720 /* VPLirParameter.swift in Sources */,
 				83AA6D8E26777DD800AFFB7F /* JTranslrToLangSelecController.swift in Sources */,
 				9A949F5728A293E800F7D7D4 /* SFakSplasApViewController.swift in Sources */,
