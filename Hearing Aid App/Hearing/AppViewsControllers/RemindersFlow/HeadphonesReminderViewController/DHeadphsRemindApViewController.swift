@@ -34,7 +34,7 @@ final class DHeadphsRemindApViewController: UIViewController {
         KAppConfigServic.shared.analytics.track(.v2HeadphonesReminder, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.open.rawValue])
         configureUI()
         configureObserver()
-        chargePlayer()
+        //chargePlayer()
     }
     
     override func viewDidLayoutSubviews() {
@@ -93,18 +93,7 @@ final class DHeadphsRemindApViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(didBecomeActiveNotificationTriggered), name: UIApplication.didBecomeActiveNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(willResignActiveNotificationNotificationTriggered), name: UIApplication.willResignActiveNotification, object: nil)
     }
-    
-    private func chargePlayer() {
-        let videoURL: URL = Bundle.main.url(forResource: "headphones", withExtension: "mp4")!
-        player.replaceCurrentItem(with: AVPlayerItem.init(url: videoURL))
-        
-        playerLayer.frame = thumbnailImageView.bounds
-        thumbnailImageView.layer.addSublayer(playerLayer)
-        playerLayer.player = player
-        playerLayer.videoGravity = .resizeAspectFill
-        player.actionAtItemEnd = .none
-    }
-    
+   
     private func play() {
         player.seek(to: CMTime.zero)
         resume()
@@ -117,7 +106,18 @@ final class DHeadphsRemindApViewController: UIViewController {
     private func pause() {
         player.pause()
     }
-    
+    /*
+    private func chargePlayer() {
+        let videoURL: URL = Bundle.main.url(forResource: "headphones", withExtension: "mp4")!
+        player.replaceCurrentItem(with: AVPlayerItem.init(url: videoURL))
+        
+        playerLayer.frame = thumbnailImageView.bounds
+        thumbnailImageView.layer.addSublayer(playerLayer)
+        playerLayer.player = player
+        playerLayer.videoGravity = .resizeAspectFill
+        player.actionAtItemEnd = .none
+    }
+    */
     //MARK: - Notification actions
     @objc private func audioRouteChanged(notification: NSNotification) {
         guard let audioRouteChangeReason = notification.userInfo?[AVAudioSessionRouteChangeReasonKey] as? UInt else {

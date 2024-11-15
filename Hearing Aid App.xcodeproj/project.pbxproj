@@ -30,8 +30,6 @@
 		83A0A0CC267E02C700D06F35 /* Spawn.wav in Resources */ = {isa = PBXBuildFile; fileRef = 83A0A0C6267E02C700D06F35 /* Spawn.wav */; };
 		83A0A0CD267E02C700D06F35 /* TapticEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A0A0C7267E02C700D06F35 /* TapticEngine.swift */; };
 		83A0A0CE267E02C700D06F35 /* Implode.ahap in Resources */ = {isa = PBXBuildFile; fileRef = 83A0A0C8267E02C700D06F35 /* Implode.ahap */; };
-		83A71C572694531D00311937 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 83A71C592694531D00311937 /* Localizable.strings */; };
-		83A71C5A2694533200311937 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 83A71C5C2694533200311937 /* InfoPlist.strings */; };
 		83A8E89F2645898A0080AEE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A8E89E2645898A0080AEE5 /* AppDelegate.swift */; };
 		83A8E8A82645898B0080AEE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83A8E8A72645898B0080AEE5 /* Assets.xcassets */; };
 		83A8E8AB2645898B0080AEE5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83A8E8A92645898B0080AEE5 /* LaunchScreen.storyboard */; };
@@ -138,7 +136,6 @@
 		9A635DD626F38C9300A6C0EF /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A635DD526F38C9300A6C0EF /* UIViewController+Extensions.swift */; };
 		9A713AFC283E8569003BCD42 /* Branch in Frameworks */ = {isa = PBXBuildFile; productRef = 9A713AFB283E8569003BCD42 /* Branch */; };
 		9A713B01283E8AAC003BCD42 /* SFbServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A713B00283E8AAC003BCD42 /* SFbServices.swift */; };
-		9A715FE426E0F5B700B2DD06 /* SFProDisplay-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A715FE326E0F5B700B2DD06 /* SFProDisplay-MediumItalic.otf */; };
 		9A80746526E8045E00E89B83 /* NSLayoutConstraint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A80746426E8045E00E89B83 /* NSLayoutConstraint+Extensions.swift */; };
 		9A80746726E814AB00E89B83 /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A80746626E814AB00E89B83 /* UIFont+Extensions.swift */; };
 		9A836AEE281929CE00FD5AF2 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A836AEC281929CE00FD5AF2 /* SettingTableViewCell.swift */; };
@@ -165,9 +162,6 @@
 		9AC37F712833F70D00F95E24 /* DTypeTextApViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AC37F6F2833F70D00F95E24 /* DTypeTextApViewController.xib */; };
 		9AC90E652886B74C00A43212 /* TPermissListApViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC90E632886B74C00A43212 /* TPermissListApViewController.swift */; };
 		9AC90E662886B74C00A43212 /* TPermissListApViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AC90E642886B74C00A43212 /* TPermissListApViewController.xib */; };
-		9AC90E6F2886F9D800A43212 /* Gilroy-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9AC90E6C2886F9D800A43212 /* Gilroy-Bold.ttf */; };
-		9AC90E702886F9D800A43212 /* Gilroy-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9AC90E6D2886F9D800A43212 /* Gilroy-Regular.ttf */; };
-		9AC90E712886F9D800A43212 /* Gilroy-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9AC90E6E2886F9D800A43212 /* Gilroy-Semibold.ttf */; };
 		9ACB45BA2812B9BF00FAF44E /* AudioKitUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACB45952812B9BE00FAF44E /* AudioKitUI.swift */; };
 		9ACB45BB2812B9BF00FAF44E /* TempoDraggableStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACB45972812B9BE00FAF44E /* TempoDraggableStepper.swift */; };
 		9ACB45BC2812B9BF00FAF44E /* ReverbPresetStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACB45982812B9BE00FAF44E /* ReverbPresetStepper.swift */; };
@@ -230,7 +224,6 @@
 		A51EBD3D26D957C600674657 /* FOnboardApViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51EBD3B26D957C600674657 /* FOnboardApViewController.swift */; };
 		A51EBD3E26D957C600674657 /* FOnboardApViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A51EBD3C26D957C600674657 /* FOnboardApViewController.xib */; };
 		A51EBD4926D95B5100674657 /* GOnboModelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51EBD4826D95B5100674657 /* GOnboModelCollectionViewCell.swift */; };
-		A52F8B0126D1A8CB00034120 /* headphones.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = A52F8B0026D1A0B700034120 /* headphones.mp4 */; };
 		A52F8B0426D1B0E100034120 /* CGFloat+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52F8B0326D1B0E100034120 /* CGFloat+Extension.swift */; };
 		A53D650626E91FDD00C9882D /* SReqVoiceRecordApViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53D650426E91FDD00C9882D /* SReqVoiceRecordApViewController.swift */; };
 		A53D650726E91FDD00C9882D /* SReqVoiceRecordApViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A53D650526E91FDD00C9882D /* SReqVoiceRecordApViewController.xib */; };
@@ -240,7 +233,6 @@
 		A55EECF526DFDF0A001CA6B5 /* TOnboardHvTabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55EECF426DFDF0A001CA6B5 /* TOnboardHvTabs.swift */; };
 		A55EECF726E01079001CA6B5 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55EECF626E01079001CA6B5 /* String+Extension.swift */; };
 		A573ADA926F69955000C5B82 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A573ADA826F69955000C5B82 /* UIView+Extension.swift */; };
-		A5774AB626EAB00800AA4780 /* Gotham-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = A5774AB526EAB00800AA4780 /* Gotham-Bold.otf */; };
 		A58219AF26F9196D005BFCD6 /* JOnbrdCollectViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58219AD26F9196D005BFCD6 /* JOnbrdCollectViewCell.swift */; };
 		A58219B026F9196D005BFCD6 /* JOnbrdCollectViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A58219AE26F9196D005BFCD6 /* JOnbrdCollectViewCell.xib */; };
 		A5B2324626CC44C70042AA7B /* DIServicProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B2323F26CC44C70042AA7B /* DIServicProtocols.swift */; };
@@ -294,18 +286,6 @@
 		83A0A0C6267E02C700D06F35 /* Spawn.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Spawn.wav; sourceTree = "<group>"; };
 		83A0A0C7267E02C700D06F35 /* TapticEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapticEngine.swift; sourceTree = "<group>"; };
 		83A0A0C8267E02C700D06F35 /* Implode.ahap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Implode.ahap; sourceTree = "<group>"; };
-		83A71C582694531D00311937 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		83A71C5B2694533200311937 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		83A71C5D2694535E00311937 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
-		83A71C5E2694535E00311937 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		83A71C5F269453AB00311937 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
-		83A71C60269453AB00311937 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		83A71C61269453B900311937 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/Localizable.strings; sourceTree = "<group>"; };
-		83A71C62269453B900311937 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		83A71C63269453C700311937 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
-		83A71C64269453C700311937 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		83A71C652694679A00311937 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		83A71C662694679B00311937 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		83A8E89B2645898A0080AEE5 /* Hearing Aid App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hearing Aid App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		83A8E89E2645898A0080AEE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		83A8E8A72645898B0080AEE5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -366,20 +346,6 @@
 		9A122CF4283BA6B600944287 /* BTranslServicesNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTranslServicesNew.swift; sourceTree = "<group>"; };
 		9A171CAD26D40FF400714425 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		9A171CAF26D4164000714425 /* AVRoutePickerView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVRoutePickerView+Extension.swift"; sourceTree = "<group>"; };
-		9A1AF28C26F1E45D004573BC /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		9A1AF28D26F1E45D004573BC /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
-		9A1AF28E26F1E490004573BC /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
-		9A1AF28F26F1E491004573BC /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		9A1AF29026F1E4B9004573BC /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
-		9A1AF29126F1E4B9004573BC /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		9A1AF29226F1E4E5004573BC /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
-		9A1AF29326F1E4E5004573BC /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		9A1AF29426F1E503004573BC /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
-		9A1AF29526F1E503004573BC /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		9A1AF29626F1E534004573BC /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
-		9A1AF29726F1E535004573BC /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		9A1AF29826F1E55D004573BC /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
-		9A1AF29926F1E55D004573BC /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9A1B0B782833842B003588B5 /* FTextSetupApViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTextSetupApViewController.swift; sourceTree = "<group>"; };
 		9A1B0B792833842B003588B5 /* FTextSetupApViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FTextSetupApViewController.xib; sourceTree = "<group>"; };
 		9A1F22CE2837CD32008C9E86 /* JTranslatApViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JTranslatApViewController.swift; sourceTree = "<group>"; };
@@ -428,7 +394,6 @@
 		9A635DD326F389F900A6C0EF /* HAppLoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HAppLoaderView.swift; sourceTree = "<group>"; };
 		9A635DD526F38C9300A6C0EF /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		9A713B00283E8AAC003BCD42 /* SFbServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFbServices.swift; sourceTree = "<group>"; };
-		9A715FE326E0F5B700B2DD06 /* SFProDisplay-MediumItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-MediumItalic.otf"; sourceTree = "<group>"; };
 		9A80746426E8045E00E89B83 /* NSLayoutConstraint+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+Extensions.swift"; sourceTree = "<group>"; };
 		9A80746626E814AB00E89B83 /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
 		9A836AEC281929CE00FD5AF2 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
@@ -455,9 +420,6 @@
 		9AC37F6F2833F70D00F95E24 /* DTypeTextApViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DTypeTextApViewController.xib; sourceTree = "<group>"; };
 		9AC90E632886B74C00A43212 /* TPermissListApViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPermissListApViewController.swift; sourceTree = "<group>"; };
 		9AC90E642886B74C00A43212 /* TPermissListApViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TPermissListApViewController.xib; sourceTree = "<group>"; };
-		9AC90E6C2886F9D800A43212 /* Gilroy-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-Bold.ttf"; sourceTree = "<group>"; };
-		9AC90E6D2886F9D800A43212 /* Gilroy-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-Regular.ttf"; sourceTree = "<group>"; };
-		9AC90E6E2886F9D800A43212 /* Gilroy-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-Semibold.ttf"; sourceTree = "<group>"; };
 		9ACB45952812B9BE00FAF44E /* AudioKitUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioKitUI.swift; sourceTree = "<group>"; };
 		9ACB45972812B9BE00FAF44E /* TempoDraggableStepper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TempoDraggableStepper.swift; sourceTree = "<group>"; };
 		9ACB45982812B9BE00FAF44E /* ReverbPresetStepper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReverbPresetStepper.swift; sourceTree = "<group>"; };
@@ -520,7 +482,6 @@
 		A51EBD3B26D957C600674657 /* FOnboardApViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FOnboardApViewController.swift; sourceTree = "<group>"; };
 		A51EBD3C26D957C600674657 /* FOnboardApViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FOnboardApViewController.xib; sourceTree = "<group>"; };
 		A51EBD4826D95B5100674657 /* GOnboModelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GOnboModelCollectionViewCell.swift; sourceTree = "<group>"; };
-		A52F8B0026D1A0B700034120 /* headphones.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = headphones.mp4; sourceTree = "<group>"; };
 		A52F8B0326D1B0E100034120 /* CGFloat+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extension.swift"; sourceTree = "<group>"; };
 		A53D650426E91FDD00C9882D /* SReqVoiceRecordApViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SReqVoiceRecordApViewController.swift; sourceTree = "<group>"; };
 		A53D650526E91FDD00C9882D /* SReqVoiceRecordApViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SReqVoiceRecordApViewController.xib; sourceTree = "<group>"; };
@@ -530,7 +491,6 @@
 		A55EECF426DFDF0A001CA6B5 /* TOnboardHvTabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOnboardHvTabs.swift; sourceTree = "<group>"; };
 		A55EECF626E01079001CA6B5 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		A573ADA826F69955000C5B82 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
-		A5774AB526EAB00800AA4780 /* Gotham-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Bold.otf"; sourceTree = "<group>"; };
 		A58219AD26F9196D005BFCD6 /* JOnbrdCollectViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JOnbrdCollectViewCell.swift; sourceTree = "<group>"; };
 		A58219AE26F9196D005BFCD6 /* JOnbrdCollectViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JOnbrdCollectViewCell.xib; sourceTree = "<group>"; };
 		A5B2323F26CC44C70042AA7B /* DIServicProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DIServicProtocols.swift; sourceTree = "<group>"; };
@@ -597,7 +557,7 @@
 			path = ASpeechReco;
 			sourceTree = "<group>";
 		};
-		83A0A0C2267E02C700D06F35 /* Haptic */ = {
+		83A0A0C2267E02C700D06F35 /* AppHaptic */ = {
 			isa = PBXGroup;
 			children = (
 				83A0A0C8267E02C700D06F35 /* Implode.ahap */,
@@ -607,7 +567,7 @@
 				83A0A0C4267E02C700D06F35 /* Implode.wav */,
 				83A0A0C6267E02C700D06F35 /* Spawn.wav */,
 			);
-			path = Haptic;
+			path = AppHaptic;
 			sourceTree = "<group>";
 		};
 		83A8E8922645898A0080AEE5 = {
@@ -637,7 +597,7 @@
 				11DC52242CD403E400A9589A /* Theme.swift */,
 				9A27ED8126CDA9F200D8EF09 /* AppResource */,
 				A5B2323D26CC44BC0042AA7B /* Hearing */,
-				83EAFE89264C263700FF9CAC /* General */,
+				83EAFE89264C263700FF9CAC /* GeneralApp */,
 				83ABA24F264BE316001784B8 /* AppSpeechRec */,
 			);
 			path = "Hearing Aid App";
@@ -713,16 +673,7 @@
 			path = AppSpeechRec;
 			sourceTree = "<group>";
 		};
-		83AC1EF92693A9FD0019C36F /* Localizations */ = {
-			isa = PBXGroup;
-			children = (
-				83A71C592694531D00311937 /* Localizable.strings */,
-				83A71C5C2694533200311937 /* InfoPlist.strings */,
-			);
-			path = Localizations;
-			sourceTree = "<group>";
-		};
-		83EAFE89264C263700FF9CAC /* General */ = {
+		83EAFE89264C263700FF9CAC /* GeneralApp */ = {
 			isa = PBXGroup;
 			children = (
 				86DFB1F62CE4B1C100CBD94F /* TooltipView */,
@@ -733,7 +684,7 @@
 				839DE07026529F1B00A65DD7 /* AProgressview */,
 				83A8E8C12645A7FD0080AEE5 /* ZSpringApp */,
 			);
-			path = General;
+			path = GeneralApp;
 			sourceTree = "<group>";
 		};
 		86053B182CDE3ADD004BA772 /* NewOnboardingViewController */ = {
@@ -907,10 +858,7 @@
 			children = (
 				83A8E8A72645898B0080AEE5 /* Assets.xcassets */,
 				83A8E8A92645898B0080AEE5 /* LaunchScreen.storyboard */,
-				83AC1EF92693A9FD0019C36F /* Localizations */,
-				A51C52BF26CEF7FF00D90673 /* Fonts */,
 				A51EBD3126D956BE00674657 /* AppRingtone */,
-				A52F8AFE26D19FF100034120 /* Video */,
 			);
 			path = AppResource;
 			sourceTree = "<group>";
@@ -1321,18 +1269,6 @@
 			path = TextParametersTableViewCell;
 			sourceTree = "<group>";
 		};
-		A51C52BF26CEF7FF00D90673 /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-				9AC90E6C2886F9D800A43212 /* Gilroy-Bold.ttf */,
-				9AC90E6D2886F9D800A43212 /* Gilroy-Regular.ttf */,
-				9AC90E6E2886F9D800A43212 /* Gilroy-Semibold.ttf */,
-				9A715FE326E0F5B700B2DD06 /* SFProDisplay-MediumItalic.otf */,
-				A5774AB526EAB00800AA4780 /* Gotham-Bold.otf */,
-			);
-			path = Fonts;
-			sourceTree = "<group>";
-		};
 		A51EBD3126D956BE00674657 /* AppRingtone */ = {
 			isa = PBXGroup;
 			children = (
@@ -1362,14 +1298,6 @@
 				86053B232CE20CE0004BA772 /* NewOnboardingCollectionViewCell */,
 			);
 			path = CollectionViewCells;
-			sourceTree = "<group>";
-		};
-		A52F8AFE26D19FF100034120 /* Video */ = {
-			isa = PBXGroup;
-			children = (
-				A52F8B0026D1A0B700034120 /* headphones.mp4 */,
-			);
-			path = Video;
 			sourceTree = "<group>";
 		};
 		A52F8B0226D1B0CA00034120 /* AppExt */ = {
@@ -1466,7 +1394,7 @@
 				9A09434C282D78F500F7AEC5 /* AThemeServicesAp.swift */,
 				9AC37F692833DBC100F95E24 /* CTranscribServicesAp.swift */,
 				9A122CF4283BA6B600944287 /* BTranslServicesNew.swift */,
-				83A0A0C2267E02C700D06F35 /* Haptic */,
+				83A0A0C2267E02C700D06F35 /* AppHaptic */,
 			);
 			path = AppService;
 			sourceTree = "<group>";
@@ -1620,20 +1548,17 @@
 				9ACB45E42812D05F00FAF44E /* KCompresViewController.xib in Resources */,
 				839FAC24264EE87D004910D9 /* JSpeechRecoSetViewController.storyboard in Resources */,
 				9A0441AA26E8D97E0030AF77 /* HMicrophPermisApViewController.xib in Resources */,
-				9AC90E712886F9D800A43212 /* Gilroy-Semibold.ttf in Resources */,
 				9A122CF1283B8DB900944287 /* GLangSetupApViewController.xib in Resources */,
 				A5E542AF26EFF08A001D3AB4 /* PaywallViewController.xib in Resources */,
 				9A60EE012820074100112720 /* UThemNTablViewCell.xib in Resources */,
 				9A2452D428378C3D0019DAC1 /* HTranscriptListApViewController.xib in Resources */,
 				86DFB20D2CE671A600CBD94F /* NewSettingTableViewCell.xib in Resources */,
-				83A71C5A2694533200311937 /* InfoPlist.strings in Resources */,
 				83AF2C79264D9CEF00DB9909 /* RTextVFullScrViewController.storyboard in Resources */,
 				9A52DD182832A90400307F2A /* UTranscribApViewController.xib in Resources */,
 				9A52DD1328324E7100307F2A /* WSpeechApViewController.xib in Resources */,
 				9AC37F712833F70D00F95E24 /* DTypeTextApViewController.xib in Resources */,
 				9ACB45E92812D0CD00FAF44E /* QTemplateApViewController.xib in Resources */,
 				9A60EDC8281A955C00112720 /* YLimitApViewController.xib in Resources */,
-				83A71C572694531D00311937 /* Localizable.strings in Resources */,
 				A51EBD3526D9572E00674657 /* AppguitarAfter.mp3 in Resources */,
 				9ABEB29A26D3FF5600A8252D /* DHeadphsRemindApViewController.xib in Resources */,
 				83A0A0C9267E02C700D06F35 /* Spawn.ahap in Resources */,
@@ -1654,7 +1579,6 @@
 				83A8E8EA2645A7FD0080AEE5 /* LoadingView.xib in Resources */,
 				9ACB45F6281307EE00FAF44E /* VCentereButnTableViewCell.xib in Resources */,
 				9A836AF428198B4C00FD5AF2 /* GSlideBTablViewCell.xib in Resources */,
-				A5774AB626EAB00800AA4780 /* Gotham-Bold.otf in Resources */,
 				9A2452D92837926A0019DAC1 /* GTranscriptionTablViewCell.xib in Resources */,
 				9A635DD126F3811900A6C0EF /* SCatchUpApViewController.xib in Resources */,
 				9A8EE3EC28379C630038E58F /* YTranscriptDetailApViewController.xib in Resources */,
@@ -1678,12 +1602,8 @@
 				83A8E8A82645898B0080AEE5 /* Assets.xcassets in Resources */,
 				83A0A0CE267E02C700D06F35 /* Implode.ahap in Resources */,
 				9A60EDCD281A957300112720 /* UEqualizeApViewController.xib in Resources */,
-				9A715FE426E0F5B700B2DD06 /* SFProDisplay-MediumItalic.otf in Resources */,
 				9A1F22D12837CD32008C9E86 /* JTranslatApViewController.xib in Resources */,
-				9AC90E6F2886F9D800A43212 /* Gilroy-Bold.ttf in Resources */,
-				9AC90E702886F9D800A43212 /* Gilroy-Regular.ttf in Resources */,
 				9A5512DD28096B870078C5E5 /* TabBarViewController.xib in Resources */,
-				A52F8B0126D1A8CB00034120 /* headphones.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1930,46 +1850,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		83A71C592694531D00311937 /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				83A71C582694531D00311937 /* en */,
-				83A71C5D2694535E00311937 /* de */,
-				83A71C5F269453AB00311937 /* sv */,
-				83A71C61269453B900311937 /* nb */,
-				83A71C63269453C700311937 /* it */,
-				83A71C652694679A00311937 /* zh-Hans */,
-				9A1AF28C26F1E45D004573BC /* zh-Hant */,
-				9A1AF28E26F1E490004573BC /* es */,
-				9A1AF29026F1E4B9004573BC /* fr */,
-				9A1AF29226F1E4E5004573BC /* ja */,
-				9A1AF29426F1E503004573BC /* ko */,
-				9A1AF29626F1E534004573BC /* ru */,
-				9A1AF29826F1E55D004573BC /* uk */,
-			);
-			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-		83A71C5C2694533200311937 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				83A71C5B2694533200311937 /* en */,
-				83A71C5E2694535E00311937 /* de */,
-				83A71C60269453AB00311937 /* sv */,
-				83A71C62269453B900311937 /* nb */,
-				83A71C64269453C700311937 /* it */,
-				83A71C662694679B00311937 /* zh-Hans */,
-				9A1AF28D26F1E45D004573BC /* zh-Hant */,
-				9A1AF28F26F1E491004573BC /* es */,
-				9A1AF29126F1E4B9004573BC /* fr */,
-				9A1AF29326F1E4E5004573BC /* ja */,
-				9A1AF29526F1E503004573BC /* ko */,
-				9A1AF29726F1E535004573BC /* ru */,
-				9A1AF29926F1E55D004573BC /* uk */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
 		83A8E8A92645898B0080AEE5 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
