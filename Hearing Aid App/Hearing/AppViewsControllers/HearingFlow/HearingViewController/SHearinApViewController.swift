@@ -119,6 +119,10 @@ final class SHearinApViewController: PMUMainViewController {
         super.viewDidAppear(animated)
         SAudioKitServicesAp.shared.setAudioEngine(SAudioKitServicesAp.shared.isStartedMixer)
         mainSwitchImageView.image = SAudioKitServicesAp.shared.isStartedMixer ? CAppConstants.Images.powerOn : CAppConstants.Images.powerOff
+        hideTooltip()
+        if !SAudioKitServicesAp.shared.isStartedMixer {
+            showTooltip()
+        }
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
@@ -321,13 +325,9 @@ final class SHearinApViewController: PMUMainViewController {
     }
     
     private func hideTooltip() {
-        UIView.animate(withDuration: 0.3, animations: {
-            self.tooltip?.alpha = 0
-        }) { _ in
-            self.tooltip?.removeFromSuperview()
-            self.tooltip?.layer.removeAllAnimations()
-            self.tooltip = nil
-        }
+        self.tooltip?.removeFromSuperview()
+        self.tooltip?.layer.removeAllAnimations()
+        self.tooltip = nil
     }
     
     private func startInfiniteBounceAnimation() {
