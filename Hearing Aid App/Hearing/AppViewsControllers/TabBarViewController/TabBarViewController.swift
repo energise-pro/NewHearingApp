@@ -62,7 +62,7 @@ final class TabBarViewController: PMUMainViewController {
     
     private var currentTabIndex: Int?
     private var isPaywallShown: Bool = false
-    private var isPermissionShown: Bool = false
+//    private var isPermissionShown: Bool = false
     private var headphonesReminderShown: Bool = false
     
     private var navigationControllers: [UINavigationController] = []
@@ -86,10 +86,10 @@ final class TabBarViewController: PMUMainViewController {
             isPaywallShown = true
         }
         
-        if !isPermissionShown && KAppConfigServic.shared.settings.appLaunchCount < 2 && AppsNavManager.shared.topViewController == self {
-            AppsNavManager.shared.presentTPermissListApViewController()
-            isPermissionShown = true
-        }
+//        if !isPermissionShown && KAppConfigServic.shared.settings.appLaunchCount < 2 && AppsNavManager.shared.topViewController == self {
+//            AppsNavManager.shared.presentTPermissListApViewController()
+//            isPermissionShown = true
+//        }
         
         if !headphonesReminderShown && AppsNavManager.shared.topViewController == self && KAppConfigServic.shared.settings.mainScreen == 0 {
             !SAudioKitServicesAp.shared.connectedHeadphones ? AppsNavManager.shared.presentDHeadphsRemindApViewController() : Void()
