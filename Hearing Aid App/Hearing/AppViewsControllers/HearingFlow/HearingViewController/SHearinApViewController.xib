@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -469,6 +469,7 @@
             <color key="backgroundColor" name="Purple10"/>
             <constraints>
                 <constraint firstItem="hdJ-6f-WNl" firstAttribute="centerY" secondItem="2NC-3T-i0K" secondAttribute="centerY" id="1AS-Tc-pKf"/>
+                <constraint firstItem="8tP-PX-Etl" firstAttribute="top" secondItem="Pze-df-kN9" secondAttribute="bottom" constant="80.5" id="1L3-y7-HDv"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Pze-df-kN9" secondAttribute="trailing" constant="15" id="29v-Le-ynP"/>
                 <constraint firstItem="Egk-RE-dul" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="4Cx-CQ-rzs"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="BLc-IB-tZS" secondAttribute="trailing" constant="16" id="4z0-RP-zSi"/>
@@ -480,6 +481,7 @@
                 <constraint firstItem="nnE-sn-bQM" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="QFH-Eq-5aw"/>
                 <constraint firstItem="Egk-RE-dul" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="V69-Aj-hN0"/>
                 <constraint firstItem="BLc-IB-tZS" firstAttribute="top" secondItem="Ndo-zQ-cS3" secondAttribute="bottom" constant="2" id="Zbr-Gm-LcR"/>
+                <constraint firstItem="Pze-df-kN9" firstAttribute="top" secondItem="CJQ-dt-YhA" secondAttribute="bottom" constant="32" id="bur-eS-kcx"/>
                 <constraint firstItem="Pze-df-kN9" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="f5d-np-KIZ"/>
                 <constraint firstItem="Ndo-zQ-cS3" firstAttribute="top" secondItem="CJQ-dt-YhA" secondAttribute="bottom" constant="20" id="fBW-in-Njw"/>
                 <constraint firstItem="2NC-3T-i0K" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="13" id="ieB-zK-BXW"/>

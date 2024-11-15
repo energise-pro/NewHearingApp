@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		11225B412CDAA4F700C43353 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 11225B402CDAA4F700C43353 /* GoogleService-Info.plist */; };
+		112FA8D42CE64ACB00B1046A /* HeadphonesConnectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112FA8D32CE64ACB00B1046A /* HeadphonesConnectViewController.swift */; };
 		1179064B2CD2CB080089B308 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1197E8D22CD2A76C007F05B3 /* AdSupport.framework */; };
 		1179064D2CD2CB160089B308 /* AdServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1179064C2CD2CB160089B308 /* AdServices.framework */; };
 		118EDAF32CD2643900C3F2CF /* AudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = 118EDAF22CD2643900C3F2CF /* AudioKit */; };
@@ -146,7 +147,7 @@
 		9A949F5828A293E800F7D7D4 /* SFakSplasApViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A949F5628A293E800F7D7D4 /* SFakSplasApViewController.xib */; };
 		9A9D2D062840B3A900332B10 /* MMPPulseLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9D2D052840B3A900332B10 /* MMPPulseLayer.swift */; };
 		9A9DC67A2833CF460080B46F /* GKeybLayConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9DC6792833CF460080B46F /* GKeybLayConst.swift */; };
-		9AAB268C26FA23DA007F4A67 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
+		9AAB268C26FA23DA007F4A67 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		9ABEB29A26D3FF5600A8252D /* DHeadphsRemindApViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9ABEB29826D3FF5600A8252D /* DHeadphsRemindApViewController.xib */; };
 		9ABEB29B26D3FF5600A8252D /* DHeadphsRemindApViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABEB29926D3FF5600A8252D /* DHeadphsRemindApViewController.swift */; };
 		9AC26C4E26DFAE0500E78CEC /* QAsaServiceAp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC26C4D26DFAE0500E78CEC /* QAsaServiceAp.swift */; };
@@ -252,6 +253,7 @@
 		A5E542AE26EFF08A001D3AB4 /* PaywallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E542AC26EFF08A001D3AB4 /* PaywallViewController.swift */; };
 		A5E542AF26EFF08A001D3AB4 /* PaywallViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5E542AD26EFF08A001D3AB4 /* PaywallViewController.xib */; };
 		A5E9ADD826E096AF00B7DA17 /* Float+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E9ADD726E096AF00B7DA17 /* Float+Extension.swift */; };
+		BB14E58B78F8D9A76E10905B /* Pods_Hearing_Aid_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9883D930377BC8671B11DE76 /* Pods_Hearing_Aid_App.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -269,11 +271,13 @@
 
 /* Begin PBXFileReference section */
 		11225B402CDAA4F700C43353 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		112FA8D32CE64ACB00B1046A /* HeadphonesConnectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadphonesConnectViewController.swift; sourceTree = "<group>"; };
 		1179064C2CD2CB160089B308 /* AdServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdServices.framework; path = System/Library/Frameworks/AdServices.framework; sourceTree = SDKROOT; };
 		1197E8D22CD2A76C007F05B3 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		11DC52242CD403E400A9589A /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		11DC523B2CD412CA00A9589A /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		11DC523D2CD4139200A9589A /* HAnalliticAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HAnalliticAViewController.swift; sourceTree = "<group>"; };
+		5C171E85063BBD69E1B3BB49 /* Pods-Hearing Aid App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hearing Aid App.debug.xcconfig"; path = "Target Support Files/Pods-Hearing Aid App/Pods-Hearing Aid App.debug.xcconfig"; sourceTree = "<group>"; };
 		834EB73326482F9600026F01 /* ParticleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticleView.swift; sourceTree = "<group>"; };
 		834EB73826482FEC00026F01 /* Particle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Particle.sks; sourceTree = "<group>"; };
 		839DE07126529F1B00A65DD7 /* NIndicatShaper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NIndicatShaper.swift; sourceTree = "<group>"; };
@@ -341,6 +345,7 @@
 		86053B242CE20D33004BA772 /* NewOnboardPageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOnboardPageCollectionViewCell.swift; sourceTree = "<group>"; };
 		86053B252CE20D33004BA772 /* NewOnboardPageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewOnboardPageCollectionViewCell.xib; sourceTree = "<group>"; };
 		86DFB1F72CE4B1DE00CBD94F /* TooltipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TooltipView.swift; sourceTree = "<group>"; };
+		9883D930377BC8671B11DE76 /* Pods_Hearing_Aid_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hearing_Aid_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A0441A726E8D97E0030AF77 /* HMicrophPermisApViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMicrophPermisApViewController.swift; sourceTree = "<group>"; };
 		9A0441A826E8D97E0030AF77 /* HMicrophPermisApViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HMicrophPermisApViewController.xib; sourceTree = "<group>"; };
 		9A094348282D654800F7AEC5 /* ZAppIconViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZAppIconViewController.swift; sourceTree = "<group>"; };
@@ -535,6 +540,7 @@
 		A5E542AC26EFF08A001D3AB4 /* PaywallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallViewController.swift; sourceTree = "<group>"; };
 		A5E542AD26EFF08A001D3AB4 /* PaywallViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaywallViewController.xib; sourceTree = "<group>"; };
 		A5E9ADD726E096AF00B7DA17 /* Float+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Float+Extension.swift"; sourceTree = "<group>"; };
+		BE00ABE3228F76ED571DF912 /* Pods-Hearing Aid App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hearing Aid App.release.xcconfig"; path = "Target Support Files/Pods-Hearing Aid App/Pods-Hearing Aid App.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -551,6 +557,7 @@
 				9A43AC77273D7AED00F615DB /* SoundpipeAudioKit in Frameworks */,
 				9A713AFC283E8569003BCD42 /* Branch in Frameworks */,
 				9A27ED8026CDA94400D8EF09 /* ExternalAccessory.framework in Frameworks */,
+				BB14E58B78F8D9A76E10905B /* Pods_Hearing_Aid_App.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -637,6 +644,7 @@
 				1197E8D22CD2A76C007F05B3 /* AdSupport.framework */,
 				9A27ED7F26CDA94400D8EF09 /* ExternalAccessory.framework */,
 				83A8E8B626458AE50080AEE5 /* StoreKit.framework */,
+				9883D930377BC8671B11DE76 /* Pods_Hearing_Aid_App.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -751,6 +759,8 @@
 		9094A7AF71082B3103E99273 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
+				5C171E85063BBD69E1B3BB49 /* Pods-Hearing Aid App.debug.xcconfig */,
+				BE00ABE3228F76ED571DF912 /* Pods-Hearing Aid App.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -1076,6 +1086,7 @@
 			children = (
 				9ABEB29926D3FF5600A8252D /* DHeadphsRemindApViewController.swift */,
 				9ABEB29826D3FF5600A8252D /* DHeadphsRemindApViewController.xib */,
+				112FA8D32CE64ACB00B1046A /* HeadphonesConnectViewController.swift */,
 			);
 			path = HeadphonesReminderViewController;
 			sourceTree = "<group>";
@@ -1509,10 +1520,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 83A8E8AF2645898B0080AEE5 /* Build configuration list for PBXNativeTarget "Hearing Aid App" */;
 			buildPhases = (
+				79D2FFDAB6C1AEBF3591A171 /* [CP] Check Pods Manifest.lock */,
 				83A8E8972645898A0080AEE5 /* Sources */,
 				83A8E8982645898A0080AEE5 /* Frameworks */,
 				83A8E8992645898A0080AEE5 /* Resources */,
 				9A27ED7B26CDA5C800D8EF09 /* Embed App Extensions */,
+				F6307E620B62DA350BE8EE3D /* [CP] Embed Pods Frameworks */,
+				F17AEF65B996E3B3F21F8C55 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1658,6 +1672,65 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		79D2FFDAB6C1AEBF3591A171 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Hearing Aid App-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F17AEF65B996E3B3F21F8C55 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Hearing Aid App/Pods-Hearing Aid App-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Hearing Aid App/Pods-Hearing Aid App-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Hearing Aid App/Pods-Hearing Aid App-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F6307E620B62DA350BE8EE3D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Hearing Aid App/Pods-Hearing Aid App-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Hearing Aid App/Pods-Hearing Aid App-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Hearing Aid App/Pods-Hearing Aid App-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		83A8E8972645898A0080AEE5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -1755,10 +1828,11 @@
 				11DC52332CD403E400A9589A /* Theme.swift in Sources */,
 				9ADD32C328365A24002ADA43 /* JLocaleListApViewController.swift in Sources */,
 				86053B1C2CDE3B24004BA772 /* NewOnboardingViewController.swift in Sources */,
-				9AAB268C26FA23DA007F4A67 /* BuildFile in Sources */,
+				9AAB268C26FA23DA007F4A67 /* (null) in Sources */,
 				9A5512E628097A270078C5E5 /* PMUMainViewController.swift in Sources */,
 				9A5CCE972819906700B8F89D /* GCenterPickrTablViewCell.swift in Sources */,
 				9ACB45D92812B9BF00FAF44E /* MorphableShape.swift in Sources */,
+				112FA8D42CE64ACB00B1046A /* HeadphonesConnectViewController.swift in Sources */,
 				83A8E8E22645A7FD0080AEE5 /* SpringButton.swift in Sources */,
 				9ACB45CF2812B9BF00FAF44E /* SpectrumView.swift in Sources */,
 				9ACB45D22812B9BF00FAF44E /* TableView.swift in Sources */,
@@ -2007,6 +2081,7 @@
 		};
 		83A8E8B02645898B0080AEE5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5C171E85063BBD69E1B3BB49 /* Pods-Hearing Aid App.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -2028,13 +2103,19 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.hair.ap2p.fac1e.swa1p;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				REGISTER_APP_GROUPS = NO;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator xros xrsimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,7";
 			};
 			name = Debug;
 		};
 		83A8E8B12645898B0080AEE5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BE00ABE3228F76ED571DF912 /* Pods-Hearing Aid App.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -2055,8 +2136,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.hair.ap2p.fac1e.swa1p;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				REGISTER_APP_GROUPS = NO;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator xros xrsimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,7";
 			};
 			name = Release;
 		};

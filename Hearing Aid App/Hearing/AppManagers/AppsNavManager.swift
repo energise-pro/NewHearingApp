@@ -86,7 +86,7 @@ final class AppsNavManager: NSObject {
             completion?(false)
             return
         }
-        let DHeadphsRemindApViewController: DHeadphsRemindApViewController = DHeadphsRemindApViewController()
+        let DHeadphsRemindApViewController: HeadphonesConnectViewController = HeadphonesConnectViewController()
         DHeadphsRemindApViewController.modalPresentationStyle = .fullScreen
         DHeadphsRemindApViewController.modalTransitionStyle = .crossDissolve
         if animated {
@@ -101,7 +101,7 @@ final class AppsNavManager: NSObject {
     }
     
     func presentDHeadphsRemindApViewController() {
-        let DHeadphsRemindApViewController: DHeadphsRemindApViewController = DHeadphsRemindApViewController()
+        let DHeadphsRemindApViewController: HeadphonesConnectViewController = HeadphonesConnectViewController()
         DHeadphsRemindApViewController.modalPresentationStyle = .fullScreen
         DHeadphsRemindApViewController.modalTransitionStyle = .crossDissolve
         #if targetEnvironment(simulator)
