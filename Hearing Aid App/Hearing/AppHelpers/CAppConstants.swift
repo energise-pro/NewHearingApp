@@ -83,9 +83,5 @@ struct CAppConstants {
         static let faqURL = URL(string: "https://sites.google.com/energise.pro/hearingaidnews/")!
         static let ourWebSiteURL = URL(string: "https://sites.google.com/energise.pro/hearingaidnews/home")!
         static let appStoreUrl = URL(string: "https://apps.apple.com/app/id\(CAppConstants.General.appStoreAppID)")!
-      
-        
-        static let hearingInstructions = Bundle.main.url(forResource: "hearing_aid_instruction", withExtension: "mp4")!
-        static let transcrabeInstructions = Bundle.main.url(forResource: "hearing_aid_instruction", withExtension: "mp4")!
     }
 }

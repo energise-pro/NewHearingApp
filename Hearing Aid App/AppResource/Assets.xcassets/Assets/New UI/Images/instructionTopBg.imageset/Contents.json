@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "instructionTopBg.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1111338D2CE797430012A6D5 /* HearingInstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1111338C2CE797430012A6D5 /* HearingInstructionViewController.swift */; };
 		11225B412CDAA4F700C43353 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 11225B402CDAA4F700C43353 /* GoogleService-Info.plist */; };
 		112FA8D42CE64ACB00B1046A /* HeadphonesConnectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112FA8D32CE64ACB00B1046A /* HeadphonesConnectViewController.swift */; };
 		1179064B2CD2CB080089B308 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1197E8D22CD2A76C007F05B3 /* AdSupport.framework */; };
@@ -79,7 +80,6 @@
 		9A0B09A0280D9ADC0084D695 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0B099F280D9ADC0084D695 /* Storage.swift */; };
 		9A122CF0283B8DB900944287 /* GLangSetupApViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A122CEE283B8DB900944287 /* GLangSetupApViewController.swift */; };
 		9A122CF1283B8DB900944287 /* GLangSetupApViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A122CEF283B8DB900944287 /* GLangSetupApViewController.xib */; };
-		9A122CF3283B9FA800944287 /* hearing_aid_instruction.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 9A122CF2283B9FA800944287 /* hearing_aid_instruction.mp4 */; };
 		9A122CF5283BA6B600944287 /* BTranslServicesNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A122CF4283BA6B600944287 /* BTranslServicesNew.swift */; };
 		9A171CAE26D40FF400714425 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A171CAD26D40FF400714425 /* UIColor+Extensions.swift */; };
 		9A171CB026D4164000714425 /* AVRoutePickerView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A171CAF26D4164000714425 /* AVRoutePickerView+Extension.swift */; };
@@ -270,6 +270,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1111338C2CE797430012A6D5 /* HearingInstructionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HearingInstructionViewController.swift; sourceTree = "<group>"; };
 		11225B402CDAA4F700C43353 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		112FA8D32CE64ACB00B1046A /* HeadphonesConnectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadphonesConnectViewController.swift; sourceTree = "<group>"; };
 		1179064C2CD2CB160089B308 /* AdServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdServices.framework; path = System/Library/Frameworks/AdServices.framework; sourceTree = SDKROOT; };
@@ -354,7 +355,6 @@
 		9A0B099F280D9ADC0084D695 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		9A122CEE283B8DB900944287 /* GLangSetupApViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GLangSetupApViewController.swift; sourceTree = "<group>"; };
 		9A122CEF283B8DB900944287 /* GLangSetupApViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GLangSetupApViewController.xib; sourceTree = "<group>"; };
-		9A122CF2283B9FA800944287 /* hearing_aid_instruction.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = hearing_aid_instruction.mp4; sourceTree = "<group>"; };
 		9A122CF4283BA6B600944287 /* BTranslServicesNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTranslServicesNew.swift; sourceTree = "<group>"; };
 		9A171CAD26D40FF400714425 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		9A171CAF26D4164000714425 /* AVRoutePickerView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVRoutePickerView+Extension.swift"; sourceTree = "<group>"; };
@@ -888,7 +888,6 @@
 		9A27ED8126CDA9F200D8EF09 /* AppResource */ = {
 			isa = PBXGroup;
 			children = (
-				9A122CF2283B9FA800944287 /* hearing_aid_instruction.mp4 */,
 				83A8E8A72645898B0080AEE5 /* Assets.xcassets */,
 				83A8E8A92645898B0080AEE5 /* LaunchScreen.storyboard */,
 				83AC1EF92693A9FD0019C36F /* Localizations */,
@@ -1105,6 +1104,7 @@
 			children = (
 				9AC3113B283D007600DCEE59 /* FInstructApViewController.swift */,
 				9AC3113C283D007600DCEE59 /* FInstructApViewController.xib */,
+				1111338C2CE797430012A6D5 /* HearingInstructionViewController.swift */,
 			);
 			path = InstructionViewController;
 			sourceTree = "<group>";
@@ -1639,7 +1639,6 @@
 				9A836AF428198B4C00FD5AF2 /* GSlideBTablViewCell.xib in Resources */,
 				A5774AB626EAB00800AA4780 /* Gotham-Bold.otf in Resources */,
 				9A2452D92837926A0019DAC1 /* GTranscriptionTablViewCell.xib in Resources */,
-				9A122CF3283B9FA800944287 /* hearing_aid_instruction.mp4 in Resources */,
 				9A635DD126F3811900A6C0EF /* SCatchUpApViewController.xib in Resources */,
 				9A8EE3EC28379C630038E58F /* YTranscriptDetailApViewController.xib in Resources */,
 				9AE950AE283FBDD00044CAB1 /* GPOnboardApViewController.xib in Resources */,
@@ -1766,6 +1765,7 @@
 				9ADCA38627353DD900B8CE6B /* BFirebaseServices.swift in Sources */,
 				A5B2325626CC48080042AA7B /* LoggerApp.swift in Sources */,
 				9A42A9C326CEF81500496DC9 /* SKProductSubscriptionPeriod+Extensions.swift in Sources */,
+				1111338D2CE797430012A6D5 /* HearingInstructionViewController.swift in Sources */,
 				9A60EDC7281A955C00112720 /* YLimitApViewController.swift in Sources */,
 				83AF2C76264D9CD100DB9909 /* RTextVFullScrViewController.swift in Sources */,
 				9AC3113D283D007600DCEE59 /* FInstructApViewController.swift in Sources */,

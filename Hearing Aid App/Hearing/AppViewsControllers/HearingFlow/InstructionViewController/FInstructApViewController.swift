@@ -32,7 +32,7 @@ final class FInstructApViewController: PMUMainViewController {
     
     // MARK: - Private methods
     private func chargePlayer() {
-        player.replaceCurrentItem(with: AVPlayerItem.init(url: CAppConstants.URLs.hearingInstructions))
+       // player.replaceCurrentItem(with: AVPlayerItem.init(url:))
         
         playerLayer.frame = thumbnailImageView.bounds
         thumbnailImageView.layer.addSublayer(playerLayer)
