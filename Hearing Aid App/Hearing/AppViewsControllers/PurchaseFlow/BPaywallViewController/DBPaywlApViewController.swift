@@ -64,15 +64,20 @@ final class DBPaywlApViewController: PMUMainViewController {
     }
     
     private func updateSelectedPlan() {
-        guard let monthlySubscriptionPlan = subscriptionItems.first(where: { $0.productId == CAppConstants.Keys.monthlySubscriptionId }) else {
+        guard let yearlySubscriptionPlan = subscriptionItems.first(where: { $0.productId == CAppConstants.Keys.yearlyWithTrialSubscriptionId }) else {
             return
         }
         
-        selectedPlan = monthlySubscriptionPlan
-        trialTitle.text = "% Days Free".localized(with: [monthlySubscriptionPlan.skProduct?.duration(for: .trial) ?? "3"])
-        let monthlyPrice = "\(monthlySubscriptionPlan.skProduct?.regularPrice ?? "")/\(monthlySubscriptionPlan.skProduct?.duration(for: .regular).components(separatedBy: " ").last ?? "")"
-        let descriptionText = "Then $%@/year (only $%@/week)".localized(with: [monthlyPrice, monthlyPrice])
-        trialDescription.text = descriptionText
+        let daysFree = yearlySubscriptionPlan.skProduct?.duration(for: .trial)
+        if let daysFree = daysFree {
+            trialTitle.text = daysFree + " " + "free".localized()
+        } else {
+            trialTitle.text = "3 Days Free".localized()
+        }
+        let weeklyPriceForYearlyPlan = ((yearlySubscriptionPlan.skProduct?.price.doubleValue ?? 1.0) / 52.0).rounded(toPlaces: 2)
+        trialDescription.text = "Then %@/year (only %@%@/week)".localized(with: [yearlySubscriptionPlan.skProduct?.regularPrice ?? "", yearlySubscriptionPlan.skProduct?.priceLocale.currencySymbol ?? "$", weeklyPriceForYearlyPlan])
+        
+        selectedPlan = yearlySubscriptionPlan
     }
     
     private func loadSubscriptionPlans() {

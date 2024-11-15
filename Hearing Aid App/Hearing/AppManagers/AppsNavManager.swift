@@ -73,6 +73,7 @@ final class AppsNavManager: NSObject {
     }
     
     func presentSCatchUpApViewController() {
+        // TODO: need hide for first release
         guard (topViewController is SCatchUpApViewController) == false, (topViewController is PaywallViewController) == false, !TInAppService.shared.isPremium else {
             return
         }

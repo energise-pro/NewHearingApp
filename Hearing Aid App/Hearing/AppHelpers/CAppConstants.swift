@@ -14,12 +14,15 @@ struct CAppConstants {
         static let wasSentASAInstall = "wasSentASAInstall"
         
         
-        static let weeklySubscriptionId = "hearing_aid_weekly"
-        static let monthlySubscriptionId = "hearing_aid_monthly_new"
-        static let annualSubscriptionId = "hearing_aid_annual"
-        static let lifetimePurchase = "hearing_aid_lifetime"
-        static let yearlyNoTrialSubscriptionId = "hearing_aid_annual_no_trial"
-        static let yearlyNoTrial2SubscriptionId = "hearing_aid_annual_no_trial_29.99"
+        static let weeklyNoTrialSubscriptionId = "hearingaid.weekly.tier6" // тиждень без тріала 5,99
+        static let yearlyWithTrialSubscriptionId = "hearingaid.yearly.trial.tier50" // рік з тріалом 49.99"
+//        static let weeklySubscriptionId = "hearing_aid_weekly"
+//        static let monthlySubscriptionId = "hearing_aid_monthly_new"
+//        static let annualSubscriptionId = "hearing_aid_annual"
+//        static let lifetimePurchase = "hearing_aid_lifetime"
+//        static let yearlyNoTrialSubscriptionId = "hearing_aid_annual_no_trial"
+//        static let yearlyNoTrial2SubscriptionId = "hearing_aid_annual_no_trial_29.99"
+        
         
         /// One Signal Screen names
         static let catchUpScreenName = "catch_up"
