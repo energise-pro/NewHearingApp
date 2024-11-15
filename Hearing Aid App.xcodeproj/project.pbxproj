@@ -74,6 +74,7 @@
 		86DFB20D2CE671A600CBD94F /* NewSettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86DFB20C2CE671A600CBD94F /* NewSettingTableViewCell.xib */; };
 		86DFB20F2CE67E8700CBD94F /* NewSettingTableViewEmptyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DFB20E2CE67E8700CBD94F /* NewSettingTableViewEmptyCell.swift */; };
 		86DFB2112CE67F6600CBD94F /* NewSettingTableViewEmptyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86DFB2102CE67F6600CBD94F /* NewSettingTableViewEmptyCell.xib */; };
+		86DFB2132CE755BB00CBD94F /* RadialGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DFB2122CE755BB00CBD94F /* RadialGradientView.swift */; };
 		9A0441A926E8D97E0030AF77 /* HMicrophPermisApViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0441A726E8D97E0030AF77 /* HMicrophPermisApViewController.swift */; };
 		9A0441AA26E8D97E0030AF77 /* HMicrophPermisApViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A0441A826E8D97E0030AF77 /* HMicrophPermisApViewController.xib */; };
 		9A09434A282D654800F7AEC5 /* ZAppIconViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A094348282D654800F7AEC5 /* ZAppIconViewController.swift */; };
@@ -352,6 +353,7 @@
 		86DFB20C2CE671A600CBD94F /* NewSettingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewSettingTableViewCell.xib; sourceTree = "<group>"; };
 		86DFB20E2CE67E8700CBD94F /* NewSettingTableViewEmptyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSettingTableViewEmptyCell.swift; sourceTree = "<group>"; };
 		86DFB2102CE67F6600CBD94F /* NewSettingTableViewEmptyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewSettingTableViewEmptyCell.xib; sourceTree = "<group>"; };
+		86DFB2122CE755BB00CBD94F /* RadialGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadialGradientView.swift; sourceTree = "<group>"; };
 		9A0441A726E8D97E0030AF77 /* HMicrophPermisApViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMicrophPermisApViewController.swift; sourceTree = "<group>"; };
 		9A0441A826E8D97E0030AF77 /* HMicrophPermisApViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HMicrophPermisApViewController.xib; sourceTree = "<group>"; };
 		9A094348282D654800F7AEC5 /* ZAppIconViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZAppIconViewController.swift; sourceTree = "<group>"; };
@@ -1526,6 +1528,7 @@
 				9A635DD326F389F900A6C0EF /* HAppLoaderView.swift */,
 				9ACB45EA2812F1FA00FAF44E /* TableViewCells */,
 				A51EBD4126D959F000674657 /* CollectionViewCells */,
+				86DFB2122CE755BB00CBD94F /* RadialGradientView.swift */,
 			);
 			path = AppCustomView;
 			sourceTree = "<group>";
@@ -1860,6 +1863,7 @@
 				83A8E8E82645A7FD0080AEE5 /* DesignableView.swift in Sources */,
 				9AC26C5026DFB25300E78CEC /* Bundle+Extensions.swift in Sources */,
 				83A8E8EE2645A7FD0080AEE5 /* SpringAnimation.swift in Sources */,
+				86DFB2132CE755BB00CBD94F /* RadialGradientView.swift in Sources */,
 				A5B2325126CC47B40042AA7B /* FAppinAnalytica.swift in Sources */,
 				83C81AA1264A86F300B3F8E2 /* AppExt.swift in Sources */,
 				83ABA251264BE340001784B8 /* USpeechRecViewController.swift in Sources */,
