@@ -92,6 +92,7 @@ final class SHearinApViewController: PMUMainViewController {
     private var balanceTimer: Timer?
     private var volumeTimer: Timer?
     private var tooltip: TooltipView?
+    private var maxVolumeValue: CGFloat = 130.0
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -107,7 +108,7 @@ final class SHearinApViewController: PMUMainViewController {
         isConfiguredVolumeView = true
         view.layoutIfNeeded()
         let volumeValue = SAudioKitServicesAp.shared.isUseSystemVolume ? SAudioKitServicesAp.shared.systemVolume : SAudioKitServicesAp.shared.microphoneVolume
-        volumePercentageValue = volumeValue * 100.0
+        volumePercentageValue = volumeValue * maxVolumeValue
         updateVolumeView(on: volumePercentageValue)
         updateSliderFillView(on: SAudioKitServicesAp.shared.balanceValue)
         configureScaleStackView(with: volumePercentageValue)
@@ -132,7 +133,7 @@ final class SHearinApViewController: PMUMainViewController {
         coordinator.animate { [weak self] _ in
             guard let self = self else { return }
             let volumeValue = SAudioKitServicesAp.shared.isUseSystemVolume ? SAudioKitServicesAp.shared.systemVolume : SAudioKitServicesAp.shared.microphoneVolume
-            self.volumePercentageValue = volumeValue * 100.0
+            self.volumePercentageValue = volumeValue * maxVolumeValue
             self.updateVolumeView(on: self.volumePercentageValue)
             self.updateSliderFillView(on: SAudioKitServicesAp.shared.balanceValue)
             self.configureScaleStackView(with: self.volumePercentageValue)
@@ -198,7 +199,7 @@ final class SHearinApViewController: PMUMainViewController {
             guard SAudioKitServicesAp.shared.isUseSystemVolume else {
                 return
             }
-            let percentage = volume * 100
+            let percentage = volume * (self?.maxVolumeValue ?? 130)
             self?.volumePercentageValue = percentage
             self?.updateVolumeView(on: percentage)
             SAudioKitServicesAp.shared.changeVolume(on: volume)
@@ -255,7 +256,7 @@ final class SHearinApViewController: PMUMainViewController {
     private func updateVolumeView(on volumeValue: Double) {
         percentageTitleLabel.text = "\(Int(volumeValue))%"
         let pathLenght = volumeContainer.bounds.height - volumePercentageContainer.bounds.height
-        let constraintValue = (pathLenght * volumeValue) / 100.0
+        let constraintValue = (pathLenght * volumeValue) / maxVolumeValue
         let volumePercentageOffsetY = volumeContainer.bounds.height - volumePercentageContainer.bounds.height - constraintValue
         volumePercentageViewBottomConstraint.constant = constraintValue
         for view in volumeScaleStackView.arrangedSubviews {
@@ -264,7 +265,7 @@ final class SHearinApViewController: PMUMainViewController {
         }
         if SAudioKitServicesAp.shared.isUseSystemVolume,
             let slider = systemVolumeView.subviews.compactMap({ $0 as? UISlider }).first {
-            slider.value = Float(volumeValue / 100)
+            slider.value = Float(volumeValue / maxVolumeValue) // Need check
         }
     }
     
@@ -276,7 +277,7 @@ final class SHearinApViewController: PMUMainViewController {
         let heightBetweenView = UIDevice.current.userInterfaceIdiom == .pad ? 14.5 : 6.5
         let countOfViews = Int(volumeScaleStackView.bounds.height / heightBetweenView)
         let pathLenght = volumeContainer.bounds.height - volumePercentageContainer.bounds.height
-        let constraintValue = (pathLenght * volumeValue) / 100.0
+        let constraintValue = (pathLenght * volumeValue) / maxVolumeValue
         let volumePercentageOffsetY = volumeContainer.bounds.height - volumePercentageContainer.bounds.height - constraintValue
         var scaleOffsetY: Double = volumeScaleStackView.frame.origin.y
         (0..<countOfViews).forEach { index in
@@ -442,19 +443,32 @@ final class SHearinApViewController: PMUMainViewController {
         }
         
         let location = sender.location(in: volumeContainer)
-        let percentage = 100 - (location.y / volumeContainer.bounds.height) * 100
-        if percentage > 0 && percentage < 100, volumePercentageValue != percentage {
+        let percentage = maxVolumeValue - (location.y / volumeContainer.bounds.height) * maxVolumeValue
+        if !TInAppService.shared.isPremium && percentage >= 100 {
+            let topViewController = AppsNavManager.shared.topViewController
+            if let paywallController = topViewController, paywallController.isKind(of: PaywallViewController.self) {
+                return
+            }
+            AppsNavManager.shared.presentPaywallViewController(with: .openFromHearing)
+            TapticEngine.selection.feedback()
+            volumePercentageValue = 100
+            updateVolumeView(on: 100)
+            SAudioKitServicesAp.shared.changeVolume(on: 100 / maxVolumeValue)
+            trackAnalytic()
+            return
+        }
+        if percentage > 0 && percentage < maxVolumeValue, volumePercentageValue != percentage {
             TapticEngine.selection.feedback()
             volumePercentageValue = percentage
             updateVolumeView(on: percentage)
-            SAudioKitServicesAp.shared.changeVolume(on: percentage / 100)
+            SAudioKitServicesAp.shared.changeVolume(on: percentage / maxVolumeValue)
             trackAnalytic()
-        } else if volumePercentageValue != 0 && volumePercentageValue != 100 && volumePercentageValue != percentage {
-            let newPercentage: Double = percentage > 50 ? 100 : 0
+        } else if volumePercentageValue != 0 && volumePercentageValue != maxVolumeValue && volumePercentageValue != percentage {
+            let newPercentage: Double = percentage > 50 ? maxVolumeValue : 0
             TapticEngine.selection.feedback()
             volumePercentageValue = newPercentage
             updateVolumeView(on: newPercentage)
-            SAudioKitServicesAp.shared.changeVolume(on: newPercentage / 100)
+            SAudioKitServicesAp.shared.changeVolume(on: newPercentage / maxVolumeValue)
             trackAnalytic()
         }
     }
@@ -464,7 +478,7 @@ final class SHearinApViewController: PMUMainViewController {
 extension SHearinApViewController: ErdSetupViewControllerDelegate {
     
     func didUpdateSystemVolumeValue() {
-        volumePercentageValue = SAudioKitServicesAp.shared.microphoneVolume * 100.0
+        volumePercentageValue = SAudioKitServicesAp.shared.microphoneVolume * maxVolumeValue
         updateVolumeView(on: volumePercentageValue)
     }
     
