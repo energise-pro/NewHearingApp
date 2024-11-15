@@ -158,8 +158,6 @@
 		9AC26C4E26DFAE0500E78CEC /* QAsaServiceAp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC26C4D26DFAE0500E78CEC /* QAsaServiceAp.swift */; };
 		9AC26C5026DFB25300E78CEC /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC26C4F26DFB25300E78CEC /* Bundle+Extensions.swift */; };
 		9AC26C5226DFB2AA00E78CEC /* UIDevice+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC26C5126DFB2AA00E78CEC /* UIDevice+Extension.swift */; };
-		9AC3113D283D007600DCEE59 /* FInstructApViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC3113B283D007600DCEE59 /* FInstructApViewController.swift */; };
-		9AC3113E283D007600DCEE59 /* FInstructApViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AC3113C283D007600DCEE59 /* FInstructApViewController.xib */; };
 		9AC37F682833D3EB00F95E24 /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC37F672833D3EB00F95E24 /* UITextView+Extension.swift */; };
 		9AC37F6A2833DBC100F95E24 /* CTranscribServicesAp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC37F692833DBC100F95E24 /* CTranscribServicesAp.swift */; };
 		9AC37F6C2833E3A100F95E24 /* GTranscribTextParam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC37F6B2833E3A100F95E24 /* GTranscribTextParam.swift */; };
@@ -450,8 +448,6 @@
 		9AC26C4D26DFAE0500E78CEC /* QAsaServiceAp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QAsaServiceAp.swift; sourceTree = "<group>"; };
 		9AC26C4F26DFB25300E78CEC /* Bundle+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extensions.swift"; sourceTree = "<group>"; };
 		9AC26C5126DFB2AA00E78CEC /* UIDevice+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Extension.swift"; sourceTree = "<group>"; };
-		9AC3113B283D007600DCEE59 /* FInstructApViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FInstructApViewController.swift; sourceTree = "<group>"; };
-		9AC3113C283D007600DCEE59 /* FInstructApViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FInstructApViewController.xib; sourceTree = "<group>"; };
 		9AC37F672833D3EB00F95E24 /* UITextView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extension.swift"; sourceTree = "<group>"; };
 		9AC37F692833DBC100F95E24 /* CTranscribServicesAp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTranscribServicesAp.swift; sourceTree = "<group>"; };
 		9AC37F6B2833E3A100F95E24 /* GTranscribTextParam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GTranscribTextParam.swift; sourceTree = "<group>"; };
@@ -1123,8 +1119,6 @@
 		9AC3113A283D006500DCEE59 /* InstructionViewController */ = {
 			isa = PBXGroup;
 			children = (
-				9AC3113B283D007600DCEE59 /* FInstructApViewController.swift */,
-				9AC3113C283D007600DCEE59 /* FInstructApViewController.xib */,
 				1111338C2CE797430012A6D5 /* HearingInstructionViewController.swift */,
 			);
 			path = InstructionViewController;
@@ -1636,7 +1630,6 @@
 				83AF2C79264D9CEF00DB9909 /* RTextVFullScrViewController.storyboard in Resources */,
 				9A52DD182832A90400307F2A /* UTranscribApViewController.xib in Resources */,
 				9A52DD1328324E7100307F2A /* WSpeechApViewController.xib in Resources */,
-				9AC3113E283D007600DCEE59 /* FInstructApViewController.xib in Resources */,
 				9AC37F712833F70D00F95E24 /* DTypeTextApViewController.xib in Resources */,
 				9ACB45E92812D0CD00FAF44E /* QTemplateApViewController.xib in Resources */,
 				9A60EDC8281A955C00112720 /* YLimitApViewController.xib in Resources */,
@@ -1795,7 +1788,6 @@
 				1111338D2CE797430012A6D5 /* HearingInstructionViewController.swift in Sources */,
 				9A60EDC7281A955C00112720 /* YLimitApViewController.swift in Sources */,
 				83AF2C76264D9CD100DB9909 /* RTextVFullScrViewController.swift in Sources */,
-				9AC3113D283D007600DCEE59 /* FInstructApViewController.swift in Sources */,
 				9ACB45D62812B9BF00FAF44E /* SpectrogramView.swift in Sources */,
 				11DC523C2CD412CB00A9589A /* ButtonView.swift in Sources */,
 				A53D650626E91FDD00C9882D /* SReqVoiceRecordApViewController.swift in Sources */,

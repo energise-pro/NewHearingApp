@@ -125,7 +125,6 @@ final class AppsNavManager: NSObject {
     }
     
     func presentCustomVideoFInstructApViewController() {
-        //let FInstructApViewController = FInstructApViewController()
         let FInstructApViewController = HearingInstructionViewController()
         FInstructApViewController.modalPresentationStyle = .fullScreen
         FInstructApViewController.modalTransitionStyle = .crossDissolve
