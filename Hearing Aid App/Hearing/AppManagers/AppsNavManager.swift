@@ -73,13 +73,13 @@ final class AppsNavManager: NSObject {
     }
     
     func presentSCatchUpApViewController() {
-        // TODO: need hide for first release
-        guard (topViewController is SCatchUpApViewController) == false, (topViewController is PaywallViewController) == false, !TInAppService.shared.isPremium else {
-            return
-        }
-        let SCatchUpApViewController = SCatchUpApViewController()
-        SCatchUpApViewController.modalPresentationStyle = .fullScreen
-        topViewController?.present(SCatchUpApViewController, animated: true)
+// TODO: need for special offer
+//        guard (topViewController is SCatchUpApViewController) == false, (topViewController is PaywallViewController) == false, !TInAppService.shared.isPremium else {
+//            return
+//        }
+//        let SCatchUpApViewController = SCatchUpApViewController()
+//        SCatchUpApViewController.modalPresentationStyle = .fullScreen
+//        topViewController?.present(SCatchUpApViewController, animated: true)
     }
 
     func presentDHeadphsRemindApViewControllerIfNeeded(_ animated: Bool = true, completion: AppsNavManagerCompletion?) {
