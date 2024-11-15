@@ -59,7 +59,7 @@ final class NewSettingTableViewCell: UITableViewCell, HConfigCellProtocol, UIVie
         super.awakeFromNib()
 //        NotificationCenter.default.addObserver(self, selector: #selector(didChangeTheme), name: ThemeDidChangeNotificationName, object: nil)
         
-        infoImageView.image = UIImage.init(systemName: "info.circle")
+        infoImageView.image = CAppConstants.Images.icInstructionInfo
         separatorView.backgroundColor = UIColor.appColor(.TableSeparator100)
         
         didChangeTheme()
