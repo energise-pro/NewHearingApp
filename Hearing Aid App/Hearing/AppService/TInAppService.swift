@@ -24,9 +24,11 @@ final class TInAppService: NSObject, DIServicProtocols {
     
     var isPremium: Bool {
         let subscriptions = Apphud.subscriptions() ?? []
-        let purchases = Apphud.nonRenewingPurchases() ?? []
-        //return subscriptions.contains { $0.isActive() == true } || purchases.contains { $0.productId == CAppConstants.Keys.lifetimePurchase }
-        return true
+
+//        let purchases = Apphud.nonRenewingPurchases() ?? []
+        return subscriptions.contains { $0.isActive() == true } // || purchases.contains { $0.productId == CAppConstants.Keys.lifetimePurchase }
+        //return true
+
     }
     
     var wasUsedTrial: Bool {

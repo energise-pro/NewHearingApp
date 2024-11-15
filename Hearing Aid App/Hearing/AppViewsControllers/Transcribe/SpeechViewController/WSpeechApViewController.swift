@@ -79,7 +79,7 @@ final class WSpeechApViewController: PMUMainViewController {
         bookmarksTitleLabel.text = "Saved".localized()
         
         bookmarksImageView.image = CAppConstants.Images.icFolder
-        infoImageView.image = UIImage.init(systemName: "info.circle")
+        infoImageView.image = CAppConstants.Images.icInstructionInfo
         logoImageView.image = CAppConstants.Images.icLogo
         
         updateMainColors()
