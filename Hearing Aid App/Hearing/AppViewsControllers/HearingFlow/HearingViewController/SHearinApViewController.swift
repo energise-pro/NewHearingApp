@@ -42,7 +42,7 @@ final class SHearinApViewController: PMUMainViewController {
             case .proSetup:
                 return "Setup".localized()
             case .noiseOff:
-                return "Noise OFF".localized()
+                return "No Noise".localized()
             case .stereo:
                 return "Stereo".localized()
             case .templates:
@@ -216,11 +216,6 @@ final class SHearinApViewController: PMUMainViewController {
 //                self.configureWaveView()
             }
             self.mainSwitchImageView.image = SAudioKitServicesAp.shared.isStartedMixer ? CAppConstants.Images.powerOn : CAppConstants.Images.powerOff
-            if SAudioKitServicesAp.shared.isStartedMixer {
-                hideTooltip()
-            } else {
-                showTooltip()
-            }
         }
         
         updateMainColors()
@@ -305,7 +300,7 @@ final class SHearinApViewController: PMUMainViewController {
     }
     
     private func showTooltip() {
-        tooltip = TooltipView(text: "Tap to get started")
+        tooltip = TooltipView(text: "Tap to get started".localized())
         guard let tooltip = tooltip else { return }
         
         tooltip.alpha = 0
@@ -370,12 +365,7 @@ final class SHearinApViewController: PMUMainViewController {
         SAudioKitServicesAp.shared.setAudioEngine(newState)
         newState ? TapticEngine.customHaptic.playOn() : TapticEngine.customHaptic.playOff()
         mainSwitchImageView.image = newState ? CAppConstants.Images.powerOn : CAppConstants.Images.powerOff
-        if newState {
-            hideTooltip()
-        } else {
-            showTooltip()
-        }
-//        powerInfoLabel.isHidden = newState
+        newState ? hideTooltip() : showTooltip()
         newState && SAudioKitServicesAp.shared.countOfUsingAid % 3 == 0 ? KAppConfigServic.shared.settings.presentAppRatingAlert() : Void()
         newState ? SAudioKitServicesAp.shared.increaseCountOfUsing(for: .aid) : Void()
         
