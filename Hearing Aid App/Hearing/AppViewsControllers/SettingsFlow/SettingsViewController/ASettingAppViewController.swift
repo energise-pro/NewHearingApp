@@ -193,7 +193,8 @@ extension ASettingAppViewController: NewSettingTableViewCellDelegate {
                 TapticEngine.isOn = newState
                 //ThemeSettingsRow.TapticOption.setValue(newState)
 
-                let newCellModel = NewSettingTableViewCellModel(title: cellModel.title, buttonTypes: cellModel.buttonTypes, switchState: newState, topInset: cellModel.topInset, delegate: self)
+                var newCellModel = NewSettingTableViewCellModel(title: cellModel.title, buttonTypes: cellModel.buttonTypes, switchState: newState, topInset: cellModel.topInset, delegate: self)
+                newCellModel.cellId = SettingAppViewControllerCellId.hapticCell.rawValue
                 secondSectionDataSource[indexPath.row] = NewSettingTableViewCellConfig(item: newCellModel)
 
                 let stringState = newState ? GAppAnalyticActions.enable.rawValue : GAppAnalyticActions.disable.rawValue
