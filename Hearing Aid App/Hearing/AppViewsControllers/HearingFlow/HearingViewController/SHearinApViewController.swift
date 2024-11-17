@@ -93,6 +93,15 @@ final class SHearinApViewController: PMUMainViewController {
     private var volumeTimer: Timer?
     private var tooltip: TooltipView?
     private var maxVolumeValue: CGFloat = 130.0
+    private var volumeUpdateWorkItem: DispatchWorkItem?
+    
+    private var cachedSystemVolumeSlider: UISlider? {
+        return systemVolumeView.subviews.compactMap({ $0 as? UISlider }).first
+    }
+    
+    private var cachedStackSubviews: [UIView] {
+        return volumeScaleStackView.arrangedSubviews
+    }
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -173,7 +182,7 @@ final class SHearinApViewController: PMUMainViewController {
         headphonesImageView.image = UIImage.init(named: "airplayIcon")
         
 //        headphonesImageView.tintColor = UIColor.appColor(.UnactiveButton_1)
-        balanceBackgoundView.backgroundColor = UIColor.appColor(.UnactiveButton_2)
+        balanceBackgoundView.backgroundColor = UIColor.appColor(.LightGrey20)
         volumeScaleContainer.backgroundColor = UIColor.appColor(.White100)
         volumeScaleContainer.layer.shadowOpacity = 0.2
         volumeScaleContainer.layer.shadowColor = UIColor.appColor(.Purple100)!.cgColor
@@ -204,9 +213,24 @@ final class SHearinApViewController: PMUMainViewController {
                 return
             }
             let percentage = volume * (self?.maxVolumeValue ?? 130)
-            self?.volumePercentageValue = percentage
-            self?.updateVolumeView(on: percentage)
-            SAudioKitServicesAp.shared.changeVolume(on: volume)
+            if !TInAppService.shared.isPremium && percentage >= 100 {
+                self?.volumePercentageValue = 100
+                DispatchQueue.main.async {
+                    self?.updateVolumeView(on: 100)
+                }
+                let topViewController = AppsNavManager.shared.topViewController
+                if let paywallController = topViewController, paywallController.isKind(of: PaywallViewController.self) {
+                    return
+                }
+                AppsNavManager.shared.presentPaywallViewController(with: .openFromHearing)
+            } else {
+                self?.volumePercentageValue = percentage
+                DispatchQueue.main.async {
+                    self?.updateVolumeView(on: percentage)
+                }
+                
+                SAudioKitServicesAp.shared.changeVolume(on: volume)
+            }
         }
         
         SAudioKitServicesAp.shared.didInitialiseService = { [weak self] in
@@ -258,14 +282,25 @@ final class SHearinApViewController: PMUMainViewController {
         let constraintValue = (pathLenght * volumeValue) / maxVolumeValue
         let volumePercentageOffsetY = volumeContainer.bounds.height - volumePercentageContainer.bounds.height - constraintValue
         volumePercentageViewBottomConstraint.constant = constraintValue
-        for view in volumeScaleStackView.arrangedSubviews {
+        for view in cachedStackSubviews {
             let isUnderPrecentageView = (view.frame.origin.y + volumeScaleStackView.frame.origin.y) > volumePercentageOffsetY
-            view.backgroundColor = isUnderPrecentageView ? UIColor.white : UIColor.appColor(.Purple100)
+            let newColor = isUnderPrecentageView ? UIColor.white : UIColor.appColor(.Purple100)
+            if view.backgroundColor != newColor {
+                view.backgroundColor = newColor
+            }
         }
-        if SAudioKitServicesAp.shared.isUseSystemVolume,
-            let slider = systemVolumeView.subviews.compactMap({ $0 as? UISlider }).first {
-            slider.value = Float(volumeValue / maxVolumeValue) // Need check
+        volumeUpdateWorkItem?.cancel()
+        let newWorkItem = DispatchWorkItem { [weak self] in
+            self?.updateSystemVolume(to: volumeValue)
         }
+        volumeUpdateWorkItem = newWorkItem
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: newWorkItem)
+    }
+
+    private func updateSystemVolume(to volumeValue: Double) {
+        guard SAudioKitServicesAp.shared.isUseSystemVolume,
+              let slider = cachedSystemVolumeSlider else { return }
+        slider.value = Float(volumeValue / maxVolumeValue)
     }
     
     private func configureScaleStackView(with volumeValue: Double) {
