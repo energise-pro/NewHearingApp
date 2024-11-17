@@ -60,14 +60,12 @@ final class SHearinApViewController: PMUMainViewController {
     @IBOutlet private weak var volumeScaleContainer: UIView!
     @IBOutlet private weak var volumePercentageContainer: UIView!
     @IBOutlet private weak var volumeFillContainer: UIView!
-    @IBOutlet private weak var waveContainerView: UIView!
     
     @IBOutlet private weak var mainSwitchImageView: UIImageView!
     @IBOutlet private weak var infoImageView: UIImageView!
     @IBOutlet private weak var headphonesImageView: UIImageView!
     
     @IBOutlet private weak var headphonesTitleLabel: UILabel!
-    @IBOutlet private weak var powerInfoLabel: UILabel!
     @IBOutlet private weak var leftTitleLabel: UILabel!
     @IBOutlet private weak var rightTitleLabel: UILabel!
     @IBOutlet private weak var percentageTitleLabel: UILabel!
@@ -87,7 +85,6 @@ final class SHearinApViewController: PMUMainViewController {
     private var balanceCurrentValue: Double = 0.0
     private var volumePercentageValue: Double = 0.0
     private var isConfiguredVolumeView: Bool = false
-    private var isConfiguredWaveView: Bool = false
     private let systemVolumeView = MPVolumeView()
     private var balanceTimer: Timer?
     private var volumeTimer: Timer?
@@ -121,7 +118,6 @@ final class SHearinApViewController: PMUMainViewController {
         updateVolumeView(on: volumePercentageValue)
         updateSliderFillView(on: SAudioKitServicesAp.shared.balanceValue)
         configureScaleStackView(with: volumePercentageValue)
-//        configureWaveView()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -137,7 +133,6 @@ final class SHearinApViewController: PMUMainViewController {
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         SAudioKitServicesAp.shared.createRollingView()
-//        configureWaveView()
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -151,7 +146,6 @@ final class SHearinApViewController: PMUMainViewController {
             self.updateSliderFillView(on: SAudioKitServicesAp.shared.balanceValue)
             self.configureScaleStackView(with: self.volumePercentageValue)
         } completion: { _ in
-//            self.configureWaveView()
             SAudioKitServicesAp.shared.setAudioEngine(SAudioKitServicesAp.shared.isStartedMixer)
         }
     }
@@ -159,7 +153,6 @@ final class SHearinApViewController: PMUMainViewController {
 //    override func didChangeTheme() {
 //        super.didChangeTheme()
 //        SAudioKitServicesAp.shared.createRollingView()
-//        configureWaveView()
 //        updateMainColors()
 //    }
     
@@ -181,7 +174,6 @@ final class SHearinApViewController: PMUMainViewController {
         infoImageView.image = CAppConstants.Images.icInstructionInfo
         headphonesImageView.image = UIImage.init(named: "airplayIcon")
         
-//        headphonesImageView.tintColor = UIColor.appColor(.UnactiveButton_1)
         balanceBackgoundView.backgroundColor = UIColor.appColor(.LightGrey20)
         volumeScaleContainer.backgroundColor = UIColor.appColor(.White100)
         volumeScaleContainer.layer.shadowOpacity = 0.2
@@ -190,10 +182,8 @@ final class SHearinApViewController: PMUMainViewController {
         volumeScaleContainer.layer.shadowRadius = 8.0
         
         headphonesTitleLabel.textColor = UIColor.appColor(.Purple100)
-//        powerInfoLabel.textColor = UIColor.appColor(.UnactiveButton_2)
         
         headphonesTitleLabel.text = "No device".localized()
-//        powerInfoLabel.text = "Tap The Power Button To Get Started".localized()
         leftTitleLabel.text = "Left".localized()
         rightTitleLabel.text = "Right".localized()
         
@@ -235,10 +225,7 @@ final class SHearinApViewController: PMUMainViewController {
         
         SAudioKitServicesAp.shared.didInitialiseService = { [weak self] in
             guard let self = self else { return }
-            if !self.isConfiguredWaveView, KAppConfigServic.shared.settings.appLaunchCount <= 1 {
-                self.isConfiguredWaveView = true
-//                self.configureWaveView()
-            }
+
             self.mainSwitchImageView.image = SAudioKitServicesAp.shared.isStartedMixer ? CAppConstants.Images.powerOn : CAppConstants.Images.powerOff
         }
         
@@ -259,7 +246,6 @@ final class SHearinApViewController: PMUMainViewController {
     private func updateMainColors() {
         setBottomButton(.noiseOff, asSelected: SAudioKitServicesAp.shared.isNoiseOffEnabled)
         setBottomButton(.stereo, asSelected: SAudioKitServicesAp.shared.isStereoEnabled)
-//        mainSwitchImageView.image = SAudioKitServicesAp.shared.isStartedMixer ? CAppConstants.Images.powerOn : CAppConstants.Images.powerOff
         infoImageView.tintColor = AThemeServicesAp.shared.activeColor
         [leftTitleLabel, rightTitleLabel, percentageTitleLabel].forEach { $0?.textColor = AThemeServicesAp.shared.activeColor }
         [volumeFillContainer, balanceFillView].forEach { $0?.backgroundColor = AThemeServicesAp.shared.activeColor }
@@ -324,14 +310,6 @@ final class SHearinApViewController: PMUMainViewController {
             }
             volumeScaleStackView.addArrangedSubview(view)
         }
-    }
-    
-    private func configureWaveView() {
-        waveContainerView.subviews.forEach { $0.removeFromSuperview() }
-        let waveView = SAudioKitServicesAp.shared.microphoneRollingView
-        let childView = UIHostingController(rootView: waveView)
-        childView.view.frame = waveContainerView.bounds
-        waveContainerView.addSubview(childView.view)
     }
     
     private func showTooltip() {
