@@ -354,6 +354,13 @@ final class SHearinApViewController: PMUMainViewController {
         }
     }
     
+    private lazy var routePickerView: AVRoutePickerView = {
+        let routePickerView = AVRoutePickerView(frame: .zero)
+        routePickerView.isHidden = true
+        headphonesContainerView.addSubview(routePickerView)
+        return routePickerView
+    }()
+    
     // MARK: - IBActions
     @IBAction private func mainButtonAction(_ sendner: UIButton) {
         guard SAudioKitServicesAp.shared.isStartedMixer || TInAppService.shared.isPremium || SAudioKitServicesAp.shared.countOfUsingAid < 2 else {
@@ -378,7 +385,10 @@ final class SHearinApViewController: PMUMainViewController {
         SAudioKitServicesAp.shared.setAudioEngine(newState)
         newState ? TapticEngine.customHaptic.playOn() : TapticEngine.customHaptic.playOff()
         mainSwitchImageView.image = newState ? CAppConstants.Images.powerOn : CAppConstants.Images.powerOff
-        newState ? hideTooltip() : showTooltip()
+        hideTooltip()
+        if !newState {
+            showTooltip()
+        }
         newState && SAudioKitServicesAp.shared.countOfUsingAid % 3 == 0 ? KAppConfigServic.shared.settings.presentAppRatingAlert() : Void()
         newState ? SAudioKitServicesAp.shared.increaseCountOfUsing(for: .aid) : Void()
         
@@ -474,6 +484,10 @@ final class SHearinApViewController: PMUMainViewController {
             SAudioKitServicesAp.shared.changeVolume(on: newPercentage / maxVolumeValue)
             trackAnalytic()
         }
+    }
+    @IBAction func titleViewTapAction(_ sender: UITapGestureRecognizer) {
+        TapticEngine.impact.feedback(.medium)
+        routePickerView.present()
     }
 }
 
