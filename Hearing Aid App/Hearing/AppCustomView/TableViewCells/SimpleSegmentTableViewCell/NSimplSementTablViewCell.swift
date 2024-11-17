@@ -30,6 +30,7 @@ final class NSimplSementTablViewCell: UITableViewCell, HConfigCellProtocol, UIVi
         segmentControll.replaceSegments(segments: data.titles)
         segmentControll.selectedSegmentIndex = data.selectedIndex
         segmentControll.setTitleTextAttributes([.foregroundColor: UIColor.appColor(.Purple100)!], for: .normal)
+        segmentControll.overrideUserInterfaceStyle = .light
         titleLabel.text = data.mainTitle
     }
     

@@ -26,6 +26,7 @@ final class GCenterPickrTablViewCell: UITableViewCell, HConfigCellProtocol, UIVi
         delegate = data.delegate
         dataSource = data.dataSource
         pickerView.reloadAllComponents()
+        pickerView.overrideUserInterfaceStyle = .light
         if let selectedValue = data.selectedValue, let indexRow = data.dataSource.firstIndex(of: selectedValue) {
             pickerView.selectRow(indexRow, inComponent: 0, animated: false)
         }

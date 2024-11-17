@@ -62,19 +62,33 @@ enum TemplatesType: Int, CaseIterable {
 
     var title: String {
         switch self {
-            case .smallRoom:        return "smallRoom".localized()
-            case .mediumRoom:       return "mediumRoom".localized()
-            case .largeRoom:        return "largeRoom".localized()
-            case .mediumHall:       return "mediumHall".localized()
-            case .largeHall:        return "largeHall".localized()
-            case .plate:            return "plate".localized()
-            case .mediumChamber:    return "mediumChamber".localized()
-            case .largeChamber:     return "largeChamber".localized()
-            case .cathedral:        return "cathedral".localized()
-            case .largeRoom2:       return "largeRoom2".localized()
-            case .mediumHall2:      return "mediumHall2".localized()
-            case .mediumHall3:      return "mediumHall3".localized()
-            case .largeHall2:       return "largeHall2".localized()
+            case .smallRoom:        return "small room".localized() //return "smallRoom".localized()
+            case .mediumRoom:       return "medium room".localized() //return "mediumRoom".localized()
+            case .largeRoom:        return "large room 1".localized() //return "largeRoom".localized()
+            case .mediumHall:       return "medium hall 1".localized() //return "mediumHall".localized()
+            case .largeHall:        return "large hall 1".localized() //return "largeHall".localized()
+            case .plate:            return "small chamber".localized() //return "plate".localized()
+            case .mediumChamber:    return "medium chamber".localized() //return "mediumChamber".localized()
+            case .largeChamber:     return "large chamber".localized() //return "largeChamber".localized()
+            case .cathedral:        return "restaurant".localized() //return "cathedral".localized()
+            case .largeRoom2:       return "large room 2".localized() //return "largeRoom2".localized()
+            case .mediumHall2:      return "medium hall 2".localized() //return "mediumHall2".localized()
+            case .mediumHall3:      return "medium hall 3".localized() //return "mediumHall3".localized()
+            case .largeHall2:       return "large hall 2".localized() //return "largeHall2".localized()
+//            // Templates
+//            "smallRoom" = "small Room";
+//            "mediumRoom" = "medium Room";
+//            "largeRoom" = "large Room 1";
+//            "largeRoom2" = "large Room 2";
+//            "mediumHall" = "medium Hall 1";
+//            "mediumHall2" = "medium Hall 2";
+//            "mediumHall3" = "medium Hall 3";
+//            "largeHall" = "large Hall 1";
+//            "largeHall2" = "large Hall 2";
+//            "plate" = "small Chamber";
+//            "mediumChamber" = "medium Chamber";
+//            "largeChamber" = "large Chamber";
+//            "cathedral" = "restaurant";
         }
     }
 }
