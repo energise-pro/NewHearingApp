@@ -154,8 +154,8 @@ final class TabBarViewController: PMUMainViewController {
         }
         
         for (titleIndex, _) in buttonTitles.enumerated() {
-            buttonTitles[titleIndex].textColor = titleIndex == index ? UIColor.appColor(.White100) : UIColor.appColor(.UnactiveButton_2)
-            buttonImages[titleIndex].tintColor = titleIndex == index ? AThemeServicesAp.shared.activeColor : UIColor.appColor(.UnactiveButton_2)
+            buttonTitles[titleIndex].textColor = titleIndex == index ? UIColor.appColor(.White100) : UIColor.appColor(.Grey100)
+            buttonImages[titleIndex].tintColor = titleIndex == index ? UIColor.appColor(.Red100) : UIColor.appColor(.Grey100)
         }
         
         if let currentTabIndex = currentTabIndex {
