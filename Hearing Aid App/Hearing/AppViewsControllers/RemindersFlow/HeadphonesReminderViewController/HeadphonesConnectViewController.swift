@@ -45,7 +45,7 @@ final class HeadphonesConnectViewController: UIViewController {
             btn.setTitle("Select Device", for: .normal)
             btn.layer.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1).cgColor
             btn.clipsToBounds = true
-            btn.layer.cornerRadius = 25
+            btn.layer.cornerRadius = 28
             btn.setImage(UIImage(named: "airplayIcon"), for: .normal)
             btn.contentEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 15)
             btn.imageEdgeInsets = UIEdgeInsets(top: 0, left: -5, bottom: 0, right: 5)
@@ -63,7 +63,7 @@ final class HeadphonesConnectViewController: UIViewController {
             btn.translatesAutoresizingMaskIntoConstraints = false
             btn.clipsToBounds = true
             btn.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
-            btn.layer.cornerRadius = 25
+            btn.layer.cornerRadius = 28
             btn.layer.borderWidth = 1
             btn.layer.borderColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1).cgColor
             btn.setTitle("Okay, Got It", for: .normal)
@@ -99,7 +99,6 @@ final class HeadphonesConnectViewController: UIViewController {
         btmBgImage.image = UIImage(named: "bgHeadphone")
         
         insertElement()
-        layoutElement()
     }
     
     private func insertElement() {
@@ -118,20 +117,21 @@ final class HeadphonesConnectViewController: UIViewController {
             topBgImage.topAnchor.constraint(equalTo: view.topAnchor),
             topBgImage.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             topBgImage.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            topBgImage.heightAnchor.constraint(equalToConstant: 490),
+            topBgImage.bottomAnchor.constraint(equalTo: btmView.topAnchor, constant: 20),
             closeBtn.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
             closeBtn.topAnchor.constraint(equalTo: view.topAnchor, constant: 50),
             closeBtn.widthAnchor.constraint(equalToConstant: 68),
             closeBtn.heightAnchor.constraint(equalToConstant: 68),
             
-            btmView.topAnchor.constraint(equalTo: topBgImage.bottomAnchor, constant: -20),
             btmView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             btmView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             btmView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            btmView.heightAnchor.constraint(equalToConstant: 340 + view.safeAreaInsets.bottom),
             btmBgImage.leadingAnchor.constraint(equalTo: btmView.leadingAnchor),
             btmBgImage.topAnchor.constraint(equalTo: btmView.topAnchor),
             btmBgImage.trailingAnchor.constraint(equalTo: btmView.trailingAnchor),
             btmBgImage.bottomAnchor.constraint(equalTo: btmView.bottomAnchor),
+            
             btnOk.leadingAnchor.constraint(equalTo: btmView.leadingAnchor, constant: 16),
             btnOk.trailingAnchor.constraint(equalTo: btmView.trailingAnchor, constant: -16),
             btnOk.bottomAnchor.constraint(equalTo: btmView.bottomAnchor, constant: -85),
@@ -150,6 +150,10 @@ final class HeadphonesConnectViewController: UIViewController {
             topLabels.topAnchor.constraint(equalTo: btmView.topAnchor, constant: 28),
             topLabels.heightAnchor.constraint(equalToConstant: 40),
         ])
+    }
+    
+    override func viewSafeAreaInsetsDidChange() {
+        layoutElement()
     }
     
     // MARK: - Actions
