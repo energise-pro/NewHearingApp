@@ -136,7 +136,7 @@ final class PaywallViewController: UIViewController {
         titleWeeklyButtonLabel.text = weeklySubscriptionPlan.skProduct?.duration(for: .regular) ?? "1 Week".localized()
 
         let weeklyPriceForYearlyPlan = ((yearlySubscriptionPlan.skProduct?.price.doubleValue ?? 1.0) / 52.0).rounded(toPlaces: 2)
-        priceYearlyButtonLabel.text = "Then %@/year (only %@%@/week)".localized(with: [yearlySubscriptionPlan.skProduct?.regularPrice ?? "", weeklySubscriptionPlan.skProduct?.priceLocale.currencySymbol ?? "$", weeklyPriceForYearlyPlan])
+        priceYearlyButtonLabel.text = "Then %@/year (only %@/week)".localized(with: [yearlySubscriptionPlan.skProduct?.regularPrice ?? "", yearlySubscriptionPlan.skProduct?.regularPrice(for:weeklyPriceForYearlyPlan) ?? ""])
         priceWeeklyButtonLabel.text = weeklySubscriptionPlan.skProduct?.regularPrice
         
         selectedPlan = yearlySubscriptionPlan

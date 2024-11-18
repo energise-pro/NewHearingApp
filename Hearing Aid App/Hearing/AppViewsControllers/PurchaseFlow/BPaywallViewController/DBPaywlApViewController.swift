@@ -75,7 +75,7 @@ final class DBPaywlApViewController: PMUMainViewController {
             trialTitle.text = "3 Days Free".localized()
         }
         let weeklyPriceForYearlyPlan = ((yearlySubscriptionPlan.skProduct?.price.doubleValue ?? 1.0) / 52.0).rounded(toPlaces: 2)
-        trialDescription.text = "Then %@/year (only %@%@/week)".localized(with: [yearlySubscriptionPlan.skProduct?.regularPrice ?? "", yearlySubscriptionPlan.skProduct?.priceLocale.currencySymbol ?? "$", weeklyPriceForYearlyPlan])
+        trialDescription.text = "Then %@/year (only %@/week)".localized(with: [yearlySubscriptionPlan.skProduct?.regularPrice ?? "", yearlySubscriptionPlan.skProduct?.regularPrice(for: weeklyPriceForYearlyPlan) ?? ""])
         
         selectedPlan = yearlySubscriptionPlan
     }
