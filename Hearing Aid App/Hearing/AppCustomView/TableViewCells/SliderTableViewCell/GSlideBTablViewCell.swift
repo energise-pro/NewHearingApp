@@ -72,12 +72,15 @@ final class GSlideBTablViewCell: UITableViewCell, HConfigCellProtocol, UIViewCel
 }
 
 class GSlideBTablViewCellSlider: UISlider {
-  
-  //Set line height value from Interface Builder,i.e. here ten is default value
-  @IBInspectable var trackLineHeight: CGFloat = 2
-  
-  //Set custom size of track so here override trackRect function of slider control
-  override func trackRect(forBounds bound: CGRect) -> CGRect {
-    return CGRect(origin: bound.origin, size: CGSize(width: bound.width, height: trackLineHeight))
-  }
+    @IBInspectable var trackLineHeight: CGFloat = 2
+    
+    override func trackRect(forBounds bound: CGRect) -> CGRect {
+        
+        return CGRect(origin: bound.origin, size: CGSize(width: bound.width, height: trackLineHeight))
+    }
+    
+    override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
+        let touchArea = bounds.insetBy(dx: -15, dy: -15)
+        return touchArea.contains(point)
+    }
 }
