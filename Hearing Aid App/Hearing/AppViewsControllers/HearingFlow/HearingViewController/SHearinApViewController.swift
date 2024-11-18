@@ -316,16 +316,11 @@ final class SHearinApViewController: PMUMainViewController {
         tooltip = TooltipView(text: "Tap to get started".localized())
         guard let tooltip = tooltip else { return }
         
-        tooltip.alpha = 0
         var tooltipRect = tooltip.frame
         tooltipRect.origin.x = (view.frame.width - tooltipRect.width) / 2.0
         tooltipRect.origin.y = CGRectGetMinY(turnOnView.frame) - tooltipRect.height - 10.0
         tooltip.frame = tooltipRect
         view.addSubview(tooltip)
-        
-        UIView.animate(withDuration: 0.3) {
-            tooltip.alpha = 1
-        }
         
         tooltip.transform = CGAffineTransform(translationX: 0, y: -10)
         
