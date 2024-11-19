@@ -89,7 +89,7 @@ final class SHearinApViewController: PMUMainViewController {
     private var balanceTimer: Timer?
     private var volumeTimer: Timer?
     private var tooltip: TooltipView?
-    private var maxVolumeValue: CGFloat = 130.0
+    private var maxVolumeValue: CGFloat = 100.0
     private var volumeUpdateWorkItem: DispatchWorkItem?
     
     private var cachedSystemVolumeSlider: UISlider? {
@@ -202,25 +202,25 @@ final class SHearinApViewController: PMUMainViewController {
             guard SAudioKitServicesAp.shared.isUseSystemVolume else {
                 return
             }
-            let percentage = volume * (self?.maxVolumeValue ?? 130)
-            if !TInAppService.shared.isPremium && percentage >= 100 {
-                self?.volumePercentageValue = 100
-                DispatchQueue.main.async {
-                    self?.updateVolumeView(on: 100)
-                }
-                let topViewController = AppsNavManager.shared.topViewController
-                if let paywallController = topViewController, paywallController.isKind(of: PaywallViewController.self) {
-                    return
-                }
-                AppsNavManager.shared.presentPaywallViewController(with: .openFromHearing)
-            } else {
+            let percentage = volume * (self?.maxVolumeValue ?? 100)
+//            if !TInAppService.shared.isPremium && percentage >= 100 {
+//                self?.volumePercentageValue = 100
+//                DispatchQueue.main.async {
+//                    self?.updateVolumeView(on: 100)
+//                }
+//                let topViewController = AppsNavManager.shared.topViewController
+//                if let paywallController = topViewController, paywallController.isKind(of: PaywallViewController.self) {
+//                    return
+//                }
+//                AppsNavManager.shared.presentPaywallViewController(with: .openFromHearing)
+//            } else {
                 self?.volumePercentageValue = percentage
                 DispatchQueue.main.async {
                     self?.updateVolumeView(on: percentage)
                 }
                 
                 SAudioKitServicesAp.shared.changeVolume(on: volume)
-            }
+//            }
         }
         
         SAudioKitServicesAp.shared.didInitialiseService = { [weak self] in
@@ -452,19 +452,19 @@ final class SHearinApViewController: PMUMainViewController {
         
         let location = sender.location(in: volumeContainer)
         let percentage = maxVolumeValue - (location.y / volumeContainer.bounds.height) * maxVolumeValue
-        if !TInAppService.shared.isPremium && percentage >= 100 {
-            let topViewController = AppsNavManager.shared.topViewController
-            if let paywallController = topViewController, paywallController.isKind(of: PaywallViewController.self) {
-                return
-            }
-            AppsNavManager.shared.presentPaywallViewController(with: .openFromHearing)
-            TapticEngine.selection.feedback()
-            volumePercentageValue = 100
-            updateVolumeView(on: 100)
-            SAudioKitServicesAp.shared.changeVolume(on: 100 / maxVolumeValue)
-            trackAnalytic()
-            return
-        }
+//        if !TInAppService.shared.isPremium && percentage >= 100 {
+//            let topViewController = AppsNavManager.shared.topViewController
+//            if let paywallController = topViewController, paywallController.isKind(of: PaywallViewController.self) {
+//                return
+//            }
+//            AppsNavManager.shared.presentPaywallViewController(with: .openFromHearing)
+//            TapticEngine.selection.feedback()
+//            volumePercentageValue = 100
+//            updateVolumeView(on: 100)
+//            SAudioKitServicesAp.shared.changeVolume(on: 100 / maxVolumeValue)
+//            trackAnalytic()
+//            return
+//        }
         if percentage > 0 && percentage < maxVolumeValue, volumePercentageValue != percentage {
             TapticEngine.selection.feedback()
             volumePercentageValue = percentage
