@@ -87,11 +87,14 @@ final class HeadphonesConnectViewController: UIViewController {
     private func uiLoad() {
         closeBtn.setImage(UIImage(named: "closeBtns"), for: .normal)
         topBgImage.image = UIImage(named: "headphoneTopImg")
-        topLabels.text = "Connect Headphones"
+        topLabels.text = "Connect Headphones".localized()
         topLabels.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
         topLabels.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         topLabels.textAlignment = .center
-        btmLabels.text = "Please connect your headphones \nto continue with the best hearing aid."
+        var paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineHeightMultiple = 1.18
+        btmLabels.textAlignment = .center
+        btmLabels.attributedText = NSMutableAttributedString(string: "Please connect your headphones \nto continue with the best hearing aid.".localized(), attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
         btmLabels.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
         btmLabels.font = UIFont.systemFont(ofSize: 17, weight: .regular)
         btmLabels.textAlignment = .center
@@ -143,12 +146,12 @@ final class HeadphonesConnectViewController: UIViewController {
             btmLabels.leadingAnchor.constraint(equalTo: btmView.leadingAnchor, constant: 16),
             btmLabels.trailingAnchor.constraint(equalTo: btmView.trailingAnchor, constant: -16),
             btmLabels.bottomAnchor.constraint(equalTo: btnSelectDevice.topAnchor, constant: -28),
-            btmLabels.heightAnchor.constraint(equalToConstant: 50),
+            btmLabels.heightAnchor.constraint(equalToConstant: 48),
             topLabels.leadingAnchor.constraint(equalTo: btmView.leadingAnchor, constant: 16),
             topLabels.trailingAnchor.constraint(equalTo: btmView.trailingAnchor, constant: -16),
             topLabels.bottomAnchor.constraint(equalTo: btmLabels.topAnchor, constant: -12),
             topLabels.topAnchor.constraint(equalTo: btmView.topAnchor, constant: 28),
-            topLabels.heightAnchor.constraint(equalToConstant: 40),
+            topLabels.heightAnchor.constraint(equalToConstant: 36),
         ])
     }
     

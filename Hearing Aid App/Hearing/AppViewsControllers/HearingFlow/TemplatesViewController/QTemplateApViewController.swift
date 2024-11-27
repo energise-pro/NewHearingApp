@@ -51,7 +51,7 @@ final class QTemplateApViewController: PMUMainViewController {
     }
     
     private func configureDataSource() {
-        let templatesCellModel = SettingTableViewCellModel(attributedTitle: NSAttributedString(string: "Templates".localized(), attributes: [.font: UIFont.systemFont(ofSize: 17.0, weight: .bold), .foregroundColor: UIColor.appColor(.Purple100)!]),
+        let templatesCellModel = SettingTableViewCellModel(attributedTitle: NSAttributedString(string: "Templates".localized(), attributes: [.font: UIFont.systemFont(ofSize: 17.0, weight: .semibold), .foregroundColor: UIColor.appColor(.Purple100)!]),
                                                         buttonTypes: [.info, .switchButton],
                                                         switchState: SAudioKitServicesAp.shared.isTemplatesEnabled,
                                                         delegate: self)

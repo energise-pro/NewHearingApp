@@ -39,7 +39,7 @@ final class KCompresViewController: PMUMainViewController {
     private func configureDataSource() {
         var dataSource: [CellConfigurator] = []
         
-        let statusCellModel = SettingTableViewCellModel(attributedTitle: NSAttributedString(string: "Compressor status".localized(), attributes: [.font: UIFont.systemFont(ofSize: 17.0, weight: .bold), .foregroundColor: UIColor.appColor(.Purple100)!]),
+        let statusCellModel = SettingTableViewCellModel(attributedTitle: NSAttributedString(string: "Compressor status".localized(), attributes: [.font: UIFont.systemFont(ofSize: 17.0, weight: .semibold), .foregroundColor: UIColor.appColor(.Purple100)!]),
                                                         buttonTypes: [.info, .switchButton],
                                                         switchState: SAudioKitServicesAp.shared.isCompressorEnabled,
                                                         delegate: self)
