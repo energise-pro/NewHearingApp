@@ -73,6 +73,7 @@ final class SHearinApViewController: PMUMainViewController {
     @IBOutlet private weak var balanceSlider: UISlider!
     
     @IBOutlet private weak var volumeScaleStackView: UIStackView!
+    @IBOutlet private weak var waveContainerView: UIView!
     
     @IBOutlet private weak var balanceFillViewLeftConstraint: NSLayoutConstraint!
     @IBOutlet private weak var balanceFillViewRightConstraint: NSLayoutConstraint!
@@ -81,6 +82,8 @@ final class SHearinApViewController: PMUMainViewController {
     @IBOutlet private var bottomImageViews: [UIImageView]!
     @IBOutlet private var bottomLabels: [UILabel]!
     @IBOutlet private weak var turnOnView: UIView!
+    
+    private var isConfiguredWaveView: Bool = false
     
     private var balanceCurrentValue: Double = 0.0
     private var volumePercentageValue: Double = 0.0
@@ -118,6 +121,7 @@ final class SHearinApViewController: PMUMainViewController {
         updateVolumeView(on: volumePercentageValue)
         updateSliderFillView(on: SAudioKitServicesAp.shared.balanceValue)
         configureScaleStackView(with: volumePercentageValue)
+        configureWaveView()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -128,11 +132,13 @@ final class SHearinApViewController: PMUMainViewController {
         if !SAudioKitServicesAp.shared.isStartedMixer {
             showTooltip()
         }
+        waveContainerView.isHidden = !SAudioKitServicesAp.shared.isStartedMixer
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         SAudioKitServicesAp.shared.createRollingView()
+        configureWaveView()
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -146,6 +152,7 @@ final class SHearinApViewController: PMUMainViewController {
             self.updateSliderFillView(on: SAudioKitServicesAp.shared.balanceValue)
             self.configureScaleStackView(with: self.volumePercentageValue)
         } completion: { _ in
+            self.configureWaveView()
             SAudioKitServicesAp.shared.setAudioEngine(SAudioKitServicesAp.shared.isStartedMixer)
         }
     }
@@ -226,6 +233,10 @@ final class SHearinApViewController: PMUMainViewController {
         SAudioKitServicesAp.shared.didInitialiseService = { [weak self] in
             guard let self = self else { return }
 
+            if !self.isConfiguredWaveView, KAppConfigServic.shared.settings.appLaunchCount <= 1 {
+                self.isConfiguredWaveView = true
+                self.configureWaveView()
+            }
             self.mainSwitchImageView.image = SAudioKitServicesAp.shared.isStartedMixer ? CAppConstants.Images.powerOn : CAppConstants.Images.powerOff
         }
         
@@ -356,6 +367,15 @@ final class SHearinApViewController: PMUMainViewController {
         return routePickerView
     }()
     
+    private func configureWaveView() {
+        waveContainerView.subviews.forEach { $0.removeFromSuperview() }
+        let waveView = SAudioKitServicesAp.shared.microphoneRollingView
+        let childView = UIHostingController(rootView: waveView)
+        childView.view.backgroundColor = .yellow
+        childView.view.frame = waveContainerView.bounds
+        waveContainerView.addSubview(childView.view)
+    }
+    
     // MARK: - IBActions
     @IBAction private func mainButtonAction(_ sendner: UIButton) {
         guard SAudioKitServicesAp.shared.isStartedMixer || TInAppService.shared.isPremium || SAudioKitServicesAp.shared.countOfUsingAid < 2 else {
@@ -386,6 +406,8 @@ final class SHearinApViewController: PMUMainViewController {
         }
         newState && SAudioKitServicesAp.shared.countOfUsingAid % 3 == 0 ? KAppConfigServic.shared.settings.presentAppRatingAlert() : Void()
         newState ? SAudioKitServicesAp.shared.increaseCountOfUsing(for: .aid) : Void()
+        
+        waveContainerView.isHidden = !newState
         
         let stringState = newState ? GAppAnalyticActions.enable.rawValue : GAppAnalyticActions.disable.rawValue
         KAppConfigServic.shared.analytics.track(action: .v2HearingScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.microphone.rawValue)_\(stringState)"])

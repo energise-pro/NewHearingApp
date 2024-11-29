@@ -4,6 +4,7 @@ final class HearingInstructionViewController: UIViewController {
     private lazy var topBgImage: UIImageView = {
         let img = UIImageView()
         img.translatesAutoresizingMaskIntoConstraints = false
+        img.contentMode = .scaleAspectFill
         return img
     }()
     
