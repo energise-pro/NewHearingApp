@@ -127,8 +127,8 @@ extension QTemplateApViewController: SettingTableViewCellDelegate {
         TapticEngine.impact.feedback(.medium)
         
         switch type {
-        case .info:
-            presentAlertPM(title: "Info".localized(), message: "The Reverberation allows you to simulate the environment, space, room around you".localized())
+        case .info: // Templates
+            presentAlertPM(title: "Templates".localized(), message: "The Reverberation allows you to simulate the environment, space, room around you".localized())
             
             KAppConfigServic.shared.analytics.track(action: .v2TemplatesScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.templates.rawValue)_\(GAppAnalyticActions.info.rawValue)"])
         case .switchButton:

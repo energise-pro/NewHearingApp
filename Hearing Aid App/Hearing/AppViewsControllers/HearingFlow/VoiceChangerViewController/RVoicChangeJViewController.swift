@@ -117,8 +117,8 @@ extension RVoicChangeJViewController: SettingTableViewCellDelegate {
         TapticEngine.impact.feedback(.medium)
         
         switch type {
-        case .info:
-            presentAlertPM(title: "Info".localized(), message: "The voice changer allows you to change voice parameters. With the voice changer, you can set the pitch to higher or lower".localized())
+        case .info: // Voice changer status
+            presentAlertPM(title: "Voice changer status".localized(), message: "The voice changer allows you to change voice parameters. With the voice changer, you can set the pitch to higher or lower".localized())
             
             KAppConfigServic.shared.analytics.track(action: .v2VoiceChangerScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.voiceChanger.rawValue)_\(GAppAnalyticActions.info.rawValue)"])
         case .switchButton:

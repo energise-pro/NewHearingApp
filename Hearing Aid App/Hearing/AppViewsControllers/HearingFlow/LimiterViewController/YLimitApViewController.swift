@@ -135,8 +135,8 @@ extension YLimitApViewController: SettingTableViewCellDelegate {
         TapticEngine.impact.feedback(.medium)
         
         switch type {
-        case .info:
-            presentAlertPM(title: "Info".localized(), message: "Peak limiter allows you to bring up the level without allowing the peaks to clip. It limits high-volume spikes which can sound disgusting".localized())
+        case .info: // Limiter status
+            presentAlertPM(title: "Limiter status".localized(), message: "Peak limiter allows you to bring up the level without allowing the peaks to clip. It limits high-volume spikes which can sound disgusting".localized())
             
             KAppConfigServic.shared.analytics.track(action: .v2LimiterScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.limiter.rawValue)_\(GAppAnalyticActions.info.rawValue)"])
         case .switchButton:

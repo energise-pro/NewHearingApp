@@ -117,8 +117,8 @@ extension KCompresViewController: SettingTableViewCellDelegate {
         TapticEngine.impact.feedback(.medium)
         
         switch type {
-        case .info:
-            presentAlertPM(title: "Info".localized(), message: "The compressor allows you to set up sound more punchy. Compressors reduce the difference between the loudest and quietest parts of the volume".localized())
+        case .info: // Compressor status
+            presentAlertPM(title: "Compressor status".localized(), message: "The compressor allows you to set up sound more punchy. Compressors reduce the difference between the loudest and quietest parts of the volume".localized())
             
             KAppConfigServic.shared.analytics.track(action: .v2CompressorScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.compressor.rawValue)_\(GAppAnalyticActions.info.rawValue)"])
         case .switchButton:

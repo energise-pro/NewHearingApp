@@ -184,8 +184,8 @@ extension ASettingAppViewController: NewSettingTableViewCellDelegate {
             AppsNavManager.shared.presentShareViewController(with: [CAppConstants.URLs.appStoreUrl], and: nil)
         case .hapticCell: // Haptic
             switch type {
-            case .info:
-                presentAlertPM(title: "Info".localized(), message: "Disable or Enable vibrations when you press UI buttons".localized())
+            case .info: // Use Haptic Feedback
+                presentAlertPM(title: "Use Haptic Feedback".localized(), message: "Disable or Enable vibrations when you press UI buttons".localized())
                 
                 KAppConfigServic.shared.analytics.track(action: .v2SettingsScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.haptic.rawValue)_\(GAppAnalyticActions.info.rawValue)"])
             case .switchButton:

@@ -40,19 +40,19 @@ final class SAudioKitServicesAp {
     @Storage(key: "ClearVoice", defaultValue: false)
     var isClearVoice: Bool
     
-    @Storage(key: "Reverb.isStarted", defaultValue: false)
+    @Storage(key: "Reverb.isStarted", defaultValue: true)
     var isTemplatesEnabled: Bool
     
     @Storage(key: "Compressor.isStarted", defaultValue: true)
     var isCompressorEnabled: Bool
     
-    @Storage(key: "VoiceChanger.isStarted", defaultValue: false)
+    @Storage(key: "VoiceChanger.isStarted", defaultValue: true)
     var isVoiceChangerEnabled: Bool
     
     @Storage(key: "Limiter.isStarted", defaultValue: true)
     var isLimiterEnabled: Bool
     
-    @Storage(key: "Equalizer.isEnabled", defaultValue: false)
+    @Storage(key: "Equalizer.isEnabled", defaultValue: true)
     var isEqualizedEnabled: Bool
     
     @Storage(key: "microphoneVolume", defaultValue: 0.45)

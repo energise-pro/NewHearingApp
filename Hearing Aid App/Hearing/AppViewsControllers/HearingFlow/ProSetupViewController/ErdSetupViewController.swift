@@ -75,10 +75,10 @@ final class ErdSetupViewController: PMUMainViewController {
         let equalizerCellModel = SettingTableViewCellModel(title: "Equalizer".localized(), buttonTypes: [.rightButton], delegate: self)
         let equalizerCellConfig = SettingTableViewCellConfig(item: equalizerCellModel)
         
-        let resetCellModel = VCentereButnTableViewCellModel(buttonTitle: "Reset setup".localized(), buttonImage: UIImage(named: "trashIcon")!, delegate: self)
-        let resetCellConfig = VCentereButnTableViewCellConfig(item: resetCellModel)
+//        let resetCellModel = VCentereButnTableViewCellModel(buttonTitle: "Reset setup".localized(), buttonImage: UIImage(named: "trashIcon")!, delegate: self)
+//        let resetCellConfig = VCentereButnTableViewCellConfig(item: resetCellModel)
         
-        dataSource = [segmentCellConfig, musicCellConfig, systemVolumeCellConfig, clearVoiceCellConfig, voiceChangerCellConfig, compressorCellConfig, limiterCellConfig, equalizerCellConfig, resetCellConfig]
+        dataSource = [segmentCellConfig, musicCellConfig, systemVolumeCellConfig, clearVoiceCellConfig, voiceChangerCellConfig, compressorCellConfig, limiterCellConfig, equalizerCellConfig]
         tableView.reloadData()
     }
 
@@ -166,7 +166,7 @@ extension ErdSetupViewController: SettingTableViewCellDelegate {
         case 1: // Music mode
             switch type {
             case .info:
-                presentAlertPM(title: "Info".localized(), message: "If you set this option, system will mixes audio from this app with audio playing in background apps, such as the Music app.\nFor example, you want to listen a music or audio book over headphones, and at the same time hear sounds around you very well.\nIf this option OFF system reduces the volume of other audio apps to make the audio of this app more prominent.".localized())
+                presentAlertPM(title: "Music mode".localized(), message: "If you set this option, system will mixes audio from this app with audio playing in background apps, such as the Music app.\nFor example, you want to listen a music or audio book over headphones, and at the same time hear sounds around you very well.\nIf this option OFF system reduces the volume of other audio apps to make the audio of this app more prominent.".localized())
                 
                 KAppConfigServic.shared.analytics.track(action: .v2HearingProSetupScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.musicMode.rawValue)_\(GAppAnalyticActions.info.rawValue)"])
             case .switchButton:
@@ -183,7 +183,7 @@ extension ErdSetupViewController: SettingTableViewCellDelegate {
         case 2: // System volume
             switch type {
             case .info:
-                presentAlertPM(title: "Info".localized(), message: "Increase Volume of Hearing Aid together with the device system volume".localized())
+                presentAlertPM(title: "Use system volume".localized(), message: "Increase Volume of Hearing Aid together with the device system volume".localized())
                 
                 KAppConfigServic.shared.analytics.track(action: .v2HearingProSetupScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.systemVolume.rawValue)_\(GAppAnalyticActions.info.rawValue)"])
             case .switchButton:
@@ -201,7 +201,7 @@ extension ErdSetupViewController: SettingTableViewCellDelegate {
         case 3: // Clear Voice
             switch type {
             case .info:
-                presentAlertPM(title: "Info".localized(), message: "AI helps to pick a voice out from the background noise and other sounds".localized())
+                presentAlertPM(title: "Clear voice".localized(), message: "AI helps to pick a voice out from the background noise and other sounds".localized())
                 
                 KAppConfigServic.shared.analytics.track(action: .v2HearingProSetupScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.clearVoice.rawValue)_\(GAppAnalyticActions.info.rawValue)"])
             case .switchButton:
