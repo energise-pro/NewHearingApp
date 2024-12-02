@@ -100,6 +100,7 @@ extension KCompresViewController: VCentereButnTableViewCellDelegate {
         TapticEngine.impact.feedback(.medium)
         SAudioKitServicesAp.shared.setCompressor(true)
         CompressorParameter.allCases.forEach { $0.setNew($0.defaultValue) }
+        SAudioKitServicesAp.shared.resetCompressorValues()
         configureDataSource()
         
         KAppConfigServic.shared.analytics.track(action: .v2CompressorScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.reset.rawValue])

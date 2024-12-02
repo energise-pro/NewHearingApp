@@ -108,7 +108,7 @@ extension UEqualizeApViewController: VCentereButnTableViewCellDelegate {
     
     func didSelectButton(from cell: VCentereButnTableViewCell) {
         TapticEngine.impact.feedback(.medium)
-        SAudioKitServicesAp.shared.setEqualizer(false)
+        SAudioKitServicesAp.shared.setEqualizer(true)
         SAudioKitServicesAp.shared.equalizer?.reset()
         updateChartCell()
         configureDataSource()

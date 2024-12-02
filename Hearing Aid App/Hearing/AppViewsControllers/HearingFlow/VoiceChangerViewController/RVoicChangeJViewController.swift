@@ -98,8 +98,9 @@ extension RVoicChangeJViewController: VCentereButnTableViewCellDelegate {
     
     func didSelectButton(from cell: VCentereButnTableViewCell) {
         TapticEngine.impact.feedback(.medium)
-        SAudioKitServicesAp.shared.setVoiceChanger(false)
+        SAudioKitServicesAp.shared.setVoiceChanger(true)
         PdShParam.allCases.forEach { $0.setNew($0.defaultValue) }
+        SAudioKitServicesAp.shared.resetPitchShifterValues()
         configureDataSource()
         
         KAppConfigServic.shared.analytics.track(action: .v2VoiceChangerScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.reset.rawValue])

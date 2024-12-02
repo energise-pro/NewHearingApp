@@ -100,7 +100,7 @@ enum TemplatesParameter: String, CaseIterable {
         return "effect volume".localized()
     }
     var defaultValue: Double {
-        return 0.0
+        return 0
     }
     var minValue: Double {
         return 0

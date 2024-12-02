@@ -60,7 +60,7 @@
                     </constraints>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2NC-3T-i0K" userLabel="Title - View">
-                    <rect key="frame" x="16" y="33" width="95.5" height="30"/>
+                    <rect key="frame" x="16" y="33" width="368" height="30"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HG8-e4-JlG">
                             <rect key="frame" x="0.0" y="1" width="28" height="28"/>
@@ -70,7 +70,7 @@
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="Neh-59-Pff">
-                            <rect key="frame" x="36" y="0.5" width="59.5" height="29"/>
+                            <rect key="frame" x="36" y="0.5" width="332" height="29"/>
                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -483,6 +483,7 @@
                 <constraint firstAttribute="trailing" secondItem="5Cv-AR-xaW" secondAttribute="trailing" id="U1K-qS-YnO"/>
                 <constraint firstItem="Egk-RE-dul" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="V69-Aj-hN0"/>
                 <constraint firstAttribute="trailing" secondItem="8tP-PX-Etl" secondAttribute="trailing" id="Xy0-kE-ZjR"/>
+                <constraint firstItem="hdJ-6f-WNl" firstAttribute="leading" secondItem="2NC-3T-i0K" secondAttribute="trailing" constant="5" id="chl-9i-g0g"/>
                 <constraint firstItem="Ndo-zQ-cS3" firstAttribute="top" secondItem="CJQ-dt-YhA" secondAttribute="bottom" constant="20" id="fBW-in-Njw"/>
                 <constraint firstItem="2NC-3T-i0K" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="13" id="ieB-zK-BXW"/>
                 <constraint firstAttribute="trailing" secondItem="hdJ-6f-WNl" secondAttribute="trailing" constant="16" id="jwd-WK-Cn9"/>

@@ -122,6 +122,7 @@ extension YLimitApViewController: VCentereButnTableViewCellDelegate {
         TapticEngine.impact.feedback(.medium)
         SAudioKitServicesAp.shared.setLimiter(true)
         VPLirParameter.allCases.forEach { $0.setNew($0.defaultValue) }
+        SAudioKitServicesAp.shared.resetLimiterValues()
         configureDataSource()
         
         KAppConfigServic.shared.analytics.track(action: .v2LimiterScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.reset.rawValue])

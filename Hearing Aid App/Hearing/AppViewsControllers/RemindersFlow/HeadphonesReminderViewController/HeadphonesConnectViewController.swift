@@ -137,7 +137,7 @@ final class HeadphonesConnectViewController: UIViewController {
             
             btnOk.leadingAnchor.constraint(equalTo: btmView.leadingAnchor, constant: 16),
             btnOk.trailingAnchor.constraint(equalTo: btmView.trailingAnchor, constant: -16),
-            btnOk.bottomAnchor.constraint(equalTo: btmView.bottomAnchor, constant: -85),
+            btnOk.topAnchor.constraint(equalTo: btnSelectDevice.bottomAnchor, constant: 20),
             btnOk.heightAnchor.constraint(equalToConstant: 56),
             btnSelectDevice.leadingAnchor.constraint(equalTo: btmView.leadingAnchor, constant: 16),
             btnSelectDevice.trailingAnchor.constraint(equalTo: btmView.trailingAnchor, constant: -16),

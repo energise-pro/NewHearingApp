@@ -106,7 +106,7 @@ extension QTemplateApViewController: VCentereButnTableViewCellDelegate {
     
     func didSelectButton(from cell: VCentereButnTableViewCell) {
         TapticEngine.impact.feedback(.medium)
-        SAudioKitServicesAp.shared.setTemplates(false)
+        SAudioKitServicesAp.shared.setTemplates(true)
         SAudioKitServicesAp.shared.changeTemplate(on: TemplatesType.defaultTemplate)
         SAudioKitServicesAp.shared.changeTemplatesVolume(on: TemplatesParameter.dryWet.defaultValue)
         configureDataSource()

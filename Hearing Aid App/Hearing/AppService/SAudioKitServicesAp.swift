@@ -423,6 +423,10 @@ final class SAudioKitServicesAp {
         }
     }
     
+    func resetCompressorValues() {
+        CompressorParameter.allCases.forEach { changeCompressorValue(on: $0.value, for: $0) }
+    }
+    
     func changePitchShifterValue(on value: Double, for parameter: PdShParam) {
         parameter.setNew(value)
         switch parameter {
@@ -435,6 +439,10 @@ final class SAudioKitServicesAp {
         }
     }
     
+    func resetPitchShifterValues() {
+        PdShParam.allCases.forEach { changePitchShifterValue(on: $0.value, for: $0) }
+    }
+    
     func changeLimiterValue(on value: Double, for parameter: VPLirParameter) {
         parameter.setNew(value)
         switch parameter {
@@ -445,6 +453,10 @@ final class SAudioKitServicesAp {
         case .preGain:
             peakLimiter?.$preGain.value = AUValue(value)
         }
+    }
+    
+    func resetLimiterValues() {
+        VPLirParameter.allCases.forEach { changeLimiterValue(on: $0.value, for: $0) }
     }
     
     func removeAudioEngineInputNodeTap(onBus bus: AVAudioNodeBus) {
