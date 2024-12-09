@@ -174,7 +174,9 @@ final class WSpeechApViewController: PMUMainViewController {
     }
 
     @IBAction func infoButtonAction(_ sender: UIButton) {
-        
+        TapticEngine.impact.feedback(.medium)
+        AppsNavManager.shared.presentTranscriptionInstructionViewController()
+        //        KAppConfigServic.shared.analytics.track(action: .v2HearingScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.info.rawValue])
     }
 }
 

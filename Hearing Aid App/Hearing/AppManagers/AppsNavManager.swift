@@ -325,6 +325,13 @@ final class AppsNavManager: NSObject {
         paywallViewController.modalTransitionStyle = .crossDissolve
         topViewController?.present(paywallViewController, animated: true)
     }
+    
+    func presentTranscriptionInstructionViewController() {
+        let instructionVC = TranscriptionInstructionViewController()
+        instructionVC.modalPresentationStyle = .fullScreen
+        instructionVC.modalTransitionStyle = .crossDissolve
+        topViewController?.present(instructionVC, animated: true)
+    }
 }
 
 // MARK: - MFMailComposeViewControllerDelegate
