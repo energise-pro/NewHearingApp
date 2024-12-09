@@ -1,6 +1,7 @@
 import UIKit
 
 final class HTranscriptListApViewController: PMUMainViewController {
+    
 
     @IBOutlet private weak var tableView: UITableView!
     

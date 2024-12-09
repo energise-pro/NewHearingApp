@@ -17,6 +17,7 @@ enum AssetsColor: String {
     case TableSeparator100
     case Grey100
     case LightGrey20
+    case Purple70
 }
 
 extension UIColor {

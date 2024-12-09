@@ -25,9 +25,10 @@ final class GTranscriptionTablViewCell: UITableViewCell, HConfigCellProtocol, UI
     func configure(data: DataType) {
         delegate = data.delegate
         titleLabel.text = data.transcriptModel.title
-        dateLabel.text = Date(timeIntervalSince1970: data.transcriptModel.createdDate).toDateWithTime()
+        titleLabel.textColor = UIColor.appColor(.Purple70)
         
-        dateLabel.textColor = UIColor.appColor(.UnactiveButton_2)
+        dateLabel.text = Date(timeIntervalSince1970: data.transcriptModel.createdDate).toDateWithTime()
+        dateLabel.textColor = UIColor.appColor(.Grey100)
     }
     
     // MARK: - IBActions

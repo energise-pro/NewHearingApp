@@ -63,8 +63,8 @@ struct CAppConstants {
         
         static let icLogo = UIImage(named: "icVectorLogo")!
         
-        static let icGlobe = UIImage(named: "icGlobe")!
-        static let icKeyboard = UIImage(named: "icKeyboard")!
+//        static let icGlobe = UIImage(named: "icGlobe")!
+//        static let icKeyboard = UIImage(named: "icKeyboard")!
         static let icFolder = UIImage(named: "icFolder")!
         static let icTrash = UIImage(named: "icTrash")!
         static let icTextSetup = UIImage(named: "icTextSetup")!
@@ -73,11 +73,15 @@ struct CAppConstants {
         static let icTranslateMic = UIImage(named: "icTranslateMic")!
         
         static let icTabHearing = UIImage(named: "hearingTabbarIcon")!
-        static let icTabMicro = UIImage(named: "icTabMicro")!
+        static let icTabMicro = UIImage(named: "transcriptionTabbarIcon")!
         static let icTabSettings = UIImage(named: "settingTabbarIcon")!
         
         static let powerOn = UIImage(named: "powerOnButtonImage")!
         static let powerOff = UIImage(named: "powerOffButtonImage")!
+        
+        static let speechTypeIcon = UIImage(named: "speechTypeIcon")!
+        static let speechTranscribeIcon = UIImage(named: "speechTranscribeIcon")!
+        static let speechTranslateIcon = UIImage(named: "speechTranslateIcon")!
     }
     
     struct URLs {

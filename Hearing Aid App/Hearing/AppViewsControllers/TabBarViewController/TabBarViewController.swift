@@ -5,15 +5,15 @@ final class TabBarViewController: PMUMainViewController {
     
     enum TabBarButton: Int {
         case hearing
-//        case transcribe
+        case transcribe
         case settings
         
         var title: String {
             switch self {
             case .hearing:
                 return "Hearing Aid".localized()
-//            case .transcribe:
-//                return "Speech Recognition".localized()
+            case .transcribe:
+                return "Transcription".localized()
             case .settings:
                 return "Settings".localized()
             }
@@ -23,8 +23,8 @@ final class TabBarViewController: PMUMainViewController {
             switch self {
             case .hearing:
                 return CAppConstants.Images.icTabHearing
-//            case .transcribe:
-//                return CAppConstants.Images.icTabMicro
+            case .transcribe:
+                return CAppConstants.Images.icTabMicro
             case .settings:
                 return CAppConstants.Images.icTabSettings
             }
@@ -34,8 +34,8 @@ final class TabBarViewController: PMUMainViewController {
             switch self {
             case .hearing:
                 return SHearinApViewController()
-//            case .transcribe:
-//                return WSpeechApViewController()
+            case .transcribe:
+                return WSpeechApViewController()
             case .settings:
                 return ASettingAppViewController()
             }
@@ -45,8 +45,8 @@ final class TabBarViewController: PMUMainViewController {
             switch self {
             case .hearing:
                 return GAppAnalyticActions.hearing
-//            case .transcribe:
-//                return GAppAnalyticActions.transcribe
+            case .transcribe:
+                return GAppAnalyticActions.transcribe
             case .settings:
                 return GAppAnalyticActions.settings
             }
@@ -67,7 +67,7 @@ final class TabBarViewController: PMUMainViewController {
     
     private var navigationControllers: [UINavigationController] = []
     private var tabBarButtons: [TabBarButton] {
-        return [.hearing, .settings]
+        return [.hearing, .transcribe, .settings]
 //        return KAppConfigServic.shared.settings.mainScreen == TabBarButton.hearing.rawValue ? [.hearing, .transcribe, .settings] : [.transcribe, .hearing, .settings]
     }
     
@@ -137,7 +137,7 @@ final class TabBarViewController: PMUMainViewController {
         
         for (index, viewController) in tabBarButtons.compactMap({ $0.viewController }).enumerated() {
             let navigationController = UINavigationController(rootViewController: viewController)
-            navigationController.isNavigationBarHidden = index != 2
+            navigationController.isNavigationBarHidden = true
             navigationControllers.append(navigationController)
             buttonImages[index].tintColor = index == (currentTabIndex ?? 0) ? AThemeServicesAp.shared.activeColor : UIColor.appColor(.UnactiveButton_2)
             buttonTitles[index].textColor = index == (currentTabIndex ?? 0) ? UIColor.appColor(.White100) : UIColor.appColor(.UnactiveButton_2)
