@@ -18,6 +18,7 @@ enum AssetsColor: String {
     case Grey100
     case LightGrey20
     case Purple70
+    case Purple20
 }
 
 extension UIColor {

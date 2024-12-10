@@ -9,9 +9,9 @@ final class DTypeTextApViewController: PMUMainViewController {
         var image: UIImage? {
             switch self {
             case .trash:
-                return UIImage(systemName: "trash")
+                return UIImage(named: "trashIcon")
             case .expand:
-                return UIImage(systemName: "arrow.up.left.and.arrow.down.right")
+                return UIImage(named: "arrowsOutIcon")
             }
         }
     }
@@ -47,20 +47,20 @@ final class DTypeTextApViewController: PMUMainViewController {
     
     override func didChangeTheme() {
         super.didChangeTheme()
-        navigationItem.rightBarButtonItem?.tintColor = AThemeServicesAp.shared.activeColor
+//        navigationItem.rightBarButtonItem?.tintColor = AThemeServicesAp.shared.activeColor
     }
     
     // MARK: - Private methods
     private func configureUI() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "xmark"), style: .plain, target: self, action: #selector(closeButtonAction))
-        navigationItem.rightBarButtonItem?.tintColor = AThemeServicesAp.shared.activeColor
+        setupRightBarButton()
+        navigationController?.navigationBar.barTintColor = UIColor.appColor(.White100)!
         
         buttonImageViews.enumerated().forEach {
-            $0.element.tintColor = AThemeServicesAp.shared.activeColor
+            $0.element.tintColor = UIColor.appColor(.Red100)
             $0.element.image = ButtonType(rawValue: $0.offset)?.image
         }
         
-        textFieldContainerView.backgroundColor = UIColor.appColor(.UnactiveButton_3)
+        textFieldContainerView.backgroundColor = UIColor.appColor(.Purple20)
         
         mainTextView.textContainerInset = .zero
         mainTextView.tintColor = AThemeServicesAp.shared.activeColor
@@ -98,9 +98,24 @@ final class DTypeTextApViewController: PMUMainViewController {
         }
     }
     
+    private func setupRightBarButton() {
+        let closeButton = UIButton(type: .system)
+        closeButton.setTitle("Close".localized(), for: .normal)
+        closeButton.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
+        closeButton.setTitleColor(UIColor.appColor(.Red100), for: .normal)
+        closeButton.addTarget(self, action: #selector(closeButtonAction), for: .touchUpInside)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: closeButton)
+    }
+    
+    private func setupLeftBarButton() {
+        let buttonItem = UIBarButtonItem(image:  UIImage(named: "arrowsInIcon"), style: .plain, target: self, action: #selector(arrowsInButtonAction))
+        navigationItem.leftBarButtonItems = keyboardNotification.isKeyboardOpened ? nil : [buttonItem]
+    }
+    
     private func configureMainLabel(asPlaceholder: Bool) {
-        textLabel.textColor = asPlaceholder ? UIColor.appColor(.UnactiveButton_1)?.withAlphaComponent(0.5) : UIColor.appColor(.UnactiveButton_1)
-        textLabel.text = asPlaceholder ? "Type quick reply".localized() : mainTextView.text
+        textLabel.textColor = asPlaceholder ? UIColor.appColor(.Grey100) : UIColor.appColor(.Purple100)
+        textLabel.text = asPlaceholder ? "Enter text".localized() : mainTextView.text
+        textLabel.textAlignment = asPlaceholder ? .center : .left
         placeholderTextLabel.text = asPlaceholder ? "" : mainTextView.text
         CTranscribServicesAp.shared.typeText = asPlaceholder ? "" : (mainTextView.text ?? "")
         
@@ -131,15 +146,27 @@ final class DTypeTextApViewController: PMUMainViewController {
             KAppConfigServic.shared.analytics.track(action: .v2TypeScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.clearText.rawValue])
         case .expand:
             mainTextView.resignFirstResponder()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) { [weak self] in
+                self?.setupLeftBarButton()
+            }
+            
             KAppConfigServic.shared.analytics.track(action: .v2TypeScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.expand.rawValue])
         }
     }
     
     @IBAction private func tapGestureAction(_ sender: UITapGestureRecognizer) {
         _ = keyboardNotification.isKeyboardOpened ? mainTextView.resignFirstResponder() : mainTextView.becomeFirstResponder()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) { [weak self] in
+            self?.setupLeftBarButton()
+        }
         
         let stringState = keyboardNotification.isKeyboardOpened ? GAppAnalyticActions.enable.rawValue : GAppAnalyticActions.disable.rawValue
         KAppConfigServic.shared.analytics.track(action: .v2TypeScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.type.rawValue)_\(stringState)"])
+    }
+    
+    @objc private func arrowsInButtonAction() {
+        navigationItem.leftBarButtonItems = nil
+        mainTextView.becomeFirstResponder()
     }
 }
 
