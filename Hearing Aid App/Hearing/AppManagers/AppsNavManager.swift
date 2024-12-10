@@ -293,7 +293,8 @@ final class AppsNavManager: NSObject {
     
     func pushYTranscriptDetailApViewController(with transcriptModel: TranscribeModel, and delegate: YTranscriptDetailApViewControllerDelegate?) {
         let YTranscriptDetailApViewController = YTranscriptDetailApViewController(transcriptModel: transcriptModel, delegate: delegate)
-        topViewController?.present(YTranscriptDetailApViewController, animated: true)
+        let navigationViewController = UINavigationController(rootViewController: YTranscriptDetailApViewController)
+        topViewController?.present(navigationViewController, animated: true)
     }
     
     func presentJTranslatApViewController() {

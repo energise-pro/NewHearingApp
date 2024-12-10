@@ -70,6 +70,8 @@
 		86053B262CE20D33004BA772 /* NewOnboardPageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86053B242CE20D33004BA772 /* NewOnboardPageCollectionViewCell.swift */; };
 		86053B272CE20D33004BA772 /* NewOnboardPageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86053B252CE20D33004BA772 /* NewOnboardPageCollectionViewCell.xib */; };
 		8619E5BD2D06DAB30044B624 /* TranscriptionInstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8619E5BC2D06DAB30044B624 /* TranscriptionInstructionViewController.swift */; };
+		8619E5CC2D074A7C0044B624 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8619E5CA2D074A7C0044B624 /* AlertViewController.swift */; };
+		8619E5CD2D074A7C0044B624 /* AlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8619E5CB2D074A7C0044B624 /* AlertViewController.xib */; };
 		863F688E2D019E2600B34302 /* TranscriptsInstructionTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863F688D2D019E2600B34302 /* TranscriptsInstructionTextView.swift */; };
 		86DFB1F82CE4B1DE00CBD94F /* TooltipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DFB1F72CE4B1DE00CBD94F /* TooltipView.swift */; };
 		86DFB20B2CE670AD00CBD94F /* NewSettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DFB20A2CE670AD00CBD94F /* NewSettingTableViewCell.swift */; };
@@ -331,6 +333,8 @@
 		86053B242CE20D33004BA772 /* NewOnboardPageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOnboardPageCollectionViewCell.swift; sourceTree = "<group>"; };
 		86053B252CE20D33004BA772 /* NewOnboardPageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewOnboardPageCollectionViewCell.xib; sourceTree = "<group>"; };
 		8619E5BC2D06DAB30044B624 /* TranscriptionInstructionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptionInstructionViewController.swift; sourceTree = "<group>"; };
+		8619E5CA2D074A7C0044B624 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
+		8619E5CB2D074A7C0044B624 /* AlertViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertViewController.xib; sourceTree = "<group>"; };
 		863F688D2D019E2600B34302 /* TranscriptsInstructionTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptsInstructionTextView.swift; sourceTree = "<group>"; };
 		86DFB1F72CE4B1DE00CBD94F /* TooltipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TooltipView.swift; sourceTree = "<group>"; };
 		86DFB20A2CE670AD00CBD94F /* NewSettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSettingTableViewCell.swift; sourceTree = "<group>"; };
@@ -717,6 +721,15 @@
 			path = InstructionViewController;
 			sourceTree = "<group>";
 		};
+		8619E5C92D074A440044B624 /* AlertViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8619E5CA2D074A7C0044B624 /* AlertViewController.swift */,
+				8619E5CB2D074A7C0044B624 /* AlertViewController.xib */,
+			);
+			path = AlertViewController;
+			sourceTree = "<group>";
+		};
 		86DFB1F62CE4B1C100CBD94F /* TooltipView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1046,6 +1059,7 @@
 		9A87D76526CF06F70077C9D0 /* AppViewsControllers */ = {
 			isa = PBXGroup;
 			children = (
+				8619E5C92D074A440044B624 /* AlertViewController */,
 				9A5512E528097A270078C5E5 /* PMUMainViewController.swift */,
 				9A094343282D5B5C00F7AEC5 /* HearingFlow */,
 				9A094345282D5BB800F7AEC5 /* PurchaseFlow */,
@@ -1614,6 +1628,7 @@
 				A53D650726E91FDD00C9882D /* SReqVoiceRecordApViewController.xib in Resources */,
 				9A5512E4280977380078C5E5 /* SHearinApViewController.xib in Resources */,
 				83A8E8A82645898B0080AEE5 /* Assets.xcassets in Resources */,
+				8619E5CD2D074A7C0044B624 /* AlertViewController.xib in Resources */,
 				83A0A0CE267E02C700D06F35 /* Implode.ahap in Resources */,
 				9A60EDCD281A957300112720 /* UEqualizeApViewController.xib in Resources */,
 				9A1F22D12837CD32008C9E86 /* JTranslatApViewController.xib in Resources */,
@@ -1790,6 +1805,7 @@
 				83A8E8E22645A7FD0080AEE5 /* SpringButton.swift in Sources */,
 				9ACB45CF2812B9BF00FAF44E /* SpectrumView.swift in Sources */,
 				9ACB45D22812B9BF00FAF44E /* TableView.swift in Sources */,
+				8619E5CC2D074A7C0044B624 /* AlertViewController.swift in Sources */,
 				9ACB45CD2812B9BF00FAF44E /* FloatPlot.swift in Sources */,
 				83A8E8E82645A7FD0080AEE5 /* DesignableView.swift in Sources */,
 				9AC26C5026DFB25300E78CEC /* Bundle+Extensions.swift in Sources */,

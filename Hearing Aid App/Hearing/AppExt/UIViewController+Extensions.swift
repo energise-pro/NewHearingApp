@@ -28,6 +28,14 @@ extension UIViewController {
         }
     }
     
+    func presentCustomAlert(withMessageText message: String, dismissButtonText dismissText: String, confirmButtonText confirmText: String, delegate alertDelegate: AlertViewControllerDelegate) {
+        let alertController = AlertViewController(messageText: message, dismissText: dismissText, confirmText: confirmText, delegate: alertDelegate)
+        alertController.modalPresentationStyle = .overCurrentContext
+        DispatchQueue.main.async { [weak self] in
+            self?.present(alertController, animated: false, completion: nil)
+        }
+    }
+    
     func presentHidingAlert(title: String?, message: String, timeOut: AlertTimeout = .low, completion: (() -> ())? = nil) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         

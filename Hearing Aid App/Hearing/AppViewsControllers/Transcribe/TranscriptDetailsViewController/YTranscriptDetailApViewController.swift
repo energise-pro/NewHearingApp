@@ -46,19 +46,32 @@ final class YTranscriptDetailApViewController: PMUMainViewController {
     
     override func didChangeTheme() {
         super.didChangeTheme()
-        navigationItem.rightBarButtonItems?.forEach { $0.tintColor = AThemeServicesAp.shared.activeColor }
+//        navigationItem.leftBarButtonItems?.forEach { $0.tintColor = AThemeServicesAp.shared.activeColor }
+//        navigationItem.rightBarButtonItem?.tintColor = AThemeServicesAp.shared.activeColor
     }
     
     // MARK: - Private methods
     private func configureUI() {
         title = "Edit".localized()
-        let shareButtonItem = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.up"), style: .plain, target: self, action: #selector(shareButtonAction))
-        let trashButtonItem = UIBarButtonItem(image: UIImage(systemName: "trash"), style: .plain, target: self, action: #selector(trashButtonAction))
-        navigationItem.rightBarButtonItems = [trashButtonItem, shareButtonItem]
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.appColor(.Purple100)!]
+        let shareButtonItem = UIBarButtonItem(image: UIImage(named: "shareButtonIcon"), style: .plain, target: self, action: #selector(shareButtonAction))
+        let trashButtonItem = UIBarButtonItem(image:  UIImage(named: "trashIcon"), style: .plain, target: self, action: #selector(trashButtonAction))
+        navigationItem.leftBarButtonItems = [shareButtonItem, trashButtonItem]
         navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationController?.navigationBar.barTintColor = UIColor.appColor(.White100)!
+        setupRightBarButton()
         
         mainTextView.text = transcriptModel.title
-        mainTextView.tintColor = AThemeServicesAp.shared.activeColor
+        mainTextView.tintColor = UIColor.appColor(.Purple70)
+    }
+    
+    private func setupRightBarButton() {
+        let closeButton = UIButton(type: .system)
+        closeButton.setTitle("Close".localized(), for: .normal)
+        closeButton.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
+        closeButton.setTitleColor(UIColor.appColor(.Red100), for: .normal)
+        closeButton.addTarget(self, action: #selector(closeButtonAction), for: .touchUpInside)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: closeButton)
     }
     
     // MARK: - Actions
@@ -78,16 +91,44 @@ final class YTranscriptDetailApViewController: PMUMainViewController {
     
     @objc private func trashButtonAction() {
         TapticEngine.impact.feedback(.medium)
-        let yesAction = UIAlertAction(title: "Yes!".localized(), style: .default) { [weak self] _ in
-            if let index = self?.transcriptModelIndex {
-                CTranscribServicesAp.shared.savedTranscripts.remove(at: index)
-                self?.delegate?.didUpdateTranscript()
-                
-                KAppConfigServic.shared.analytics.track(action: .v2TranscriptDetailsScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.delete.rawValue])
-            }
-            self?.navigationController?.popViewController(animated: true)
+//        let yesAction = UIAlertAction(title: "Yes!".localized(), style: .default) { [weak self] _ in
+//            if let index = self?.transcriptModelIndex {
+//                CTranscribServicesAp.shared.savedTranscripts.remove(at: index)
+//                self?.delegate?.didUpdateTranscript()
+//                
+//                KAppConfigServic.shared.analytics.track(action: .v2TranscriptDetailsScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.delete.rawValue])
+//            }
+//            self?.navigationController?.popViewController(animated: true)
+//        }
+//        let noAction = UIAlertAction(title: "No".localized(), style: .default)
+//        presentAlertPM(title: "Do you want to remove this transcript?".localized(), message: "", actions: [noAction, yesAction])
+        presentCustomAlert(
+            withMessageText: "Delete this transcript?".localized(),
+            dismissButtonText: "Keep".localized(),
+            confirmButtonText: "Delete".localized(),
+            delegate: self
+        )
+    }
+    
+    @objc private func closeButtonAction() {
+        dismiss(animated: true)
+        
+//        KAppConfigServic.shared.analytics.track(action: .v2VoiceChangerScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.close.rawValue])
+    }
+}
+
+// MARK: - AlertViewControllerDelegate
+extension YTranscriptDetailApViewController: AlertViewControllerDelegate {
+    
+    func onConfirmButtonAction() {
+        if let index = transcriptModelIndex {
+            CTranscribServicesAp.shared.savedTranscripts.remove(at: index)
+            delegate?.didUpdateTranscript()
+            
+            KAppConfigServic.shared.analytics.track(action: .v2TranscriptDetailsScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.delete.rawValue])
         }
-        let noAction = UIAlertAction(title: "No".localized(), style: .default)
-        presentAlertPM(title: "Do you want to remove this transcript?".localized(), message: "", actions: [noAction, yesAction])
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) { [weak self] in
+            self?.dismiss(animated: true)
+        }
     }
 }
