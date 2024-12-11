@@ -1,7 +1,7 @@
 import UIKit
 
 protocol AlertViewControllerDelegate: AnyObject {
-    func onConfirmButtonAction()
+    func onConfirmButtonAction(isCheckboxSelected: Bool)
 }
 
 class AlertViewController: UIViewController {
@@ -11,17 +11,25 @@ class AlertViewController: UIViewController {
     private let messageText: String
     private let dismissText: String?
     private let confirmText: String?
+    private let checkboxText: String?
+    
+    private var isCheckboxSelected: Bool = false
     
     // MARK: - IBOutlets
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var confirmLabel: UILabel!
     @IBOutlet weak var dismissLabel: UILabel!
+    @IBOutlet weak var checkboxContainer: UIView!
+    @IBOutlet weak var checkboxImageView: UIImageView!
+    @IBOutlet weak var checkboxLabel: UILabel!
+    @IBOutlet weak var bottomOffset: NSLayoutConstraint! // 73 - if need show checkbox view, else 24
     
     // MARK: - Init
-    init(messageText: String, dismissText: String?, confirmText: String?, delegate: AlertViewControllerDelegate?) {
+    init(messageText: String, dismissText: String?, confirmText: String?, checkboxText: String? = nil, delegate: AlertViewControllerDelegate?) {
         self.messageText = messageText
         self.dismissText = dismissText
         self.confirmText = confirmText
+        self.checkboxText = checkboxText
         self.delegate = delegate
         super.init(nibName: nil, bundle: nil)
     }
@@ -41,6 +49,13 @@ class AlertViewController: UIViewController {
         messageLabel.text = messageText
         dismissLabel.text = dismissText
         confirmLabel.text = confirmText
+        if let checkboxText = checkboxText, !checkboxText.isEmpty {
+            checkboxLabel.text = checkboxText
+            checkboxImageView.image = isCheckboxSelected ? UIImage(named: "checkboxSelectedIcon") : UIImage(named: "checkboxNotSelectedIcon")
+            checkboxContainer.isHidden = false
+            bottomOffset.constant = 73
+            view.updateConstraints()
+        }
     }
     
     // MARK: - Actions
@@ -52,8 +67,13 @@ class AlertViewController: UIViewController {
         dismiss(animated: false)
     }
     
-    @IBAction func onConfirmButtonAction(_ sender: Any) {
-        delegate?.onConfirmButtonAction()
+    @IBAction func onConfirmButtonAction(_ sender: UIButton) {
+        delegate?.onConfirmButtonAction(isCheckboxSelected: isCheckboxSelected)
         dismiss(animated: false)
+    }
+    
+    @IBAction func onCheckboxButtonAction(_ sender: UIButton) {
+        isCheckboxSelected = !isCheckboxSelected
+        checkboxImageView.image = isCheckboxSelected ? UIImage(named: "checkboxSelectedIcon") : UIImage(named: "checkboxNotSelectedIcon")
     }
 }

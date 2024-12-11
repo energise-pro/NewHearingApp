@@ -8,11 +8,11 @@ enum GTranscribTextParam: String, CaseIterable {
     var title: String {
         switch self {
         case .FontSize:
-            return "Font Size".localized()
+            return "Font size".localized()
         case .FontWeight:
-            return "Font Weight".localized()
+            return "Font weight".localized()
         case .TextAlignment:
-            return "Text Alignment".localized()
+            return "Text alignment".localized()
         }
     }
     
@@ -55,9 +55,9 @@ enum GTranscribTextParam: String, CaseIterable {
         }
         switch value {
         case 0:
-            return .regular
-        case 1:
             return .medium
+        case 1:
+            return .semibold
         default:
             return .bold
         }

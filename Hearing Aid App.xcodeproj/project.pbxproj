@@ -79,6 +79,8 @@
 		86DFB20F2CE67E8700CBD94F /* NewSettingTableViewEmptyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DFB20E2CE67E8700CBD94F /* NewSettingTableViewEmptyCell.swift */; };
 		86DFB2112CE67F6600CBD94F /* NewSettingTableViewEmptyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86DFB2102CE67F6600CBD94F /* NewSettingTableViewEmptyCell.xib */; };
 		86DFB2132CE755BB00CBD94F /* RadialGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DFB2122CE755BB00CBD94F /* RadialGradientView.swift */; };
+		86EAFCC02D09A93900FBE13C /* NewSettingWithSubtitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EAFCBF2D09A93900FBE13C /* NewSettingWithSubtitleTableViewCell.swift */; };
+		86EAFCC22D09AA3300FBE13C /* NewSettingWithSubtitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86EAFCC12D09AA3300FBE13C /* NewSettingWithSubtitleTableViewCell.xib */; };
 		9A0441A926E8D97E0030AF77 /* HMicrophPermisApViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0441A726E8D97E0030AF77 /* HMicrophPermisApViewController.swift */; };
 		9A0441AA26E8D97E0030AF77 /* HMicrophPermisApViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A0441A826E8D97E0030AF77 /* HMicrophPermisApViewController.xib */; };
 		9A09434A282D654800F7AEC5 /* ZAppIconViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A094348282D654800F7AEC5 /* ZAppIconViewController.swift */; };
@@ -342,6 +344,8 @@
 		86DFB20E2CE67E8700CBD94F /* NewSettingTableViewEmptyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSettingTableViewEmptyCell.swift; sourceTree = "<group>"; };
 		86DFB2102CE67F6600CBD94F /* NewSettingTableViewEmptyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewSettingTableViewEmptyCell.xib; sourceTree = "<group>"; };
 		86DFB2122CE755BB00CBD94F /* RadialGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadialGradientView.swift; sourceTree = "<group>"; };
+		86EAFCBF2D09A93900FBE13C /* NewSettingWithSubtitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSettingWithSubtitleTableViewCell.swift; sourceTree = "<group>"; };
+		86EAFCC12D09AA3300FBE13C /* NewSettingWithSubtitleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewSettingWithSubtitleTableViewCell.xib; sourceTree = "<group>"; };
 		9883D930377BC8671B11DE76 /* Pods_Hearing_Aid_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hearing_Aid_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A0441A726E8D97E0030AF77 /* HMicrophPermisApViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMicrophPermisApViewController.swift; sourceTree = "<group>"; };
 		9A0441A826E8D97E0030AF77 /* HMicrophPermisApViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HMicrophPermisApViewController.xib; sourceTree = "<group>"; };
@@ -745,6 +749,8 @@
 				86DFB20C2CE671A600CBD94F /* NewSettingTableViewCell.xib */,
 				86DFB20E2CE67E8700CBD94F /* NewSettingTableViewEmptyCell.swift */,
 				86DFB2102CE67F6600CBD94F /* NewSettingTableViewEmptyCell.xib */,
+				86EAFCBF2D09A93900FBE13C /* NewSettingWithSubtitleTableViewCell.swift */,
+				86EAFCC12D09AA3300FBE13C /* NewSettingWithSubtitleTableViewCell.xib */,
 			);
 			path = NewSettingTableViewCell;
 			sourceTree = "<group>";
@@ -1617,6 +1623,7 @@
 				A51EBD3926D9575600674657 /* AppguitarBefore.mp3 in Resources */,
 				9AC90E662886B74C00A43212 /* TPermissListApViewController.xib in Resources */,
 				A552868926FA711500A92066 /* GOnbBSpeechViewCell.xib in Resources */,
+				86EAFCC22D09AA3300FBE13C /* NewSettingWithSubtitleTableViewCell.xib in Resources */,
 				9ADD32C428365A24002ADA43 /* JLocaleListApViewController.xib in Resources */,
 				86DFB2112CE67F6600CBD94F /* NewSettingTableViewEmptyCell.xib in Resources */,
 				9A4DA22128464DEA00DCBC87 /* RVoicChangeJViewController.xib in Resources */,
@@ -1742,6 +1749,7 @@
 				A53D650626E91FDD00C9882D /* SReqVoiceRecordApViewController.swift in Sources */,
 				9A60EDCC281A957300112720 /* UEqualizeApViewController.swift in Sources */,
 				83A8E8E32645A7FD0080AEE5 /* SpringTextView.swift in Sources */,
+				86EAFCC02D09A93900FBE13C /* NewSettingWithSubtitleTableViewCell.swift in Sources */,
 				9A1F9B26273E59EC0079C4F0 /* AOrientationalApProtocol.swift in Sources */,
 				9ACB45F5281307EE00FAF44E /* VCentereButnTableViewCell.swift in Sources */,
 				83A8E8E92645A7FD0080AEE5 /* DesignableTabBarController.swift in Sources */,

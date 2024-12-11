@@ -1,37 +1,46 @@
+//
+//  NewSettingWithSubtitleTableViewCell.swift
+//  Hearing Aid App
+//
+//  Created by Evgeniy Zelinskiy on 11.12.2024.
+//
+
 import UIKit
 
-enum NewSettingTableViewButtonType: Int {
+enum NewSettingWithSubtitleTableViewButtonType: Int {
     case info
     case switchButton
     case rightButton
     case leftButtonImage
 }
 
-protocol NewSettingTableViewCellDelegate: AnyObject {
-    func didSelectButton(with type: NewSettingTableViewButtonType, from cell: NewSettingTableViewCell)
+protocol NewSettingWithSubtitleTableViewCellDelegate: AnyObject {
+    func didSelectButton(with type: NewSettingWithSubtitleTableViewButtonType, from cell: NewSettingWithSubtitleTableViewCell)
 }
 
-struct NewSettingTableViewCellModel {
+struct NewSettingWithSubtitleTableViewCellModel {
     var cellId: String?
     var title: String?
     var attributedTitle: NSAttributedString? = nil
-    var buttonTypes: [NewSettingTableViewButtonType]
+    var subtitle: String?
+    var buttonTypes: [NewSettingWithSubtitleTableViewButtonType]
     var switchState: Bool = false
     var topInset: CGFloat = 0.0
     var rightImage: UIImage? = UIImage.init(named: "arrowOpenImage")
     var rightTintColor: UIColor? = UIColor.appColor(.Purple100)
     var leftImage: UIImage?
-    weak var delegate: NewSettingTableViewCellDelegate?
+    weak var delegate: NewSettingWithSubtitleTableViewCellDelegate?
 }
 
-typealias NewSettingTableViewCellConfig = АViewCellConfig<NewSettingTableViewCell, NewSettingTableViewCellModel>
+typealias NewSettingWithSubtitleTableViewCellConfig = АViewCellConfig<NewSettingWithSubtitleTableViewCell, NewSettingWithSubtitleTableViewCellModel>
 
-final class NewSettingTableViewCell: UITableViewCell, HConfigCellProtocol, UIViewCellNib {
+final class NewSettingWithSubtitleTableViewCell: UITableViewCell, HConfigCellProtocol, UIViewCellNib {
 
-    typealias DataType = NewSettingTableViewCellModel
+    typealias DataType = NewSettingWithSubtitleTableViewCellModel
     
     @IBOutlet private weak var leftImageView: UIImageView!
     @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var subtitleLabel: UILabel!
     
     @IBOutlet private weak var buttonsStackView: UIStackView!
     
@@ -45,7 +54,7 @@ final class NewSettingTableViewCell: UITableViewCell, HConfigCellProtocol, UIVie
     
     @IBOutlet private weak var containerViewTopConstraint: NSLayoutConstraint!
     
-    private weak var delegate: NewSettingTableViewCellDelegate?
+    private weak var delegate: NewSettingWithSubtitleTableViewCellDelegate?
     
     // MARK: - Lifecycle
     override func awakeFromNib() {
@@ -60,7 +69,7 @@ final class NewSettingTableViewCell: UITableViewCell, HConfigCellProtocol, UIVie
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        buttonsStackView.arrangedSubviews.enumerated().forEach { $0.element.isHidden = $0.offset != NewSettingTableViewButtonType.rightButton.rawValue }
+        buttonsStackView.arrangedSubviews.enumerated().forEach { $0.element.isHidden = $0.offset != NewSettingWithSubtitleTableViewButtonType.rightButton.rawValue }
         containerViewTopConstraint.constant = .zero
         mainButton.isHidden = false
         leftImageView.isHidden = true
@@ -73,7 +82,8 @@ final class NewSettingTableViewCell: UITableViewCell, HConfigCellProtocol, UIVie
         } else {
             titleLabel.text = data.title
         }
-        buttonsStackView.arrangedSubviews.enumerated().forEach { $0.element.isHidden = !data.buttonTypes.contains(NewSettingTableViewButtonType(rawValue: $0.offset)!) }
+        subtitleLabel.text = data.subtitle
+        buttonsStackView.arrangedSubviews.enumerated().forEach { $0.element.isHidden = !data.buttonTypes.contains(NewSettingWithSubtitleTableViewButtonType(rawValue: $0.offset)!) }
         mainSwitch.isOn = data.switchState
         mainButton.isHidden = !data.buttonTypes.contains(.rightButton)
         containerViewTopConstraint.constant = data.topInset
@@ -101,7 +111,7 @@ final class NewSettingTableViewCell: UITableViewCell, HConfigCellProtocol, UIVie
     
     // MARK: - IBActions
     @IBAction private func buttonAction(_ sender: UIButton) {
-        guard let buttonType = NewSettingTableViewButtonType(rawValue: sender.tag) else {
+        guard let buttonType = NewSettingWithSubtitleTableViewButtonType(rawValue: sender.tag) else {
             return
         }
         delegate?.didSelectButton(with: buttonType, from: self)
@@ -111,4 +121,5 @@ final class NewSettingTableViewCell: UITableViewCell, HConfigCellProtocol, UIVie
         delegate?.didSelectButton(with: .switchButton, from: self)
     }
 }
+
 

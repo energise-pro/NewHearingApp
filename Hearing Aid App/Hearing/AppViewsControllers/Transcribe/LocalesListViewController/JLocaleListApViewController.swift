@@ -57,18 +57,22 @@ final class JLocaleListApViewController: PMUMainViewController {
     // MARK: - Private methods
     private func configureUI() {
         let countLocales: Int
+        var titleText: String? = nil
         switch screenType {
         case .transcribe:
-            countLocales = CTranscribServicesAp.shared.supportedLocales.count
+            titleText = "Your language".localized()
+            countLocales = CTranscribServicesAp.shared.supportedLocalesWithSelectedLocale.count
         case .translateTo:
             countLocales = BTranslServicesNew.shared.outputLanguages.count
         case .translateFrom:
             countLocales = BTranslServicesNew.shared.inputLanguages.count
         }
-        title = "Available Languages %@".localized(with: ["\(countLocales)"])
-        navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        title = titleText ?? "Available Languages %@".localized(with: ["\(countLocales)"])
+        navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "Back".localized(), style: .plain, target: nil, action: nil)
+        navigationController?.navigationBar.topItem?.backBarButtonItem?.tintColor = UIColor.appColor(.Red100)!
+        navigationController?.navigationBar.barTintColor = UIColor.appColor(.White100)!
         
-        view.backgroundColor = UIColor.appColor(.UnactiveButton_3)
+        view.backgroundColor = UIColor.appColor(.Purple10)
         
         let cellNibs: [UIViewCellNib.Type] = [SettingTableViewCell.self]
         cellNibs.forEach { tableView.register($0.nib, forCellReuseIdentifier: $0.identifier) }
@@ -77,8 +81,8 @@ final class JLocaleListApViewController: PMUMainViewController {
     private func configureDataSource() {
         switch screenType {
         case .transcribe:
-            self.dataSource = CTranscribServicesAp.shared.supportedLocales
-                .compactMap { SettingTableViewCellModel(title: "\(Locale.current.localizedString(forIdentifier: $0.identifier)?.capitalized ?? "")", buttonTypes: [.rightButton], rightImage: UIImage(systemName: $0.identifier == CTranscribServicesAp.shared.selectedLocale ? "checkmark" : ""), rightTintColor: AThemeServicesAp.shared.activeColor, delegate: self) }
+            self.dataSource = CTranscribServicesAp.shared.supportedLocalesWithSelectedLocale
+                .compactMap { SettingTableViewCellModel(title: "\(Locale.current.localizedString(forIdentifier: $0.identifier)?.capitalized ?? "")", buttonTypes: [.rightButton], rightImage: UIImage(named: $0.identifier == CTranscribServicesAp.shared.selectedLocale ? "checkBoldIcon" : ""), rightTintColor: AThemeServicesAp.shared.activeColor, delegate: self) }
                 .compactMap { SettingTableViewCellConfig(item: $0) }
         case .translateTo:
             filteredLanguages = BTranslServicesNew.shared.outputLanguages
@@ -152,7 +156,7 @@ extension JLocaleListApViewController: SettingTableViewCellDelegate {
         
         switch screenType {
         case .transcribe:
-            CTranscribServicesAp.shared.changeLocale(on: CTranscribServicesAp.shared.supportedLocales[indexRow])
+            CTranscribServicesAp.shared.changeLocale(on: CTranscribServicesAp.shared.supportedLocalesWithSelectedLocale[indexRow])
             configureDataSource()
             delegate?.didChangeLocale()
             KAppConfigServic.shared.analytics.track(action: screenType.analyticAction, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.changeLanguage.rawValue])

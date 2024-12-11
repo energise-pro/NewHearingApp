@@ -29,7 +29,11 @@ extension UIViewController {
     }
     
     func presentCustomAlert(withMessageText message: String, dismissButtonText dismissText: String, confirmButtonText confirmText: String, delegate alertDelegate: AlertViewControllerDelegate) {
-        let alertController = AlertViewController(messageText: message, dismissText: dismissText, confirmText: confirmText, delegate: alertDelegate)
+        presentCustomAlert(withMessageText: message, dismissButtonText: dismissText, confirmButtonText: confirmText, checkboxViewText: nil, delegate: alertDelegate)
+    }
+    
+    func presentCustomAlert(withMessageText message: String, dismissButtonText dismissText: String, confirmButtonText confirmText: String, checkboxViewText checkboxText: String?, delegate alertDelegate: AlertViewControllerDelegate) {
+        let alertController = AlertViewController(messageText: message, dismissText: dismissText, confirmText: confirmText, checkboxText: checkboxText, delegate: alertDelegate)
         alertController.modalPresentationStyle = .overCurrentContext
         DispatchQueue.main.async { [weak self] in
             self?.present(alertController, animated: false, completion: nil)

@@ -91,17 +91,6 @@ final class YTranscriptDetailApViewController: PMUMainViewController {
     
     @objc private func trashButtonAction() {
         TapticEngine.impact.feedback(.medium)
-//        let yesAction = UIAlertAction(title: "Yes!".localized(), style: .default) { [weak self] _ in
-//            if let index = self?.transcriptModelIndex {
-//                CTranscribServicesAp.shared.savedTranscripts.remove(at: index)
-//                self?.delegate?.didUpdateTranscript()
-//                
-//                KAppConfigServic.shared.analytics.track(action: .v2TranscriptDetailsScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.delete.rawValue])
-//            }
-//            self?.navigationController?.popViewController(animated: true)
-//        }
-//        let noAction = UIAlertAction(title: "No".localized(), style: .default)
-//        presentAlertPM(title: "Do you want to remove this transcript?".localized(), message: "", actions: [noAction, yesAction])
         presentCustomAlert(
             withMessageText: "Delete this transcript?".localized(),
             dismissButtonText: "Keep".localized(),
@@ -120,7 +109,7 @@ final class YTranscriptDetailApViewController: PMUMainViewController {
 // MARK: - AlertViewControllerDelegate
 extension YTranscriptDetailApViewController: AlertViewControllerDelegate {
     
-    func onConfirmButtonAction() {
+    func onConfirmButtonAction(isCheckboxSelected: Bool) {
         if let index = transcriptModelIndex {
             CTranscribServicesAp.shared.savedTranscripts.remove(at: index)
             delegate?.didUpdateTranscript()

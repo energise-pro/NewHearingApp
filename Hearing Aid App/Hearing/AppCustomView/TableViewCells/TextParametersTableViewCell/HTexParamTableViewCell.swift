@@ -19,7 +19,7 @@ final class HTexParamTableViewCell: UITableViewCell, HConfigCellProtocol, UIView
     @IBOutlet private weak var fontWeightTitleLabel: UILabel!
     @IBOutlet private weak var alignmentTitleLabel: UILabel!
     
-    @IBOutlet private weak var fontSizeSlider: UISlider!
+    @IBOutlet private weak var fontSizeSlider: HTexParamTableViewCellSlider!
     
     @IBOutlet private var fontWeightLabels: [UILabel]!
     
@@ -45,9 +45,9 @@ final class HTexParamTableViewCell: UITableViewCell, HConfigCellProtocol, UIView
         fontSizeSlider.maximumValue = Float(GTranscribTextParam.FontSize.maxValue)
         fontSizeSlider.value = Float(GTranscribTextParam.FontSize.value)
         
-        fontWeightLabels.enumerated().forEach { $0.element.textColor = $0.offset == GTranscribTextParam.FontWeight.value ? AThemeServicesAp.shared.activeColor : UIColor.label }
+        fontWeightLabels.enumerated().forEach { $0.element.textColor = $0.offset == GTranscribTextParam.FontWeight.value ? UIColor.appColor(.Red100) : UIColor.appColor(.Purple100) }
         
-        alignmentImageViews.enumerated().forEach { $0.element.tintColor = $0.offset == GTranscribTextParam.TextAlignment.value ? AThemeServicesAp.shared.activeColor : UIColor.label }
+        alignmentImageViews.enumerated().forEach { $0.element.tintColor = $0.offset == GTranscribTextParam.TextAlignment.value ? UIColor.appColor(.Red100) : UIColor.appColor(.Purple100) }
     }
     
     // MARK: - IBActions
@@ -66,5 +66,19 @@ final class HTexParamTableViewCell: UITableViewCell, HConfigCellProtocol, UIView
         TapticEngine.impact.feedback(.medium)
         alignmentImageViews.enumerated().forEach { $0.element.tintColor = $0.offset == sender.tag ? AThemeServicesAp.shared.activeColor : UIColor.label }
         delegate?.didChangeValue(value: Int(sender.tag), for: .TextAlignment, from: self)
+    }
+}
+
+class HTexParamTableViewCellSlider: UISlider {
+    @IBInspectable var trackLineHeight: CGFloat = 2
+    
+    override func trackRect(forBounds bound: CGRect) -> CGRect {
+        
+        return CGRect(origin: bound.origin, size: CGSize(width: bound.width, height: trackLineHeight))
+    }
+    
+    override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
+        let touchArea = bounds.insetBy(dx: -15, dy: -15)
+        return touchArea.contains(point)
     }
 }

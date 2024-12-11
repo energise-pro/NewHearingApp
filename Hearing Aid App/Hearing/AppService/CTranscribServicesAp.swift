@@ -16,7 +16,7 @@ final class CTranscribServicesAp: NSObject {
     static let shared: CTranscribServicesAp = CTranscribServicesAp()
     static let TAG: String = "CTranscribServicesAp"
     
-    @Storage(key: "ShakeToClearText", defaultValue: false)
+    @Storage(key: "ShakeToClearText", defaultValue: true)
     private(set) var isShakeToClear: Bool
     
     @Storage(key: "OfflineTranslate", defaultValue: true)
@@ -55,6 +55,19 @@ final class CTranscribServicesAp: NSObject {
     
     var supportedLocales: [Locale] {
         return Array(SFSpeechRecognizer.supportedLocales()).sorted(by: { $0.identifier < $1.identifier})
+    }
+    
+    var supportedLocalesWithSelectedLocale: [Locale] {
+        let locales = Array(SFSpeechRecognizer.supportedLocales())
+        let sortedLocales = locales.sorted {
+            if $0.identifier == selectedLocale {
+                return true
+            } else if $1.identifier == selectedLocale {
+                return false
+            }
+            return $0.identifier < $1.identifier
+        }
+        return sortedLocales
     }
     
     var localizedSelectedLocale: String {

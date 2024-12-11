@@ -6,28 +6,28 @@ final class UTranscribApViewController: PMUMainViewController {
         case clear
         case save
         case transcribe
-        case flip
         case setup
+        case flip
         
         var image: UIImage? {
             switch self {
             case .clear:
-                return CAppConstants.Images.icTrash
+                return UIImage(named: "trashFilledIcon")
             case .save:
-                return CAppConstants.Images.icFolder
+                return UIImage(named: "saveFilledIcon")
             case .transcribe:
-                return UIImage.init(systemName: "mic.circle")
+                return UIImage(named: "micButtonOffIcon")
             case .flip:
-                return CAppConstants.Images.icFlip
+                return UIImage(named: "flipIcon")
             case .setup:
-                return CAppConstants.Images.icTextSetup
+                return UIImage(named: "textIcon")
             }
         }
         
         var title: String {
             switch self {
             case .clear:
-                return "Clear".localized()
+                return "Delete".localized()
             case .save:
                 return "Save".localized()
             case .transcribe:
@@ -52,8 +52,17 @@ final class UTranscribApViewController: PMUMainViewController {
     
     @IBOutlet private weak var placeholderLabelTopConstraint: NSLayoutConstraint!
     @IBOutlet private weak var placeholderLabelBottomConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var bottomBackgroundView: UIView!
     
     private var keyboardNotification = KeyboardNotification()
+    private(set) var notAskConfirmationForDeleteAction: Bool {
+        get {
+            return UserDefaults.standard.bool(forKey: "notAskConfirmationForDeleteAction")
+        }
+        set {
+            UserDefaults.standard.setValue(newValue, forKey: "notAskConfirmationForDeleteAction")
+        }
+    }
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -74,7 +83,8 @@ final class UTranscribApViewController: PMUMainViewController {
         guard motion == .motionShake, CTranscribServicesAp.shared.isShakeToClear else {
             return
         }
-        presentClearConfirmAlert()
+        clearAction()
+        KAppConfigServic.shared.analytics.track(action: .v2TranscribeScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.clearText.rawValue])
     }
     
     override func didChangeTheme() {
@@ -85,26 +95,28 @@ final class UTranscribApViewController: PMUMainViewController {
     // MARK: - Private methods
     private func configureUI() {
         title = CTranscribServicesAp.shared.localizedSelectedLocale.components(separatedBy: " ").first?.capitalized
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Close".localized(), style: .plain, target: self, action: #selector(closeButtonAction))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.up"), style: .plain, target: self, action: #selector(shareButtonAction))
-        [navigationItem.leftBarButtonItem, navigationItem.rightBarButtonItem].forEach { $0?.tintColor = AThemeServicesAp.shared.activeColor }
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.appColor(.Purple100)!]
+        let shareButtonItem = UIBarButtonItem(image: UIImage(named: "shareButtonIcon"), style: .plain, target: self, action: #selector(shareButtonAction))
+        navigationItem.leftBarButtonItem = shareButtonItem
+        navigationController?.navigationBar.barTintColor = UIColor.appColor(.White100)!
+        setupRightBarButton()
         
         BottomButtonType.allCases.enumerated().forEach { index, buttonType in
             bottomImageViews[index].image = buttonType.image
             bottomLabels[index].text = buttonType.title
             
-            bottomImageViews[index].tintColor = UIColor.appColor(.UnactiveButton_1)
-            bottomLabels[index].textColor = UIColor.appColor(.UnactiveButton_1)
+            bottomImageViews[index].tintColor = UIColor.appColor(.White100)
+            bottomLabels[index].textColor = UIColor.appColor(.White100)
         }
         
-        let clearButton = UIBarButtonItem(image: UIImage(systemName: "trash"), style: .plain, target: self, action: #selector(clearButtonAction))
+        let clearButton = UIBarButtonItem(image: UIImage(named: "trashIcon"), style: .plain, target: self, action: #selector(clearButtonAction))
         let copyAllButton = UIBarButtonItem(title: "Copy all".localized(), style: .plain, target: self, action: #selector(copyAllButtonAction))
         let saveButton = UIBarButtonItem(title: "Save".localized(), style: .plain, target: self, action: #selector(saveButtonAction))
         let doneButton = UIBarButtonItem(title: "Done".localized(), style: .plain, target: self, action: #selector(doneButtonAction))
         mainTextView.addActionBar(with: [clearButton, copyAllButton, saveButton, doneButton])
         
-        placeholderLabel.text = "Tap the mic to get started ;)".localized()
-        placeholderLabel.textColor = UIColor.appColor(.UnactiveButton_1)?.withAlphaComponent(0.5)
+        placeholderLabel.text = "Tap the Mic button below to get started".localized()
+        placeholderLabel.textColor = UIColor.appColor(.Grey100)
         
         mainTextView.tintColor = AThemeServicesAp.shared.activeColor
         
@@ -116,7 +128,7 @@ final class UTranscribApViewController: PMUMainViewController {
         
         CTranscribServicesAp.shared.availabilityRecognition = { [weak self] available in
             DispatchQueue.main.async {
-                self?.placeholderLabel.text = "Recognition Not Available :(".localized()
+                self?.placeholderLabel.text = CTranscribServicesAp.shared.recordPermission == .notDetermined ? "Allow speech recognition".localized() : "Recognition not available".localized()
             }
         }
         
@@ -125,6 +137,20 @@ final class UTranscribApViewController: PMUMainViewController {
         }
         
         updateFonts()
+        
+        bottomBackgroundView.layer.cornerRadius = 12
+        bottomBackgroundView.layer.cornerCurve = .continuous
+        bottomBackgroundView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        bottomBackgroundView.backgroundColor = UIColor.appColor(.Purple100)
+    }
+    
+    private func setupRightBarButton() {
+        let closeButton = UIButton(type: .system)
+        closeButton.setTitle("Close".localized(), for: .normal)
+        closeButton.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
+        closeButton.setTitleColor(UIColor.appColor(.Red100), for: .normal)
+        closeButton.addTarget(self, action: #selector(closeButtonAction), for: .touchUpInside)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: closeButton)
     }
     
     private func updateFonts() {
@@ -150,13 +176,13 @@ final class UTranscribApViewController: PMUMainViewController {
     }
     
     private func presentClearConfirmAlert() {
-        let yesAction = UIAlertAction(title: "Yes!".localized(), style: .default) { [weak self] _ in
-            self?.clearAction()
-            
-            KAppConfigServic.shared.analytics.track(action: .v2TranscribeScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.clearText.rawValue])
-        }
-        let noAction = UIAlertAction(title: "No".localized(), style: .default)
-        presentAlertPM(title: "Are you sure you want to remove text?".localized(), message: "", actions: [noAction, yesAction])
+        presentCustomAlert(
+            withMessageText: "Delete this transcript?".localized(),
+            dismissButtonText: "Keep".localized(),
+            confirmButtonText: "Delete".localized(),
+            checkboxViewText: "Don’t ask me again".localized(),
+            delegate: self
+        )
     }
     
     private func changeTranscribeState(isHapticEnabled: Bool = true, isSaveRecognitionText: Bool = false) {
@@ -168,7 +194,7 @@ final class UTranscribApViewController: PMUMainViewController {
             newState ? TapticEngine.customHaptic.playOn() : TapticEngine.customHaptic.playOff()
         }
         UIApplication.shared.isIdleTimerDisabled = newState
-        bottomImageViews[BottomButtonType.transcribe.rawValue].tintColor = newState ? AThemeServicesAp.shared.activeColor : UIColor.appColor(.UnactiveButton_1)
+        bottomImageViews[BottomButtonType.transcribe.rawValue].image = newState ? UIImage(named: "micButtonOnIcon") : UIImage(named: "micButtonOffIcon")
         bottomLabels[BottomButtonType.transcribe.rawValue].textColor = UIColor.appColor(.UnactiveButton_1)
         newState && SAudioKitServicesAp.shared.countOfUsingRecognize % 3 == 0 ? KAppConfigServic.shared.settings.presentAppRatingAlert() : Void()
         newState ? SAudioKitServicesAp.shared.increaseCountOfUsing(for: .recognize) : Void()
@@ -177,7 +203,7 @@ final class UTranscribApViewController: PMUMainViewController {
         KAppConfigServic.shared.analytics.track(action: .v2TranscribeScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.microphone.rawValue)_\(stringState)"])
         
         if newState {
-            placeholderLabel.text = "Go ahead, I'm listening :)".localized()
+            placeholderLabel.text = "Start speaking".localized()
             
             CTranscribServicesAp.shared.recognize { [weak self] text in
                 guard let self = self else { return }
@@ -189,7 +215,7 @@ final class UTranscribApViewController: PMUMainViewController {
                 CTranscribServicesAp.shared.stopRecognition()
             }
         } else {
-            placeholderLabel.text = "Tap the mic to get started ;)".localized()
+            placeholderLabel.text = "Tap the Mic button below to get started".localized()
             
             CTranscribServicesAp.shared.stopRecognition(isSaveRecognitionText: isSaveRecognitionText)
             SAudioKitServicesAp.shared.switchAudioEngine(.aid)
@@ -199,7 +225,7 @@ final class UTranscribApViewController: PMUMainViewController {
     private func clearAction() {
         mainTextView.text = ""
         CTranscribServicesAp.shared.transcribeText = ""
-        placeholderLabel.text = "Tap the mic to get started ;)".localized()
+        placeholderLabel.text = "Tap the Mic button below to get started".localized()
         placeholderLabel.isHidden = false
         CTranscribServicesAp.shared.cleanDictionary()
         CTranscribServicesAp.shared.isStartedTranscribe ? changeTranscribeState() : Void()
@@ -274,7 +300,12 @@ final class UTranscribApViewController: PMUMainViewController {
         switch buttonType {
         case .clear:
             TapticEngine.impact.feedback(.medium)
-            presentClearConfirmAlert()
+            if !notAskConfirmationForDeleteAction {
+                presentClearConfirmAlert()
+            } else {
+                clearAction()
+                KAppConfigServic.shared.analytics.track(action: .v2TranscribeScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.clearText.rawValue])
+            }
         case .save:
             saveAction()
             KAppConfigServic.shared.analytics.track(action: .v2TranscribeScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.saveText.rawValue])
@@ -330,5 +361,15 @@ extension UTranscribApViewController: FTextSetupApViewControllerDelegate {
     
     func didChangeLocale() {
         title = CTranscribServicesAp.shared.localizedSelectedLocale.components(separatedBy: " ").first?.capitalized
+    }
+}
+
+// MARK: - AlertViewControllerDelegate
+extension UTranscribApViewController: AlertViewControllerDelegate {
+    
+    func onConfirmButtonAction(isCheckboxSelected: Bool) {
+        clearAction()
+        KAppConfigServic.shared.analytics.track(action: .v2TranscribeScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.clearText.rawValue])
+        notAskConfirmationForDeleteAction = isCheckboxSelected
     }
 }

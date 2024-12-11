@@ -56,10 +56,11 @@ final class FTextSetupApViewController: PMUMainViewController {
     // MARK: - Private methods
     private func configureUI() {
         title = "Text setup".localized()
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.appColor(.Purple100)!]
         
-        view.backgroundColor = UIColor.appColor(.UnactiveButton_3)
+        view.backgroundColor = UIColor.appColor(.Purple10)
         
-        let cellNibs: [UIViewCellNib.Type] = [HTexParamTableViewCell.self, SettingTableViewCell.self]
+        let cellNibs: [UIViewCellNib.Type] = [HTexParamTableViewCell.self, SettingTableViewCell.self, NewSettingWithSubtitleTableViewCell.self]
         cellNibs.forEach { tableView.register($0.nib, forCellReuseIdentifier: $0.identifier) }
     }
     
@@ -68,10 +69,14 @@ final class FTextSetupApViewController: PMUMainViewController {
         let textCellConfig = HTexParamTableViewCellConfig(item: textCellModel)
         
         let currentLocale = CTranscribServicesAp.shared.localizedSelectedLocale.capitalized
-        let localeCellModel = SettingTableViewCellModel(title: currentLocale, buttonTypes: [.rightButton], delegate: self)
-        let localeCellConfig = SettingTableViewCellConfig(item: localeCellModel)
+        let localeCellTitle = NSAttributedString(string: "Your language", attributes: [
+            .foregroundColor: UIColor.appColor(.Purple100)!,
+            .font: UIFont.systemFont(ofSize: 17, weight: .medium)
+        ])
+        let localeCellModel = NewSettingWithSubtitleTableViewCellModel(attributedTitle: localeCellTitle, subtitle: currentLocale, buttonTypes: [.rightButton], topInset: 10, delegate: self)
+        let localeCellConfig = NewSettingWithSubtitleTableViewCellConfig(item: localeCellModel, height: 87)
         
-        let clearCellModel = SettingTableViewCellModel(title: "Shake to clear".localized(), buttonTypes: [.switchButton], switchState: CTranscribServicesAp.shared.isShakeToClear, delegate: self)
+        let clearCellModel = SettingTableViewCellModel(title: "Shake to delete transcript".localized(), buttonTypes: [.switchButton], switchState: CTranscribServicesAp.shared.isShakeToClear, delegate: self)
         let clearCellConfig = SettingTableViewCellConfig(item: clearCellModel)
         
         switch screenType {
@@ -150,6 +155,26 @@ extension FTextSetupApViewController: SettingTableViewCellDelegate {
             default:
                 break
             }
+        default:
+            break
+        }
+    }
+}
+
+// MARK: - NewSettingWithSubtitleTableViewCellDelegate
+extension FTextSetupApViewController: NewSettingWithSubtitleTableViewCellDelegate {
+    
+    func didSelectButton(with type: NewSettingWithSubtitleTableViewButtonType, from cell: NewSettingWithSubtitleTableViewCell) {
+        guard let indexRow = tableView.indexPath(for: cell)?.row else {
+            return
+        }
+        TapticEngine.impact.feedback(.medium)
+        
+        switch indexRow {
+        case 1 where screenType == .transcribe: // Locale
+            AppsNavManager.shared.pushJLocaleListApViewController(with: screenType == .transcribe ? .transcribe : .translateFrom, with: self)
+            KAppConfigServic.shared.analytics.track(action: screenType.analyticAction, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.changeLanguage.rawValue])
+
         default:
             break
         }
