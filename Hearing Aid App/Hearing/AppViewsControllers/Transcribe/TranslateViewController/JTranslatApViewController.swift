@@ -27,11 +27,11 @@ final class JTranslatApViewController: PMUMainViewController {
         var title: String {
             switch self {
             case .clear:
-                return "Clear".localized()
+                return "Delete".localized()
             case .save:
                 return "Save".localized()
             case .transcribe:
-                return "Transcribe".localized()
+                return ""
             case .textSetup:
                 return "Text".localized()
             case .languageSetup:
@@ -58,8 +58,17 @@ final class JTranslatApViewController: PMUMainViewController {
     @IBOutlet private weak var topPlaceholderLabelTopConstraint: NSLayoutConstraint!
     @IBOutlet private weak var topPlaceholderLabelBottomConstraint: NSLayoutConstraint!
     @IBOutlet private weak var centerViewYConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var bottomBackgroundView: UIView!
     
     private var keyboardNotification = KeyboardNotification()
+    private(set) var notAskConfirmationForDeleteAction: Bool {
+        get {
+            return UserDefaults.standard.bool(forKey: "notAskConfirmationForDeleteTranslateAction")
+        }
+        set {
+            UserDefaults.standard.setValue(newValue, forKey: "notAskConfirmationForDeleteTranslateAction")
+        }
+    }
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -80,7 +89,8 @@ final class JTranslatApViewController: PMUMainViewController {
         guard motion == .motionShake, CTranscribServicesAp.shared.isShakeToClear else {
             return
         }
-        presentClearConfirmAlert()
+        clearAction()
+        KAppConfigServic.shared.analytics.track(action: .v2TranslateScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.clearText.rawValue])
     }
     
     override func didChangeTheme() {
@@ -91,23 +101,24 @@ final class JTranslatApViewController: PMUMainViewController {
     // MARK: - Private methods
     private func configureUI() {
         title = BTranslServicesNew.shared.localizedInputLanguage.capitalized + " - " + BTranslServicesNew.shared.localizedOutputLanguage.capitalized
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Close".localized(), style: .plain, target: self, action: #selector(closeButtonAction))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.up"), style: .plain, target: self, action: #selector(shareButtonAction))
-        [navigationItem.leftBarButtonItem, navigationItem.rightBarButtonItem].forEach { $0?.tintColor = AThemeServicesAp.shared.activeColor }
-        navigationController?.navigationBar.backgroundColor = .systemBackground
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.appColor(.Purple100)!]
+        let shareButtonItem = UIBarButtonItem(image: UIImage(named: "shareButtonIcon"), style: .plain, target: self, action: #selector(shareButtonAction))
+        navigationItem.leftBarButtonItem = shareButtonItem
+        navigationController?.navigationBar.barTintColor = UIColor.appColor(.White100)!
+        setupRightBarButton()
         
         BottomButtonType.allCases.enumerated().forEach { index, buttonType in
             bottomImageViews[index].image = buttonType.image
             bottomLabels[index].text = buttonType.title
             
-            bottomImageViews[index].tintColor = UIColor.appColor(.UnactiveButton_1)
-            bottomLabels[index].textColor = UIColor.appColor(.UnactiveButton_1)
+            bottomImageViews[index].tintColor = UIColor.appColor(.White100)
+            bottomLabels[index].textColor = UIColor.appColor(.White100)
         }
         
         flipButtonImageView.image = CAppConstants.Images.icFlip
         flipButtonImageView.tintColor = UIColor.appColor(.UnactiveButton_1)
         
-        let clearButton = UIBarButtonItem(image: UIImage(systemName: "trash"), style: .plain, target: self, action: #selector(clearButtonAction))
+        let clearButton = UIBarButtonItem(image: UIImage(named: "trashIcon"), style: .plain, target: self, action: #selector(clearButtonAction))
         let copyAllButton = UIBarButtonItem(title: "Copy all".localized(), style: .plain, target: self, action: #selector(copyAllButtonAction))
         let saveButton = UIBarButtonItem(title: "Save".localized(), style: .plain, target: self, action: #selector(saveButtonAction))
         let doneButton = UIBarButtonItem(title: "Done".localized(), style: .plain, target: self, action: #selector(doneButtonAction))
@@ -118,7 +129,7 @@ final class JTranslatApViewController: PMUMainViewController {
         }
         
         placeholderLabels.forEach {
-            $0.text = "Tap the mic to get started ;)".localized()
+            $0.text = "Tap the Mic button below to get started".localized()
             $0.textColor = UIColor.appColor(.UnactiveButton_1)?.withAlphaComponent(0.5)
         }
         
@@ -131,7 +142,7 @@ final class JTranslatApViewController: PMUMainViewController {
         CTranscribServicesAp.shared.availabilityRecognition = { [weak self] available in
             DispatchQueue.main.async {
                 self?.placeholderLabels.forEach {
-                    $0.text = "Recognition Not Available :(".localized()
+                    $0.text = "Recognition not available".localized()
                 }
             }
         }
@@ -141,6 +152,20 @@ final class JTranslatApViewController: PMUMainViewController {
         }
         
         updateFonts()
+        
+        bottomBackgroundView.layer.cornerRadius = 12
+        bottomBackgroundView.layer.cornerCurve = .continuous
+        bottomBackgroundView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        bottomBackgroundView.backgroundColor = UIColor.appColor(.Purple100)
+    }
+    
+    private func setupRightBarButton() {
+        let closeButton = UIButton(type: .system)
+        closeButton.setTitle("Close".localized(), for: .normal)
+        closeButton.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
+        closeButton.setTitleColor(UIColor.appColor(.Red100), for: .normal)
+        closeButton.addTarget(self, action: #selector(closeButtonAction), for: .touchUpInside)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: closeButton)
     }
     
     private func updateFonts() {
@@ -170,13 +195,13 @@ final class JTranslatApViewController: PMUMainViewController {
     }
     
     private func presentClearConfirmAlert() {
-        let yesAction = UIAlertAction(title: "Yes!".localized(), style: .default) { [weak self] _ in
-            self?.clearAction()
-            
-            KAppConfigServic.shared.analytics.track(action: .v2TranslateScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.clearText.rawValue])
-        }
-        let noAction = UIAlertAction(title: "No".localized(), style: .default)
-        presentAlertPM(title: "Are you sure you want to remove text?".localized(), message: "", actions: [noAction, yesAction])
+        presentCustomAlert(
+            withMessageText: "Delete this transcript?".localized(),
+            dismissButtonText: "Keep".localized(),
+            confirmButtonText: "Delete".localized(),
+            checkboxViewText: "Don’t ask me again".localized(),
+            delegate: self
+        )
     }
     
     private func changeTranscribeState(isHapticEnabled: Bool = true, isSaveRecognitionText: Bool = false) {
@@ -188,7 +213,7 @@ final class JTranslatApViewController: PMUMainViewController {
             newState ? TapticEngine.customHaptic.playOn() : TapticEngine.customHaptic.playOff()
         }
         UIApplication.shared.isIdleTimerDisabled = newState
-        bottomImageViews[BottomButtonType.transcribe.rawValue].tintColor = newState ? AThemeServicesAp.shared.activeColor : UIColor.appColor(.UnactiveButton_1)
+        bottomImageViews[BottomButtonType.transcribe.rawValue].image = newState ? UIImage(named: "micButtonOnIcon") : UIImage(named: "micButtonOffIcon")
         bottomLabels[BottomButtonType.transcribe.rawValue].textColor = UIColor.appColor(.UnactiveButton_1)
         newState && SAudioKitServicesAp.shared.countOfUsingRecognize % 3 == 0 ? KAppConfigServic.shared.settings.presentAppRatingAlert() : Void()
         newState ? SAudioKitServicesAp.shared.increaseCountOfUsing(for: .translate) : Void()
@@ -198,7 +223,7 @@ final class JTranslatApViewController: PMUMainViewController {
         
         if newState {
             placeholderLabels.forEach {
-                $0.text = "Go ahead, I'm listening :)".localized()
+                $0.text = "Start speaking".localized()
             }
             
             CTranscribServicesAp.shared.recognize { [weak self] text in
@@ -212,7 +237,7 @@ final class JTranslatApViewController: PMUMainViewController {
             }
         } else {
             placeholderLabels.forEach {
-                $0.text = "Tap the mic to get started ;)".localized()
+                $0.text = "Tap the Mic button below to get started".localized()
             }
             
             CTranscribServicesAp.shared.stopRecognition(isSaveRecognitionText: isSaveRecognitionText)
@@ -225,7 +250,7 @@ final class JTranslatApViewController: PMUMainViewController {
         BTranslServicesNew.shared.translateFromText = ""
         BTranslServicesNew.shared.translateToText = ""
         placeholderLabels.forEach {
-            $0.text = "Tap the mic to get started ;)".localized()
+            $0.text = "Tap the Mic button below to get started".localized()
             $0.isHidden = false
         }
         CTranscribServicesAp.shared.cleanDictionary()
@@ -301,7 +326,12 @@ final class JTranslatApViewController: PMUMainViewController {
         switch buttonType {
         case .clear:
             TapticEngine.impact.feedback(.medium)
-            presentClearConfirmAlert()
+            if !notAskConfirmationForDeleteAction {
+                presentClearConfirmAlert()
+            } else {
+                clearAction()
+                KAppConfigServic.shared.analytics.track(action: .v2TranslateScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.clearText.rawValue])
+            }
         case .save:
             saveAction()
             KAppConfigServic.shared.analytics.track(action: .v2TranslateScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.saveText.rawValue])
@@ -392,5 +422,15 @@ extension JTranslatApViewController: GLangSetupApViewControllerDelegate {
     
     func didChangeLocale() {
         title = BTranslServicesNew.shared.localizedInputLanguage.capitalized + " - " + BTranslServicesNew.shared.localizedOutputLanguage.capitalized
+    }
+}
+
+// MARK: - AlertViewControllerDelegate
+extension JTranslatApViewController: AlertViewControllerDelegate {
+    
+    func onConfirmButtonAction(isCheckboxSelected: Bool) {
+        clearAction()
+        KAppConfigServic.shared.analytics.track(action: .v2TranslateScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.clearText.rawValue])
+        notAskConfirmationForDeleteAction = isCheckboxSelected
     }
 }

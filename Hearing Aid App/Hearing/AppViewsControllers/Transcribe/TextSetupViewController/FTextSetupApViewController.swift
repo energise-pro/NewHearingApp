@@ -76,7 +76,8 @@ final class FTextSetupApViewController: PMUMainViewController {
         let localeCellModel = NewSettingWithSubtitleTableViewCellModel(attributedTitle: localeCellTitle, subtitle: currentLocale, buttonTypes: [.rightButton], topInset: 10, delegate: self)
         let localeCellConfig = NewSettingWithSubtitleTableViewCellConfig(item: localeCellModel, height: 87)
         
-        let clearCellModel = SettingTableViewCellModel(title: "Shake to delete transcript".localized(), buttonTypes: [.switchButton], switchState: CTranscribServicesAp.shared.isShakeToClear, delegate: self)
+        let buttonTypes: [SettingTableViewButtonType] = screenType == .translate ? [.switchButton, .info] : [.switchButton]
+        let clearCellModel = SettingTableViewCellModel(title: "Shake to delete transcript".localized(), buttonTypes: buttonTypes, switchState: CTranscribServicesAp.shared.isShakeToClear, delegate: self)
         let clearCellConfig = SettingTableViewCellConfig(item: clearCellModel)
         
         switch screenType {
@@ -152,6 +153,9 @@ extension FTextSetupApViewController: SettingTableViewCellDelegate {
                 
                 let stringState = newState ? GAppAnalyticActions.enable.rawValue : GAppAnalyticActions.disable.rawValue
                 KAppConfigServic.shared.analytics.track(action: screenType.analyticAction, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.shakeClearText.rawValue)_\(stringState)"])
+            case .info:
+                presentAlertPM(title: "Shake to delete transcript".localized(), message: "Shake your device to delete the entire transcript automatically".localized())
+//                KAppConfigServic.shared.analytics.track(action: screenType.analyticAction, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.limiter.rawValue)_\(GAppAnalyticActions.info.rawValue)"])
             default:
                 break
             }

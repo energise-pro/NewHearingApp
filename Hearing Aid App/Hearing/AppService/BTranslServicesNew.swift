@@ -45,18 +45,38 @@ final class BTranslServicesNew: NSObject {
     }
     
     var outputLanguages: [TranslateLanguage] {
-        return TranslateLanguage.allLanguages().sorted {
+        let allLanguages = TranslateLanguage.allLanguages()
+        let downloadedLanguages = allLanguages.filter { isLanguageDownloaded($0) }.sorted {
+            if $0 == BTranslServicesNew.shared.outputLanguage {
+                return true
+            } else if $1 == BTranslServicesNew.shared.outputLanguage {
+                return false
+            }
             return Locale.current.localizedString(forLanguageCode: $0.rawValue)! < Locale.current.localizedString(forLanguageCode: $1.rawValue)!
         }
+        let nonDownloadedLanguages = allLanguages.filter { !isLanguageDownloaded($0) }.sorted {
+            Locale.current.localizedString(forLanguageCode: $0.rawValue)! < Locale.current.localizedString(forLanguageCode: $1.rawValue)!
+        }
+        return downloadedLanguages + nonDownloadedLanguages
     }
     
     var inputLanguages: [TranslateLanguage] {
-        let filteredLanguages = TranslateLanguage.allLanguages().filter { translateLanguage in
+        let allLanguages = TranslateLanguage.allLanguages()
+        let filteredLanguages = allLanguages.filter { translateLanguage in
             return CTranscribServicesAp.shared.supportedLocales.contains(where: { $0.identifier.components(separatedBy: "-").first == translateLanguage.rawValue })
         }
-        return filteredLanguages.sorted {
+        let downloadedLanguages = filteredLanguages.filter { isLanguageDownloaded($0) }.sorted {
+            if $0 == BTranslServicesNew.shared.inputLanguage {
+                return true
+            } else if $1 == BTranslServicesNew.shared.inputLanguage {
+                return false
+            }
             return Locale.current.localizedString(forLanguageCode: $0.rawValue)! < Locale.current.localizedString(forLanguageCode: $1.rawValue)!
         }
+        let nonDownloadedLanguages = filteredLanguages.filter { !isLanguageDownloaded($0) }.sorted {
+            Locale.current.localizedString(forLanguageCode: $0.rawValue)! < Locale.current.localizedString(forLanguageCode: $1.rawValue)!
+        }
+        return downloadedLanguages + nonDownloadedLanguages
     }
     
     @Storage(key: "TranslateFromText", defaultValue: "")

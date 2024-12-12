@@ -81,6 +81,8 @@
 		86DFB2132CE755BB00CBD94F /* RadialGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DFB2122CE755BB00CBD94F /* RadialGradientView.swift */; };
 		86EAFCC02D09A93900FBE13C /* NewSettingWithSubtitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EAFCBF2D09A93900FBE13C /* NewSettingWithSubtitleTableViewCell.swift */; };
 		86EAFCC22D09AA3300FBE13C /* NewSettingWithSubtitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86EAFCC12D09AA3300FBE13C /* NewSettingWithSubtitleTableViewCell.xib */; };
+		86EAFCC52D0AC40500FBE13C /* LocaleListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EAFCC42D0AC40400FBE13C /* LocaleListTableViewCell.swift */; };
+		86EAFCC72D0ACC3200FBE13C /* LocaleListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86EAFCC62D0ACC3200FBE13C /* LocaleListTableViewCell.xib */; };
 		9A0441A926E8D97E0030AF77 /* HMicrophPermisApViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0441A726E8D97E0030AF77 /* HMicrophPermisApViewController.swift */; };
 		9A0441AA26E8D97E0030AF77 /* HMicrophPermisApViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A0441A826E8D97E0030AF77 /* HMicrophPermisApViewController.xib */; };
 		9A09434A282D654800F7AEC5 /* ZAppIconViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A094348282D654800F7AEC5 /* ZAppIconViewController.swift */; };
@@ -346,6 +348,8 @@
 		86DFB2122CE755BB00CBD94F /* RadialGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadialGradientView.swift; sourceTree = "<group>"; };
 		86EAFCBF2D09A93900FBE13C /* NewSettingWithSubtitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSettingWithSubtitleTableViewCell.swift; sourceTree = "<group>"; };
 		86EAFCC12D09AA3300FBE13C /* NewSettingWithSubtitleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewSettingWithSubtitleTableViewCell.xib; sourceTree = "<group>"; };
+		86EAFCC42D0AC40400FBE13C /* LocaleListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaleListTableViewCell.swift; sourceTree = "<group>"; };
+		86EAFCC62D0ACC3200FBE13C /* LocaleListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocaleListTableViewCell.xib; sourceTree = "<group>"; };
 		9883D930377BC8671B11DE76 /* Pods_Hearing_Aid_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hearing_Aid_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A0441A726E8D97E0030AF77 /* HMicrophPermisApViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMicrophPermisApViewController.swift; sourceTree = "<group>"; };
 		9A0441A826E8D97E0030AF77 /* HMicrophPermisApViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HMicrophPermisApViewController.xib; sourceTree = "<group>"; };
@@ -753,6 +757,15 @@
 				86EAFCC12D09AA3300FBE13C /* NewSettingWithSubtitleTableViewCell.xib */,
 			);
 			path = NewSettingTableViewCell;
+			sourceTree = "<group>";
+		};
+		86EAFCC32D0AC3BB00FBE13C /* TranslateTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				86EAFCC42D0AC40400FBE13C /* LocaleListTableViewCell.swift */,
+				86EAFCC62D0ACC3200FBE13C /* LocaleListTableViewCell.xib */,
+			);
+			path = TranslateTableViewCell;
 			sourceTree = "<group>";
 		};
 		9094A7AF71082B3103E99273 /* Pods */ = {
@@ -1234,6 +1247,7 @@
 		9ACB45EA2812F1FA00FAF44E /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				86EAFCC32D0AC3BB00FBE13C /* TranslateTableViewCell */,
 				86DFB2092CE6709000CBD94F /* NewSettingTableViewCell */,
 				9A2452D52837924B0019DAC1 /* TranscriptTableViewCell */,
 				9AEC02ED283533E900E9E88B /* TextParametersTableViewCell */,
@@ -1636,6 +1650,7 @@
 				9A5512E4280977380078C5E5 /* SHearinApViewController.xib in Resources */,
 				83A8E8A82645898B0080AEE5 /* Assets.xcassets in Resources */,
 				8619E5CD2D074A7C0044B624 /* AlertViewController.xib in Resources */,
+				86EAFCC72D0ACC3200FBE13C /* LocaleListTableViewCell.xib in Resources */,
 				83A0A0CE267E02C700D06F35 /* Implode.ahap in Resources */,
 				9A60EDCD281A957300112720 /* UEqualizeApViewController.xib in Resources */,
 				9A1F22D12837CD32008C9E86 /* JTranslatApViewController.xib in Resources */,
@@ -1716,6 +1731,7 @@
 				9A80746526E8045E00E89B83 /* NSLayoutConstraint+Extensions.swift in Sources */,
 				86DFB20B2CE670AD00CBD94F /* NewSettingTableViewCell.swift in Sources */,
 				9A122CF0283B8DB900944287 /* GLangSetupApViewController.swift in Sources */,
+				86EAFCC52D0AC40500FBE13C /* LocaleListTableViewCell.swift in Sources */,
 				9ACB45E82812D0CD00FAF44E /* QTemplateApViewController.swift in Sources */,
 				9ACB45C62812B9BF00FAF44E /* Waveform.swift in Sources */,
 				9A635DD226F3811900A6C0EF /* SCatchUpApViewController.swift in Sources */,

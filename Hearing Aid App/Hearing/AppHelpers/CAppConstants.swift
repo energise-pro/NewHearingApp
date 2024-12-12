@@ -65,12 +65,12 @@ struct CAppConstants {
         
 //        static let icGlobe = UIImage(named: "icGlobe")!
 //        static let icKeyboard = UIImage(named: "icKeyboard")!
-        static let icFolder = UIImage(named: "icFolder")!
-        static let icTrash = UIImage(named: "icTrash")!
-        static let icTextSetup = UIImage(named: "icTextSetup")!
-        static let icLanguageSetup = UIImage(named: "icLanguageSetup")!
-        static let icFlip = UIImage(named: "icFlip")!
-        static let icTranslateMic = UIImage(named: "icTranslateMic")!
+        static let icFolder = UIImage(named: "saveFilledIcon")!
+        static let icTrash = UIImage(named: "trashFilledIcon")!
+        static let icTextSetup = UIImage(named: "textIcon")!
+        static let icLanguageSetup = UIImage(named: "translateIcon")!
+        static let icFlip = UIImage(named: "arrowsLeftRightIcons")!
+        static let icTranslateMic = UIImage(named: "micButtonOffIcon")!
         
         static let icTabHearing = UIImage(named: "hearingTabbarIcon")!
         static let icTabMicro = UIImage(named: "transcriptionTabbarIcon")!

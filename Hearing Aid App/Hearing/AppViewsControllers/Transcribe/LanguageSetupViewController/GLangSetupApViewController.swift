@@ -33,8 +33,9 @@ final class GLangSetupApViewController: PMUMainViewController {
     // MARK: - Private methods
     private func configureUI() {
         title = "Language".localized()
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.appColor(.Purple100)!]
         
-        view.backgroundColor = UIColor.appColor(.UnactiveButton_3)
+        view.backgroundColor = UIColor.appColor(.Purple10)
         
         let cellNibs: [UIViewCellNib.Type] = [SettingTableViewCell.self]
         cellNibs.forEach { tableView.register($0.nib, forCellReuseIdentifier: $0.identifier) }

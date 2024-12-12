@@ -1,45 +1,42 @@
 //
-//  NewSettingWithSubtitleTableViewCell.swift
+//  LocaleListTableViewCell.swift
 //  Hearing Aid App
 //
-//  Created by Evgeniy Zelinskiy on 11.12.2024.
+//  Created by Evgeniy Zelinskiy on 12.12.2024.
 //
 
 import UIKit
 
-enum NewSettingWithSubtitleTableViewButtonType: Int {
+enum LocaleListTableViewButtonType: Int {
     case info
     case switchButton
     case rightButton
-    case leftButtonImage
     case loader
 }
 
-protocol NewSettingWithSubtitleTableViewCellDelegate: AnyObject {
-    func didSelectButton(with type: NewSettingWithSubtitleTableViewButtonType, from cell: NewSettingWithSubtitleTableViewCell)
+protocol LocaleListTableViewCellDelegate: AnyObject {
+    func didSelectButton(with type: LocaleListTableViewButtonType, from cell: LocaleListTableViewCell)
 }
 
-struct NewSettingWithSubtitleTableViewCellModel {
-    var cellId: String?
+struct LocaleListTableViewCellModel {
     var title: String?
     var attributedTitle: NSAttributedString? = nil
     var subtitle: String?
-    var buttonTypes: [NewSettingWithSubtitleTableViewButtonType]
+    var attributedSubtitle: NSAttributedString? = nil
+    var buttonTypes: [LocaleListTableViewButtonType]
     var switchState: Bool = false
     var topInset: CGFloat = 0.0
     var rightImage: UIImage? = UIImage.init(named: "arrowOpenImage")
     var rightTintColor: UIColor? = UIColor.appColor(.Purple100)
-    var leftImage: UIImage?
-    weak var delegate: NewSettingWithSubtitleTableViewCellDelegate?
+    weak var delegate: LocaleListTableViewCellDelegate?
 }
 
-typealias NewSettingWithSubtitleTableViewCellConfig = АViewCellConfig<NewSettingWithSubtitleTableViewCell, NewSettingWithSubtitleTableViewCellModel>
+typealias LocaleListTableViewCellConfig = АViewCellConfig<LocaleListTableViewCell, LocaleListTableViewCellModel>
 
-final class NewSettingWithSubtitleTableViewCell: UITableViewCell, HConfigCellProtocol, UIViewCellNib {
+final class LocaleListTableViewCell: UITableViewCell, HConfigCellProtocol, UIViewCellNib {
 
-    typealias DataType = NewSettingWithSubtitleTableViewCellModel
+    typealias DataType = LocaleListTableViewCellModel
     
-    @IBOutlet private weak var leftImageView: UIImageView!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var subtitleLabel: UILabel!
     
@@ -53,9 +50,11 @@ final class NewSettingWithSubtitleTableViewCell: UITableViewCell, HConfigCellPro
     
     @IBOutlet private weak var separatorView: UIView!
     
+    @IBOutlet private weak var loaderActivityIndicator: UIActivityIndicatorView!
+    
     @IBOutlet private weak var containerViewTopConstraint: NSLayoutConstraint!
     
-    private weak var delegate: NewSettingWithSubtitleTableViewCellDelegate?
+    private weak var delegate: LocaleListTableViewCellDelegate?
     
     // MARK: - Lifecycle
     override func awakeFromNib() {
@@ -70,10 +69,10 @@ final class NewSettingWithSubtitleTableViewCell: UITableViewCell, HConfigCellPro
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        buttonsStackView.arrangedSubviews.enumerated().forEach { $0.element.isHidden = $0.offset != NewSettingWithSubtitleTableViewButtonType.rightButton.rawValue }
+        buttonsStackView.arrangedSubviews.enumerated().forEach { $0.element.isHidden = $0.offset != LocaleListTableViewButtonType.rightButton.rawValue }
         containerViewTopConstraint.constant = .zero
         mainButton.isHidden = false
-        leftImageView.isHidden = true
+        subtitleLabel.isHidden = true
     }
     
     func configure(data: DataType) {
@@ -83,8 +82,15 @@ final class NewSettingWithSubtitleTableViewCell: UITableViewCell, HConfigCellPro
         } else {
             titleLabel.text = data.title
         }
-        subtitleLabel.text = data.subtitle
-        buttonsStackView.arrangedSubviews.enumerated().forEach { $0.element.isHidden = !data.buttonTypes.contains(NewSettingWithSubtitleTableViewButtonType(rawValue: $0.offset)!) }
+        subtitleLabel.isHidden = true
+        if let attributedSubtitle = data.attributedSubtitle {
+            subtitleLabel.attributedText = attributedSubtitle
+            subtitleLabel.isHidden = attributedSubtitle.string.isEmpty
+        } else if let subtitle = data.subtitle {
+            subtitleLabel.text = subtitle
+            subtitleLabel.isHidden = subtitle.isEmpty
+        }
+        buttonsStackView.arrangedSubviews.enumerated().forEach { $0.element.isHidden = !data.buttonTypes.contains(LocaleListTableViewButtonType(rawValue: $0.offset)!) }
         mainSwitch.isOn = data.switchState
         mainButton.isHidden = !data.buttonTypes.contains(.rightButton)
         containerViewTopConstraint.constant = data.topInset
@@ -94,9 +100,8 @@ final class NewSettingWithSubtitleTableViewCell: UITableViewCell, HConfigCellPro
             rightImageView.tintColor = data.rightTintColor
         }
         
-        if data.buttonTypes.contains(.leftButtonImage) {
-            leftImageView.isHidden = false
-            leftImageView.image = data.leftImage
+        if data.buttonTypes.contains(.loader) {
+            loaderActivityIndicator.startAnimating()
         }
     }
     
@@ -112,7 +117,7 @@ final class NewSettingWithSubtitleTableViewCell: UITableViewCell, HConfigCellPro
     
     // MARK: - IBActions
     @IBAction private func buttonAction(_ sender: UIButton) {
-        guard let buttonType = NewSettingWithSubtitleTableViewButtonType(rawValue: sender.tag) else {
+        guard let buttonType = LocaleListTableViewButtonType(rawValue: sender.tag) else {
             return
         }
         delegate?.didSelectButton(with: buttonType, from: self)
@@ -122,5 +127,4 @@ final class NewSettingWithSubtitleTableViewCell: UITableViewCell, HConfigCellPro
         delegate?.didSelectButton(with: .switchButton, from: self)
     }
 }
-
 
