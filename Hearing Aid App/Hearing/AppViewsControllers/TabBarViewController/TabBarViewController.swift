@@ -91,10 +91,10 @@ final class TabBarViewController: PMUMainViewController {
 //            isPermissionShown = true
 //        }
         
-        if !headphonesReminderShown && AppsNavManager.shared.topViewController == self && KAppConfigServic.shared.settings.mainScreen == 0 {
-            !SAudioKitServicesAp.shared.connectedHeadphones ? AppsNavManager.shared.presentDHeadphsRemindApViewController() : Void()
-            headphonesReminderShown = true
-        }
+//        if !headphonesReminderShown && AppsNavManager.shared.topViewController == self && KAppConfigServic.shared.settings.mainScreen == 0 {
+//            !SAudioKitServicesAp.shared.connectedHeadphones ? AppsNavManager.shared.presentDHeadphsRemindApViewController() : Void()
+//            headphonesReminderShown = true
+//        }
  
     }
     

@@ -190,7 +190,7 @@ final class SHearinApViewController: PMUMainViewController {
         
         headphonesTitleLabel.textColor = UIColor.appColor(.Purple100)
         
-        headphonesTitleLabel.text = "No device".localized()
+        headphonesTitleLabel.text = "Connect Headphones".localized()
         leftTitleLabel.text = "Left".localized()
         rightTitleLabel.text = "Right".localized()
         
@@ -351,7 +351,7 @@ final class SHearinApViewController: PMUMainViewController {
     }
     
     private func updateHeadphonesTitleLabel() {
-        headphonesTitleLabel.text = SAudioKitServicesAp.shared.connectedHeadphones ? SAudioKitServicesAp.shared.outputDeviceName : "No device".localized()
+        headphonesTitleLabel.text = SAudioKitServicesAp.shared.connectedHeadphones ? SAudioKitServicesAp.shared.outputDeviceName : "Connect Headphones".localized()
     }
     
     @objc private func audioRouteChanged(notification: NSNotification) {
@@ -504,7 +504,7 @@ final class SHearinApViewController: PMUMainViewController {
     }
     @IBAction func titleViewTapAction(_ sender: UITapGestureRecognizer) {
         TapticEngine.impact.feedback(.medium)
-        routePickerView.present()
+        AppsNavManager.shared.presentDHeadphsRemindApViewController()
     }
 }
 
