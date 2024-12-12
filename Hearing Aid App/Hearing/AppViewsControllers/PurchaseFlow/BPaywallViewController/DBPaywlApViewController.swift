@@ -9,9 +9,6 @@ final class DBPaywlApViewController: PMUMainViewController {
     @IBOutlet private weak var headerImageView: UIImageView!
     @IBOutlet private weak var closeButton: UIButton!
     @IBOutlet private var bottomButtons: [UIButton]!
-//    @IBOutlet weak var volumeBoostFeature: RadialGradientView!
-//    @IBOutlet weak var noNoiseFeature: RadialGradientView!
-//    @IBOutlet weak var soundCustomizationFeature: RadialGradientView!
     @IBOutlet weak var trialTitle: UILabel!
     @IBOutlet weak var trialDescription: UILabel!
     
