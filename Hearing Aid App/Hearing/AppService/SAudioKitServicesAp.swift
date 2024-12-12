@@ -492,16 +492,26 @@ final class SAudioKitServicesAp {
     
     // MARK: - Private methods
     @objc private func audioRouteChanged(notification: NSNotification) {
-        guard let audioRouteChangeReason = notification.userInfo?[AVAudioSessionRouteChangeReasonKey] as? UInt else {
+        guard let reasonValue = notification.userInfo?[AVAudioSessionRouteChangeReasonKey] as? UInt,
+              let reason = AVAudioSession.RouteChangeReason(rawValue: reasonValue) else {
             return
         }
-
-        switch audioRouteChangeReason {
-        case AVAudioSession.RouteChangeReason.newDeviceAvailable.rawValue:
-            guard audioEngine?.avEngine.isRunning == false else {
-                return
+        switch reason {
+        case .newDeviceAvailable:
+            try? Settings.setSession(category: .playAndRecord, with: sessionOptions)
+            audioEngine?.stop()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
+                try? self?.audioEngine?.start()
             }
-            try? audioEngine?.start()
+        case .oldDeviceUnavailable:
+            try? Settings.setSession(category: .playAndRecord, with: sessionOptions)
+            audioEngine?.stop()
+        case .routeConfigurationChange:
+            try? Settings.setSession(category: .playAndRecord, with: sessionOptions)
+            audioEngine?.stop()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
+                try? self?.audioEngine?.start()
+            }
         default:
             break
         }
