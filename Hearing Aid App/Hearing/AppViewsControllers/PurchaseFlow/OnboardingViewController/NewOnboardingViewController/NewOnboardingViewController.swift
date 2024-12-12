@@ -21,6 +21,8 @@ final class NewOnboardingViewController: UIViewController {
     
     //MARK: - Properties
     private var currentIndex: Int = .zero
+    private let defaultBottomViewHeight: CGFloat = 334.0
+    private let defaultBottomViewHeightWithImage: CGFloat = 402.0
     
     //MARK: - LifeCycle
     override func viewDidLoad() {
@@ -111,7 +113,7 @@ final class NewOnboardingViewController: UIViewController {
             
             UIView.animate(withDuration: 0.35, animations: {
                 self.view.layoutIfNeeded()
-                self.bottomViewTopImage.alpha = 1
+                self.bottomViewTopImage.alpha = newHeight == self.defaultBottomViewHeightWithImage ? 1 : 0
             })
         })
     }
@@ -149,10 +151,10 @@ final class NewOnboardingViewController: UIViewController {
         currentIndex = index
         
         configurePageControl()
-        if currentIndex == NewOnboardingPagesModel.allCases.count - 1 {
-            configureBottomControl(newHeight: 402.0)
+        if currentIndex == 2 {
+            configureBottomControl(newHeight: defaultBottomViewHeightWithImage)
         } else {
-            configureBottomControl()
+            configureBottomControl(newHeight: defaultBottomViewHeight)
         }
         
         KAppConfigServic.shared.analytics.track(.v2Onboarding, with: [GAppAnalyticActions.action.rawValue: "scroll_on_\(index)"])
