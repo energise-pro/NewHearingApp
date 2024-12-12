@@ -20,7 +20,7 @@ final class HMicrophPermisApViewController: UIViewController {
     @IBAction private func allowButtonAction(_ sender: UIButton) {
         KAppConfigServic.shared.analytics.track(.v2MicrophoneReminder, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.allow.rawValue])
         TapticEngine.impact.feedback(.medium)
-        SAudioKitServicesAp.shared.requestMicrophonePermission { [weak self] accepted in
+        SAudioKitServicesAp.shared.requestMicrophonePermissionOrOpenSettings { [weak self] accepted in
             accepted ? self?.dismiss(animated: true) : Void()
         }
     }

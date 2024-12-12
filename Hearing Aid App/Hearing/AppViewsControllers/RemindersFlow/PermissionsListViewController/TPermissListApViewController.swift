@@ -72,7 +72,7 @@ final class TPermissListApViewController: PMUMainViewController {
         case .micro:
             KAppConfigServic.shared.analytics.track(action: .v2PermissionsScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.allow.rawValue)_\(GAppAnalyticActions.microphone.rawValue)"])
             
-            SAudioKitServicesAp.shared.requestMicrophonePermission { [weak self] _ in
+            SAudioKitServicesAp.shared.requestMicrophonePermissionOrOpenSettings { [weak self] _ in
                 self?.autoCloseIfNeeded()
             }
         case .speechRecognition:

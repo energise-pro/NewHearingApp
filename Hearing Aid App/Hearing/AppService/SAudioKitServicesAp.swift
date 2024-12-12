@@ -130,6 +130,17 @@ final class SAudioKitServicesAp {
     
     // MARK: - Internal methods
     func requestMicrophonePermission(completion: AVServicePermissionCompletion?) {
+        if recordPermission == .undetermined {
+            Settings.session.requestRecordPermission { accepted in
+                DispatchQueue.main.async {
+                    completion?(accepted)
+                }
+                LoggerApp.log(tag: SAudioKitServicesAp.TAG, message: "Microphone permission was \(accepted ? "accepted" : "declined")")
+            }
+        }
+    }
+    
+    func requestMicrophonePermissionOrOpenSettings(completion: AVServicePermissionCompletion?) {
         if recordPermission == .denied, let url = URL(string: UIApplication.openSettingsURLString) {
             DispatchQueue.main.async {
                 UIApplication.shared.open(url, completionHandler: nil)
