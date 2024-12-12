@@ -27,9 +27,6 @@ final class PaywallViewController: UIViewController {
     
     @IBOutlet private weak var monthlySubscribeButtonHeightConstraint: NSLayoutConstraint!
     @IBOutlet private var heightSubscribeButtonConstraints: [NSLayoutConstraint]!
-    @IBOutlet weak var volumeBoostFeature: RadialGradientView!
-    @IBOutlet weak var noNoiseFeature: RadialGradientView!
-    @IBOutlet weak var soundCustomizationFeature: RadialGradientView!
     
     //MARK: - Properties
     private var typeScreen: ВTypPwlScreen
@@ -79,10 +76,6 @@ final class PaywallViewController: UIViewController {
         mostPopularContainerView.backgroundColor = UIColor.appColor(.Red100)
         mostPopularLabel.layer.cornerRadius = 14
         
-        volumeBoostFeature.configure(withText: "Super volume boost".localized(), image: UIImage(named: "featuresBoostIcon"))
-        noNoiseFeature.configure(withText: "Noise Suppression".localized(), image: UIImage(named: "featuresNoiseIcon"))
-        soundCustomizationFeature.configure(withText: "Full Sound Customization".localized(), image: UIImage(named: "featuresSetupIcon"))
-        
         selectProductView(containerButtonYearly)
         unselectProductView(containerButtonWeekly)
         
@@ -104,7 +97,7 @@ final class PaywallViewController: UIViewController {
         mostPopularLabel.text = "Most popular".localized()
         titleYearlyButtonLabel.text = "3 Days Free".localized()
         titleWeeklyButtonLabel.text = "1 Week".localized()
-        titleLabel.text = "Get Full Access".localized()
+        titleLabel.text = "Get Unlimited Access".localized()
         privacyButton.setTitle("Privacy Policy".localized(), for: .normal)
         termsButton.setTitle("Terms of Use".localized(), for: .normal)
         restoreButton.setTitle("Restore".localized(), for: .normal)

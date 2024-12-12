@@ -73,6 +73,7 @@
 		8619E5CC2D074A7C0044B624 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8619E5CA2D074A7C0044B624 /* AlertViewController.swift */; };
 		8619E5CD2D074A7C0044B624 /* AlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8619E5CB2D074A7C0044B624 /* AlertViewController.xib */; };
 		863F688E2D019E2600B34302 /* TranscriptsInstructionTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863F688D2D019E2600B34302 /* TranscriptsInstructionTextView.swift */; };
+		8640710A2D0B9484009A42FB /* PaywallCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864071092D0B9484009A42FB /* PaywallCarouselView.swift */; };
 		86DFB1F82CE4B1DE00CBD94F /* TooltipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DFB1F72CE4B1DE00CBD94F /* TooltipView.swift */; };
 		86DFB20B2CE670AD00CBD94F /* NewSettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DFB20A2CE670AD00CBD94F /* NewSettingTableViewCell.swift */; };
 		86DFB20D2CE671A600CBD94F /* NewSettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86DFB20C2CE671A600CBD94F /* NewSettingTableViewCell.xib */; };
@@ -340,6 +341,7 @@
 		8619E5CA2D074A7C0044B624 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
 		8619E5CB2D074A7C0044B624 /* AlertViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertViewController.xib; sourceTree = "<group>"; };
 		863F688D2D019E2600B34302 /* TranscriptsInstructionTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptsInstructionTextView.swift; sourceTree = "<group>"; };
+		864071092D0B9484009A42FB /* PaywallCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallCarouselView.swift; sourceTree = "<group>"; };
 		86DFB1F72CE4B1DE00CBD94F /* TooltipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TooltipView.swift; sourceTree = "<group>"; };
 		86DFB20A2CE670AD00CBD94F /* NewSettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSettingTableViewCell.swift; sourceTree = "<group>"; };
 		86DFB20C2CE671A600CBD94F /* NewSettingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewSettingTableViewCell.xib; sourceTree = "<group>"; };
@@ -738,6 +740,14 @@
 			path = AlertViewController;
 			sourceTree = "<group>";
 		};
+		864071082D0B9468009A42FB /* CarouselViewController */ = {
+			isa = PBXGroup;
+			children = (
+				864071092D0B9484009A42FB /* PaywallCarouselView.swift */,
+			);
+			path = CarouselViewController;
+			sourceTree = "<group>";
+		};
 		86DFB1F62CE4B1C100CBD94F /* TooltipView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1078,6 +1088,7 @@
 		9A87D76526CF06F70077C9D0 /* AppViewsControllers */ = {
 			isa = PBXGroup;
 			children = (
+				864071082D0B9468009A42FB /* CarouselViewController */,
 				8619E5C92D074A440044B624 /* AlertViewController */,
 				9A5512E528097A270078C5E5 /* PMUMainViewController.swift */,
 				9A094343282D5B5C00F7AEC5 /* HearingFlow */,
@@ -1725,6 +1736,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9ACB45CB2812B9BF00FAF44E /* RawOutputView.swift in Sources */,
+				8640710A2D0B9484009A42FB /* PaywallCarouselView.swift in Sources */,
 				A55EECF726E01079001CA6B5 /* String+Extension.swift in Sources */,
 				A5BEDCE626F2967000CF1381 /* ВTypPwlScreen.swift in Sources */,
 				83A8E8EB2645A7FD0080AEE5 /* SpringLabel.swift in Sources */,

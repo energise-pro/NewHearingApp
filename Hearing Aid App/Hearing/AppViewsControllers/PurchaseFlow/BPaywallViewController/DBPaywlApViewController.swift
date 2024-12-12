@@ -9,9 +9,9 @@ final class DBPaywlApViewController: PMUMainViewController {
     @IBOutlet private weak var headerImageView: UIImageView!
     @IBOutlet private weak var closeButton: UIButton!
     @IBOutlet private var bottomButtons: [UIButton]!
-    @IBOutlet weak var volumeBoostFeature: RadialGradientView!
-    @IBOutlet weak var noNoiseFeature: RadialGradientView!
-    @IBOutlet weak var soundCustomizationFeature: RadialGradientView!
+//    @IBOutlet weak var volumeBoostFeature: RadialGradientView!
+//    @IBOutlet weak var noNoiseFeature: RadialGradientView!
+//    @IBOutlet weak var soundCustomizationFeature: RadialGradientView!
     @IBOutlet weak var trialTitle: UILabel!
     @IBOutlet weak var trialDescription: UILabel!
     
@@ -40,10 +40,6 @@ final class DBPaywlApViewController: PMUMainViewController {
         closeButton.tintColor = UIColor.appColor(.UnactiveButton_1)?.withAlphaComponent(0.3)
         headerImageView.tintColor = AThemeServicesAp.shared.activeColor
         
-        volumeBoostFeature.configure(withText: "Super volume boost".localized(), image: UIImage(named: "featuresBoostIcon"))
-        noNoiseFeature.configure(withText: "Noise Suppression".localized(), image: UIImage(named: "featuresNoiseIcon"))
-        soundCustomizationFeature.configure(withText: "Full Sound Customization".localized(), image: UIImage(named: "featuresSetupIcon"))
-        
         Timer.scheduledTimer(withTimeInterval: 5.0, repeats: false) { [weak self] _ in
             UIView.animate(withDuration: 0.3) {
                 self?.closeButton.alpha = 1.0
@@ -60,7 +56,7 @@ final class DBPaywlApViewController: PMUMainViewController {
     private func localizedUI() {
         ["Privacy Policy".localized(), "Terms of Use".localized(), "Restore".localized(),].enumerated().forEach { bottomButtons[$0.offset].setTitle($0.element, for: .normal) }
         purchaseButtonLabel.text = "Try Free & Subscribe".localized()
-        headerTitle.text = "Get Full Access".localized()
+        headerTitle.text = "Get Unlimited Access".localized()
     }
     
     private func updateSelectedPlan() {

@@ -18,7 +18,6 @@
                 <outlet property="monthlySubscribeButtonHeightConstraint" destination="rsM-hs-ZLf" id="kob-qQ-Rl9"/>
                 <outlet property="mostPopularContainerView" destination="8BS-A6-Hjv" id="3B6-2X-TRi"/>
                 <outlet property="mostPopularLabel" destination="J1l-eu-bH4" id="tAM-7V-req"/>
-                <outlet property="noNoiseFeature" destination="ZU8-PZ-s0N" id="Qbg-sf-ahX"/>
                 <outlet property="priceWeeklyButtonLabel" destination="ET5-SV-3G2" id="RN6-5R-aCZ"/>
                 <outlet property="priceYearlyButtonLabel" destination="ROE-LR-4wK" id="muV-7o-r1c"/>
                 <outlet property="privacyButton" destination="8at-Lg-pVN" id="T3Y-JS-Qmj"/>
@@ -26,13 +25,11 @@
                 <outlet property="purchaseContainerView" destination="54d-Le-dmC" id="3Mv-ez-2mY"/>
                 <outlet property="redeemPromocodeButton" destination="xMW-12-fhO" id="rLX-mu-VMV"/>
                 <outlet property="restoreButton" destination="dgD-jF-1q8" id="vQ1-D8-0oE"/>
-                <outlet property="soundCustomizationFeature" destination="d2d-O0-en7" id="VC6-wo-UMb"/>
                 <outlet property="termsButton" destination="etb-XM-vCe" id="hRH-3i-9vN"/>
                 <outlet property="titleLabel" destination="Klx-M7-CXb" id="DOi-oI-gkN"/>
                 <outlet property="titleWeeklyButtonLabel" destination="Kiy-kv-c9E" id="Bmz-Mw-pST"/>
                 <outlet property="titleYearlyButtonLabel" destination="sJh-0H-MNj" id="hkW-QQ-hmO"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
-                <outlet property="volumeBoostFeature" destination="fYv-LT-dAW" id="6kN-1S-2Ii"/>
                 <outlet property="weeklySubscribeButton" destination="QCw-o6-Dnf" id="1pm-fY-MMh"/>
                 <outlet property="yearlySubscribeButton" destination="jbq-od-jan" id="kfi-M9-W7g"/>
                 <outletCollection property="heightSubscribeButtonConstraints" destination="TeX-VQ-OnV" collectionClass="NSMutableArray" id="Cly-f1-WHp"/>
@@ -44,7 +41,7 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="paywallBackgroundImage" translatesAutoresizingMaskIntoConstraints="NO" id="bGt-z6-F5E">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="paywallBackgroundImage" translatesAutoresizingMaskIntoConstraints="NO" id="bGt-z6-F5E">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                 </imageView>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="paywallTopImage" translatesAutoresizingMaskIntoConstraints="NO" id="mBU-EC-EfH">
@@ -63,7 +60,7 @@
                                 <constraint firstAttribute="height" constant="36" id="vHU-al-EOd"/>
                             </constraints>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Get Full Access" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="Klx-M7-CXb" userLabel="Title - UILabel">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Get Unlimited Access" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="Klx-M7-CXb" userLabel="Title - UILabel">
                             <rect key="frame" x="0.0" y="52" width="414" height="33.5"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                             <color key="textColor" name="White100"/>
@@ -214,34 +211,12 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </view>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="4Fk-Ut-tjw">
-                    <rect key="frame" x="16" y="379" width="382" height="180"/>
-                    <subviews>
-                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fYv-LT-dAW" customClass="RadialGradientView" customModule="Hearing_Aid_App" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="382" height="52"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="52" id="gou-kL-p1q"/>
-                            </constraints>
-                        </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZU8-PZ-s0N" customClass="RadialGradientView" customModule="Hearing_Aid_App" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="64" width="382" height="52"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="52" id="ubV-2a-PHl"/>
-                            </constraints>
-                        </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d2d-O0-en7" customClass="RadialGradientView" customModule="Hearing_Aid_App" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="128" width="382" height="52"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="52" id="Ybz-JY-HH5"/>
-                            </constraints>
-                        </view>
-                    </subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m8a-vC-ZVm" customClass="PaywallCarouselView" customModule="Hearing_Aid_App" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="349" width="414" height="210"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="fYv-LT-dAW" secondAttribute="trailing" id="OfU-At-CmC"/>
-                        <constraint firstItem="fYv-LT-dAW" firstAttribute="leading" secondItem="4Fk-Ut-tjw" secondAttribute="leading" id="jJr-jb-ULb"/>
-                        <constraint firstAttribute="height" constant="180" id="yQ7-fi-030"/>
+                        <constraint firstAttribute="height" constant="210" id="ZkN-h4-mPv"/>
                     </constraints>
-                </stackView>
+                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="54d-Le-dmC" userLabel="Button Container - UIView">
                     <rect key="frame" x="16" y="747" width="382" height="55"/>
                     <subviews>
@@ -346,7 +321,9 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="tRG-Nm-Que" firstAttribute="top" secondItem="m8a-vC-ZVm" secondAttribute="bottom" constant="24" id="0KM-Gr-9Og"/>
                 <constraint firstItem="54d-Le-dmC" firstAttribute="top" secondItem="wSl-6i-zvg" secondAttribute="bottom" constant="28" id="93O-Ed-mG3"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="m8a-vC-ZVm" secondAttribute="trailing" id="9Ne-oQ-0Kd"/>
                 <constraint firstItem="Aun-uT-1Fw" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="13" id="A4u-TM-9Fo"/>
                 <constraint firstItem="oxk-4U-vIV" firstAttribute="top" secondItem="54d-Le-dmC" secondAttribute="bottom" constant="20" id="A94-Ly-TeC"/>
                 <constraint firstItem="mBU-EC-EfH" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="BM2-w4-hil"/>
@@ -356,11 +333,9 @@
                 <constraint firstAttribute="trailing" secondItem="mBU-EC-EfH" secondAttribute="trailing" id="HxE-GN-EMf"/>
                 <constraint firstItem="oxk-4U-vIV" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="JPA-iu-IEh"/>
                 <constraint firstAttribute="trailing" secondItem="tRG-Nm-Que" secondAttribute="trailing" constant="16" id="QyW-bh-Po7"/>
-                <constraint firstAttribute="trailing" secondItem="4Fk-Ut-tjw" secondAttribute="trailing" constant="16" id="SQ8-Of-BWH"/>
                 <constraint firstAttribute="trailing" secondItem="wSl-6i-zvg" secondAttribute="trailing" constant="16" id="VIC-aO-3LO"/>
                 <constraint firstItem="wSl-6i-zvg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="VbU-4X-zUC"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="oxk-4U-vIV" secondAttribute="bottom" constant="22" id="XuC-hj-Haz"/>
-                <constraint firstItem="tRG-Nm-Que" firstAttribute="top" secondItem="4Fk-Ut-tjw" secondAttribute="bottom" constant="24" id="Ym0-lS-9db"/>
                 <constraint firstItem="PPB-9P-qP0" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="Ymt-0m-ik9"/>
                 <constraint firstItem="tRG-Nm-Que" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="gQ8-Gs-QdA"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="xMW-12-fhO" secondAttribute="trailing" id="kHX-fW-sDE"/>
@@ -376,7 +351,7 @@
                 <constraint firstAttribute="bottom" secondItem="xMW-12-fhO" secondAttribute="bottom" constant="15" id="spu-vB-k3u"/>
                 <constraint firstItem="54d-Le-dmC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="t3s-Ws-v8g"/>
                 <constraint firstItem="xMW-12-fhO" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="uV7-pN-qxl"/>
-                <constraint firstItem="4Fk-Ut-tjw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="yxZ-8U-V1Y"/>
+                <constraint firstItem="m8a-vC-ZVm" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="xk4-HN-kkf"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="153.34821428571428"/>
         </view>
