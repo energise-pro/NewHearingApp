@@ -233,8 +233,8 @@ final class AppsNavManager: NSObject {
         topViewController?.present(ZAppIconViewController, animated: true)
     }
     
-    func presentUTranscribApViewController() {
-        let UTranscribApViewController = UTranscribApViewController()
+    func presentUTranscribApViewController(and delegate: UTranscribApViewControllerDelegate?) { // {
+        let UTranscribApViewController = UTranscribApViewController(delegate: delegate)
         let navigationViewController = UINavigationController(rootViewController: UTranscribApViewController)
         topViewController?.present(navigationViewController, animated: true)
     }

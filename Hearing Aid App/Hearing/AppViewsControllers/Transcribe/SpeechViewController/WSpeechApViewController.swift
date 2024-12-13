@@ -159,7 +159,7 @@ final class WSpeechApViewController: PMUMainViewController {
             AppsNavManager.shared.presentDTypeTextApViewController()
             KAppConfigServic.shared.analytics.track(action: .v2TranscribeMainScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.type.rawValue])
         case .transcribe:
-            AppsNavManager.shared.presentUTranscribApViewController()
+            AppsNavManager.shared.presentUTranscribApViewController(and: self)
             KAppConfigServic.shared.analytics.track(action: .v2TranscribeMainScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.transcribe.rawValue])
         }
     }
@@ -206,7 +206,12 @@ extension WSpeechApViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         self.tableView.isHidden = filteredDataSource.isEmpty
         placeholderContainerView.isHidden = !filteredDataSource.isEmpty
-        placeholderTitleLabel.text = "No transcripts match your search – try a different keyword".localized()
+        var placeholderTitleText = CTranscribServicesAp.shared.isSavedFirstTranscripts ? "No transcripts match your search – try a different keyword".localized() : "No saved transcripts".localized()
+        if CTranscribServicesAp.shared.isShowGetStartedView {
+            placeholderTitleText = "No saved transcripts yet".localized()
+        }
+        placeholderTitleLabel.text = placeholderTitleText
+        
         return filteredDataSource.count
     }
     
@@ -264,7 +269,7 @@ extension WSpeechApViewController: GTranscriptionTablViewCellDelegate {
 }
 
 // MARK: - YTranscriptDetailApViewControllerDelegate
-extension WSpeechApViewController: YTranscriptDetailApViewControllerDelegate {
+extension WSpeechApViewController: YTranscriptDetailApViewControllerDelegate, UTranscribApViewControllerDelegate {
     
     func didUpdateTranscript() {
         searchBar.text = ""

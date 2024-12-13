@@ -31,6 +31,12 @@ final class CTranscribServicesAp: NSObject {
     @Storage(key: "SavedTranscripts", defaultValue: [])
     var savedTranscripts: [TranscribeModel]
     
+    @Storage(key: "ShowGetStartedView", defaultValue: true)
+    var isShowGetStartedView: Bool
+    
+    @Storage(key: "SavedFirstTranscripts", defaultValue: false)
+    var isSavedFirstTranscripts: Bool
+    
     var isStartedTranscribe: Bool = false
     var availabilityRecognition: CTranscribServicesApPermissionCompletion?
     

@@ -1,5 +1,9 @@
 import UIKit
 
+protocol UTranscribApViewControllerDelegate: AnyObject {
+    func didUpdateTranscript()
+}
+
 final class UTranscribApViewController: PMUMainViewController {
     
     enum BottomButtonType: Int, CaseIterable {
@@ -54,6 +58,7 @@ final class UTranscribApViewController: PMUMainViewController {
     @IBOutlet private weak var placeholderLabelBottomConstraint: NSLayoutConstraint!
     @IBOutlet private weak var bottomBackgroundView: UIView!
     
+    private weak var delegate: UTranscribApViewControllerDelegate?
     private var keyboardNotification = KeyboardNotification()
     private(set) var notAskConfirmationForDeleteAction: Bool {
         get {
@@ -62,6 +67,16 @@ final class UTranscribApViewController: PMUMainViewController {
         set {
             UserDefaults.standard.setValue(newValue, forKey: "notAskConfirmationForDeleteAction")
         }
+    }
+    
+    // MARK: - Init
+    init(delegate: UTranscribApViewControllerDelegate?) {
+        self.delegate = delegate
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: - Lifecycle
@@ -238,8 +253,12 @@ final class UTranscribApViewController: PMUMainViewController {
             return
         }
         TapticEngine.impact.feedback(.medium)
+        if !CTranscribServicesAp.shared.isSavedFirstTranscripts {
+            CTranscribServicesAp.shared.isSavedFirstTranscripts = true
+        }
         CTranscribServicesAp.shared.savedTranscripts.append(TranscribeModel(title: text, createdDate: Date().timeIntervalSince1970))
         presentHidingAlert(title: "Transcript successfully saved".localized(), message: "", timeOut: .low)
+        delegate?.didUpdateTranscript()
     }
     
     // MARK: - Actions

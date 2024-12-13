@@ -42,6 +42,13 @@
                         <constraint firstAttribute="height" constant="124" id="z6b-8G-N2E"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="av0-Ln-ADr">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="1"/>
+                    <color key="backgroundColor" name="TableSeparator100"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="rqG-yR-zsN"/>
+                    </constraints>
+                </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A8V-p7-cJA">
                     <rect key="frame" x="25" y="56" width="369" height="57.5"/>
                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="48"/>
@@ -283,8 +290,10 @@
             <color key="backgroundColor" name="White100"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="YOM-ry-aET" secondAttribute="bottom" constant="40" id="3eA-Ee-bpi"/>
+                <constraint firstItem="av0-Ln-ADr" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="5rb-12-lzs"/>
                 <constraint firstItem="A8V-p7-cJA" firstAttribute="leading" secondItem="nGm-AD-q9d" secondAttribute="leading" constant="5" id="8BV-l5-Ngd"/>
                 <constraint firstItem="A8V-p7-cJA" firstAttribute="top" secondItem="nGm-AD-q9d" secondAttribute="top" constant="8" id="9AD-mO-rlf"/>
+                <constraint firstAttribute="trailing" secondItem="av0-Ln-ADr" secondAttribute="trailing" id="9EG-GQ-st4"/>
                 <constraint firstItem="nGm-AD-q9d" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="A8V-p7-cJA" secondAttribute="bottom" id="9TD-o3-fE3"/>
                 <constraint firstItem="A8V-p7-cJA" firstAttribute="trailing" secondItem="nGm-AD-q9d" secondAttribute="trailing" id="9ei-uD-sLb"/>
                 <constraint firstItem="Aqo-2w-JCL" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="BqK-AD-mhm"/>
@@ -298,6 +307,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="YOM-ry-aET" secondAttribute="trailing" constant="16" id="Osp-EH-fmn"/>
                 <constraint firstAttribute="bottom" secondItem="Aqo-2w-JCL" secondAttribute="bottom" id="Zuq-JC-uxe"/>
                 <constraint firstItem="YOM-ry-aET" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="ZwN-BH-18z"/>
+                <constraint firstItem="av0-Ln-ADr" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="aaT-QO-0xW"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="nGm-AD-q9d" secondAttribute="trailing" constant="20" id="bKk-Tm-MKl"/>
                 <constraint firstAttribute="trailing" secondItem="Aqo-2w-JCL" secondAttribute="trailing" id="ghB-Kw-6iS"/>
                 <constraint firstItem="nGm-AD-q9d" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="h0G-MH-n0H"/>
@@ -311,6 +321,9 @@
     <resources>
         <namedColor name="Purple100">
             <color red="0.066666666666666666" green="0.0" blue="0.28627450980392155" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TableSeparator100">
+            <color red="0.81176470588235294" green="0.80000000000000004" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="White100">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
