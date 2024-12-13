@@ -1,12 +1,17 @@
+//
+//  SpecialOfferViewController.swift
+//  Hearing Aid App
+//
+//  Created by Evgeniy Zelinskiy on 13.12.2024.
+//
+
 import UIKit
 
-
-final class PaywallViewController: UIViewController {
+class SpecialOfferViewController: UIViewController {
     
     //MARK: - @IBoutlets
     @IBOutlet private weak var purchaseContainerView: UIView!
     @IBOutlet private weak var purchaseButtonLabel: UILabel!
-    @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var titleYearlyButtonLabel: UILabel!
     @IBOutlet private weak var titleWeeklyButtonLabel: UILabel!
     @IBOutlet private weak var priceWeeklyButtonLabel: UILabel!
@@ -27,32 +32,47 @@ final class PaywallViewController: UIViewController {
     
     @IBOutlet private weak var monthlySubscribeButtonHeightConstraint: NSLayoutConstraint!
     @IBOutlet private var heightSubscribeButtonConstraints: [NSLayoutConstraint]!
+
+    @IBOutlet weak var headerViewTopLabel: UILabel!
+    @IBOutlet weak var headerViewBottomLabel: UILabel!
+    @IBOutlet weak var countdownContainerView: ShadowBorderView!
+    @IBOutlet weak var countdownContentView: UIView!
+    @IBOutlet weak var countdownViewTitle: UILabel!
+    @IBOutlet weak var countdownMinuteLabel: UILabel!
+    @IBOutlet weak var countdownSeparatorLabel: UILabel!
+    @IBOutlet weak var countdownSecondsLabel: UILabel!
+    
+    
     
     //MARK: - Properties
-    private var typeScreen: ВTypPwlScreen
-    private var scaleYearlyButton = true
     private var isLoading: Bool = false
     private var subscriptionItems: [ShopItem] = []
-    private var openAction: GAppAnalyticActions
     private var selectedPlan: ShopItem?
-    
-    //MARK: - Init
-    init(typeScreen: ВTypPwlScreen, openAction: GAppAnalyticActions) {
-        self.typeScreen = typeScreen
-        self.openAction = openAction
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    private var countdownTimer: Timer?
+    private var expirationDate: Date? {
+        get {
+            if let timestamp = UserDefaults.standard.object(forKey: "specialOfferExpirationDate") as? TimeInterval {
+                return Date(timeIntervalSince1970: timestamp)
+            }
+            return nil
+        }
+        set {
+            if let newValue = newValue {
+                UserDefaults.standard.set(newValue.timeIntervalSince1970, forKey: "specialOfferExpirationDate")
+            } else {
+                UserDefaults.standard.removeObject(forKey: "specialOfferExpirationDate")
+            }
+        }
     }
     
     //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        UserDefaults.standard.setValue(true, forKey: CAppConstants.Keys.wasPresentedCatchUp)
         EApphudServiceAp.shared.paywallShown()
-        KAppConfigServic.shared.analytics.track(.v2Paywall, with: [GAppAnalyticActions.action.rawValue: openAction.rawValue])
+//        KAppConfigServic.shared.analytics.track(.v2Paywall, with: [GAppAnalyticActions.action.rawValue: openAction.rawValue])
         configureUI()
+        configureCountdownTimer()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -85,11 +105,53 @@ final class PaywallViewController: UIViewController {
             }
         }
         
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
-//            self?.containerButtonYearly.pulseAnimation()
-//        }
-        
         localizedUI()
+    }
+    
+    private func configureCountdownTimer() {
+        if expirationDate == nil {
+            let newExpirationDate = Date().addingTimeInterval(120) // 2 minutes - 60 * 2
+            expirationDate = newExpirationDate
+        }
+        
+        countdownTimer?.invalidate()
+        countdownTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateCountdownTimer), userInfo: nil, repeats: true)
+        if let timer = countdownTimer {
+            RunLoop.current.add(timer, forMode: .common)
+        }
+        updateCountdownLabel()
+    }
+    
+    @objc private func updateCountdownTimer() {
+        if secondsRemaining(for: expirationDate) > 0 {
+            TapticEngine.impact.feedback(.light)
+            updateCountdownLabel()
+        } else {
+            handleCountdownTimerExpiration()
+        }
+    }
+    
+    private func handleCountdownTimerExpiration() {
+        updateCountdownLabel()
+        countdownContainerView.isHidden = true
+        countdownContentView.isHidden = true
+        countdownTimer?.invalidate()
+    }
+    
+    private func secondsRemaining(for expirationDate: Date?) -> Int {
+        guard let expirationDate = expirationDate else { return 0 }
+        let remaining = Int(expirationDate.timeIntervalSinceNow)
+        return max(0, remaining)
+    }
+    
+    private func updateCountdownLabel() {
+        let remainingTime = secondsRemaining(for: expirationDate)
+        let minutes = remainingTime / 60
+        let seconds = remainingTime % 60
+        
+        countdownMinuteLabel.text = String(format: "%d", minutes)
+        countdownSeparatorLabel.text = ":"
+        countdownSecondsLabel.text = String(format: "%02d", seconds)
     }
     
     private func localizedUI() {
@@ -97,15 +159,13 @@ final class PaywallViewController: UIViewController {
         mostPopularLabel.text = "Most popular".localized()
         titleYearlyButtonLabel.text = "3 Days Free".localized()
         titleWeeklyButtonLabel.text = "1 Week".localized()
-        titleLabel.text = "Get Unlimited Access".localized()
         privacyButton.setTitle("Privacy Policy".localized(), for: .normal)
         termsButton.setTitle("Terms of Use".localized(), for: .normal)
         restoreButton.setTitle("Restore".localized(), for: .normal)
-//        redeemPromocodeButton.setTitle("Redeem code", for: .normal)
     }
     
     private func loadSubscriptionPlans() {
-        TInAppService.shared.fetchProducts(with: .subscriptions) { [weak self] items in
+        TInAppService.shared.fetchProducts(with: .offer) { [weak self] items in
             guard let self = self, let items = items, !items.isEmpty else { return }
             self.subscriptionItems = EApphudServiceAp.shared.experimentProducts
             DispatchQueue.main.async {
@@ -134,7 +194,7 @@ final class PaywallViewController: UIViewController {
         
         selectedPlan = yearlySubscriptionPlan
     }
-    
+
     private func purchase(plan: ShopItem) {
         HAppLoaderView.showLoader(at: self.view, animated: true)
         TInAppService.shared.purchase(plan, from: .subscriptions) { [weak self] isSuccess in
@@ -269,8 +329,7 @@ final class PaywallViewController: UIViewController {
     
     @IBAction private func closeButton(_ sender: UIButton) {
         TapticEngine.impact.feedback(.heavy)
-        KAppConfigServic.shared.analytics.track(.v2Paywall, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.close.rawValue])
-        typeScreen == .trial ? AppsNavManager.shared.presentCatchUpAfter(60.0) : Void()
+//        KAppConfigServic.shared.analytics.track(.v2Paywall, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.close.rawValue])
         closePaywall()
     }
     
@@ -278,5 +337,29 @@ final class PaywallViewController: UIViewController {
         TapticEngine.impact.feedback(.medium)
         KAppConfigServic.shared.analytics.track(.v2Paywall, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.redeem.rawValue])
         TInAppService.shared.presentRedeemScreen()
+    }
+}
+
+class ShadowBorderView: UIView {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupView()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setupView()
+    }
+    
+    private func setupView() {
+        self.layer.borderColor = UIColor(red: 45/255, green: 78/255, blue: 243/255, alpha: 1).cgColor
+        self.layer.borderWidth = 2
+        self.layer.cornerRadius = 12
+        self.layer.masksToBounds = false
+        
+        self.layer.shadowColor = UIColor.appColor(.Purple50)!.cgColor
+        self.layer.shadowOffset = CGSize(width: 0, height: 0)
+        self.layer.shadowOpacity = 1
+        self.layer.shadowRadius = 4
     }
 }

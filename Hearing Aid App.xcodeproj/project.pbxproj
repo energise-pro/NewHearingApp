@@ -69,6 +69,8 @@
 		86053B222CE20C27004BA772 /* NewOnbordingPageModelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86053B212CE20C27004BA772 /* NewOnbordingPageModelCollectionViewCell.swift */; };
 		86053B262CE20D33004BA772 /* NewOnboardPageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86053B242CE20D33004BA772 /* NewOnboardPageCollectionViewCell.swift */; };
 		86053B272CE20D33004BA772 /* NewOnboardPageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86053B252CE20D33004BA772 /* NewOnboardPageCollectionViewCell.xib */; };
+		860E1DD22D0BB8A8004F44E9 /* SpecialOfferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860E1DD02D0BB8A8004F44E9 /* SpecialOfferViewController.swift */; };
+		860E1DD32D0BB8A8004F44E9 /* SpecialOfferViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 860E1DD12D0BB8A8004F44E9 /* SpecialOfferViewController.xib */; };
 		8619E5BD2D06DAB30044B624 /* TranscriptionInstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8619E5BC2D06DAB30044B624 /* TranscriptionInstructionViewController.swift */; };
 		8619E5CC2D074A7C0044B624 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8619E5CA2D074A7C0044B624 /* AlertViewController.swift */; };
 		8619E5CD2D074A7C0044B624 /* AlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8619E5CB2D074A7C0044B624 /* AlertViewController.xib */; };
@@ -337,6 +339,8 @@
 		86053B212CE20C27004BA772 /* NewOnbordingPageModelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOnbordingPageModelCollectionViewCell.swift; sourceTree = "<group>"; };
 		86053B242CE20D33004BA772 /* NewOnboardPageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOnboardPageCollectionViewCell.swift; sourceTree = "<group>"; };
 		86053B252CE20D33004BA772 /* NewOnboardPageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewOnboardPageCollectionViewCell.xib; sourceTree = "<group>"; };
+		860E1DD02D0BB8A8004F44E9 /* SpecialOfferViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialOfferViewController.swift; sourceTree = "<group>"; };
+		860E1DD12D0BB8A8004F44E9 /* SpecialOfferViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpecialOfferViewController.xib; sourceTree = "<group>"; };
 		8619E5BC2D06DAB30044B624 /* TranscriptionInstructionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptionInstructionViewController.swift; sourceTree = "<group>"; };
 		8619E5CA2D074A7C0044B624 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
 		8619E5CB2D074A7C0044B624 /* AlertViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertViewController.xib; sourceTree = "<group>"; };
@@ -723,6 +727,15 @@
 			path = NewOnboardingCollectionViewCell;
 			sourceTree = "<group>";
 		};
+		860E1DCB2D0BB481004F44E9 /* SpecialOfferViewController */ = {
+			isa = PBXGroup;
+			children = (
+				860E1DD02D0BB8A8004F44E9 /* SpecialOfferViewController.swift */,
+				860E1DD12D0BB8A8004F44E9 /* SpecialOfferViewController.xib */,
+			);
+			path = SpecialOfferViewController;
+			sourceTree = "<group>";
+		};
 		8619E5BB2D06DA7C0044B624 /* InstructionViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -825,6 +838,7 @@
 		9A094345282D5BB800F7AEC5 /* PurchaseFlow */ = {
 			isa = PBXGroup;
 			children = (
+				860E1DCB2D0BB481004F44E9 /* SpecialOfferViewController */,
 				9AD6C64828A1019B0055C518 /* BPaywallViewController */,
 				9AE950AA283FBDB70044CAB1 /* PreOnboardingViewController */,
 				9A635DCE26F3811900A6C0EF /* CatchUpViewController */,
@@ -1621,6 +1635,7 @@
 				A51EBD3526D9572E00674657 /* AppguitarAfter.mp3 in Resources */,
 				9ABEB29A26D3FF5600A8252D /* DHeadphsRemindApViewController.xib in Resources */,
 				83A0A0C9267E02C700D06F35 /* Spawn.ahap in Resources */,
+				860E1DD32D0BB8A8004F44E9 /* SpecialOfferViewController.xib in Resources */,
 				A51EBD3426D9572E00674657 /* AppdialogAfter.mp3 in Resources */,
 				9A60EDFC281FE99600112720 /* ASettingAppViewController.xib in Resources */,
 				86053B1B2CDE3B24004BA772 /* NewOnboardingViewController.xib in Resources */,
@@ -1821,6 +1836,7 @@
 				9AD6C64B28A101CC0055C518 /* DBPaywlApViewController.swift in Sources */,
 				9A949F5328A2917F00F7D7D4 /* EApphudServiceAp.swift in Sources */,
 				9ACB45C72812B9BF00FAF44E /* WavetableArrayView.swift in Sources */,
+				860E1DD22D0BB8A8004F44E9 /* SpecialOfferViewController.swift in Sources */,
 				9ACB45C42812B9BF00FAF44E /* MusicalDurationStepper.swift in Sources */,
 				A5B2324E26CC44D20042AA7B /* GAppAnalyticActions.swift in Sources */,
 				83A8E89F2645898A0080AEE5 /* AppDelegate.swift in Sources */,
