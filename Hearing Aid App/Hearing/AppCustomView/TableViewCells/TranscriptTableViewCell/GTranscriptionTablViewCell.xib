@@ -48,7 +48,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" name="BackgroundColor_2"/>
+                        <color key="backgroundColor" name="White100"/>
                         <constraints>
                             <constraint firstItem="Vog-Ga-6bz" firstAttribute="top" secondItem="jRM-GH-ur5" secondAttribute="top" constant="10" id="2W7-df-NoN"/>
                             <constraint firstItem="lbA-zE-iJl" firstAttribute="leading" secondItem="FVQ-mw-tH7" secondAttribute="trailing" constant="12" id="3tQ-t0-KOT"/>
@@ -90,14 +90,14 @@
     </objects>
     <resources>
         <image name="transcriptIcon" width="36" height="36"/>
-        <namedColor name="BackgroundColor_2">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </namedColor>
         <namedColor name="Grey100">
             <color red="0.63137254901960782" green="0.61960784313725492" blue="0.6588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Purple70">
             <color red="0.23137254901960785" green="0.20392156862745098" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="White100">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

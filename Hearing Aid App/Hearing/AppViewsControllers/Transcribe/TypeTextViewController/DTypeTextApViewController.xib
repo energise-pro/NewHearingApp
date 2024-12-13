@@ -6,7 +6,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -54,9 +53,9 @@
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ORl-Hv-HTc">
                     <rect key="frame" x="0.0" y="826" width="414" height="50"/>
                     <subviews>
-                        <view alpha="0.10000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Rc-xF-T2Q">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Rc-xF-T2Q">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="1"/>
-                            <color key="backgroundColor" systemColor="labelColor"/>
+                            <color key="backgroundColor" name="TableSeparator100"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="MW3-Fa-Mc3"/>
                             </constraints>
@@ -97,7 +96,7 @@
                                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fpz-5p-4eg">
                                     <rect key="frame" x="10" y="8" width="284" height="24"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <nil key="textColor"/>
+                                    <color key="textColor" name="Purple100"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" contentInsetAdjustmentBehavior="never" text="Label" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="BLQ-RS-nGP">
@@ -185,7 +184,7 @@
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="okX-Ly-xPt"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" name="White100"/>
             <constraints>
                 <constraint firstItem="Xgr-1A-HaX" firstAttribute="leading" secondItem="okX-Ly-xPt" secondAttribute="leading" id="0y0-qn-V25"/>
                 <constraint firstItem="wlz-t5-3fj" firstAttribute="width" secondItem="7Hk-2V-r7Y" secondAttribute="width" constant="-40" id="Cil-Ta-l9N"/>
@@ -214,11 +213,11 @@
         <namedColor name="Purple100">
             <color red="0.066666666666666666" green="0.0" blue="0.28627450980392155" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <namedColor name="TableSeparator100">
+            <color red="0.81176470588235294" green="0.80000000000000004" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="White100">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

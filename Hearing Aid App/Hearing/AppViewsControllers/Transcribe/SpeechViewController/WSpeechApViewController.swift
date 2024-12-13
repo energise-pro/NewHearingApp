@@ -67,6 +67,8 @@ final class WSpeechApViewController: PMUMainViewController {
     
     // MARK: - Private methods
     private func configureUI() {
+        overrideUserInterfaceStyle = .light
+        
         titleLabel.textColor = UIColor.appColor(.Purple100)
         titleLabel.text = "Transcripts".localized()
         
@@ -83,6 +85,7 @@ final class WSpeechApViewController: PMUMainViewController {
         }
         
         searchBar.placeholder = "Search".localized()
+        searchBar.overrideUserInterfaceStyle = .light
         
         let cellNibs: [UIViewCellNib.Type] = [GTranscriptionTablViewCell.self]
         cellNibs.forEach { tableView.register($0.nib, forCellReuseIdentifier: $0.identifier) }

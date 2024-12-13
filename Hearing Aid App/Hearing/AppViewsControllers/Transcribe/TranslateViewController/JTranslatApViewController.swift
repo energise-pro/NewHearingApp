@@ -100,6 +100,8 @@ final class JTranslatApViewController: PMUMainViewController {
     
     // MARK: - Private methods
     private func configureUI() {
+        overrideUserInterfaceStyle = .light
+        
         title = BTranslServicesNew.shared.localizedInputLanguage.capitalized + " - " + BTranslServicesNew.shared.localizedOutputLanguage.capitalized
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.appColor(.Purple100)!]
         let shareButtonItem = UIBarButtonItem(image: UIImage(named: "shareButtonIcon"), style: .plain, target: self, action: #selector(shareButtonAction))

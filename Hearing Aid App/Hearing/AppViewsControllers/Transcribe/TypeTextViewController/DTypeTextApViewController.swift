@@ -52,6 +52,8 @@ final class DTypeTextApViewController: PMUMainViewController {
     
     // MARK: - Private methods
     private func configureUI() {
+        overrideUserInterfaceStyle = .light
+        
         setupRightBarButton()
         navigationController?.navigationBar.barTintColor = UIColor.appColor(.White100)!
         

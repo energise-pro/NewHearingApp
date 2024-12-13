@@ -23,7 +23,7 @@ final class TInAppService: NSObject, DIServicProtocols {
     static let didUpdatePurchases = Notification.Name("InAppPurchaseService.didUpdatePurchases")
     
     var isPremium: Bool {
-//        return true
+        return true
         let subscriptions = Apphud.subscriptions() ?? []
 
 //        let purchases = Apphud.nonRenewingPurchases() ?? []
