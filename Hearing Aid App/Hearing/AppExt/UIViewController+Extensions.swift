@@ -54,4 +54,20 @@ extension UIViewController {
             }
         }
     }
+    
+    func presentCustomHidingAlert(message: String, timeOut: AlertTimeout = .low, completion: (() -> ())? = nil) {
+        let alertController = ShowMessageViewController(messageText: message)
+        alertController.modalPresentationStyle = .overCurrentContext
+        
+        DispatchQueue.main.async { [weak self] in
+            self?.present(alertController, animated: false, completion: nil)
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + timeOut.rawValue) {
+            alertController.dismiss(animated: false)
+            if let completion = completion {
+                completion()
+            }
+        }
+    }
 }

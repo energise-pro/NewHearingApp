@@ -14,6 +14,11 @@
             <connections>
                 <outlet property="bottomView" destination="ios-Qr-X66" id="iFg-vn-Cag"/>
                 <outlet property="infoImageView" destination="Y3v-hk-F76" id="FDw-j3-arT"/>
+                <outlet property="instructionContainerInfo1" destination="J2j-S7-ikV" id="Cp6-zS-QFx"/>
+                <outlet property="instructionContainerInfo2" destination="0Ti-eC-1G9" id="4qS-n0-wKo"/>
+                <outlet property="instructionContainerInfo3" destination="eIy-rX-JkO" id="gJt-TY-Rc8"/>
+                <outlet property="instructionContainerTitle" destination="Yc7-wR-UgN" id="mAr-mr-4Xw"/>
+                <outlet property="instructionContainerView" destination="qfx-Z3-fwa" id="dRd-ZO-gT4"/>
                 <outlet property="placeholderContainerView" destination="VC7-dM-ryV" id="rtd-FW-BMR"/>
                 <outlet property="placeholderTitleLabel" destination="Fl2-AG-5MV" id="SCG-hW-KPK"/>
                 <outlet property="searchBar" destination="v8g-FJ-qNO" id="J3J-B5-qvu"/>
@@ -128,20 +133,86 @@
                                 <outlet property="delegate" destination="-1" id="hQh-W6-ZVo"/>
                             </connections>
                         </tableView>
-                        <view hidden="YES" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="qfx-Z3-fwa">
+                        <view hidden="YES" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="qfx-Z3-fwa" userLabel="Instruction Container - View">
                             <rect key="frame" x="0.0" y="441" width="414" height="252"/>
                             <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZdR-xf-Thb" customClass="TranscriptsInstructionTextView" customModule="Hearing_Aid_App" customModuleProvider="target">
-                                    <rect key="frame" x="16" y="33" width="382" height="187"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FKC-1S-zLa">
+                                    <rect key="frame" x="0.0" y="-13" width="64" height="66"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="187" id="czL-N5-GNL"/>
+                                        <constraint firstAttribute="height" constant="66" id="BHM-Of-YEW"/>
+                                        <constraint firstAttribute="width" constant="64" id="d9o-Yx-Ly7"/>
+                                    </constraints>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" image="closeBtns"/>
+                                    <connections>
+                                        <action selector="instructionContainerCloseButtonAction:" destination="-1" eventType="touchUpInside" id="HsX-US-yEe"/>
+                                    </connections>
+                                </button>
+                                <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="ZdR-xf-Thb" userLabel="Transcripts Instruction Text - View" customClass="TranscriptsInstructionTextView" customModule="Hearing_Aid_App" customModuleProvider="target">
+                                    <rect key="frame" x="16" y="33" width="382" height="187"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let’s Get Started" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="Yc7-wR-UgN">
+                                            <rect key="frame" x="16" y="24" width="276" height="28"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="28" id="wAh-g0-UMK"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                            <color key="textColor" name="Purple100"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="GgV-h0-xai">
+                                            <rect key="frame" x="16" y="68" width="350" height="99"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1. Tap the Transcribe button below" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="J2j-S7-ikV">
+                                                    <rect key="frame" x="0.0" y="0.0" width="350" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="25" id="xSk-7m-5Vt"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                    <color key="textColor" name="Purple100"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2. Speech turns into text in real time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="0Ti-eC-1G9">
+                                                    <rect key="frame" x="0.0" y="37" width="350" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="25" id="sMj-vg-URK"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                    <color key="textColor" name="Purple100"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3. Adjust text size and save if needed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="eIy-rX-JkO">
+                                                    <rect key="frame" x="0.0" y="74" width="350" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="25" id="8Wr-Ut-oeg"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                    <color key="textColor" name="Purple100"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="99" id="mWf-hu-Qbx"/>
+                                            </constraints>
+                                        </stackView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="GgV-h0-xai" firstAttribute="leading" secondItem="ZdR-xf-Thb" secondAttribute="leading" constant="16" id="15b-8C-ias"/>
+                                        <constraint firstItem="Yc7-wR-UgN" firstAttribute="leading" secondItem="ZdR-xf-Thb" secondAttribute="leading" constant="16" id="6OJ-qu-ZZC"/>
+                                        <constraint firstAttribute="bottom" secondItem="GgV-h0-xai" secondAttribute="bottom" constant="20" id="G1A-vY-Ic9"/>
+                                        <constraint firstAttribute="trailing" secondItem="GgV-h0-xai" secondAttribute="trailing" constant="16" id="Nlt-gN-YO9"/>
+                                        <constraint firstItem="Yc7-wR-UgN" firstAttribute="top" secondItem="ZdR-xf-Thb" secondAttribute="top" constant="24" id="PQl-u8-ZIO"/>
+                                        <constraint firstAttribute="height" constant="187" id="dT5-xD-M5b"/>
+                                        <constraint firstAttribute="trailing" secondItem="Yc7-wR-UgN" secondAttribute="trailing" constant="90" id="ipn-uW-kiR"/>
+                                        <constraint firstItem="GgV-h0-xai" firstAttribute="top" secondItem="Yc7-wR-UgN" secondAttribute="bottom" constant="16" id="m0c-M8-cPv"/>
                                     </constraints>
                                 </view>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5mL-mO-ymg">
-                                    <rect key="frame" x="310" y="4" width="103" height="72"/>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="speechToTextIcon" translatesAutoresizingMaskIntoConstraints="NO" id="5mL-mO-ymg">
+                                    <rect key="frame" x="325" y="4" width="72" height="72"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="103" id="Xzm-dr-EPC"/>
+                                        <constraint firstAttribute="height" constant="72" id="HUe-O6-v6a"/>
+                                        <constraint firstAttribute="width" constant="72" id="Xzm-dr-EPC"/>
                                     </constraints>
                                 </imageView>
                             </subviews>
@@ -149,10 +220,12 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="252" id="5Ab-Yy-gNY"/>
                                 <constraint firstAttribute="bottom" secondItem="ZdR-xf-Thb" secondAttribute="bottom" constant="32" id="Fyr-lw-FkB"/>
+                                <constraint firstItem="FKC-1S-zLa" firstAttribute="leading" secondItem="qfx-Z3-fwa" secondAttribute="leading" id="KPK-Tn-XSP"/>
                                 <constraint firstItem="ZdR-xf-Thb" firstAttribute="leading" secondItem="qfx-Z3-fwa" secondAttribute="leading" constant="16" id="Twm-Rp-3Ib"/>
+                                <constraint firstItem="ZdR-xf-Thb" firstAttribute="top" secondItem="FKC-1S-zLa" secondAttribute="bottom" constant="-20" id="Wu2-8y-FFu"/>
                                 <constraint firstItem="5mL-mO-ymg" firstAttribute="top" secondItem="qfx-Z3-fwa" secondAttribute="top" constant="4" id="cwu-Rg-8xL"/>
                                 <constraint firstAttribute="trailing" secondItem="ZdR-xf-Thb" secondAttribute="trailing" constant="16" id="e48-1q-ABM"/>
-                                <constraint firstAttribute="trailing" secondItem="5mL-mO-ymg" secondAttribute="trailing" constant="1" id="lyz-o5-xrJ"/>
+                                <constraint firstAttribute="trailing" secondItem="5mL-mO-ymg" secondAttribute="trailing" constant="17" id="lyz-o5-xrJ"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -397,6 +470,8 @@
         </view>
     </objects>
     <resources>
+        <image name="closeBtns" width="65" height="68"/>
+        <image name="speechToTextIcon" width="72" height="72"/>
         <namedColor name="Grey100">
             <color red="0.63137254901960782" green="0.61960784313725492" blue="0.6588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

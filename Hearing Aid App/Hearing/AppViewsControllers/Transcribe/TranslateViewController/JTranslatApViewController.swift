@@ -1,5 +1,9 @@
 import UIKit
 
+protocol JTranslatApViewControllerDelegate: AnyObject {
+    func didUpdateTranscript()
+}
+
 final class JTranslatApViewController: PMUMainViewController {
 
     enum BottomButtonType: Int, CaseIterable {
@@ -60,6 +64,7 @@ final class JTranslatApViewController: PMUMainViewController {
     @IBOutlet private weak var centerViewYConstraint: NSLayoutConstraint!
     @IBOutlet private weak var bottomBackgroundView: UIView!
     
+    private weak var delegate: JTranslatApViewControllerDelegate?
     private var keyboardNotification = KeyboardNotification()
     private(set) var notAskConfirmationForDeleteAction: Bool {
         get {
@@ -68,6 +73,16 @@ final class JTranslatApViewController: PMUMainViewController {
         set {
             UserDefaults.standard.setValue(newValue, forKey: "notAskConfirmationForDeleteTranslateAction")
         }
+    }
+    
+    // MARK: - Init
+    init(delegate: JTranslatApViewControllerDelegate?) {
+        self.delegate = delegate
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: - Lifecycle
@@ -265,7 +280,8 @@ final class JTranslatApViewController: PMUMainViewController {
         }
         TapticEngine.impact.feedback(.medium)
         CTranscribServicesAp.shared.savedTranscripts.append(TranscribeModel(title: text + "\n\n" + (mainTextViews.first?.text ?? ""), createdDate: Date().timeIntervalSince1970))
-        presentHidingAlert(title: "Transcript successfully saved".localized(), message: "", timeOut: .low)
+        presentCustomHidingAlert(message: "Transcript successfully saved!".localized())
+        delegate?.didUpdateTranscript()
     }
     
     // MARK: - Actions

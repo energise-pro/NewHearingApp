@@ -296,8 +296,8 @@ final class AppsNavManager: NSObject {
         topViewController?.present(navigationViewController, animated: true)
     }
     
-    func presentJTranslatApViewController() {
-        let JTranslatApViewController = JTranslatApViewController()
+    func presentJTranslatApViewController(with delegate: JTranslatApViewControllerDelegate?) {
+        let JTranslatApViewController = JTranslatApViewController(delegate: delegate)
         let navigationViewController = UINavigationController(rootViewController: JTranslatApViewController)
         topViewController?.present(navigationViewController, animated: true)
     }

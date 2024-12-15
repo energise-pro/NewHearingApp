@@ -255,9 +255,10 @@ final class UTranscribApViewController: PMUMainViewController {
         TapticEngine.impact.feedback(.medium)
         if !CTranscribServicesAp.shared.isSavedFirstTranscripts {
             CTranscribServicesAp.shared.isSavedFirstTranscripts = true
+            CTranscribServicesAp.shared.isShowGetStartedView = false
         }
         CTranscribServicesAp.shared.savedTranscripts.append(TranscribeModel(title: text, createdDate: Date().timeIntervalSince1970))
-        presentHidingAlert(title: "Transcript successfully saved".localized(), message: "", timeOut: .low)
+        presentCustomHidingAlert(message: "Transcript successfully saved!".localized())
         delegate?.didUpdateTranscript()
     }
     

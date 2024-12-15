@@ -44,6 +44,12 @@ final class WSpeechApViewController: PMUMainViewController {
     @IBOutlet private weak var placeholderContainerView: UIView!
     @IBOutlet private weak var placeholderTitleLabel: UILabel!
     
+    @IBOutlet weak var instructionContainerView: UIView!
+    @IBOutlet weak var instructionContainerTitle: UILabel!
+    @IBOutlet weak var instructionContainerInfo1: UILabel!
+    @IBOutlet weak var instructionContainerInfo2: UILabel!
+    @IBOutlet weak var instructionContainerInfo3: UILabel!
+    
     private var dataSource: [[CellConfigurator]] = []
     private var filteredDataSource: [[CellConfigurator]] = []
     
@@ -92,6 +98,12 @@ final class WSpeechApViewController: PMUMainViewController {
         
         tableView.contentInset = UIEdgeInsets(top: 5, left: .zero, bottom: .zero, right: .zero)
         tableView.backgroundColor = UIColor.appColor(.Purple10)
+        
+        instructionContainerTitle.text = "Let’s Get Started".localized()
+        instructionContainerInfo1.text = "1. Tap the Transcribe button below".localized()
+        instructionContainerInfo2.text = "2. Speech turns into text in real time".localized()
+        instructionContainerInfo3.text = "3. Adjust text size and save if needed".localized()
+        instructionContainerView.isHidden = !CTranscribServicesAp.shared.isShowGetStartedView
         
         updateMainColors()
     }
@@ -153,7 +165,7 @@ final class WSpeechApViewController: PMUMainViewController {
         
         switch buttonType {
         case .translate:
-            AppsNavManager.shared.presentJTranslatApViewController()
+            AppsNavManager.shared.presentJTranslatApViewController(with: self)
             KAppConfigServic.shared.analytics.track(action: .v2TranscribeMainScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.translate.rawValue])
         case .type:
             AppsNavManager.shared.presentDTypeTextApViewController()
@@ -181,6 +193,11 @@ final class WSpeechApViewController: PMUMainViewController {
         AppsNavManager.shared.presentTranscriptionInstructionViewController()
         //        KAppConfigServic.shared.analytics.track(action: .v2HearingScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.info.rawValue])
     }
+    
+    @IBAction func instructionContainerCloseButtonAction(_ sender: UIButton) {
+        CTranscribServicesAp.shared.isShowGetStartedView = false
+        instructionContainerView.isHidden = !CTranscribServicesAp.shared.isShowGetStartedView
+    }
 }
 
 // MARK: - UISearchBarDelegate
@@ -206,8 +223,8 @@ extension WSpeechApViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         self.tableView.isHidden = filteredDataSource.isEmpty
         placeholderContainerView.isHidden = !filteredDataSource.isEmpty
-        var placeholderTitleText = CTranscribServicesAp.shared.isSavedFirstTranscripts ? "No transcripts match your search – try a different keyword".localized() : "No saved transcripts".localized()
-        if CTranscribServicesAp.shared.isShowGetStartedView {
+        var placeholderTitleText = dataSource.count > 0 ? "No transcripts match your search – try a different keyword".localized() : "No saved transcripts".localized()
+        if !CTranscribServicesAp.shared.isSavedFirstTranscripts {
             placeholderTitleText = "No saved transcripts yet".localized()
         }
         placeholderTitleLabel.text = placeholderTitleText
@@ -269,9 +286,10 @@ extension WSpeechApViewController: GTranscriptionTablViewCellDelegate {
 }
 
 // MARK: - YTranscriptDetailApViewControllerDelegate
-extension WSpeechApViewController: YTranscriptDetailApViewControllerDelegate, UTranscribApViewControllerDelegate {
+extension WSpeechApViewController: YTranscriptDetailApViewControllerDelegate, UTranscribApViewControllerDelegate, JTranslatApViewControllerDelegate {
     
     func didUpdateTranscript() {
+        instructionContainerView.isHidden = !CTranscribServicesAp.shared.isShowGetStartedView
         searchBar.text = ""
         configureDataSource()
     }

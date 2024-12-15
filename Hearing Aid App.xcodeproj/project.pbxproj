@@ -71,6 +71,16 @@
 		86053B272CE20D33004BA772 /* NewOnboardPageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86053B252CE20D33004BA772 /* NewOnboardPageCollectionViewCell.xib */; };
 		860E1DD22D0BB8A8004F44E9 /* SpecialOfferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860E1DD02D0BB8A8004F44E9 /* SpecialOfferViewController.swift */; };
 		860E1DD32D0BB8A8004F44E9 /* SpecialOfferViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 860E1DD12D0BB8A8004F44E9 /* SpecialOfferViewController.xib */; };
+		860E1DF22D0CB000004F44E9 /* EasierLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860E1DE52D0CB000004F44E9 /* EasierLayer.swift */; };
+		860E1DF32D0CB000004F44E9 /* EasierLayerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860E1DEC2D0CB000004F44E9 /* EasierLayerProtocol.swift */; };
+		860E1DF42D0CB000004F44E9 /* EasierPathProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860E1DED2D0CB000004F44E9 /* EasierPathProtocol.swift */; };
+		860E1DF52D0CB000004F44E9 /* EasierPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860E1DE62D0CB000004F44E9 /* EasierPath.swift */; };
+		860E1DF62D0CB000004F44E9 /* CurveType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860E1DE82D0CB000004F44E9 /* CurveType.swift */; };
+		860E1DF72D0CB000004F44E9 /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860E1DE92D0CB000004F44E9 /* Direction.swift */; };
+		860E1DF82D0CB000004F44E9 /* ShapeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860E1DEA2D0CB000004F44E9 /* ShapeType.swift */; };
+		860E1E012D0F4CD1004F44E9 /* ShowMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860E1DFF2D0F4CD0004F44E9 /* ShowMessageViewController.swift */; };
+		860E1E022D0F4CD1004F44E9 /* ShowMessageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 860E1E002D0F4CD0004F44E9 /* ShowMessageViewController.xib */; };
+		860E1E042D0F54CF004F44E9 /* ShowMessageTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860E1E032D0F54CF004F44E9 /* ShowMessageTextView.swift */; };
 		8619E5BD2D06DAB30044B624 /* TranscriptionInstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8619E5BC2D06DAB30044B624 /* TranscriptionInstructionViewController.swift */; };
 		8619E5CC2D074A7C0044B624 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8619E5CA2D074A7C0044B624 /* AlertViewController.swift */; };
 		8619E5CD2D074A7C0044B624 /* AlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8619E5CB2D074A7C0044B624 /* AlertViewController.xib */; };
@@ -341,6 +351,16 @@
 		86053B252CE20D33004BA772 /* NewOnboardPageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewOnboardPageCollectionViewCell.xib; sourceTree = "<group>"; };
 		860E1DD02D0BB8A8004F44E9 /* SpecialOfferViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialOfferViewController.swift; sourceTree = "<group>"; };
 		860E1DD12D0BB8A8004F44E9 /* SpecialOfferViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpecialOfferViewController.xib; sourceTree = "<group>"; };
+		860E1DE52D0CB000004F44E9 /* EasierLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasierLayer.swift; sourceTree = "<group>"; };
+		860E1DE62D0CB000004F44E9 /* EasierPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasierPath.swift; sourceTree = "<group>"; };
+		860E1DE82D0CB000004F44E9 /* CurveType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurveType.swift; sourceTree = "<group>"; };
+		860E1DE92D0CB000004F44E9 /* Direction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Direction.swift; sourceTree = "<group>"; };
+		860E1DEA2D0CB000004F44E9 /* ShapeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeType.swift; sourceTree = "<group>"; };
+		860E1DEC2D0CB000004F44E9 /* EasierLayerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasierLayerProtocol.swift; sourceTree = "<group>"; };
+		860E1DED2D0CB000004F44E9 /* EasierPathProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasierPathProtocol.swift; sourceTree = "<group>"; };
+		860E1DFF2D0F4CD0004F44E9 /* ShowMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMessageViewController.swift; sourceTree = "<group>"; };
+		860E1E002D0F4CD0004F44E9 /* ShowMessageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShowMessageViewController.xib; sourceTree = "<group>"; };
+		860E1E032D0F54CF004F44E9 /* ShowMessageTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMessageTextView.swift; sourceTree = "<group>"; };
 		8619E5BC2D06DAB30044B624 /* TranscriptionInstructionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptionInstructionViewController.swift; sourceTree = "<group>"; };
 		8619E5CA2D074A7C0044B624 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
 		8619E5CB2D074A7C0044B624 /* AlertViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertViewController.xib; sourceTree = "<group>"; };
@@ -736,6 +756,61 @@
 			path = SpecialOfferViewController;
 			sourceTree = "<group>";
 		};
+		860E1DE72D0CB000004F44E9 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				860E1DE52D0CB000004F44E9 /* EasierLayer.swift */,
+				860E1DE62D0CB000004F44E9 /* EasierPath.swift */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		860E1DEB2D0CB000004F44E9 /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				860E1DE82D0CB000004F44E9 /* CurveType.swift */,
+				860E1DE92D0CB000004F44E9 /* Direction.swift */,
+				860E1DEA2D0CB000004F44E9 /* ShapeType.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
+		860E1DEE2D0CB000004F44E9 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				860E1DEC2D0CB000004F44E9 /* EasierLayerProtocol.swift */,
+				860E1DED2D0CB000004F44E9 /* EasierPathProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		860E1DF02D0CB000004F44E9 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				860E1DE72D0CB000004F44E9 /* Class */,
+				860E1DEB2D0CB000004F44E9 /* Enum */,
+				860E1DEE2D0CB000004F44E9 /* Protocol */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		860E1DF12D0CB000004F44E9 /* EasierPath */ = {
+			isa = PBXGroup;
+			children = (
+				860E1DF02D0CB000004F44E9 /* Classes */,
+			);
+			path = EasierPath;
+			sourceTree = "<group>";
+		};
+		860E1DFE2D0F4CA0004F44E9 /* ShowMessageViewController */ = {
+			isa = PBXGroup;
+			children = (
+				860E1DFF2D0F4CD0004F44E9 /* ShowMessageViewController.swift */,
+				860E1E002D0F4CD0004F44E9 /* ShowMessageViewController.xib */,
+			);
+			path = ShowMessageViewController;
+			sourceTree = "<group>";
+		};
 		8619E5BB2D06DA7C0044B624 /* InstructionViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -1102,6 +1177,7 @@
 		9A87D76526CF06F70077C9D0 /* AppViewsControllers */ = {
 			isa = PBXGroup;
 			children = (
+				860E1DFE2D0F4CA0004F44E9 /* ShowMessageViewController */,
 				864071082D0B9468009A42FB /* CarouselViewController */,
 				8619E5C92D074A440044B624 /* AlertViewController */,
 				9A5512E528097A270078C5E5 /* PMUMainViewController.swift */,
@@ -1497,6 +1573,7 @@
 		A5B2325226CC48080042AA7B /* AppHelpers */ = {
 			isa = PBXGroup;
 			children = (
+				860E1DF12D0CB000004F44E9 /* EasierPath */,
 				9ACB45F02812F8E900FAF44E /* АViewCellConfig.swift */,
 				A5B2325326CC48080042AA7B /* CAppConstants.swift */,
 				9A9DC6792833CF460080B46F /* GKeybLayConst.swift */,
@@ -1527,6 +1604,7 @@
 				A51EBD4126D959F000674657 /* CollectionViewCells */,
 				86DFB2122CE755BB00CBD94F /* RadialGradientView.swift */,
 				863F688D2D019E2600B34302 /* TranscriptsInstructionTextView.swift */,
+				860E1E032D0F54CF004F44E9 /* ShowMessageTextView.swift */,
 			);
 			path = AppCustomView;
 			sourceTree = "<group>";
@@ -1641,6 +1719,7 @@
 				86053B1B2CDE3B24004BA772 /* NewOnboardingViewController.xib in Resources */,
 				86053B272CE20D33004BA772 /* NewOnboardPageCollectionViewCell.xib in Resources */,
 				A58219B026F9196D005BFCD6 /* JOnbrdCollectViewCell.xib in Resources */,
+				860E1E022D0F4CD1004F44E9 /* ShowMessageViewController.xib in Resources */,
 				9A949F5828A293E800F7D7D4 /* SFakSplasApViewController.xib in Resources */,
 				83A8E8AB2645898B0080AEE5 /* LaunchScreen.storyboard in Resources */,
 				A51EBD3826D9575600674657 /* AppdialogBefore.mp3 in Resources */,
@@ -1779,6 +1858,7 @@
 				9A60EDCF281A9B9A00112720 /* VPLirParameter.swift in Sources */,
 				83AA6D8E26777DD800AFFB7F /* JTranslrToLangSelecController.swift in Sources */,
 				9A949F5728A293E800F7D7D4 /* SFakSplasApViewController.swift in Sources */,
+				860E1E042D0F54CF004F44E9 /* ShowMessageTextView.swift in Sources */,
 				9ACB45C52812B9BF00FAF44E /* KeyboardWidget.swift in Sources */,
 				9A60EDFB281FE99600112720 /* ASettingAppViewController.swift in Sources */,
 				9ADCA38627353DD900B8CE6B /* BFirebaseServices.swift in Sources */,
@@ -1833,6 +1913,7 @@
 				83A8E8BF2645A76D0080AEE5 /* KGradientablView.swift in Sources */,
 				83A8E8BC2645A71D0080AEE5 /* HomeTabBarController.swift in Sources */,
 				9ACB45DE2812CE7000FAF44E /* ErdSetupViewController.swift in Sources */,
+				860E1E012D0F4CD1004F44E9 /* ShowMessageViewController.swift in Sources */,
 				9AD6C64B28A101CC0055C518 /* DBPaywlApViewController.swift in Sources */,
 				9A949F5328A2917F00F7D7D4 /* EApphudServiceAp.swift in Sources */,
 				9ACB45C72812B9BF00FAF44E /* WavetableArrayView.swift in Sources */,
@@ -1908,6 +1989,13 @@
 				9A4DA22028464DEA00DCBC87 /* RVoicChangeJViewController.swift in Sources */,
 				9A171CB026D4164000714425 /* AVRoutePickerView+Extension.swift in Sources */,
 				9ACB45D52812B9BF00FAF44E /* AmplitudeView.swift in Sources */,
+				860E1DF22D0CB000004F44E9 /* EasierLayer.swift in Sources */,
+				860E1DF32D0CB000004F44E9 /* EasierLayerProtocol.swift in Sources */,
+				860E1DF42D0CB000004F44E9 /* EasierPathProtocol.swift in Sources */,
+				860E1DF52D0CB000004F44E9 /* EasierPath.swift in Sources */,
+				860E1DF62D0CB000004F44E9 /* CurveType.swift in Sources */,
+				860E1DF72D0CB000004F44E9 /* Direction.swift in Sources */,
+				860E1DF82D0CB000004F44E9 /* ShapeType.swift in Sources */,
 				A552868826FA711500A92066 /* GOnbBSpeechViewCell.swift in Sources */,
 				9AEC02F0283533FF00E9E88B /* HTexParamTableViewCell.swift in Sources */,
 				A5B2325526CC48080042AA7B /* CAppConstants.swift in Sources */,
