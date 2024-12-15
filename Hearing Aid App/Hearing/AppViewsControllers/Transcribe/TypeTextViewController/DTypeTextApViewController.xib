@@ -28,6 +28,13 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rG0-IZ-m29">
+                    <rect key="frame" x="0.0" y="47" width="414" height="1"/>
+                    <color key="backgroundColor" name="TableSeparator100"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="rhv-J1-sbw"/>
+                    </constraints>
+                </view>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xgr-1A-HaX">
                     <rect key="frame" x="0.0" y="48" width="414" height="778"/>
                     <subviews>
@@ -189,10 +196,13 @@
                 <constraint firstItem="Xgr-1A-HaX" firstAttribute="leading" secondItem="okX-Ly-xPt" secondAttribute="leading" id="0y0-qn-V25"/>
                 <constraint firstItem="wlz-t5-3fj" firstAttribute="width" secondItem="7Hk-2V-r7Y" secondAttribute="width" constant="-40" id="Cil-Ta-l9N"/>
                 <constraint firstItem="Xgr-1A-HaX" firstAttribute="top" secondItem="okX-Ly-xPt" secondAttribute="top" id="JsG-5Y-yF8"/>
+                <constraint firstItem="Xgr-1A-HaX" firstAttribute="top" secondItem="rG0-IZ-m29" secondAttribute="bottom" id="Vmg-nD-wRE"/>
                 <constraint firstItem="ORl-Hv-HTc" firstAttribute="leading" secondItem="okX-Ly-xPt" secondAttribute="leading" id="X99-aP-toE"/>
                 <constraint firstItem="ORl-Hv-HTc" firstAttribute="top" secondItem="Xgr-1A-HaX" secondAttribute="bottom" id="Y9K-mg-GRa"/>
                 <constraint firstItem="Xgr-1A-HaX" firstAttribute="trailing" secondItem="okX-Ly-xPt" secondAttribute="trailing" id="h6e-Tx-SaW"/>
                 <constraint firstItem="okX-Ly-xPt" firstAttribute="trailing" secondItem="ORl-Hv-HTc" secondAttribute="trailing" id="ljI-SR-7Jr"/>
+                <constraint firstAttribute="trailing" secondItem="rG0-IZ-m29" secondAttribute="trailing" id="rfi-F0-LXQ"/>
+                <constraint firstItem="rG0-IZ-m29" firstAttribute="leading" secondItem="7Hk-2V-r7Y" secondAttribute="leading" id="v7K-b1-qzU"/>
                 <constraint firstAttribute="bottom" secondItem="ORl-Hv-HTc" secondAttribute="bottom" constant="20" id="wwa-fm-WN5" customClass="GKeybLayConst" customModule="Hearing_Aid_App" customModuleProvider="target">
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="keyboardOffset">

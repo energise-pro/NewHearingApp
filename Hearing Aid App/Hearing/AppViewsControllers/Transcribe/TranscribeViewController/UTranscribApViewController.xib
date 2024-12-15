@@ -42,19 +42,19 @@
                         <constraint firstAttribute="height" constant="124" id="z6b-8G-N2E"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="av0-Ln-ADr">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="1"/>
-                    <color key="backgroundColor" name="TableSeparator100"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="1" id="rqG-yR-zsN"/>
-                    </constraints>
-                </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A8V-p7-cJA">
                     <rect key="frame" x="25" y="56" width="369" height="57.5"/>
                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="48"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="av0-Ln-ADr">
+                    <rect key="frame" x="0.0" y="47" width="414" height="1"/>
+                    <color key="backgroundColor" name="TableSeparator100"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="rqG-yR-zsN"/>
+                    </constraints>
+                </view>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nGm-AD-q9d">
                     <rect key="frame" x="20" y="48" width="374" height="724"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -289,8 +289,8 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" name="White100"/>
             <constraints>
+                <constraint firstItem="nGm-AD-q9d" firstAttribute="top" secondItem="av0-Ln-ADr" secondAttribute="bottom" id="2EK-rI-tZh"/>
                 <constraint firstAttribute="bottom" secondItem="YOM-ry-aET" secondAttribute="bottom" constant="40" id="3eA-Ee-bpi"/>
-                <constraint firstItem="av0-Ln-ADr" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="5rb-12-lzs"/>
                 <constraint firstItem="A8V-p7-cJA" firstAttribute="leading" secondItem="nGm-AD-q9d" secondAttribute="leading" constant="5" id="8BV-l5-Ngd"/>
                 <constraint firstItem="A8V-p7-cJA" firstAttribute="top" secondItem="nGm-AD-q9d" secondAttribute="top" constant="8" id="9AD-mO-rlf"/>
                 <constraint firstAttribute="trailing" secondItem="av0-Ln-ADr" secondAttribute="trailing" id="9EG-GQ-st4"/>
