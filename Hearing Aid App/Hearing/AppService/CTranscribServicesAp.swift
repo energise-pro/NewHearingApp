@@ -16,7 +16,7 @@ final class CTranscribServicesAp: NSObject {
     static let shared: CTranscribServicesAp = CTranscribServicesAp()
     static let TAG: String = "CTranscribServicesAp"
     
-    @Storage(key: "ShakeToClearText", defaultValue: true)
+    @Storage(key: "ShakeToClearText", defaultValue: false)
     private(set) var isShakeToClear: Bool
     
     @Storage(key: "OfflineTranslate", defaultValue: true)
