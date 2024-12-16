@@ -61,7 +61,7 @@ public class FloatPlot: MTKView, MTKViewDelegate {
         float y = (in.t.y - .5);
         float d = fabs(y - sample);
         float alpha = fabs(1/(50 * d));
-        return alpha;
+        return half4(0.0, 0.0, 0.0, alpha); // Output fully transparent color
         """
 
         let metal = metalHeader + (fragment ?? defaultFragment) + "}"
@@ -94,6 +94,7 @@ public class FloatPlot: MTKView, MTKViewDelegate {
         super.init(frame: frameRect, device: device)
 
         self.clearColor = .init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0)
+        self.isOpaque = false
 
         delegate = self
     }

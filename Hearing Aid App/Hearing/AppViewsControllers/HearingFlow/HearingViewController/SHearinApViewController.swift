@@ -371,8 +371,11 @@ final class SHearinApViewController: PMUMainViewController {
         waveContainerView.subviews.forEach { $0.removeFromSuperview() }
         let waveView = SAudioKitServicesAp.shared.microphoneRollingView
         let childView = UIHostingController(rootView: waveView)
-        childView.view.backgroundColor = .yellow
+        childView.view.backgroundColor = .clear
+        childView.view.isOpaque = false
         childView.view.frame = waveContainerView.bounds
+        waveContainerView.backgroundColor = .clear
+        waveContainerView.isOpaque = false
         waveContainerView.addSubview(childView.view)
     }
     

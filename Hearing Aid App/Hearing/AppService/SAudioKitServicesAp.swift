@@ -260,7 +260,7 @@ final class SAudioKitServicesAp {
         guard let inputNode = audioEngine?.input else {
             return
         }
-        let microphoneRollingView = NodeRollingView(inputNode, color: Color(UIColor.appColor(.Purple100)!.cgColor), backgroundColor: .white)
+        let microphoneRollingView = NodeRollingView(inputNode, color: Color(UIColor.appColor(.Purple100)!.cgColor))
         self.microphoneRollingView = microphoneRollingView
         DispatchQueue.main.async { [weak self] in
             self?.isStartedMixer == true ? self?.microphoneRollingView?.nodeTap.start() : self?.microphoneRollingView?.nodeTap.stop()

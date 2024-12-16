@@ -18,7 +18,7 @@ public enum MetalFragment: String {
 
 public class FragmentBuilder {
     var foregroundColor: CGColor = Color.gray.cg
-    var backgroundColor: CGColor = Color.clear.cg
+    var backgroundColor: CGColor = Color.clear == .clear ? CGColor(red: 1, green: 1, blue: 1, alpha: 0) : Color.clear.cg
     var isCentered: Bool = true
     var isFilled: Bool = true
     var isFFT: Bool = false
@@ -29,8 +29,9 @@ public class FragmentBuilder {
          isFilled: Bool = true,
          isFFT: Bool = false)
     {
+        let transparentWhite = CGColor(red: 1, green: 1, blue: 1, alpha: 0)
         self.foregroundColor = foregroundColor
-        self.backgroundColor = backgroundColor
+        self.backgroundColor = backgroundColor == Color.clear.cg ? transparentWhite : backgroundColor
         self.isCentered = isCentered
         self.isFilled = isFilled
         self.isFFT = isFFT
@@ -46,7 +47,7 @@ public class FragmentBuilder {
         float y = (-in.t.y + \(isCentered ? 0.5 : 1));
         float d = \(isFilled ? "fmax(fabs(y) - fabs(sample), 0)" : "fabs(y - sample)");
         float alpha = \(isFFT ? "fabs(1/(50 * d))" : "smoothstep(0.01, 0.02, d)");
-        return { mix(foregroundColor, backgroundColor, alpha) };
+        return { mix(foregroundColor, backgroundColor, alpha) * backgroundColor.a + foregroundColor * (1.0 - alpha) };
         """
     }
 }
