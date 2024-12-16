@@ -15,8 +15,8 @@ enum GAppAnalyticActions: String {
     case manageSubscriptions = "manage_subscriptions"
     case cancelSubscription = "cancel_subscription"
     // Version 2
-    case v2FirstLaunch = "v2_first_launch"
-    case v2AppOpen = "v2_app_open"
+//    case v2FirstLaunch = "v2_first_launch"
+//    case v2AppOpen = "v2_app_open"
     
     case v2Onboarding = "v2_onboarding_screen"
     case v2TabBar = "v2_tab_bar_screen"
@@ -156,4 +156,11 @@ enum GAppAnalyticActions: String {
     case changeFontSize = "change_font_size"
     case listening = "listening"
     
+    // New UI
+    
+    case appLaunched = "app_launched"
+    case appClosed = "app_closed"
+    case firstOpenApp = "first_open_app"
+    
+    case paywallSeen = "paywall_seen"
 }

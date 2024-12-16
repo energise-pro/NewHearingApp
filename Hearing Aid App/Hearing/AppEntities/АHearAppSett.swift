@@ -30,9 +30,12 @@ struct АHearAppSett {
         UserDefaults.standard.synchronize()
         
         if newAppLaunchCount > 1 {
-            KAppConfigServic.shared.analytics.track(action: .v2AppOpen)
-        } else {
-            KAppConfigServic.shared.analytics.track(action: .v2FirstLaunch)
+            KAppConfigServic.shared.analytics.track(
+                action: .appLaunched,
+                with: [
+                    "hearing_status" : SAudioKitServicesAp.shared.isStartedMixer ? "activated" : "deativated"
+                ]
+            )
         }
         
         newAppLaunchCount % 5 == 0 ? presentAppRatingAlert() : Void()

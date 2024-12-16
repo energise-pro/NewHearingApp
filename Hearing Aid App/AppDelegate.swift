@@ -43,4 +43,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
         return KAppConfigServic.shared.supportedOrientations
     }
+    
+    func applicationWillTerminate(_ application: UIApplication) {
+        KAppConfigServic.shared.analytics.track(
+            action: .appClosed,
+            with: [
+                "hearing_status" : SAudioKitServicesAp.shared.isStartedMixer ? "activated" : "deativated"
+            ]
+        )
+    }
 }

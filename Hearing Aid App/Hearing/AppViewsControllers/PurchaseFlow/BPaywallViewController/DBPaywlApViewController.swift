@@ -21,7 +21,6 @@ final class DBPaywlApViewController: PMUMainViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         EApphudServiceAp.shared.paywallShown()
-        KAppConfigServic.shared.analytics.track(.v2BPaywall, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.openFromLaunch.rawValue])
         configureUI()
     }
     
@@ -80,6 +79,7 @@ final class DBPaywlApViewController: PMUMainViewController {
             self.isLoading = false
             self.subscriptionItems = EApphudServiceAp.shared.experimentProducts
             self.updateSelectedPlan()
+//            KAppConfigServic.shared.analytics.track(.paywallSeen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.openFromLaunch.rawValue])
         }
     }
     
