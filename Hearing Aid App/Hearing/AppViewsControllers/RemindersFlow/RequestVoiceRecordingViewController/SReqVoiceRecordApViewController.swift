@@ -6,9 +6,9 @@ final class SReqVoiceRecordApViewController: UIViewController {
     //MARK: - @IBOutlet
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
+    @IBOutlet private weak var allowButtonLabel: UILabel!
     
-    @IBOutlet private weak var allowButton: UIButton!
-    @IBOutlet private weak var closeImageView: UIImageView!
+    @IBOutlet private weak var allowButtonContainerView: UIView!
     
     //MARK: - LifeCycle
     override func viewDidLoad() {
@@ -19,21 +19,13 @@ final class SReqVoiceRecordApViewController: UIViewController {
     
     //MARK: - Function
     private func configureUI() {
-        closeImageView.tintColor = UIColor.appColor(.UnactiveButton_1)?.withAlphaComponent(0.3)
-        titleLabel.textColor = UIColor.appColor(.UnactiveButton_1)
-        descriptionLabel.textColor = UIColor.appColor(.UnactiveButton_1)?.withAlphaComponent(0.8)
+        titleLabel.textColor = UIColor.appColor(.White100)
+        descriptionLabel.textColor = UIColor.appColor(.White100)
+        allowButtonLabel.textColor = UIColor.appColor(.Purple100)
         
-        let fontMultiplier: CGFloat = 0.03
-        let titleFontSize = min(max(.appHeight * fontMultiplier, Defaults.minimumTitleFontSize), Defaults.maximumTitleFontSize)
-        let descriptionFontSize = min(max(.appHeight * fontMultiplier, Defaults.minimumDescriptionFontSize), Defaults.maximumDescriptionFontSize)
-
-        titleLabel.font = UIFont.systemFont(ofSize: titleFontSize, weight: .bold)
-        descriptionLabel.font = UIFont.systemFont(ofSize: descriptionFontSize, weight: .medium)
-        
-        titleLabel.text = "Allow Speech recognition function".localized()
-        descriptionLabel.text = "Dear User, for use Speech recognition function, you need to allow permission".localized()
-        allowButton.setTitle("Continue".localized(), for: .normal)
-        allowButton.backgroundColor = AThemeServicesAp.shared.activeColor
+        titleLabel.text = "Allow Speech Recognition".localized()
+        descriptionLabel.text = "Please allow speech recognition to use the transcription feature.".localized()
+        allowButtonLabel.text = "Go to Settings".localized()
     }
     
     //MARK: @IBAction
@@ -61,12 +53,4 @@ extension SReqVoiceRecordApViewController: SIAppStateListeners {
             dismiss(animated: true, completion: nil)
         }
     }
-}
-
-private struct Defaults {
-    static let minimumTitleFontSize: CGFloat = 22.0
-    static let maximumTitleFontSize: CGFloat = 28.0
-    
-    static let minimumDescriptionFontSize: CGFloat = 16.0
-    static let maximumDescriptionFontSize: CGFloat = 25.0
 }

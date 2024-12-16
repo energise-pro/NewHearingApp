@@ -91,10 +91,8 @@ final class CTranscribServicesAp: NSObject {
     
     // MARK: - Methods
     func requestRecognitionPermission(completion: AVServicePermissionCompletion?) {
-        if recordPermission == .denied, let url = URL(string: UIApplication.openSettingsURLString) {
-            DispatchQueue.main.async {
-                UIApplication.shared.open(url, completionHandler: nil)
-            }
+        if recordPermission == .denied {
+            completion?(false)
         } else {
             SFSpeechRecognizer.requestAuthorization { status in
                 DispatchQueue.main.async {
