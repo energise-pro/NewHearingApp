@@ -57,10 +57,7 @@ final class GLangSetupApViewController: PMUMainViewController {
         let yourLanguageCellModel = SettingTableViewCellModel(title: nil, attributedTitle: yourLanguageAttributedString, buttonTypes: [.rightButton], delegate: self)
         let yourLanguageCellConfig = SettingTableViewCellConfig(item: yourLanguageCellModel)
         
-        let clearCellModel = SettingTableViewCellModel(title: "Shake to clear".localized(), buttonTypes: [.switchButton], switchState: CTranscribServicesAp.shared.isShakeToClear, delegate: self)
-        let clearCellConfig = SettingTableViewCellConfig(item: clearCellModel)
-        
-        dataSource = [offlineTranslateCellConfig, translateLanguageCellConfig, yourLanguageCellConfig, clearCellConfig]
+        dataSource = [offlineTranslateCellConfig, translateLanguageCellConfig, yourLanguageCellConfig]
         
         tableView.reloadData()
     }
@@ -119,19 +116,19 @@ extension GLangSetupApViewController: SettingTableViewCellDelegate {
         case 2: // Your language
             AppsNavManager.shared.pushJLocaleListApViewController(with: .translateFrom, with: self)
             KAppConfigServic.shared.analytics.track(action: .v2TranslateLanguageSetupScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.userLanguage.rawValue])
-        case 3: // Shake to clear
-            switch type {
-            case .switchButton:
-                let newState = !CTranscribServicesAp.shared.isShakeToClear
-                CTranscribServicesAp.shared.setShakeToClear(newState)
-                let newCellModel = SettingTableViewCellModel(title: cellModel.title, buttonTypes: cellModel.buttonTypes, switchState: newState, delegate: self)
-                dataSource[indexRow] = SettingTableViewCellConfig(item: newCellModel)
-                
-                let stringState = newState ? GAppAnalyticActions.enable.rawValue : GAppAnalyticActions.disable.rawValue
-                KAppConfigServic.shared.analytics.track(action: .v2TranslateLanguageSetupScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.shakeClearText.rawValue)_\(stringState)"])
-            default:
-                break
-            }
+//        case 3: // Shake to clear
+//            switch type {
+//            case .switchButton:
+//                let newState = !CTranscribServicesAp.shared.isShakeToClear
+//                CTranscribServicesAp.shared.setShakeToClear(newState)
+//                let newCellModel = SettingTableViewCellModel(title: cellModel.title, buttonTypes: cellModel.buttonTypes, switchState: newState, delegate: self)
+//                dataSource[indexRow] = SettingTableViewCellConfig(item: newCellModel)
+//                
+//                let stringState = newState ? GAppAnalyticActions.enable.rawValue : GAppAnalyticActions.disable.rawValue
+//                KAppConfigServic.shared.analytics.track(action: .v2TranslateLanguageSetupScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.shakeClearText.rawValue)_\(stringState)"])
+//            default:
+//                break
+//            }
         default:
             break
         }
