@@ -17,7 +17,8 @@ struct SettingTableViewCellModel {
     var buttonTypes: [SettingTableViewButtonType]
     var switchState: Bool = false
     var topInset: CGFloat = 0.0
-    var rightImage: UIImage? = UIImage.init(systemName: "chevron.right")
+    var cellHeight: CGFloat = 59.0
+    var rightImage: UIImage? = UIImage.init(named: "arrowOpenImage")
     var rightTintColor: UIColor? = UIColor.appColor(.Purple100)
     weak var delegate: SettingTableViewCellDelegate?
 }
@@ -43,6 +44,7 @@ final class SettingTableViewCell: UITableViewCell, HConfigCellProtocol, UIViewCe
     @IBOutlet private weak var loaderActivityIndicator: UIActivityIndicatorView!
     
     @IBOutlet private weak var containerViewTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var cellHeightConstraint: NSLayoutConstraint!
     
     private weak var delegate: SettingTableViewCellDelegate?
     
@@ -75,6 +77,7 @@ final class SettingTableViewCell: UITableViewCell, HConfigCellProtocol, UIViewCe
         mainSwitch.isOn = data.switchState
         mainButton.isHidden = !data.buttonTypes.contains(.rightButton)
         containerViewTopConstraint.constant = data.topInset
+        cellHeightConstraint.constant = data.cellHeight
         
         if data.buttonTypes.contains(.rightButton) {
             rightImageView.image = data.rightImage

@@ -54,7 +54,7 @@ final class ErdSetupViewController: PMUMainViewController {
         let segmentCellModel = NSimplSementTablViewCellModel(mainTitle: "Active microphone".localized(), titles: avaliableMicrophones.compactMap { $0.title }, selectedIndex: MicroFineType.selectedMicrophone.rawValue, delegate: self)
         let segmentCellConfig = NSimplSementTablViewCellConfig(item: segmentCellModel)
         
-        let musicModeCellModel = SettingTableViewCellModel(title: "Music mode".localized(), buttonTypes: [.info, .switchButton], switchState: SAudioKitServicesAp.shared.isMusicModeEnabled, delegate: self)
+        let musicModeCellModel = SettingTableViewCellModel(title: "Music mode".localized(), buttonTypes: [.info, .switchButton], switchState: SAudioKitServicesAp.shared.isMusicModeEnabled, cellHeight: 39, delegate: self)
         let musicCellConfig = SettingTableViewCellConfig(item: musicModeCellModel)
         
         let systemVolumeCellModel = SettingTableViewCellModel(title: "Use system volume".localized(), buttonTypes: [.info, .switchButton], switchState: SAudioKitServicesAp.shared.isUseSystemVolume, delegate: self)
@@ -63,7 +63,7 @@ final class ErdSetupViewController: PMUMainViewController {
         let clearVoiceCellModel = SettingTableViewCellModel(title: "Clear voice".localized(), buttonTypes: [.info, .switchButton], switchState: SAudioKitServicesAp.shared.isClearVoice, delegate: self)
         let clearVoiceCellConfig = SettingTableViewCellConfig(item: clearVoiceCellModel)
         
-        let voiceChangerCellModel = SettingTableViewCellModel(title: "Voice changer".localized(), buttonTypes: [.rightButton], topInset: 70.0, delegate: self)
+        let voiceChangerCellModel = SettingTableViewCellModel(title: "Voice changer".localized(), buttonTypes: [.rightButton], topInset: 15.0, delegate: self)
         let voiceChangerCellConfig = SettingTableViewCellConfig(item: voiceChangerCellModel)
         
         let compressorCellModel = SettingTableViewCellModel(title: "Compressor".localized(), buttonTypes: [.rightButton], delegate: self)
@@ -78,7 +78,7 @@ final class ErdSetupViewController: PMUMainViewController {
 //        let resetCellModel = VCentereButnTableViewCellModel(buttonTitle: "Reset setup".localized(), buttonImage: UIImage(named: "trashIcon")!, delegate: self)
 //        let resetCellConfig = VCentereButnTableViewCellConfig(item: resetCellModel)
         
-        dataSource = [segmentCellConfig, musicCellConfig, systemVolumeCellConfig, clearVoiceCellConfig, voiceChangerCellConfig, compressorCellConfig, limiterCellConfig, equalizerCellConfig]
+        dataSource = [segmentCellConfig, musicCellConfig, clearVoiceCellConfig, systemVolumeCellConfig, voiceChangerCellConfig, compressorCellConfig, limiterCellConfig, equalizerCellConfig]
         tableView.reloadData()
     }
 
