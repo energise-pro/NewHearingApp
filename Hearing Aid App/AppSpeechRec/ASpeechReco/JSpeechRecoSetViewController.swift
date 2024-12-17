@@ -318,7 +318,7 @@ enum SpeechRecognitionSettings: String, CaseIterable {
     var maxValue: Any {
         switch self {
         case .FontSize:
-            return iPhone ? Float(200) : Float(300)
+            return iPhone ? Float(100) : Float(180)
         case .FontWeight:
             return 2
         case .TextAlignment:
@@ -331,11 +331,11 @@ enum SpeechRecognitionSettings: String, CaseIterable {
     var defaultValue: Any {
         switch self {
         case .FontSize:
-            return Float(50)
+            return Float(48)
         case .FontWeight:
-            return 2
+            return 0
         case .TextAlignment:
-            return NSTextAlignment.center.rawValue
+            return NSTextAlignment.left.rawValue
         case .ShakeToClearText, .TranslateMode:
             return false
 //        case .AmplitudeIndicator:

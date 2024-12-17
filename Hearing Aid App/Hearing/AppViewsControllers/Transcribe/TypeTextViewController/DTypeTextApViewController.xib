@@ -39,7 +39,7 @@
                     <rect key="frame" x="0.0" y="48" width="414" height="778"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wlz-t5-3fj">
-                            <rect key="frame" x="20" y="0.0" width="374" height="778"/>
+                            <rect key="frame" x="16" y="0.0" width="374" height="778"/>
                             <gestureRecognizers/>
                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="60"/>
                             <nil key="textColor"/>
@@ -47,11 +47,11 @@
                         </label>
                     </subviews>
                     <constraints>
-                        <constraint firstItem="wlz-t5-3fj" firstAttribute="leading" secondItem="Xgr-1A-HaX" secondAttribute="leading" constant="20" id="5rS-Ep-scr"/>
+                        <constraint firstItem="wlz-t5-3fj" firstAttribute="leading" secondItem="Xgr-1A-HaX" secondAttribute="leading" constant="16" id="5rS-Ep-scr"/>
                         <constraint firstAttribute="bottom" secondItem="wlz-t5-3fj" secondAttribute="bottom" constant="10" id="8ho-pi-ubq"/>
                         <constraint firstItem="wlz-t5-3fj" firstAttribute="top" secondItem="Xgr-1A-HaX" secondAttribute="top" id="d4m-K4-fmG"/>
                         <constraint firstItem="wlz-t5-3fj" firstAttribute="centerY" secondItem="Xgr-1A-HaX" secondAttribute="centerY" priority="750" id="ht6-We-0rb"/>
-                        <constraint firstAttribute="trailing" secondItem="wlz-t5-3fj" secondAttribute="trailing" constant="20" id="sEM-hV-Gq3"/>
+                        <constraint firstAttribute="trailing" secondItem="wlz-t5-3fj" secondAttribute="trailing" constant="16" id="sEM-hV-Gq3"/>
                     </constraints>
                     <connections>
                         <outletCollection property="gestureRecognizers" destination="ynd-wN-N6C" appends="YES" id="Ehh-fB-btk"/>

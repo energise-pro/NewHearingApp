@@ -30,7 +30,7 @@ enum GTranscribTextParam: String, CaseIterable {
     var maxValue: Int {
         switch self {
         case .FontSize:
-            return iPhone ? 200 : 300
+            return iPhone ? 100 : 200
         case .FontWeight:
             return 2
         case .TextAlignment:
@@ -41,11 +41,11 @@ enum GTranscribTextParam: String, CaseIterable {
     var defaultValue: Int {
         switch self {
         case .FontSize:
-            return 30
+            return 48
         case .FontWeight:
-            return 2
+            return 0
         case .TextAlignment:
-            return NSTextAlignment.center.rawValue
+            return NSTextAlignment.left.rawValue
         }
     }
     

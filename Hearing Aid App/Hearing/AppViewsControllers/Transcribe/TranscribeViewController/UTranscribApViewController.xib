@@ -43,7 +43,7 @@
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A8V-p7-cJA">
-                    <rect key="frame" x="25" y="56" width="369" height="57.5"/>
+                    <rect key="frame" x="16" y="56" width="382" height="57.5"/>
                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="48"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -56,7 +56,7 @@
                     </constraints>
                 </view>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nGm-AD-q9d">
-                    <rect key="frame" x="20" y="48" width="374" height="724"/>
+                    <rect key="frame" x="16" y="48" width="382" height="724"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="textColor" name="Purple100"/>
                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="48"/>
@@ -291,7 +291,7 @@
             <constraints>
                 <constraint firstItem="nGm-AD-q9d" firstAttribute="top" secondItem="av0-Ln-ADr" secondAttribute="bottom" id="2EK-rI-tZh"/>
                 <constraint firstAttribute="bottom" secondItem="YOM-ry-aET" secondAttribute="bottom" constant="40" id="3eA-Ee-bpi"/>
-                <constraint firstItem="A8V-p7-cJA" firstAttribute="leading" secondItem="nGm-AD-q9d" secondAttribute="leading" constant="5" id="8BV-l5-Ngd"/>
+                <constraint firstItem="A8V-p7-cJA" firstAttribute="leading" secondItem="nGm-AD-q9d" secondAttribute="leading" id="8BV-l5-Ngd"/>
                 <constraint firstItem="A8V-p7-cJA" firstAttribute="top" secondItem="nGm-AD-q9d" secondAttribute="top" constant="8" id="9AD-mO-rlf"/>
                 <constraint firstAttribute="trailing" secondItem="av0-Ln-ADr" secondAttribute="trailing" id="9EG-GQ-st4"/>
                 <constraint firstItem="nGm-AD-q9d" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="A8V-p7-cJA" secondAttribute="bottom" id="9TD-o3-fE3"/>
@@ -308,9 +308,9 @@
                 <constraint firstAttribute="bottom" secondItem="Aqo-2w-JCL" secondAttribute="bottom" id="Zuq-JC-uxe"/>
                 <constraint firstItem="YOM-ry-aET" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="ZwN-BH-18z"/>
                 <constraint firstItem="av0-Ln-ADr" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="aaT-QO-0xW"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="nGm-AD-q9d" secondAttribute="trailing" constant="20" id="bKk-Tm-MKl"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="nGm-AD-q9d" secondAttribute="trailing" constant="16" id="bKk-Tm-MKl"/>
                 <constraint firstAttribute="trailing" secondItem="Aqo-2w-JCL" secondAttribute="trailing" id="ghB-Kw-6iS"/>
-                <constraint firstItem="nGm-AD-q9d" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="h0G-MH-n0H"/>
+                <constraint firstItem="nGm-AD-q9d" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="h0G-MH-n0H"/>
                 <constraint firstItem="nGm-AD-q9d" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="haH-Ma-WSM"/>
                 <constraint firstItem="DFz-xV-myK" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="i57-h0-uQe"/>
                 <constraint firstItem="YOM-ry-aET" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.85" priority="999" id="veN-dA-rbt"/>
