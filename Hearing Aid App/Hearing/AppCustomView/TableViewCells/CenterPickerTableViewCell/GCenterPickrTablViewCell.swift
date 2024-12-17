@@ -44,8 +44,8 @@ extension GCenterPickrTablViewCell: UIPickerViewDataSource, UIPickerViewDelegate
         return dataSource.count
     }
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return dataSource[safe: row]
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        return NSAttributedString(string: dataSource[safe: row] ?? "", attributes: [.font: UIFont.systemFont(ofSize: 23.0, weight: .regular), .foregroundColor: UIColor.appColor(.Purple100)!])
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {

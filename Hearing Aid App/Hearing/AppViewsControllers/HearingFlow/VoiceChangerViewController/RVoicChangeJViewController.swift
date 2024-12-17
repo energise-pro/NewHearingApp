@@ -39,10 +39,13 @@ final class RVoicChangeJViewController: PMUMainViewController {
     private func configureDataSource() {
         var dataSource: [CellConfigurator] = []
         
-        let statusCellModel = SettingTableViewCellModel(attributedTitle: NSAttributedString(string: "Voice changer status".localized(), attributes: [.font: UIFont.systemFont(ofSize: 17.0, weight: .semibold), .foregroundColor: UIColor.appColor(.Purple100)!]),
-                                                        buttonTypes: [.info, .switchButton],
-                                                        switchState: SAudioKitServicesAp.shared.isVoiceChangerEnabled,
-                                                        delegate: self)
+        let statusCellModel = SettingTableViewCellModel(
+            attributedTitle: NSAttributedString(string: "Voice changer status".localized(), attributes: [.font: UIFont.systemFont(ofSize: 17.0, weight: .semibold), .foregroundColor: UIColor.appColor(.Purple100)!]),
+            buttonTypes: [.switchButton],
+            switchState: SAudioKitServicesAp.shared.isVoiceChangerEnabled,
+            cellHeight: 82,
+            delegate: self
+        )
         let statusCellConfig = SettingTableViewCellConfig(item: statusCellModel)
         
         dataSource = [statusCellConfig]

@@ -51,10 +51,13 @@ final class QTemplateApViewController: PMUMainViewController {
     }
     
     private func configureDataSource() {
-        let templatesCellModel = SettingTableViewCellModel(attributedTitle: NSAttributedString(string: "Templates".localized(), attributes: [.font: UIFont.systemFont(ofSize: 17.0, weight: .semibold), .foregroundColor: UIColor.appColor(.Purple100)!]),
-                                                        buttonTypes: [.info, .switchButton],
-                                                        switchState: SAudioKitServicesAp.shared.isTemplatesEnabled,
-                                                        delegate: self)
+        let templatesCellModel = SettingTableViewCellModel(
+            attributedTitle: NSAttributedString(string: "Templates".localized(), attributes: [.font: UIFont.systemFont(ofSize: 17.0, weight: .semibold), .foregroundColor: UIColor.appColor(.Purple100)!]),
+            buttonTypes: [.info, .switchButton],
+            switchState: SAudioKitServicesAp.shared.isTemplatesEnabled,
+            cellHeight: 82,
+            delegate: self
+        )
         let templatesCellConfig = SettingTableViewCellConfig(item: templatesCellModel)
         
         let volumeCellModel = GSlideBTablViewCellModel(title: "effect volume".localized().capitalizingFirstLetter(), sliderValue: Float(TemplatesParameter.dryWet.value), topInset: 70.0, delegate: self)

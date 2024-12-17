@@ -48,13 +48,13 @@ final class GLangSetupApViewController: PMUMainViewController {
         let translateLanguageAttributedString = NSMutableAttributedString()
         translateLanguageAttributedString.append(NSAttributedString(string: "Translate language".localized() + ":", attributes: [.font: UIFont.systemFont(ofSize: 17.0, weight: .bold)]))
         translateLanguageAttributedString.append(NSAttributedString(string: "\n\(BTranslServicesNew.shared.localizedOutputLanguage.capitalized)", attributes: [.font: UIFont.systemFont(ofSize: 17.0, weight: .regular)]))
-        let translateLanguageCellModel = SettingTableViewCellModel(title: nil, attributedTitle: translateLanguageAttributedString, buttonTypes: [.rightButton], delegate: self)
+        let translateLanguageCellModel = SettingTableViewCellModel(title: nil, attributedTitle: translateLanguageAttributedString, buttonTypes: [.rightButton], cellHeight: 79, delegate: self)
         let translateLanguageCellConfig = SettingTableViewCellConfig(item: translateLanguageCellModel)
         
         let yourLanguageAttributedString = NSMutableAttributedString()
         yourLanguageAttributedString.append(NSAttributedString(string: "Your language".localized() + ":", attributes: [.font: UIFont.systemFont(ofSize: 17.0, weight: .bold)]))
         yourLanguageAttributedString.append(NSAttributedString(string: "\n\(BTranslServicesNew.shared.localizedInputLanguage.capitalized)", attributes: [.font: UIFont.systemFont(ofSize: 17.0, weight: .regular)]))
-        let yourLanguageCellModel = SettingTableViewCellModel(title: nil, attributedTitle: yourLanguageAttributedString, buttonTypes: [.rightButton], delegate: self)
+        let yourLanguageCellModel = SettingTableViewCellModel(title: nil, attributedTitle: yourLanguageAttributedString, buttonTypes: [.rightButton], cellHeight: 79, delegate: self)
         let yourLanguageCellConfig = SettingTableViewCellConfig(item: yourLanguageCellModel)
         
         dataSource = [offlineTranslateCellConfig, translateLanguageCellConfig, yourLanguageCellConfig]

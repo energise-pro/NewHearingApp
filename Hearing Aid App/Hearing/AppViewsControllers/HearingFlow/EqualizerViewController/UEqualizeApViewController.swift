@@ -39,10 +39,13 @@ final class UEqualizeApViewController: PMUMainViewController {
     private func configureDataSource() {
         var dataSource: [CellConfigurator] = []
         
-        let statusCellModel = SettingTableViewCellModel(attributedTitle: NSAttributedString(string: "Equalizer".localized(), attributes: [.font: UIFont.systemFont(ofSize: 17.0, weight: .semibold), .foregroundColor: UIColor.appColor(.Purple100)!]),
-                                                        buttonTypes: [.switchButton],
-                                                        switchState: SAudioKitServicesAp.shared.isEqualizedEnabled,
-                                                        delegate: self)
+        let statusCellModel = SettingTableViewCellModel(
+            attributedTitle: NSAttributedString(string: "Equalizer".localized(), attributes: [.font: UIFont.systemFont(ofSize: 17.0, weight: .semibold), .foregroundColor: UIColor.appColor(.Purple100)!]),
+            buttonTypes: [.switchButton],
+            switchState: SAudioKitServicesAp.shared.isEqualizedEnabled,
+            cellHeight: 82,
+            delegate: self
+        )
         let statusCellConfig = SettingTableViewCellConfig(item: statusCellModel)
         
         let equalizerChartCellModel = JEqlizeTableViewCellModel(dataSource: EqualizerBands.allCases.compactMap { $0.value })
