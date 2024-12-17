@@ -279,6 +279,10 @@ final class JTranslatApViewController: PMUMainViewController {
             return
         }
         TapticEngine.impact.feedback(.medium)
+        if !CTranscribServicesAp.shared.isSavedFirstTranscripts {
+            CTranscribServicesAp.shared.isSavedFirstTranscripts = true
+            CTranscribServicesAp.shared.isShowGetStartedView = false
+        }
         CTranscribServicesAp.shared.savedTranscripts.append(TranscribeModel(title: text + "\n\n" + (mainTextViews.first?.text ?? ""), createdDate: Date().timeIntervalSince1970))
         presentCustomHidingAlert(message: "Transcript successfully saved!".localized())
         delegate?.didUpdateTranscript()
