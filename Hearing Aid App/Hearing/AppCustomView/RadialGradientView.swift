@@ -19,28 +19,28 @@ final class RadialGradientView: UIView {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        setupView()
         setupContent()
+        setupView()
     }
     
     private func setupView() {
         backgroundColor = .clear
         layer.cornerRadius = 12
         layer.masksToBounds = true
-        
-        let blurEffect = UIBlurEffect(style: .light)
-        let blurView = UIVisualEffectView(effect: blurEffect)
-        blurView.translatesAutoresizingMaskIntoConstraints = false
-        blurView.alpha = 0.2
-        
-        addSubview(blurView)
-        
+
+        let gradientView = JPBlurView(effectStyle: .systemUltraThinMaterialLight)
+        gradientView.intensity = 0.1
+        gradientView.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(gradientView)
         NSLayoutConstraint.activate([
-            blurView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            blurView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            blurView.topAnchor.constraint(equalTo: topAnchor),
-            blurView.bottomAnchor.constraint(equalTo: bottomAnchor)
+            gradientView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            gradientView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            gradientView.topAnchor.constraint(equalTo: topAnchor),
+            gradientView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
+
+        bringSubviewToFront(imageView)
+        bringSubviewToFront(label)
     }
     
     private func setupContent() {
