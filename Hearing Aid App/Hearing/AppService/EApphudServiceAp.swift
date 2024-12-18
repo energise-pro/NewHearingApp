@@ -19,20 +19,20 @@ final class EApphudServiceAp {
     }
     
     var experimentProducts: [ApphudProduct] {
-        let groupProducts = Apphud.permissionGroups.first(where: { $0.name == TInAppService.GroupType.subscriptions.rawValue })?.products ?? []
-        return experimentPaywall?.products ?? groupProducts
+        return experimentPaywall?.products ?? []
     }
     
     private var experimentPaywall: ApphudPaywall?
     
     // MARK: - Methods
+    @MainActor
     func loadABTestParams(completion: @escaping EApphudServiceApCompletion) {
-        Apphud.paywallsDidLoadCallback { [weak self] paywalls in
-            guard let experimentPaywall = paywalls.first(where: { $0.experimentName != nil }) else {
+        Apphud.fetchPlacements {[weak self] placements, error in
+            guard let placement = placements.first(where: { $0.identifier == "plc" }), let paywall = placement.paywall  else {
                 completion()
                 return
             }
-            self?.experimentPaywall = experimentPaywall
+            self?.experimentPaywall = paywall
             completion()
         }
     }

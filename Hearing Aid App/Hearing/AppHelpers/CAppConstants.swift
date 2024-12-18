@@ -16,6 +16,7 @@ struct CAppConstants {
         
         static let weeklyNoTrialSubscriptionId = "hearingaid.weekly.tier6" // тиждень без тріала 5,99
         static let yearlyWithTrialSubscriptionId = "hearingaid.yearly.trial.tier50" // рік з тріалом 49.99"
+        static let lifetimeSubscriptionId = "com.hearingaid.lifetime.tier.100"
 //        static let weeklySubscriptionId = "hearing_aid_weekly"
 //        static let monthlySubscriptionId = "hearing_aid_monthly_new"
 //        static let annualSubscriptionId = "hearing_aid_annual"
@@ -84,11 +85,13 @@ struct CAppConstants {
         static let speechTranslateIcon = UIImage(named: "speechTranslateIcon")!
     }
     
+    @MainActor
     struct URLs {
         static let termsURL = URL(string: "https://sites.google.com/energise.pro/hearingaidnews/terms-conditions")!
         static let privacyPolicyURL = URL(string: "https://sites.google.com/energise.pro/hearingaidnews/privacy-policy")!
         static let faqURL = URL(string: "https://sites.google.com/energise.pro/hearingaidnews/")!
         static let ourWebSiteURL = URL(string: "https://sites.google.com/energise.pro/hearingaidnews/home")!
         static let appStoreUrl = URL(string: "https://apps.apple.com/app/id\(CAppConstants.General.appStoreAppID)")!
+        static let contactUsURL = URL(string: "https://sites.google.com/energise.pro/hearingaidnews/contact-us/?userId=" + KAppConfigServic.shared.settings.userID)!
     }
 }

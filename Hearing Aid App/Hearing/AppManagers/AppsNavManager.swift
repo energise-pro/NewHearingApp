@@ -59,6 +59,7 @@ final class AppsNavManager: NSObject {
         appDelegate?.window?.makeKeyAndVisible()
     }
     
+    @MainActor
     func presentCatchUpAfter(_ duration: TimeInterval) {
         guard UserDefaults.standard.bool(forKey: CAppConstants.Keys.wasPresentedCatchUp) == false, !TInAppService.shared.isPremium else {
             return
@@ -72,6 +73,7 @@ final class AppsNavManager: NSObject {
         }
     }
     
+    @MainActor
     func presentSCatchUpApViewController() {
         guard (topViewController is SpecialOfferViewController) == false, (topViewController is PaywallViewController) == false, !TInAppService.shared.isPremium else {
             return
@@ -130,8 +132,10 @@ final class AppsNavManager: NSObject {
         topViewController?.present(FInstructApViewController, animated: true)
     }
     
+    @MainActor
     func presentSupportViewController() {
         guard MFMailComposeViewController.canSendMail() else {
+            openLink(with: CAppConstants.URLs.contactUsURL)
             return
         }
         let mailViewController = MFMailComposeViewController()
@@ -142,8 +146,10 @@ final class AppsNavManager: NSObject {
         topViewController?.present(mailViewController, animated: true)
     }
     
+    @MainActor
     func presentCancelSubscriptionViewController() {
         guard MFMailComposeViewController.canSendMail() else {
+            openLink(with: CAppConstants.URLs.contactUsURL)
             return
         }
         let mailViewController = MFMailComposeViewController()
@@ -331,6 +337,19 @@ final class AppsNavManager: NSObject {
         instructionVC.modalPresentationStyle = .fullScreen
         instructionVC.modalTransitionStyle = .crossDissolve
         topViewController?.present(instructionVC, animated: true)
+    }
+    
+    func openLink(_ stringURL: String) {
+        guard let url = URL(string: stringURL) else {
+            return
+        }
+        let safariVC = SFSafariViewController(url: url)
+        topViewController?.present(safariVC, animated: true, completion: nil)
+    }
+    
+    func openLink(with url: URL) {
+        let safariVC = SFSafariViewController(url: url)
+        topViewController?.present(safariVC, animated: true, completion: nil)
     }
 }
 

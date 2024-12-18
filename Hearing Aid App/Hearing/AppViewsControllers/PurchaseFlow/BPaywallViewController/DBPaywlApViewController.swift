@@ -61,13 +61,14 @@ final class DBPaywlApViewController: PMUMainViewController {
         }
         
         let daysFree = yearlySubscriptionPlan.skProduct?.duration(for: .trial)
-        if let daysFree = daysFree {
+        if let daysFree = daysFree, !daysFree.isEmpty {
             trialTitle.text = daysFree + " " + "free".localized()
+            let weeklyPriceForYearlyPlan = ((yearlySubscriptionPlan.skProduct?.price.doubleValue ?? 1.0) / 52.0).rounded(toPlaces: 2)
+            trialDescription.text = "Then %@/year (only %@/week)".localized(with: [yearlySubscriptionPlan.skProduct?.regularPrice ?? "", yearlySubscriptionPlan.skProduct?.regularPrice(for: weeklyPriceForYearlyPlan) ?? ""])
         } else {
-            trialTitle.text = "3 Days Free".localized()
+            trialTitle.text = "1 Year".localized()
+            trialDescription.text = yearlySubscriptionPlan.skProduct?.regularPrice
         }
-        let weeklyPriceForYearlyPlan = ((yearlySubscriptionPlan.skProduct?.price.doubleValue ?? 1.0) / 52.0).rounded(toPlaces: 2)
-        trialDescription.text = "Then %@/year (only %@/week)".localized(with: [yearlySubscriptionPlan.skProduct?.regularPrice ?? "", yearlySubscriptionPlan.skProduct?.regularPrice(for: weeklyPriceForYearlyPlan) ?? ""])
         
         selectedPlan = yearlySubscriptionPlan
     }
@@ -77,7 +78,7 @@ final class DBPaywlApViewController: PMUMainViewController {
         TInAppService.shared.fetchProducts(with: .subscriptions) { [weak self] items in
             guard let self = self, let items = items, !items.isEmpty else { return }
             self.isLoading = false
-            self.subscriptionItems = EApphudServiceAp.shared.experimentProducts
+            self.subscriptionItems = items //EApphudServiceAp.shared.experimentProducts
             self.updateSelectedPlan()
 //            KAppConfigServic.shared.analytics.track(.paywallSeen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.openFromLaunch.rawValue])
         }

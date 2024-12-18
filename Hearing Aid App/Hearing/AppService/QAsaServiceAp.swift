@@ -23,7 +23,7 @@ final class QAsaServiceAp {
                 completion?()
                 let idfa = status == .authorized ? ASIdentifierManager.shared().advertisingIdentifier.uuidString : "00000000-0000-0000-0000-000000000000"
                 self?.IDFA = idfa
-                status == .authorized ? Apphud.setAdvertisingIdentifier(idfa) : Void()
+                status == .authorized ? Apphud.setDeviceIdentifiers(idfa: idfa, idfv: idfa) : Void()
                 KAppConfigServic.shared.analytics.track(
                     action: .firstOpenApp,
                     with: [

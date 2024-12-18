@@ -8,7 +8,7 @@ typealias SubscriptionPeriod = SKProductSubscriptionPeriod
 typealias PurchasesServiceProductCompletion = ([ShopItem]?) -> ()
 typealias PurchasesServiceSuccessCompletion = (Bool) -> ()
 
-final class TInAppService: NSObject, DIServicProtocols {
+final class TInAppService: NSObject, @preconcurrency DIServicProtocols {
     
     enum GroupType: String {
         /// These keys can be changed ONLY if you change the group names in https://app.apphud.com
@@ -22,6 +22,7 @@ final class TInAppService: NSObject, DIServicProtocols {
     
     static let didUpdatePurchases = Notification.Name("InAppPurchaseService.didUpdatePurchases")
     
+    @MainActor
     var isPremium: Bool {
 //        return true
         let subscriptions = Apphud.subscriptions() ?? []
@@ -53,42 +54,57 @@ final class TInAppService: NSObject, DIServicProtocols {
     }
     
     // MARK: - DIServicProtocols
+    @MainActor
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
-        Apphud.start(apiKey: apiKey)
-        Apphud.setDelegate(self)
+        configureApphud()
         
         SKPaymentQueue.default().add(self)
         UNUserNotificationCenter.current().delegate = self
     }
     
-    func fetchProducts(with groupType: GroupType, and completion: PurchasesServiceProductCompletion?) {
-        func returnSubscriptions() {
-            let products = Apphud.permissionGroups.first(where: { $0.name == groupType.rawValue })?.products
-            completion?(products)
-        }
-        
-        if !Apphud.permissionGroups.isEmpty, Apphud.permissionGroups.first(where: { $0.name == groupType.rawValue })?.products.contains(where: { $0.skProduct == nil }) == false {
-            returnSubscriptions()
-        } else {
-            Apphud.paywallsDidLoadCallback { [weak self] _ in
-                guard let self = self else {
-                    return
-                }
-                guard Apphud.permissionGroups.isEmpty, Apphud.permissionGroups.first(where: { $0.name == groupType.rawValue })?.products.contains(where: { $0.skProduct == nil }) == true else {
-                    returnSubscriptions()
-                    return
-                }
-                
-                guard self.numberOfAttepts < 4 else { return }
-                
-                Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { _ in
-                    self.numberOfAttepts += 1
-                    self.fetchProducts(with: groupType, and: completion)
-                }
-            }
-        }
+    @MainActor
+    func configureApphud() {
+        Apphud.start(apiKey: apiKey)
+        Apphud.setDelegate(self)
     }
     
+    @MainActor
+    func fetchProducts(with groupType: GroupType, and completion: PurchasesServiceProductCompletion?) {
+        Apphud.fetchPlacements { placements, error in
+            if let placement = placements.first(where: { $0.identifier == "plc" }), let paywall = placement.paywall  {
+                let products = paywall.products
+                Apphud.paywallShown(paywall)
+                completion?(products)
+            }
+        }
+//        func returnSubscriptions() {
+//            let products = Apphud.permissionGroups.first(where: { $0.name == groupType.rawValue })?.products
+//            completion?(products)
+//        }
+        
+//        if !Apphud.permissionGroups.isEmpty, Apphud.permissionGroups.first(where: { $0.name == groupType.rawValue })?.products.contains(where: { $0.skProduct == nil }) == false {
+//            returnSubscriptions()
+//        } else {
+//            Apphud.paywallsDidLoadCallback { [weak self] _ in
+//                guard let self = self else {
+//                    return
+//                }
+//                guard Apphud.permissionGroups.isEmpty, Apphud.permissionGroups.first(where: { $0.name == groupType.rawValue })?.products.contains(where: { $0.skProduct == nil }) == true else {
+//                    returnSubscriptions()
+//                    return
+//                }
+//                
+//                guard self.numberOfAttepts < 4 else { return }
+//                
+//                Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { _ in
+//                    self.numberOfAttepts += 1
+//                    self.fetchProducts(with: groupType, and: completion)
+//                }
+//            }
+//        }
+    }
+    
+    @MainActor
     func restorePurchases(_ completion: PurchasesServiceSuccessCompletion?) {
         LoggerApp.log(tag: TInAppService.TAG, message: "Try to restore purchases")
         Apphud.restorePurchases { [weak self] (subscriptions, nonRenewingPurchase, error) in
@@ -107,6 +123,7 @@ final class TInAppService: NSObject, DIServicProtocols {
         }
     }
     
+    @MainActor
     func purchase(_ product: ShopItem, from groupType: GroupType, with completion: PurchasesServiceSuccessCompletion?) {
         LoggerApp.log(tag: TInAppService.TAG, message: "Try to purchase product with identifier - \(product.productId)")
         Apphud.purchase(product) { [weak self] result in
@@ -159,11 +176,13 @@ extension TInAppService: ApphudDelegate {
 // MARK: - UNUserNotificationCenterDelegate
 extension TInAppService: UNUserNotificationCenterDelegate {
     
+    @MainActor
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         Apphud.handlePushNotification(apsInfo: response.notification.request.content.userInfo)
         completionHandler()
     }
-
+    
+    @MainActor
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         Apphud.handlePushNotification(apsInfo: notification.request.content.userInfo)
         completionHandler([])

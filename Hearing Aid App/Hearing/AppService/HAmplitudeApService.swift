@@ -2,7 +2,7 @@ import UIKit
 import Amplitude
 import ApphudSDK
 
-final class HAmplitudeApService: IAnalyticsService {
+final class HAmplitudeApService: @preconcurrency IAnalyticsService {
     
     static let TAG = "HAmplitudeApService"
     
@@ -15,6 +15,7 @@ final class HAmplitudeApService: IAnalyticsService {
     }
     
     // MARK: - DIServicProtocols
+    @MainActor
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
         Amplitude.instance().initializeApiKey(apiKey)
         Amplitude.instance().setUserId(Apphud.userID())

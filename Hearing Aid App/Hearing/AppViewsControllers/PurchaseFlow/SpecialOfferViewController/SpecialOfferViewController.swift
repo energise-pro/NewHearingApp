@@ -42,8 +42,6 @@ class SpecialOfferViewController: UIViewController {
     @IBOutlet weak var countdownSeparatorLabel: UILabel!
     @IBOutlet weak var countdownSecondsLabel: UILabel!
     
-    
-    
     //MARK: - Properties
     private var isLoading: Bool = false
     private var subscriptionItems: [ShopItem] = []
@@ -66,6 +64,10 @@ class SpecialOfferViewController: UIViewController {
     }
     
     //MARK: - LifeCycle
+    deinit {
+        countdownTimer?.invalidate()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         UserDefaults.standard.setValue(true, forKey: CAppConstants.Keys.wasPresentedCatchUp)
@@ -78,6 +80,12 @@ class SpecialOfferViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         subscriptionItems.isEmpty && !isLoading ? loadSubscriptionPlans() : Void()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        countdownTimer?.invalidate()
+        countdownTimer = nil
     }
     
     //MARK: - Functions
@@ -167,7 +175,7 @@ class SpecialOfferViewController: UIViewController {
     private func loadSubscriptionPlans() {
         TInAppService.shared.fetchProducts(with: .offer) { [weak self] items in
             guard let self = self, let items = items, !items.isEmpty else { return }
-            self.subscriptionItems = EApphudServiceAp.shared.experimentProducts
+            self.subscriptionItems = items //EApphudServiceAp.shared.experimentProducts
             DispatchQueue.main.async {
                 self.configureUIAfterSubscriptionsLoading()
             }
@@ -175,24 +183,24 @@ class SpecialOfferViewController: UIViewController {
     }
     
     private func configureUIAfterSubscriptionsLoading() {
-        guard let yearlySubscriptionPlan = subscriptionItems.first(where: { $0.productId == CAppConstants.Keys.yearlyWithTrialSubscriptionId }),
+        guard let lifetimeSubscriptionPlan = subscriptionItems.first(where: { $0.productId == CAppConstants.Keys.lifetimeSubscriptionId }),
               let weeklySubscriptionPlan = subscriptionItems.first(where: { $0.productId == CAppConstants.Keys.weeklyNoTrialSubscriptionId }) else {
             return
         }
         
-        let daysFree = yearlySubscriptionPlan.skProduct?.duration(for: .trial)
-        if let daysFree = daysFree {
+        let daysFree = lifetimeSubscriptionPlan.skProduct?.duration(for: .trial)
+        if let daysFree = daysFree, !daysFree.isEmpty {
             titleYearlyButtonLabel.text = daysFree + " " + "free".localized()
+            priceYearlyButtonLabel.text = "Then %@/lifetime".localized(with: [lifetimeSubscriptionPlan.skProduct?.regularPrice ?? ""])
         } else {
-            titleYearlyButtonLabel.text = "3 Days Free".localized()
+            titleYearlyButtonLabel.text = "Lifetime".localized()
+            priceYearlyButtonLabel.text = lifetimeSubscriptionPlan.skProduct?.regularPrice
         }
+        
         titleWeeklyButtonLabel.text = weeklySubscriptionPlan.skProduct?.duration(for: .regular) ?? "1 Week".localized()
-
-        let weeklyPriceForYearlyPlan = ((yearlySubscriptionPlan.skProduct?.price.doubleValue ?? 1.0) / 52.0).rounded(toPlaces: 2)
-        priceYearlyButtonLabel.text = "Then %@/year (only %@/week)".localized(with: [yearlySubscriptionPlan.skProduct?.regularPrice ?? "", yearlySubscriptionPlan.skProduct?.regularPrice(for:weeklyPriceForYearlyPlan) ?? ""])
         priceWeeklyButtonLabel.text = weeklySubscriptionPlan.skProduct?.regularPrice
         
-        selectedPlan = yearlySubscriptionPlan
+        selectedPlan = lifetimeSubscriptionPlan
     }
 
     private func purchase(plan: ShopItem) {

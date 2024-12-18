@@ -107,7 +107,7 @@ final class PaywallViewController: UIViewController {
     private func loadSubscriptionPlans() {
         TInAppService.shared.fetchProducts(with: .subscriptions) { [weak self] items in
             guard let self = self, let items = items, !items.isEmpty else { return }
-            self.subscriptionItems = EApphudServiceAp.shared.experimentProducts
+            self.subscriptionItems = items //EApphudServiceAp.shared.experimentProducts
             DispatchQueue.main.async {
                 self.configureUIAfterSubscriptionsLoading()
             }
@@ -121,17 +121,18 @@ final class PaywallViewController: UIViewController {
         }
         
         let daysFree = yearlySubscriptionPlan.skProduct?.duration(for: .trial)
-        if let daysFree = daysFree {
+        if let daysFree = daysFree, !daysFree.isEmpty {
             titleYearlyButtonLabel.text = daysFree + " " + "free".localized()
+            let weeklyPriceForYearlyPlan = ((yearlySubscriptionPlan.skProduct?.price.doubleValue ?? 1.0) / 52.0).rounded(toPlaces: 2)
+            priceYearlyButtonLabel.text = "Then %@/year (only %@/week)".localized(with: [yearlySubscriptionPlan.skProduct?.regularPrice ?? "", yearlySubscriptionPlan.skProduct?.regularPrice(for:weeklyPriceForYearlyPlan) ?? ""])
         } else {
-            titleYearlyButtonLabel.text = "3 Days Free".localized()
+            titleYearlyButtonLabel.text = "1 Year".localized()
+            priceYearlyButtonLabel.text = yearlySubscriptionPlan.skProduct?.regularPrice
         }
-        titleWeeklyButtonLabel.text = weeklySubscriptionPlan.skProduct?.duration(for: .regular) ?? "1 Week".localized()
-
-        let weeklyPriceForYearlyPlan = ((yearlySubscriptionPlan.skProduct?.price.doubleValue ?? 1.0) / 52.0).rounded(toPlaces: 2)
-        priceYearlyButtonLabel.text = "Then %@/year (only %@/week)".localized(with: [yearlySubscriptionPlan.skProduct?.regularPrice ?? "", yearlySubscriptionPlan.skProduct?.regularPrice(for:weeklyPriceForYearlyPlan) ?? ""])
-        priceWeeklyButtonLabel.text = weeklySubscriptionPlan.skProduct?.regularPrice
         
+        titleWeeklyButtonLabel.text = weeklySubscriptionPlan.skProduct?.duration(for: .regular) ?? "1 Week".localized()
+        priceWeeklyButtonLabel.text = weeklySubscriptionPlan.skProduct?.regularPrice
+
         selectedPlan = yearlySubscriptionPlan
     }
     

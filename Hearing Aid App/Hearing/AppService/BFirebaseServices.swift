@@ -2,9 +2,10 @@ import UIKit
 import Firebase
 import ApphudSDK
 
-final class BFirebaseServices: DIServicProtocols {
+final class BFirebaseServices: @preconcurrency DIServicProtocols {
     
     // MARK: - DIServicProtocols
+    @MainActor
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
         FirebaseApp.configure()
         

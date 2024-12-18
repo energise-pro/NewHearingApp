@@ -18,7 +18,7 @@ struct АHearAppSett {
     @Storage(key: "emailScreenShown", defaultValue: false)
     var emailScreenShown: Bool
     
-
+    @MainActor
     var userID: String {
         return Apphud.userID()
     }
