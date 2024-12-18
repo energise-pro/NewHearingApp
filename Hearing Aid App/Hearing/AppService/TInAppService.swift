@@ -27,8 +27,8 @@ final class TInAppService: NSObject, @preconcurrency DIServicProtocols {
 //        return true
         let subscriptions = Apphud.subscriptions() ?? []
 
-//        let purchases = Apphud.nonRenewingPurchases() ?? []
-        return subscriptions.contains { $0.isActive() == true } // || purchases.contains { $0.productId == CAppConstants.Keys.lifetimePurchase }
+        let purchases = Apphud.nonRenewingPurchases() ?? []
+        return subscriptions.contains { $0.isActive() == true } || purchases.contains { $0.productId == CAppConstants.Keys.lifetimeSubscriptionId }
     }
     
     var wasUsedTrial: Bool {
