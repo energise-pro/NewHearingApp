@@ -2,7 +2,7 @@ import UIKit
 import Amplitude
 import ApphudSDK
 
-final class HAmplitudeApService: @preconcurrency IAnalyticsService {
+final class HAmplitudeApService: IAnalyticsService {
     
     static let TAG = "HAmplitudeApService"
     

@@ -8,7 +8,7 @@ typealias SubscriptionPeriod = SKProductSubscriptionPeriod
 typealias PurchasesServiceProductCompletion = ([ShopItem]?) -> ()
 typealias PurchasesServiceSuccessCompletion = (Bool) -> ()
 
-final class TInAppService: NSObject, @preconcurrency DIServicProtocols {
+final class TInAppService: NSObject, DIServicProtocols {
     
     enum GroupType: String {
         /// These keys can be changed ONLY if you change the group names in https://app.apphud.com

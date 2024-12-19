@@ -2,7 +2,7 @@ import UIKit
 import Firebase
 import ApphudSDK
 
-final class BFirebaseServices: @preconcurrency DIServicProtocols {
+final class BFirebaseServices: DIServicProtocols {
     
     // MARK: - DIServicProtocols
     @MainActor
