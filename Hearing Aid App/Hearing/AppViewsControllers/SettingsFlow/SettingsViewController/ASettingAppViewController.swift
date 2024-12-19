@@ -108,7 +108,7 @@ final class ASettingAppViewController: PMUMainViewController {
     
     // MARK: - Action
     @IBAction func onPremiumBannerTap(_ sender: UITapGestureRecognizer) {
-        AppsNavManager.shared.presentPaywallViewController(with: .openFromSetting)
+        AppsNavManager.shared.presentPaywallViewController(with: .sourceSettings)
     }
     
     @objc func didUpdateSubscriptionInfo() {
@@ -180,14 +180,21 @@ extension ASettingAppViewController: NewSettingTableViewCellDelegate {
         switch cellId {
         case .rateAppCell: // Rate app
             KAppConfigServic.shared.settings.presentAppRatingAlert()
+            KAppConfigServic.shared.analytics.track(action: .settingsClicked, with: [
+                GAppAnalyticActions.action.rawValue : GAppAnalyticActions.rate.rawValue
+            ])
         case .shareAppCell: // Share app
             AppsNavManager.shared.presentShareViewController(with: [CAppConstants.URLs.appStoreUrl], and: nil)
+            KAppConfigServic.shared.analytics.track(action: .settingsClicked, with: [
+                GAppAnalyticActions.action.rawValue : GAppAnalyticActions.share.rawValue
+            ])
         case .hapticCell: // Haptic
             switch type {
             case .info: // Use Haptic Feedback
                 presentAlertPM(title: "Use Haptic Feedback".localized(), message: "Disable or Enable vibrations when you press UI buttons".localized())
-                
-                KAppConfigServic.shared.analytics.track(action: .v2SettingsScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.haptic.rawValue)_\(GAppAnalyticActions.info.rawValue)"])
+                KAppConfigServic.shared.analytics.track(action: .infoTooltipOpened, with: [
+                    GAppAnalyticActions.source.rawValue : GAppAnalyticActions.hapticFeedback.rawValue
+                ])
             case .switchButton:
                 let newState = !TapticEngine.isOn
                 TapticEngine.isOn = newState
@@ -197,8 +204,10 @@ extension ASettingAppViewController: NewSettingTableViewCellDelegate {
                 newCellModel.cellId = SettingAppViewControllerCellId.hapticCell.rawValue
                 secondSectionDataSource[indexPath.row] = NewSettingTableViewCellConfig(item: newCellModel)
 
-                let stringState = newState ? GAppAnalyticActions.enable.rawValue : GAppAnalyticActions.disable.rawValue
-                KAppConfigServic.shared.analytics.track(action: .v2SettingsScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.haptic.rawValue)_\(stringState)"])
+                let action = newState ? "haptic_on" : "haptic_off"
+                KAppConfigServic.shared.analytics.track(action: .settingsClicked, with: [
+                    GAppAnalyticActions.action.rawValue : action
+                ])
             default:
                 break
             }
@@ -214,17 +223,30 @@ extension ASettingAppViewController: NewSettingTableViewCellDelegate {
                 isSuccess ? self.presentHidingAlert(title: title, message: message) : self.presentAlertPM(title: title, message: message)
             }
             
-            KAppConfigServic.shared.analytics.track(action: .v2SettingsScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.restore.rawValue])
+            KAppConfigServic.shared.analytics.track(action: .settingsClicked, with: [
+                GAppAnalyticActions.action.rawValue : GAppAnalyticActions.restore.rawValue
+            ])
         case .supportCell: // Support
             AppsNavManager.shared.presentSupportViewController()
             
-            KAppConfigServic.shared.analytics.track(action: .v2SettingsScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.support.rawValue])
+            KAppConfigServic.shared.analytics.track(action: .settingsClicked, with: [
+                GAppAnalyticActions.action.rawValue : GAppAnalyticActions.support.rawValue
+            ])
         case .submitCompliantCell: // Submit Compliant
             AppsNavManager.shared.presentSupportViewController()
+            KAppConfigServic.shared.analytics.track(action: .settingsClicked, with: [
+                GAppAnalyticActions.action.rawValue : GAppAnalyticActions.compliant.rawValue
+            ])
         case .privacyPolicyCell: // Privacy Policy
             AppsNavManager.shared.presentSafariViewController(with: CAppConstants.URLs.privacyPolicyURL)
+            KAppConfigServic.shared.analytics.track(action: .settingsClicked, with: [
+                GAppAnalyticActions.action.rawValue : GAppAnalyticActions.privacy.rawValue
+            ])
         case .termsOfUseCell: // Terms of use
             AppsNavManager.shared.presentSafariViewController(with: CAppConstants.URLs.termsURL)
+            KAppConfigServic.shared.analytics.track(action: .settingsClicked, with: [
+                GAppAnalyticActions.action.rawValue : GAppAnalyticActions.terms.rawValue
+            ])
         default:
             break
         }

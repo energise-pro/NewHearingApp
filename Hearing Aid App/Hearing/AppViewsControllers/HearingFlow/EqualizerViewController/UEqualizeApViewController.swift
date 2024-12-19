@@ -14,7 +14,7 @@ final class UEqualizeApViewController: PMUMainViewController {
         configureUI()
         configureDataSource()
         
-        KAppConfigServic.shared.analytics.track(action: .v2EqualizerScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.open.rawValue])
+//        KAppConfigServic.shared.analytics.track(action: .v2EqualizerScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.open.rawValue])
     }
     
     override func didChangeTheme() {
@@ -79,7 +79,7 @@ final class UEqualizeApViewController: PMUMainViewController {
     @objc private func closeButtonAction() {
         dismiss(animated: true)
         
-        KAppConfigServic.shared.analytics.track(action: .v2EqualizerScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.close.rawValue])
+//        KAppConfigServic.shared.analytics.track(action: .v2EqualizerScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.close.rawValue])
     }
 }
 
@@ -116,7 +116,7 @@ extension UEqualizeApViewController: VCentereButnTableViewCellDelegate {
         updateChartCell()
         configureDataSource()
         
-        KAppConfigServic.shared.analytics.track(action: .v2EqualizerScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.reset.rawValue])
+//        KAppConfigServic.shared.analytics.track(action: .v2EqualizerScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.reset.rawValue])
     }
 }
 
@@ -137,8 +137,10 @@ extension UEqualizeApViewController: SettingTableViewCellDelegate {
             let newCellModel = SettingTableViewCellModel(title: cellModel.title, buttonTypes: cellModel.buttonTypes, switchState: newState, delegate: self)
             dataSource[indexRow] = SettingTableViewCellConfig(item: newCellModel)
             
-            let stringState = newState ? GAppAnalyticActions.enable.rawValue : GAppAnalyticActions.disable.rawValue
-            KAppConfigServic.shared.analytics.track(action: .v2EqualizerScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.equalizer.rawValue)_\(stringState)"])
+            let actionState = newState ? GAppAnalyticActions.setupOptionActivated : GAppAnalyticActions.setupOptionDeactivated
+            KAppConfigServic.shared.analytics.track(action: actionState, with: [
+                "option_type" : "equalizer"
+            ])
         default:
             break
         }
@@ -161,7 +163,7 @@ extension UEqualizeApViewController: GSlideBTablViewCellDelegate {
         
         sliderTimer?.invalidate()
         sliderTimer = Timer.scheduledTimer(withTimeInterval: GAppAnalyticActions.delaySliderInterval, repeats: false) { _ in
-            KAppConfigServic.shared.analytics.track(action: .v2EqualizerScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.change.rawValue)_\(GAppAnalyticActions.equalizer.rawValue)"])
+//            KAppConfigServic.shared.analytics.track(action: .v2EqualizerScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.change.rawValue)_\(GAppAnalyticActions.equalizer.rawValue)"])
         }
     }
 }

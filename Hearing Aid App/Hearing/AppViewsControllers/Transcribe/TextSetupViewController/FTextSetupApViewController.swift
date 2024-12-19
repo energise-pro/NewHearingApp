@@ -124,7 +124,7 @@ extension FTextSetupApViewController: HTexParamTableViewCellDelegate {
         sliderTimer?.invalidate()
         sliderTimer = Timer.scheduledTimer(withTimeInterval: GAppAnalyticActions.delaySliderInterval, repeats: false) { [weak self] _ in
             guard let self = self else { return }
-            KAppConfigServic.shared.analytics.track(action: self.screenType.analyticAction, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.change.rawValue)_\(parameter.rawValue)"])
+//            KAppConfigServic.shared.analytics.track(action: self.screenType.analyticAction, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.change.rawValue)_\(parameter.rawValue)"])
         }
     }
 }
@@ -142,7 +142,7 @@ extension FTextSetupApViewController: SettingTableViewCellDelegate {
         switch indexRow {
         case 1 where screenType == .transcribe: // Locale
             AppsNavManager.shared.pushJLocaleListApViewController(with: screenType == .transcribe ? .transcribe : .translateFrom, with: self)
-            KAppConfigServic.shared.analytics.track(action: screenType.analyticAction, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.changeLanguage.rawValue])
+//            KAppConfigServic.shared.analytics.track(action: screenType.analyticAction, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.changeLanguage.rawValue])
         case 1 where screenType == .translate, 2 where screenType == .transcribe: // Shake
             switch type {
             case .switchButton:
@@ -151,11 +151,13 @@ extension FTextSetupApViewController: SettingTableViewCellDelegate {
                 let newCellModel = SettingTableViewCellModel(title: cellModel.title, buttonTypes: cellModel.buttonTypes, switchState: newState, delegate: self)
                 dataSource[indexRow] = SettingTableViewCellConfig(item: newCellModel)
                 
-                let stringState = newState ? GAppAnalyticActions.enable.rawValue : GAppAnalyticActions.disable.rawValue
-                KAppConfigServic.shared.analytics.track(action: screenType.analyticAction, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.shakeClearText.rawValue)_\(stringState)"])
+//                let stringState = newState ? GAppAnalyticActions.enable.rawValue : GAppAnalyticActions.disable.rawValue
+//                KAppConfigServic.shared.analytics.track(action: screenType.analyticAction, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.shakeClearText.rawValue)_\(stringState)"])
             case .info:
                 presentAlertPM(title: "Shake to delete transcript".localized(), message: "Shake your device to delete the entire transcript automatically".localized())
-//                KAppConfigServic.shared.analytics.track(action: screenType.analyticAction, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.limiter.rawValue)_\(GAppAnalyticActions.info.rawValue)"])
+                KAppConfigServic.shared.analytics.track(action: .infoTooltipOpened, with: [
+                    GAppAnalyticActions.source.rawValue : GAppAnalyticActions.shakeDeleteTranscript.rawValue
+                ])
             default:
                 break
             }
@@ -177,7 +179,7 @@ extension FTextSetupApViewController: NewSettingWithSubtitleTableViewCellDelegat
         switch indexRow {
         case 1 where screenType == .transcribe: // Locale
             AppsNavManager.shared.pushJLocaleListApViewController(with: screenType == .transcribe ? .transcribe : .translateFrom, with: self)
-            KAppConfigServic.shared.analytics.track(action: screenType.analyticAction, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.changeLanguage.rawValue])
+//            KAppConfigServic.shared.analytics.track(action: screenType.analyticAction, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.changeLanguage.rawValue])
 
         default:
             break

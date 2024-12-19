@@ -18,7 +18,7 @@ final class TPermissListApViewController: PMUMainViewController {
         super.viewDidLoad()
         configureUI()
         
-        KAppConfigServic.shared.analytics.track(action: .v2PermissionsScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.open.rawValue])
+//        KAppConfigServic.shared.analytics.track(action: .v2PermissionsScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.open.rawValue])
     }
     
     // MARK: - Private methods
@@ -48,7 +48,7 @@ final class TPermissListApViewController: PMUMainViewController {
         guard microPermissionGranted && CTranscribServicesAp.shared.recordPermission == .authorized else {
             return
         }
-        KAppConfigServic.shared.analytics.track(action: .v2PermissionsScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.autoClose.rawValue])
+//        KAppConfigServic.shared.analytics.track(action: .v2PermissionsScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.autoClose.rawValue])
         dismiss(animated: true)
     }
     
@@ -70,13 +70,13 @@ final class TPermissListApViewController: PMUMainViewController {
         
         switch type {
         case .micro:
-            KAppConfigServic.shared.analytics.track(action: .v2PermissionsScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.allow.rawValue)_\(GAppAnalyticActions.microphone.rawValue)"])
+//            KAppConfigServic.shared.analytics.track(action: .v2PermissionsScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.allow.rawValue)_\(GAppAnalyticActions.microphone.rawValue)"])
             
             SAudioKitServicesAp.shared.requestMicrophonePermissionOrOpenSettings { [weak self] _ in
                 self?.autoCloseIfNeeded()
             }
         case .speechRecognition:
-            KAppConfigServic.shared.analytics.track(action: .v2PermissionsScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.allow.rawValue)_\(GAppAnalyticActions.transcribe.rawValue)"])
+//            KAppConfigServic.shared.analytics.track(action: .v2PermissionsScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.allow.rawValue)_\(GAppAnalyticActions.transcribe.rawValue)"])
             
             CTranscribServicesAp.shared.requestRecognitionPermission { [weak self] _ in
                 self?.autoCloseIfNeeded()
@@ -88,6 +88,6 @@ final class TPermissListApViewController: PMUMainViewController {
         TapticEngine.impact.feedback(.medium)
         dismiss(animated: true)
         
-        KAppConfigServic.shared.analytics.track(action: .v2PermissionsScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.close.rawValue])
+//        KAppConfigServic.shared.analytics.track(action: .v2PermissionsScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.close.rawValue])
     }
 }

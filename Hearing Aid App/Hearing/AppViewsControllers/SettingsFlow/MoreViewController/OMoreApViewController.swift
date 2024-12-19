@@ -49,7 +49,7 @@ final class OMoreApViewController: PMUMainViewController {
     @objc private func closeButtonAction() {
         dismiss(animated: true)
         
-        KAppConfigServic.shared.analytics.track(action: .v2MoreScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.close.rawValue])
+//        KAppConfigServic.shared.analytics.track(action: .v2MoreScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.close.rawValue])
     }
 }
 
@@ -89,11 +89,11 @@ extension OMoreApViewController: SettingTableViewCellDelegate {
         case 1: // Manage subscription
             AppsNavManager.shared.presentManageSubscription()
             
-            KAppConfigServic.shared.analytics.track(.v2MoreScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.manageSubscriptions.rawValue])
+//            KAppConfigServic.shared.analytics.track(.v2MoreScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.manageSubscriptions.rawValue])
         case 2: // Cancel subscription
             AppsNavManager.shared.presentCancelSubscriptionViewController()
             
-            KAppConfigServic.shared.analytics.track(.v2MoreScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.cancelSubscription.rawValue])
+//            KAppConfigServic.shared.analytics.track(.v2MoreScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.cancelSubscription.rawValue])
         default:
             break
         }
@@ -119,7 +119,7 @@ extension OMoreApViewController: NSimplSementTablViewCellDelegate {
         
         AppsNavManager.shared.tabBarViewController?.reconfigureUI()
         
-        let selectedMainScreenString = String(describing: TabBarViewController.TabBarButton(rawValue: index)!)
-        KAppConfigServic.shared.analytics.track(.v2MoreScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.changeMainScreen.rawValue)_\(selectedMainScreenString)"])
+//        let selectedMainScreenString = String(describing: TabBarViewController.TabBarButton(rawValue: index)!)
+//        KAppConfigServic.shared.analytics.track(.v2MoreScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.changeMainScreen.rawValue)_\(selectedMainScreenString)"])
     }
 }

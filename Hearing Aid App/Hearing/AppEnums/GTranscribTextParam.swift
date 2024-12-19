@@ -62,6 +62,22 @@ enum GTranscribTextParam: String, CaseIterable {
             return .bold
         }
     }
+    
+    var stringTextAlignment: String {
+        guard self == .TextAlignment else {
+            return "left"
+        }
+        switch value {
+        case 0:
+            return "left"
+        case 1:
+            return "center"
+        case 2:
+            return "right"
+        default:
+            return "justified"
+        }
+    }
         
     var value: Int {
         return (UserDefaults.standard.value(forKey: self.rawValue) as? Int) ?? defaultValue

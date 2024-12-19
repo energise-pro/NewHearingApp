@@ -99,7 +99,9 @@ final class UTranscribApViewController: PMUMainViewController {
             return
         }
         clearAction()
-        KAppConfigServic.shared.analytics.track(action: .v2TranscribeScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.clearText.rawValue])
+        KAppConfigServic.shared.analytics.track(action: .delete, with: [
+            "object" : GAppAnalyticActions.transcribe.rawValue
+        ])
     }
     
     override func didChangeTheme() {
@@ -190,6 +192,9 @@ final class UTranscribApViewController: PMUMainViewController {
         placeholderLabel.transform = isIdentityTransform ? .identity : flipTransform
         
         mainTextView.transform = isIdentityTransform ? .identity : flipTransform
+        KAppConfigServic.shared.analytics.track(action: .screenFlipped, with: [
+            "transcribe_status" : CTranscribServicesAp.shared.isStartedTranscribe
+        ])
     }
     
     private func presentClearConfirmAlert() {
@@ -200,6 +205,7 @@ final class UTranscribApViewController: PMUMainViewController {
             checkboxViewText: "Don’t ask me again".localized(),
             delegate: self
         )
+        
     }
     
     private func changeTranscribeState(isHapticEnabled: Bool = true, isSaveRecognitionText: Bool = false) {
@@ -216,8 +222,14 @@ final class UTranscribApViewController: PMUMainViewController {
         newState && SAudioKitServicesAp.shared.countOfUsingRecognize % 3 == 0 ? KAppConfigServic.shared.settings.presentAppRatingAlert() : Void()
         newState ? SAudioKitServicesAp.shared.increaseCountOfUsing(for: .recognize) : Void()
         
-        let stringState = newState ? GAppAnalyticActions.enable.rawValue : GAppAnalyticActions.disable.rawValue
-        KAppConfigServic.shared.analytics.track(action: .v2TranscribeScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.microphone.rawValue)_\(stringState)"])
+        let actionState = newState ? GAppAnalyticActions.transcribeActivated : GAppAnalyticActions.transcribeDeactivated
+        KAppConfigServic.shared.analytics.track(action: actionState, with: [
+            "language_user" : BTranslServicesNew.shared.localizedInputLanguage.capitalized,
+            "font_size" : Float(GTranscribTextParam.FontSize.value),
+            "font_weight" : GTranscribTextParam.FontWeight.value == 0 ? "medium" : (GTranscribTextParam.FontWeight.value == 1 ? "semibold" : "bold"),
+            "text_alignment" : GTranscribTextParam.TextAlignment.stringTextAlignment,
+            "shake_delete_options" : CTranscribServicesAp.shared.isShakeToClear
+        ])
         
         if newState {
             placeholderLabel.text = "Start speaking".localized()
@@ -266,7 +278,7 @@ final class UTranscribApViewController: PMUMainViewController {
     @objc private func closeButtonAction() {
         dismiss(animated: true)
         
-        KAppConfigServic.shared.analytics.track(action: .v2TranscribeScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.close.rawValue])
+//        KAppConfigServic.shared.analytics.track(action: .v2TranscribeScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.close.rawValue])
     }
     
     @objc private func shareButtonAction() {
@@ -280,14 +292,18 @@ final class UTranscribApViewController: PMUMainViewController {
         shareText += "\n\n✏️ Created by: \(Bundle.main.appName)\n\(CAppConstants.URLs.appStoreUrl)"
         AppsNavManager.shared.presentShareViewController(with: [shareText], and: mainTextView.inputAccessoryView)
         
-        KAppConfigServic.shared.analytics.track(action: .v2TranscribeScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.share.rawValue])
+        KAppConfigServic.shared.analytics.track(action: .share, with: [
+            "object" : GAppAnalyticActions.transcribe.rawValue
+        ])
     }
     
     @objc private func clearButtonAction() {
         TapticEngine.impact.feedback(.medium)
         clearAction()
         
-        KAppConfigServic.shared.analytics.track(action: .v2TranscribeScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.keyboardClearText.rawValue])
+        KAppConfigServic.shared.analytics.track(action: .delete, with: [
+            "object" : GAppAnalyticActions.transcribe.rawValue
+        ])
     }
     
     @objc private func copyAllButtonAction() {
@@ -298,20 +314,22 @@ final class UTranscribApViewController: PMUMainViewController {
         UIPasteboard.general.string = text
         presentHidingAlert(title: "Text successfully copied".localized(), message: "", timeOut: .low)
         
-        KAppConfigServic.shared.analytics.track(action: .v2TranscribeScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.keyboardCopyAllText.rawValue])
+//        KAppConfigServic.shared.analytics.track(action: .v2TranscribeScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.keyboardCopyAllText.rawValue])
     }
     
     @objc private func saveButtonAction() {
         saveAction()
         
-        KAppConfigServic.shared.analytics.track(action: .v2TranscribeScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.keyboardSaveText.rawValue])
+        KAppConfigServic.shared.analytics.track(action: .saved, with: [
+            "object" : GAppAnalyticActions.transcribe.rawValue
+        ])
     }
     
     @objc private func doneButtonAction() {
         TapticEngine.impact.feedback(.medium)
         mainTextView.resignFirstResponder()
         
-        KAppConfigServic.shared.analytics.track(action: .v2TranscribeScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.keyboardDone.rawValue])
+//        KAppConfigServic.shared.analytics.track(action: .v2TranscribeScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.keyboardDone.rawValue])
     }
     
     @IBAction private func bottomButtonsAction(_ sender: UIButton) {
@@ -326,15 +344,19 @@ final class UTranscribApViewController: PMUMainViewController {
                 presentClearConfirmAlert()
             } else {
                 clearAction()
-                KAppConfigServic.shared.analytics.track(action: .v2TranscribeScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.clearText.rawValue])
+                KAppConfigServic.shared.analytics.track(action: .delete, with: [
+                    "object" : GAppAnalyticActions.transcribe.rawValue
+                ])
             }
         case .save:
             saveAction()
-            KAppConfigServic.shared.analytics.track(action: .v2TranscribeScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.saveText.rawValue])
+            KAppConfigServic.shared.analytics.track(action: .saved, with: [
+                "object" : GAppAnalyticActions.transcribe.rawValue
+            ])
         case .transcribe:
             guard CTranscribServicesAp.shared.isStartedTranscribe || TInAppService.shared.isPremium || SAudioKitServicesAp.shared.countOfUsingRecognize < 2 else {
                 TapticEngine.impact.feedback(.medium)
-                AppsNavManager.shared.presentPaywallViewController(with: .openFromTranscribe)
+                AppsNavManager.shared.presentPaywallViewController(with: .sourceTranscribeBtn)
                 return
             }
             
@@ -344,11 +366,11 @@ final class UTranscribApViewController: PMUMainViewController {
         case .flip:
             TapticEngine.impact.feedback(.medium)
             flipTextView()
-            KAppConfigServic.shared.analytics.track(action: .v2TranscribeScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.flip.rawValue])
+//            KAppConfigServic.shared.analytics.track(action: .v2TranscribeScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.flip.rawValue])
         case .setup:
             TapticEngine.impact.feedback(.medium)
             AppsNavManager.shared.presentFTextSetupApViewController(with: .transcribe, with: self)
-            KAppConfigServic.shared.analytics.track(action: .v2TranscribeScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.textSetup.rawValue])
+//            KAppConfigServic.shared.analytics.track(action: .v2TranscribeScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.textSetup.rawValue])
         }
     }
 }
@@ -391,7 +413,10 @@ extension UTranscribApViewController: AlertViewControllerDelegate {
     
     func onConfirmButtonAction(isCheckboxSelected: Bool) {
         clearAction()
-        KAppConfigServic.shared.analytics.track(action: .v2TranscribeScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.clearText.rawValue])
         notAskConfirmationForDeleteAction = isCheckboxSelected
+        KAppConfigServic.shared.analytics.track(action: .delete, with: [
+            "object" : GAppAnalyticActions.transcribe.rawValue,
+            "dont_ask_checkbox_status" : isCheckboxSelected
+        ])
     }
 }

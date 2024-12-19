@@ -12,13 +12,13 @@ final class HMicrophPermisApViewController: UIViewController {
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        KAppConfigServic.shared.analytics.track(.v2MicrophoneReminder, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.open.rawValue])
+//        KAppConfigServic.shared.analytics.track(.v2MicrophoneReminder, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.open.rawValue])
         configureUI()
     }
     
     //MARK: - IBActions
     @IBAction private func allowButtonAction(_ sender: UIButton) {
-        KAppConfigServic.shared.analytics.track(.v2MicrophoneReminder, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.allow.rawValue])
+//        KAppConfigServic.shared.analytics.track(.v2MicrophoneReminder, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.allow.rawValue])
         TapticEngine.impact.feedback(.medium)
         SAudioKitServicesAp.shared.requestMicrophonePermissionOrOpenSettings { [weak self] accepted in
             accepted ? self?.dismiss(animated: true) : Void()
@@ -26,7 +26,7 @@ final class HMicrophPermisApViewController: UIViewController {
     }
     
     @IBAction private func latterButtonAction(_ sender: UIButton) {
-        KAppConfigServic.shared.analytics.track(.v2MicrophoneReminder, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.close.rawValue])
+//        KAppConfigServic.shared.analytics.track(.v2MicrophoneReminder, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.close.rawValue])
         TapticEngine.impact.feedback(.medium)
         dismiss(animated: true)
     }

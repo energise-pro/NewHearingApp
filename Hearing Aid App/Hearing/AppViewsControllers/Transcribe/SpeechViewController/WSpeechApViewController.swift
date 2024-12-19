@@ -166,20 +166,20 @@ final class WSpeechApViewController: PMUMainViewController {
         switch buttonType {
         case .translate:
             AppsNavManager.shared.presentJTranslatApViewController(with: self)
-            KAppConfigServic.shared.analytics.track(action: .v2TranscribeMainScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.translate.rawValue])
+//            KAppConfigServic.shared.analytics.track(action: .v2TranscribeMainScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.translate.rawValue])
         case .type:
             AppsNavManager.shared.presentDTypeTextApViewController()
-            KAppConfigServic.shared.analytics.track(action: .v2TranscribeMainScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.type.rawValue])
+//            KAppConfigServic.shared.analytics.track(action: .v2TranscribeMainScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.type.rawValue])
         case .transcribe:
             AppsNavManager.shared.presentUTranscribApViewController(and: self)
-            KAppConfigServic.shared.analytics.track(action: .v2TranscribeMainScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.transcribe.rawValue])
+//            KAppConfigServic.shared.analytics.track(action: .v2TranscribeMainScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.transcribe.rawValue])
         }
     }
     
     @IBAction private func bookmarkButtonAction(_ sender: UIButton) {
         TapticEngine.impact.feedback(.medium)
         AppsNavManager.shared.presentHTranscriptListApViewController()
-        KAppConfigServic.shared.analytics.track(action: .v2TranscribeMainScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.saved.rawValue])
+//        KAppConfigServic.shared.analytics.track(action: .v2TranscribeMainScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.saved.rawValue])
     }
     
     @IBAction private func instructionButtonAction(_ sender: UIButton) {
@@ -191,7 +191,9 @@ final class WSpeechApViewController: PMUMainViewController {
     @IBAction func infoButtonAction(_ sender: UIButton) {
         TapticEngine.impact.feedback(.medium)
         AppsNavManager.shared.presentTranscriptionInstructionViewController()
-        //        KAppConfigServic.shared.analytics.track(action: .v2HearingScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.info.rawValue])
+        KAppConfigServic.shared.analytics.track(action: .infoTooltipOpened, with: [
+            GAppAnalyticActions.source.rawValue : GAppAnalyticActions.transcriptionMain.rawValue
+        ])
     }
     
     @IBAction func instructionContainerCloseButtonAction(_ sender: UIButton) {
@@ -278,10 +280,15 @@ extension WSpeechApViewController: GTranscriptionTablViewCellDelegate {
         guard let indexPath = tableView.indexPath(for: cell), let transcriptModel = (filteredDataSource[indexPath.section][indexPath.row].getItem() as? GTranscriptionTablViewCellModel)?.transcriptModel else {
             return
         }
+        var sourceValue = "search"
+        if let searchText = searchBar.searchTextField.text, searchText.isEmpty {
+            sourceValue = "saved_screen"
+        }
+        KAppConfigServic.shared.analytics.track(action: .savingOpened, with: [
+            GAppAnalyticActions.source.rawValue : sourceValue
+        ])
         searchBar.endEditing(true)
         AppsNavManager.shared.pushYTranscriptDetailApViewController(with: transcriptModel, and: self)
-        
-        KAppConfigServic.shared.analytics.track(action: .v2SavedTranscriptsScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.transcript.rawValue])
     }
 }
 

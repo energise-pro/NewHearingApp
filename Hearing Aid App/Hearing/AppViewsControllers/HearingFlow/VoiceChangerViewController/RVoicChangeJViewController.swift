@@ -14,7 +14,7 @@ final class RVoicChangeJViewController: PMUMainViewController {
         configureUI()
         configureDataSource()
         
-        KAppConfigServic.shared.analytics.track(action: .v2VoiceChangerScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.open.rawValue])
+//        KAppConfigServic.shared.analytics.track(action: .v2VoiceChangerScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.open.rawValue])
     }
     
 //    override func didChangeTheme() {
@@ -69,7 +69,7 @@ final class RVoicChangeJViewController: PMUMainViewController {
     @objc private func closeButtonAction() {
         dismiss(animated: true)
         
-        KAppConfigServic.shared.analytics.track(action: .v2VoiceChangerScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.close.rawValue])
+//        KAppConfigServic.shared.analytics.track(action: .v2VoiceChangerScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.close.rawValue])
     }
 }
 
@@ -106,7 +106,7 @@ extension RVoicChangeJViewController: VCentereButnTableViewCellDelegate {
         SAudioKitServicesAp.shared.resetPitchShifterValues()
         configureDataSource()
         
-        KAppConfigServic.shared.analytics.track(action: .v2VoiceChangerScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.reset.rawValue])
+//        KAppConfigServic.shared.analytics.track(action: .v2VoiceChangerScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.reset.rawValue])
     }
 }
 
@@ -124,15 +124,17 @@ extension RVoicChangeJViewController: SettingTableViewCellDelegate {
         case .info: // Voice changer status
             presentAlertPM(title: "Voice changer status".localized(), message: "The voice changer allows you to change voice parameters. With the voice changer, you can set the pitch to higher or lower".localized())
             
-            KAppConfigServic.shared.analytics.track(action: .v2VoiceChangerScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.voiceChanger.rawValue)_\(GAppAnalyticActions.info.rawValue)"])
+//            KAppConfigServic.shared.analytics.track(action: .v2VoiceChangerScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.voiceChanger.rawValue)_\(GAppAnalyticActions.info.rawValue)"])
         case .switchButton:
             let newState = !SAudioKitServicesAp.shared.isVoiceChangerEnabled
             SAudioKitServicesAp.shared.setVoiceChanger(newState)
             let newCellModel = SettingTableViewCellModel(title: cellModel.title, buttonTypes: cellModel.buttonTypes, switchState: newState, delegate: self)
             dataSource[indexRow] = SettingTableViewCellConfig(item: newCellModel)
             
-            let stringState = newState ? GAppAnalyticActions.enable.rawValue : GAppAnalyticActions.disable.rawValue
-            KAppConfigServic.shared.analytics.track(action: .v2VoiceChangerScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.voiceChanger.rawValue)_\(stringState)"])
+            let actionState = newState ? GAppAnalyticActions.setupOptionActivated : GAppAnalyticActions.setupOptionDeactivated
+            KAppConfigServic.shared.analytics.track(action: actionState, with: [
+                "option_type" : "voice_changer"
+            ])
         default:
             break
         }
@@ -154,7 +156,7 @@ extension RVoicChangeJViewController: GSlideBTablViewCellDelegate {
         
         sliderTimer?.invalidate()
         sliderTimer = Timer.scheduledTimer(withTimeInterval: GAppAnalyticActions.delaySliderInterval, repeats: false) { _ in
-            KAppConfigServic.shared.analytics.track(action: .v2VoiceChangerScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.change.rawValue)_\(pitchParameter.rawValue)"])
+//            KAppConfigServic.shared.analytics.track(action: .v2VoiceChangerScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.change.rawValue)_\(pitchParameter.rawValue)"])
         }
     }
 }

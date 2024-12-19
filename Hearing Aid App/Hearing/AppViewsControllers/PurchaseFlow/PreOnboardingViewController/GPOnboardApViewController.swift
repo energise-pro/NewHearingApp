@@ -53,7 +53,7 @@ final class GPOnboardApViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        KAppConfigServic.shared.analytics.track(.v2PreOnboardingScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.open.rawValue])
+//        KAppConfigServic.shared.analytics.track(.v2PreOnboardingScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.open.rawValue])
         configureUI()
     }
     
@@ -106,7 +106,7 @@ final class GPOnboardApViewController: UIViewController {
     @IBAction private func nextButtonAction(_ sender: UIButton) {
         TapticEngine.impact.feedback(.medium)
         animateShowQuestionView()
-        KAppConfigServic.shared.analytics.track(.v2PreOnboardingScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.continue.rawValue])
+//        KAppConfigServic.shared.analytics.track(.v2PreOnboardingScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.continue.rawValue])
     }
     
     @IBAction private func questionButtonAction(_ sender: UIButton) {
@@ -114,7 +114,7 @@ final class GPOnboardApViewController: UIViewController {
             return
         }
         TapticEngine.impact.feedback(.medium)
-        KAppConfigServic.shared.analytics.track(.v2PreOnboardingScreen, with: [GAppAnalyticActions.action.rawValue: type.analyticAction.rawValue])
+//        KAppConfigServic.shared.analytics.track(.v2PreOnboardingScreen, with: [GAppAnalyticActions.action.rawValue: type.analyticAction.rawValue])
         AppsNavManager.shared.setOnboardingAsRootViewController()
     }
 }

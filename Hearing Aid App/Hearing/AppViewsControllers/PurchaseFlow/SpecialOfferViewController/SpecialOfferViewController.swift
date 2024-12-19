@@ -43,6 +43,7 @@ class SpecialOfferViewController: UIViewController {
     @IBOutlet weak var countdownSecondsLabel: UILabel!
     
     //MARK: - Properties
+    private var openAction: GAppAnalyticActions
     private var isLoading: Bool = false
     private var subscriptionItems: [ShopItem] = []
     private var selectedPlan: ShopItem?
@@ -63,6 +64,16 @@ class SpecialOfferViewController: UIViewController {
         }
     }
     
+    //MARK: - Init
+    init(openAction: GAppAnalyticActions) {
+        self.openAction = openAction
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     //MARK: - LifeCycle
     deinit {
         countdownTimer?.invalidate()
@@ -72,7 +83,6 @@ class SpecialOfferViewController: UIViewController {
         super.viewDidLoad()
         UserDefaults.standard.setValue(true, forKey: CAppConstants.Keys.wasPresentedCatchUp)
         EApphudServiceAp.shared.paywallShown()
-//        KAppConfigServic.shared.analytics.track(.v2Paywall, with: [GAppAnalyticActions.action.rawValue: openAction.rawValue])
         configureUI()
         configureCountdownTimer()
     }
@@ -107,13 +117,18 @@ class SpecialOfferViewController: UIViewController {
         selectProductView(containerButtonYearly)
         unselectProductView(containerButtonWeekly)
         
+        localizedUI()
+        
         Timer.scheduledTimer(withTimeInterval: 5.0, repeats: false) { [weak self] _ in
             UIView.animate(withDuration: 0.3) {
                 self?.closeButton.alpha = 1.0
             }
         }
-        
-        localizedUI()
+        KAppConfigServic.shared.analytics.track(.paywallSeen, with: [
+            GAppAnalyticActions.source.rawValue: openAction.rawValue,
+            "pwl_version" : "pw_special_inapp_1",
+            "offer" : "plc"
+        ])
     }
     
     private func configureCountdownTimer() {
@@ -204,6 +219,11 @@ class SpecialOfferViewController: UIViewController {
     }
 
     private func purchase(plan: ShopItem) {
+        KAppConfigServic.shared.analytics.track(.purchaseCheckout, with: [
+            GAppAnalyticActions.source.rawValue: openAction.rawValue,
+            "pwl_version" : "pw_special_inapp_1",
+            "offer" : "plc"
+        ])
         HAppLoaderView.showLoader(at: self.view, animated: true)
         TInAppService.shared.purchase(plan, from: .subscriptions) { [weak self] isSuccess in
             guard let self = self else {
@@ -211,6 +231,11 @@ class SpecialOfferViewController: UIViewController {
             }
             HAppLoaderView.hideLoader(for: self.view, animated: true)
             if isSuccess {
+                KAppConfigServic.shared.analytics.track(.purchaseActivate, with: [
+                    GAppAnalyticActions.source.rawValue: openAction.rawValue,
+                    "pwl_version" : "pw_special_inapp_1",
+                    "offer" : "plc"
+                ])
                 DispatchQueue.main.async {
                     self.closePaywall()
                 }
@@ -281,7 +306,7 @@ class SpecialOfferViewController: UIViewController {
             return
         }
         selectedPlan = subscriptionPlan
-        KAppConfigServic.shared.analytics.track(.v2Paywall, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.purchase.rawValue)_\(subscriptionPlan.productId)"])
+//        KAppConfigServic.shared.analytics.track(.v2Paywall, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.purchase.rawValue)_\(subscriptionPlan.productId)"])
         
         selectProductView(containerButtonWeekly)
         unselectProductView(containerButtonYearly)
@@ -295,7 +320,7 @@ class SpecialOfferViewController: UIViewController {
             return
         }
         selectedPlan = subscriptionPlan
-        KAppConfigServic.shared.analytics.track(.v2Paywall, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.purchase.rawValue)_\(subscriptionPlan.productId)"])
+//        KAppConfigServic.shared.analytics.track(.v2Paywall, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.purchase.rawValue)_\(subscriptionPlan.productId)"])
         
         selectProductView(containerButtonYearly)
         unselectProductView(containerButtonWeekly)
@@ -306,7 +331,7 @@ class SpecialOfferViewController: UIViewController {
     
     @IBAction private func restoreButtonAction(_ sender: UIButton) {
         TapticEngine.impact.feedback(.medium)
-        KAppConfigServic.shared.analytics.track(.v2Paywall, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.restore.rawValue])
+//        KAppConfigServic.shared.analytics.track(.v2Paywall, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.restore.rawValue])
         HAppLoaderView.showLoader(at: view, animated: true)
         TInAppService.shared.restorePurchases { [weak self] isSuccess in
             guard let self = self else {
@@ -325,25 +350,29 @@ class SpecialOfferViewController: UIViewController {
     
     @IBAction private func privacyButtonAction(_ sender: UIButton) {
         TapticEngine.impact.feedback(.medium)
-        KAppConfigServic.shared.analytics.track(.v2Paywall, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.privacy.rawValue])
+//        KAppConfigServic.shared.analytics.track(.v2Paywall, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.privacy.rawValue])
         AppsNavManager.shared.presentSafariViewController(with: CAppConstants.URLs.privacyPolicyURL)
     }
     
     @IBAction private func termsButtonAction(_ sender: UIButton) {
         TapticEngine.impact.feedback(.medium)
-        KAppConfigServic.shared.analytics.track(.v2Paywall, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.terms.rawValue])
+//        KAppConfigServic.shared.analytics.track(.v2Paywall, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.terms.rawValue])
         AppsNavManager.shared.presentSafariViewController(with: CAppConstants.URLs.termsURL)
     }
     
     @IBAction private func closeButton(_ sender: UIButton) {
         TapticEngine.impact.feedback(.heavy)
-//        KAppConfigServic.shared.analytics.track(.v2Paywall, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.close.rawValue])
+        KAppConfigServic.shared.analytics.track(.paywallPassed, with: [
+            GAppAnalyticActions.source.rawValue: openAction.rawValue,
+            "pwl_version" : "pw_special_inapp_1",
+            "offer" : "plc"
+        ])
         closePaywall()
     }
     
     @IBAction private func redeemPromocodeAction(_ sender: UIButton) {
         TapticEngine.impact.feedback(.medium)
-        KAppConfigServic.shared.analytics.track(.v2Paywall, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.redeem.rawValue])
+//        KAppConfigServic.shared.analytics.track(.v2Paywall, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.redeem.rawValue])
         TInAppService.shared.presentRedeemScreen()
     }
 }

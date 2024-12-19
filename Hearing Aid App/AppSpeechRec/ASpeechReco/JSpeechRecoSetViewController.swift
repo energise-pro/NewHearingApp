@@ -32,7 +32,7 @@ final class JSpeechRecoSetViewController: UMainViewController {
         SpeechRecognitionSettings.FontSize.setValue(value)
         TapticEngine.selection.feedback()
         
-        KAppConfigServic.shared.analytics.track(action: .v2TranscribeScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.changeFontSize.rawValue])
+//        KAppConfigServic.shared.analytics.track(action: .v2TranscribeScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.changeFontSize.rawValue])
     }
 
     @IBAction func switchAction(sender: UISwitch) {
@@ -42,16 +42,16 @@ final class JSpeechRecoSetViewController: UMainViewController {
         delegate?.didToggleSetting(setting, sender.isOn)
         TapticEngine.impact.feedback(.medium)
         
-        switch setting {
-        case .TranslateMode:
-            let stringState = sender.isOn ? GAppAnalyticActions.enable.rawValue : GAppAnalyticActions.disable.rawValue
-            KAppConfigServic.shared.analytics.track(action: .v2TranscribeScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.translateMode.rawValue)_\(stringState)"])
-        case .ShakeToClearText:
-            let stringState = sender.isOn ? GAppAnalyticActions.enable.rawValue : GAppAnalyticActions.disable.rawValue
-            KAppConfigServic.shared.analytics.track(action: .v2TranscribeScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.shakeClearText.rawValue)_\(stringState)"])
-        default:
-            break
-        }
+//        switch setting {
+//        case .TranslateMode:
+//            let stringState = sender.isOn ? GAppAnalyticActions.enable.rawValue : GAppAnalyticActions.disable.rawValue
+//            KAppConfigServic.shared.analytics.track(action: .v2TranscribeScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.translateMode.rawValue)_\(stringState)"])
+//        case .ShakeToClearText:
+//            let stringState = sender.isOn ? GAppAnalyticActions.enable.rawValue : GAppAnalyticActions.disable.rawValue
+//            KAppConfigServic.shared.analytics.track(action: .v2TranscribeScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.shakeClearText.rawValue)_\(stringState)"])
+//        default:
+//            break
+//        }
     }
 
     @IBAction func alignmentAction(sender: UIButton) {
@@ -62,7 +62,7 @@ final class JSpeechRecoSetViewController: UMainViewController {
         delegate?.didChangeTextAlignment(alignment)
         SpeechRecognitionSettings.TextAlignment.setValue(alignment.rawValue)
         
-        KAppConfigServic.shared.analytics.track(action: .v2TranscribeScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.change.rawValue)_\(GAppAnalyticActions.alignment.rawValue)"])
+//        KAppConfigServic.shared.analytics.track(action: .v2TranscribeScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.change.rawValue)_\(GAppAnalyticActions.alignment.rawValue)"])
     }
 
     @IBAction func fontWeightAction(sender: UIButton) {
@@ -72,7 +72,7 @@ final class JSpeechRecoSetViewController: UMainViewController {
         delegate?.didChangeFontWeight(weight)
         SpeechRecognitionSettings.FontWeight.setValue(weight)
         
-        KAppConfigServic.shared.analytics.track(action: .v2TranscribeScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.change.rawValue)_\(GAppAnalyticActions.weight.rawValue)"])
+//        KAppConfigServic.shared.analytics.track(action: .v2TranscribeScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.change.rawValue)_\(GAppAnalyticActions.weight.rawValue)"])
     }
     
     //MARK: - Deinit

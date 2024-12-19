@@ -78,6 +78,19 @@ final class HeadphonesConnectViewController: UIViewController {
         return routePickerView
     }()
     
+    private var openAction: GAppAnalyticActions
+    
+    //MARK: - Init
+    init(openAction: GAppAnalyticActions) {
+        self.openAction = openAction
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         uiLoad()
@@ -167,14 +180,14 @@ final class HeadphonesConnectViewController: UIViewController {
 
        @objc private func selectDeviceTapped() {
            print("Select Device button tapped")
-           KAppConfigServic.shared.analytics.track(.v2HeadphonesReminder, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.airPlay.rawValue])
+//           KAppConfigServic.shared.analytics.track(.v2HeadphonesReminder, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.airPlay.rawValue])
            TapticEngine.impact.feedback(.medium)
            routePickerView.present()
        }
 
        @objc private func okBtnTapped() {
            print("OK button tapped")
-           KAppConfigServic.shared.analytics.track(.v2HeadphonesReminder, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.close.rawValue])
+//           KAppConfigServic.shared.analytics.track(.v2HeadphonesReminder, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.close.rawValue])
            TapticEngine.impact.feedback(.medium)
            dismiss(animated: true)
        }
@@ -186,10 +199,9 @@ final class HeadphonesConnectViewController: UIViewController {
 
         switch audioRouteChangeReason {
         case AVAudioSession.RouteChangeReason.newDeviceAvailable.rawValue:
-            KAppConfigServic.shared.analytics.track(.v2HeadphonesReminder, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.connected.rawValue])
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [weak self] in
                 if SAudioKitServicesAp.shared.connectedHeadphones {
-                    SAudioKitServicesAp.shared.setAudioEngine(true)
+                    SAudioKitServicesAp.shared.setAudioEngine(true, with: self?.openAction ?? .sourceDefault)
                 }
                 self?.dismiss(animated: true)
             }

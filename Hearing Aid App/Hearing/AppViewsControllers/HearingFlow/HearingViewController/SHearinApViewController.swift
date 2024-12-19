@@ -271,6 +271,9 @@ final class SHearinApViewController: PMUMainViewController {
             let widthMultiplier = (balanceBackgoundView.frame.width / 2) / CGFloat(abs(balanceSlider.minimumValue))
             balanceFillViewLeftConstraint.constant = (CGFloat(CGFloat(sliderValue) * widthMultiplier))
         }
+        KAppConfigServic.shared.analytics.track(action: .stringMoved, with: [
+            "direction" : sliderValue == 0 ? "medium" : (sliderValue > 0 ? "right" : "left")
+        ])
     }
     
     private func updateVolumeView(on volumeValue: Double) {
@@ -298,6 +301,9 @@ final class SHearinApViewController: PMUMainViewController {
         guard SAudioKitServicesAp.shared.isUseSystemVolume,
               let slider = cachedSystemVolumeSlider else { return }
         slider.value = Float(volumeValue / maxVolumeValue)
+        KAppConfigServic.shared.analytics.track(action: .volumeBarMoved, with: [
+            "volume_value" : Int(volumeValue)
+        ])
     }
     
     private func configureScaleStackView(with volumeValue: Double) {
@@ -395,7 +401,7 @@ final class SHearinApViewController: PMUMainViewController {
 
         if !SAudioKitServicesAp.shared.isStartedMixer && !SAudioKitServicesAp.shared.connectedHeadphones {
             TapticEngine.impact.feedback(.medium)
-            AppsNavManager.shared.presentDHeadphsRemindApViewController()
+            AppsNavManager.shared.presentDHeadphsRemindApViewController(with: .sourceActivateBtn)
             return
         }
         
@@ -412,8 +418,21 @@ final class SHearinApViewController: PMUMainViewController {
         
         waveContainerView.isHidden = !newState
         
-        let stringState = newState ? GAppAnalyticActions.enable.rawValue : GAppAnalyticActions.disable.rawValue
-        KAppConfigServic.shared.analytics.track(action: .v2HearingScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.microphone.rawValue)_\(stringState)"])
+        let actionState = newState ? GAppAnalyticActions.hearingActivated : GAppAnalyticActions.hearingDeactivated
+        KAppConfigServic.shared.analytics.track(action: actionState, with: [
+            "volume_bar_value" : Int(volumePercentageValue),
+            "stereo_status" : SAudioKitServicesAp.shared.isStereoEnabled,
+            "nonoise_status" : SAudioKitServicesAp.shared.isNoiseOffEnabled,
+            "string_side" : SAudioKitServicesAp.shared.balanceValue == 0 ? "medium" : (SAudioKitServicesAp.shared.balanceValue > 0 ? "right" : "left"),
+            "template_variant" : TemplatesType.selectedTemplate.title,
+            "micro_type" : MicroFineType.selectedMicrophone.title.lowercased(),
+            "music_mode_status" : SAudioKitServicesAp.shared.isMusicModeEnabled,
+            "clear_voice_status" : SAudioKitServicesAp.shared.isClearVoice,
+            "voice_changer_status" : SAudioKitServicesAp.shared.isVoiceChangerEnabled,
+            "compressor_status" : SAudioKitServicesAp.shared.isCompressorEnabled,
+            "limiter_status" : SAudioKitServicesAp.shared.isLimiterEnabled,
+            "equalizer_status" : SAudioKitServicesAp.shared.isEqualizedEnabled
+        ])
     }
     
     @IBAction private func bottomButtonsAction(_ sender: UIButton) {
@@ -424,31 +443,37 @@ final class SHearinApViewController: PMUMainViewController {
         switch buttonType {
         case .proSetup:
             AppsNavManager.shared.presentErdSetupViewController(with: self)
-            KAppConfigServic.shared.analytics.track(action: .v2HearingScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.proSetup.rawValue])
+//            KAppConfigServic.shared.analytics.track(action: .v2HearingScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.proSetup.rawValue])
         case .noiseOff:
             let newState = !SAudioKitServicesAp.shared.isNoiseOffEnabled
             SAudioKitServicesAp.shared.setNoiseOFF(newState)
             setBottomButton(.noiseOff, asSelected: newState)
             
-            let stringState = newState ? GAppAnalyticActions.enable.rawValue : GAppAnalyticActions.disable.rawValue
-            KAppConfigServic.shared.analytics.track(action: .v2HearingScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.noise.rawValue)_\(stringState)"])
+            let actionState = newState ? GAppAnalyticActions.homeOptionsActivated : GAppAnalyticActions.homeOptionsDeactivated
+            KAppConfigServic.shared.analytics.track(action: actionState, with: [
+                "option_type" : "nonoise"
+            ])
         case .stereo:
             let newState = !SAudioKitServicesAp.shared.isStereoEnabled
             SAudioKitServicesAp.shared.setStereo(newState)
             setBottomButton(.stereo, asSelected: newState)
             
-            let stringState = newState ? GAppAnalyticActions.enable.rawValue : GAppAnalyticActions.disable.rawValue
-            KAppConfigServic.shared.analytics.track(action: .v2HearingScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.stereo.rawValue)_\(stringState)"])
+            let actionState = newState ? GAppAnalyticActions.homeOptionsActivated : GAppAnalyticActions.homeOptionsDeactivated
+            KAppConfigServic.shared.analytics.track(action: actionState, with: [
+                "option_type" : "stereo"
+            ])
         case .templates:
             AppsNavManager.shared.presentQTemplateApViewController(with: self)
-            KAppConfigServic.shared.analytics.track(action: .v2HearingScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.templates.rawValue])
+//            KAppConfigServic.shared.analytics.track(action: .v2HearingScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.templates.rawValue])
         }
     }
     
     @IBAction private func infoButtonAction(_ sender: UIButton) {
         TapticEngine.impact.feedback(.medium)
         AppsNavManager.shared.presentCustomVideoFInstructApViewController()
-        KAppConfigServic.shared.analytics.track(action: .v2HearingScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.info.rawValue])
+        KAppConfigServic.shared.analytics.track(action: .infoTooltipOpened, with: [
+            GAppAnalyticActions.source.rawValue : GAppAnalyticActions.hearingMain
+        ])
     }
     
     @IBAction private func sliderValueChanged(_ sender: UISlider) {
@@ -463,7 +488,7 @@ final class SHearinApViewController: PMUMainViewController {
         
         balanceTimer?.invalidate()
         balanceTimer = Timer.scheduledTimer(withTimeInterval: GAppAnalyticActions.delaySliderInterval, repeats: false) { _ in
-            KAppConfigServic.shared.analytics.track(action: .v2HearingScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.changeBalance.rawValue])
+//            KAppConfigServic.shared.analytics.track(action: .v2HearingScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.changeBalance.rawValue])
         }
     }
     
@@ -471,7 +496,7 @@ final class SHearinApViewController: PMUMainViewController {
         func trackAnalytic() {
             volumeTimer?.invalidate()
             volumeTimer = Timer.scheduledTimer(withTimeInterval: GAppAnalyticActions.delaySliderInterval, repeats: false) { _ in
-                KAppConfigServic.shared.analytics.track(action: .v2HearingScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.changeVolume.rawValue])
+//                KAppConfigServic.shared.analytics.track(action: .v2HearingScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.changeVolume.rawValue])
             }
         }
         
@@ -507,7 +532,7 @@ final class SHearinApViewController: PMUMainViewController {
     }
     @IBAction func titleViewTapAction(_ sender: UITapGestureRecognizer) {
         TapticEngine.impact.feedback(.medium)
-        AppsNavManager.shared.presentDHeadphsRemindApViewController()
+        AppsNavManager.shared.presentDHeadphsRemindApViewController(with: .sourceHeader)
     }
 }
 

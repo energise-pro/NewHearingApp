@@ -45,6 +45,13 @@ final class DTypeTextApViewController: PMUMainViewController {
         mainTextView.becomeFirstResponder()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        KAppConfigServic.shared.analytics.track(.typeScreenClosed, with: [
+            "text_presence" : !CTranscribServicesAp.shared.typeText.isEmpty
+        ])
+    }
+    
     override func didChangeTheme() {
         super.didChangeTheme()
 //        navigationItem.rightBarButtonItem?.tintColor = AThemeServicesAp.shared.activeColor
@@ -98,6 +105,10 @@ final class DTypeTextApViewController: PMUMainViewController {
                 self?.bottomContainerHeightConstraint.isActive = true
             }
         }
+        
+        KAppConfigServic.shared.analytics.track(.typeScreenOpened, with: [
+            "text_presence" : !CTranscribServicesAp.shared.typeText.isEmpty
+        ])
     }
     
     private func setupRightBarButton() {
@@ -132,7 +143,9 @@ final class DTypeTextApViewController: PMUMainViewController {
         TapticEngine.impact.feedback(.medium)
         dismiss(animated: true)
         
-        KAppConfigServic.shared.analytics.track(action: .v2TypeScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.close.rawValue])
+        KAppConfigServic.shared.analytics.track(.typeScreenClosed, with: [
+            "text_presence" : !CTranscribServicesAp.shared.typeText.isEmpty
+        ])
     }
     
     @IBAction private func buttonsAction(_ sender: UIButton) {
@@ -145,14 +158,16 @@ final class DTypeTextApViewController: PMUMainViewController {
         case .trash:
             mainTextView.text = ""
             configureMainLabel(asPlaceholder: true)
-            KAppConfigServic.shared.analytics.track(action: .v2TypeScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.clearText.rawValue])
+            KAppConfigServic.shared.analytics.track(action: .delete, with: [
+                "object" : GAppAnalyticActions.type.rawValue
+            ])
         case .expand:
             mainTextView.resignFirstResponder()
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) { [weak self] in
                 self?.setupLeftBarButton()
             }
             
-            KAppConfigServic.shared.analytics.track(action: .v2TypeScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.expand.rawValue])
+            KAppConfigServic.shared.analytics.track(action: .typeAreaExpanded)
         }
     }
     
@@ -162,8 +177,8 @@ final class DTypeTextApViewController: PMUMainViewController {
             self?.setupLeftBarButton()
         }
         
-        let stringState = keyboardNotification.isKeyboardOpened ? GAppAnalyticActions.enable.rawValue : GAppAnalyticActions.disable.rawValue
-        KAppConfigServic.shared.analytics.track(action: .v2TypeScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.type.rawValue)_\(stringState)"])
+//        let stringState = keyboardNotification.isKeyboardOpened ? GAppAnalyticActions.enable.rawValue : GAppAnalyticActions.disable.rawValue
+//        KAppConfigServic.shared.analytics.track(action: .v2TypeScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.type.rawValue)_\(stringState)"])
     }
     
     @objc private func arrowsInButtonAction() {

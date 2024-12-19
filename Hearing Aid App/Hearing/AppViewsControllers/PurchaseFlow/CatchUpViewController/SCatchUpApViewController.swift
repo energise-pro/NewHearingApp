@@ -28,7 +28,7 @@ final class SCatchUpApViewController: UMainViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         UserDefaults.standard.setValue(true, forKey: CAppConstants.Keys.wasPresentedCatchUp)
-        KAppConfigServic.shared.analytics.track(.v2CatchUp, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.open.rawValue])
+//        KAppConfigServic.shared.analytics.track(.v2CatchUp, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.open.rawValue])
         configureUI()
     }
     
@@ -95,7 +95,7 @@ final class SCatchUpApViewController: UMainViewController {
     @IBAction private func subscribeButtonAction(_ sender: UIButton) {
         TapticEngine.impact.feedback(.medium)
         if let offerPlan = offerSubscriptionPlan {
-            KAppConfigServic.shared.analytics.track(.v2CatchUp, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.subscribe.rawValue])
+//            KAppConfigServic.shared.analytics.track(.v2CatchUp, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.subscribe.rawValue])
             HAppLoaderView.showLoader(at: self.view, animated: true)
             TInAppService.shared.purchase(offerPlan, from: .offer) { [weak self] isSuccess in
                 guard let self = self else {
@@ -117,7 +117,7 @@ final class SCatchUpApViewController: UMainViewController {
     
     @IBAction private func restoreButtonAction(_ sender: UIButton) {
         TapticEngine.impact.feedback(.medium)
-        KAppConfigServic.shared.analytics.track(.v2CatchUp, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.restore.rawValue])
+//        KAppConfigServic.shared.analytics.track(.v2CatchUp, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.restore.rawValue])
         HAppLoaderView.showLoader(at: view, animated: true)
         TInAppService.shared.restorePurchases { [weak self] isSuccess in
             guard let self = self else {
@@ -136,19 +136,19 @@ final class SCatchUpApViewController: UMainViewController {
     
     @IBAction private func termsButtonAction(_ sender: UIButton) {
         TapticEngine.impact.feedback(.medium)
-        KAppConfigServic.shared.analytics.track(.v2CatchUp, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.terms.rawValue])
+//        KAppConfigServic.shared.analytics.track(.v2CatchUp, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.terms.rawValue])
         AppsNavManager.shared.presentSafariViewController(with: CAppConstants.URLs.termsURL)
     }
     
     @IBAction private func privacyButtonAction(_ sender: UIButton) {
         TapticEngine.impact.feedback(.medium)
-        KAppConfigServic.shared.analytics.track(.v2CatchUp, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.privacy.rawValue])
+//        KAppConfigServic.shared.analytics.track(.v2CatchUp, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.privacy.rawValue])
         AppsNavManager.shared.presentSafariViewController(with: CAppConstants.URLs.privacyPolicyURL)
     }
     
     @IBAction private func closeButtonAction(_ sender: UIButton) {
         TapticEngine.impact.feedback(.medium)
-        KAppConfigServic.shared.analytics.track(.v2CatchUp, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.close.rawValue])
+//        KAppConfigServic.shared.analytics.track(.v2CatchUp, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.close.rawValue])
         dismiss(animated: true)
     }
 }

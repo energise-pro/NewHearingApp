@@ -88,7 +88,9 @@ final class YTranscriptDetailApViewController: PMUMainViewController {
         shareText += "\n\n✏️ Created by: \(Bundle.main.appName)\n\(CAppConstants.URLs.appStoreUrl)"
         AppsNavManager.shared.presentShareViewController(with: [shareText], and: mainTextView.inputAccessoryView)
         
-        KAppConfigServic.shared.analytics.track(action: .v2TranscriptDetailsScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.share.rawValue])
+        KAppConfigServic.shared.analytics.track(action: .share, with: [
+            "object" : "saved"
+        ])
     }
     
     @objc private func trashButtonAction() {
@@ -103,8 +105,6 @@ final class YTranscriptDetailApViewController: PMUMainViewController {
     
     @objc private func closeButtonAction() {
         dismiss(animated: true)
-        
-//        KAppConfigServic.shared.analytics.track(action: .v2VoiceChangerScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.close.rawValue])
     }
 }
 
@@ -116,7 +116,9 @@ extension YTranscriptDetailApViewController: AlertViewControllerDelegate {
             CTranscribServicesAp.shared.savedTranscripts.remove(at: index)
             delegate?.didUpdateTranscript()
             
-            KAppConfigServic.shared.analytics.track(action: .v2TranscriptDetailsScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.delete.rawValue])
+            KAppConfigServic.shared.analytics.track(action: .delete, with: [
+                "object" : "saved"
+            ])
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) { [weak self] in
             self?.dismiss(animated: true)

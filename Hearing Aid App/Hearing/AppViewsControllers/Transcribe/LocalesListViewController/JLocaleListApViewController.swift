@@ -173,18 +173,18 @@ extension JLocaleListApViewController: SettingTableViewCellDelegate {
             CTranscribServicesAp.shared.changeLocale(on: CTranscribServicesAp.shared.supportedLocalesWithSelectedLocale[indexRow])
             configureDataSource()
             delegate?.didChangeLocale()
-            KAppConfigServic.shared.analytics.track(action: screenType.analyticAction, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.changeLanguage.rawValue])
+//            KAppConfigServic.shared.analytics.track(action: screenType.analyticAction, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.changeLanguage.rawValue])
         case .translateTo:
             let selectedLanguage = filteredLanguages[indexRow]
             if BTranslServicesNew.shared.isLanguageDownloaded(selectedLanguage) {
                 BTranslServicesNew.shared.changeOutputLanguage(on: selectedLanguage)
                 configureDataSource()
                 delegate?.didChangeLocale()
-                KAppConfigServic.shared.analytics.track(action: screenType.analyticAction, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.changeLanguage.rawValue])
+//                KAppConfigServic.shared.analytics.track(action: screenType.analyticAction, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.changeLanguage.rawValue])
             } else {
                 let yesAction = UIAlertAction(title: "Yes!".localized(), style: .default) { [weak self] alertAction in
                     guard let self = self else { return }
-                    KAppConfigServic.shared.analytics.track(action: self.screenType.analyticAction, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.downloadLanguage.rawValue])
+//                    KAppConfigServic.shared.analytics.track(action: self.screenType.analyticAction, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.downloadLanguage.rawValue])
                     
                     BTranslServicesNew.shared.downloadModel(language: selectedLanguage) { [weak self] isSuccess in
                         guard let self = self else { return }
@@ -205,11 +205,11 @@ extension JLocaleListApViewController: SettingTableViewCellDelegate {
                 BTranslServicesNew.shared.changeInputLanguage(on: selectedLanguage)
                 configureDataSource()
                 delegate?.didChangeLocale()
-                KAppConfigServic.shared.analytics.track(action: screenType.analyticAction, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.changeLanguage.rawValue])
+//                KAppConfigServic.shared.analytics.track(action: screenType.analyticAction, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.changeLanguage.rawValue])
             } else {
                 let yesAction = UIAlertAction(title: "Yes!".localized(), style: .default) { [weak self] alertAction in
                     guard let self = self else { return }
-                    KAppConfigServic.shared.analytics.track(action: self.screenType.analyticAction, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.downloadLanguage.rawValue])
+//                    KAppConfigServic.shared.analytics.track(action: self.screenType.analyticAction, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.downloadLanguage.rawValue])
                     
                     BTranslServicesNew.shared.downloadModel(language: selectedLanguage) { [weak self] isSuccess in
                         guard let self = self else { return }
@@ -248,11 +248,11 @@ extension JLocaleListApViewController: LocaleListTableViewCellDelegate {
                 BTranslServicesNew.shared.changeOutputLanguage(on: selectedLanguage)
                 configureDataSource()
                 delegate?.didChangeLocale()
-                KAppConfigServic.shared.analytics.track(action: screenType.analyticAction, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.changeLanguage.rawValue])
+//                KAppConfigServic.shared.analytics.track(action: screenType.analyticAction, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.changeLanguage.rawValue])
             } else {
                 let yesAction = UIAlertAction(title: "Yes!".localized(), style: .default) { [weak self] alertAction in
                     guard let self = self else { return }
-                    KAppConfigServic.shared.analytics.track(action: self.screenType.analyticAction, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.downloadLanguage.rawValue])
+//                    KAppConfigServic.shared.analytics.track(action: self.screenType.analyticAction, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.downloadLanguage.rawValue])
                     
                     BTranslServicesNew.shared.downloadModel(language: selectedLanguage) { [weak self] isSuccess in
                         guard let self = self else { return }
@@ -273,11 +273,11 @@ extension JLocaleListApViewController: LocaleListTableViewCellDelegate {
                 BTranslServicesNew.shared.changeInputLanguage(on: selectedLanguage)
                 configureDataSource()
                 delegate?.didChangeLocale()
-                KAppConfigServic.shared.analytics.track(action: screenType.analyticAction, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.changeLanguage.rawValue])
+//                KAppConfigServic.shared.analytics.track(action: screenType.analyticAction, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.changeLanguage.rawValue])
             } else {
                 let yesAction = UIAlertAction(title: "Yes!".localized(), style: .default) { [weak self] alertAction in
                     guard let self = self else { return }
-                    KAppConfigServic.shared.analytics.track(action: self.screenType.analyticAction, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.downloadLanguage.rawValue])
+//                    KAppConfigServic.shared.analytics.track(action: self.screenType.analyticAction, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.downloadLanguage.rawValue])
                     
                     BTranslServicesNew.shared.downloadModel(language: selectedLanguage) { [weak self] isSuccess in
                         guard let self = self else { return }

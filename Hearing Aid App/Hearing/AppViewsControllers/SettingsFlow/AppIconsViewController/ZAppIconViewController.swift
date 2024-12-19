@@ -34,7 +34,7 @@ final class ZAppIconViewController: PMUMainViewController {
         configureUI()
         KAppConfigServic.shared.settings.presentAppRatingAlert()
         
-        KAppConfigServic.shared.analytics.track(action: .v2SettingsScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.changeAppIcon.rawValue)_\(iconType.analyticAction.rawValue)"])
+//        KAppConfigServic.shared.analytics.track(action: .v2SettingsScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.changeAppIcon.rawValue)_\(iconType.analyticAction.rawValue)"])
     }
     
     // MARK: - Private methods

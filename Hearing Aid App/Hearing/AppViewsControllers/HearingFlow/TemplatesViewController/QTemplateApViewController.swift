@@ -30,7 +30,7 @@ final class QTemplateApViewController: PMUMainViewController {
         configureUI()
         configureDataSource()
         
-        KAppConfigServic.shared.analytics.track(action: .v2TemplatesScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.open.rawValue])
+//        KAppConfigServic.shared.analytics.track(action: .v2TemplatesScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.open.rawValue])
     }
     
 //    override func didChangeTheme() {
@@ -77,7 +77,7 @@ final class QTemplateApViewController: PMUMainViewController {
     @objc private func closeButtonAction() {
         dismiss(animated: true)
         
-        KAppConfigServic.shared.analytics.track(action: .v2TemplatesScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.close.rawValue])
+//        KAppConfigServic.shared.analytics.track(action: .v2TemplatesScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.close.rawValue])
     }
 }
 
@@ -115,7 +115,7 @@ extension QTemplateApViewController: VCentereButnTableViewCellDelegate {
         configureDataSource()
         delegate?.didChangeTemplatesValue()
         
-        KAppConfigServic.shared.analytics.track(action: .v2TemplatesScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.reset.rawValue])
+//        KAppConfigServic.shared.analytics.track(action: .v2TemplatesScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.reset.rawValue])
     }
 }
 
@@ -133,7 +133,7 @@ extension QTemplateApViewController: SettingTableViewCellDelegate {
         case .info: // Templates
             presentAlertPM(title: "Templates".localized(), message: "The Reverberation allows you to simulate the environment, space, room around you".localized())
             
-            KAppConfigServic.shared.analytics.track(action: .v2TemplatesScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.templates.rawValue)_\(GAppAnalyticActions.info.rawValue)"])
+//            KAppConfigServic.shared.analytics.track(action: .v2TemplatesScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.templates.rawValue)_\(GAppAnalyticActions.info.rawValue)"])
         case .switchButton:
             let newState = !SAudioKitServicesAp.shared.isTemplatesEnabled
             SAudioKitServicesAp.shared.setTemplates(newState)
@@ -141,8 +141,11 @@ extension QTemplateApViewController: SettingTableViewCellDelegate {
             dataSource[indexRow] = SettingTableViewCellConfig(item: newCellModel)
             delegate?.didChangeTemplatesValue()
             
-            let stringState = newState ? GAppAnalyticActions.enable.rawValue : GAppAnalyticActions.disable.rawValue
-            KAppConfigServic.shared.analytics.track(action: .v2TemplatesScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.templates.rawValue)_\(stringState)"])
+            let actionState = newState ? GAppAnalyticActions.templatesOptionActivated : GAppAnalyticActions.templatesOptionDeactivated
+            KAppConfigServic.shared.analytics.track(action: actionState, with: [
+                "template_variant" : TemplatesType.selectedTemplate.title,
+                "effect_volume" : TemplatesParameter.dryWet.value
+            ])
         default:
             break
         }
@@ -163,7 +166,7 @@ extension QTemplateApViewController: GSlideBTablViewCellDelegate {
         
         volumeTimer?.invalidate()
         volumeTimer = Timer.scheduledTimer(withTimeInterval: GAppAnalyticActions.delaySliderInterval, repeats: false) { _ in
-            KAppConfigServic.shared.analytics.track(action: .v2TemplatesScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.changeVolume.rawValue])
+//            KAppConfigServic.shared.analytics.track(action: .v2TemplatesScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.changeVolume.rawValue])
         }
     }
 }
@@ -179,6 +182,6 @@ extension QTemplateApViewController: GCenterPickrTablViewCellDelegate {
         let newCellModel = GCenterPickrTablViewCellModel(dataSource: cellModel.dataSource, selectedValue: selectedTemplate, delegate: self)
         dataSource[indexRow] = GCenterPickrTablViewCellConfig(item: newCellModel)
         
-        KAppConfigServic.shared.analytics.track(action: .v2TemplatesScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.changeTemplate.rawValue])
+//        KAppConfigServic.shared.analytics.track(action: .v2TemplatesScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.changeTemplate.rawValue])
     }
 }

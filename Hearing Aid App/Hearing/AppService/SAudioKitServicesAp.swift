@@ -119,6 +119,7 @@ final class SAudioKitServicesAp {
     private(set) var microphoneRollingView: NodeRollingView?
     
     private var currentMode: AudioEngineMode = .aid
+    private var currentSource: GAppAnalyticActions = .sourceDefault
     private var previousMode: (mode: AudioEngineMode, isStarted: Bool)?
     private var isInitialized: Bool = false
     private var outputVolumeObserve: NSKeyValueObservation?
@@ -131,8 +132,16 @@ final class SAudioKitServicesAp {
     // MARK: - Internal methods
     func requestMicrophonePermission(completion: AVServicePermissionCompletion?) {
         if recordPermission == .undetermined {
+            KAppConfigServic.shared.analytics.track(action: .permissionViewed, with: [
+                "type" : "micro"
+            ])
             Settings.session.requestRecordPermission { accepted in
                 DispatchQueue.main.async {
+                    if accepted {
+                        KAppConfigServic.shared.analytics.track(action: .permissionGranted, with: [
+                            "type" : "micro"
+                        ])
+                    }
                     completion?(accepted)
                 }
                 LoggerApp.log(tag: SAudioKitServicesAp.TAG, message: "Microphone permission was \(accepted ? "accepted" : "declined")")
@@ -268,6 +277,26 @@ final class SAudioKitServicesAp {
     }
     
     func setAudioEngine(_ asEnabled: Bool) {
+        if !isInitialized && asEnabled {
+            initializeAudioKit()
+        } else {
+            switch currentMode {
+            case .aid:
+                setMixer(asEnabled)
+                DispatchQueue.main.async { [weak self] in
+                    asEnabled ? self?.microphoneRollingView?.nodeTap.start() : self?.microphoneRollingView?.nodeTap.stop()
+                }
+//                asEnabled ? amplitudeTracker?.start() : amplitudeTracker?.stop()
+            case .recognize:
+//                asEnabled ? amplitudeTracker?.start() : amplitudeTracker?.stop()
+                setMixer(false)
+                microphoneRollingView?.nodeTap.stop()
+            }
+        }
+    }
+    
+    func setAudioEngine(_ asEnabled: Bool, with openAction: GAppAnalyticActions) {
+        currentSource = openAction
         if !isInitialized && asEnabled {
             initializeAudioKit()
         } else {
@@ -502,6 +531,11 @@ final class SAudioKitServicesAp {
             audioEngine?.stop()
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
                 try? self?.audioEngine?.start()
+                KAppConfigServic.shared.analytics.track(.headphonesConnected, with: [
+                    GAppAnalyticActions.source.rawValue: self?.currentSource.rawValue ?? GAppAnalyticActions.sourceDefault.rawValue,
+                    "model" : SAudioKitServicesAp.shared.outputDeviceName,
+                    "status" : GAppAnalyticActions.statusTrue.rawValue
+                ])
             }
         case .oldDeviceUnavailable:
             try? Settings.setSession(category: .playAndRecord, with: sessionOptions)

@@ -82,7 +82,7 @@ final class HTranscriptListApViewController: PMUMainViewController {
         
         searchTimer?.invalidate()
         searchTimer = Timer.scheduledTimer(withTimeInterval: GAppAnalyticActions.delaySliderInterval, repeats: false) { _ in
-            KAppConfigServic.shared.analytics.track(action: .v2SavedTranscriptsScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.search.rawValue])
+//            KAppConfigServic.shared.analytics.track(action: .v2SavedTranscriptsScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.search.rawValue])
         }
     }
     
@@ -90,7 +90,7 @@ final class HTranscriptListApViewController: PMUMainViewController {
     @objc private func closeButtonAction() {
         dismiss(animated: true)
         
-        KAppConfigServic.shared.analytics.track(action: .v2SavedTranscriptsScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.close.rawValue])
+//        KAppConfigServic.shared.analytics.track(action: .v2SavedTranscriptsScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.close.rawValue])
     } 
 }
 
@@ -138,7 +138,7 @@ extension HTranscriptListApViewController: GTranscriptionTablViewCellDelegate {
         searchBar.endEditing(true)
         AppsNavManager.shared.pushYTranscriptDetailApViewController(with: transcriptModel, and: self)
         
-        KAppConfigServic.shared.analytics.track(action: .v2SavedTranscriptsScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.transcript.rawValue])
+//        KAppConfigServic.shared.analytics.track(action: .v2SavedTranscriptsScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.transcript.rawValue])
     }
 }
 

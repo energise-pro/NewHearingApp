@@ -44,11 +44,11 @@ final class TabBarViewController: PMUMainViewController {
         var analyticAction: GAppAnalyticActions {
             switch self {
             case .hearing:
-                return GAppAnalyticActions.hearing
+                return GAppAnalyticActions.hearingMain
             case .transcribe:
-                return GAppAnalyticActions.transcribe
+                return GAppAnalyticActions.transcriptionMain
             case .settings:
-                return GAppAnalyticActions.settings
+                return GAppAnalyticActions.settingsMain
             }
         }
     }
@@ -76,7 +76,10 @@ final class TabBarViewController: PMUMainViewController {
         configureUI()
         updateMainView(with: 0)
         KAppConfigServic.shared.settings.appLaunchCount > 1 ? SAudioKitServicesAp.shared.initializeAudioKit() : Void()
-        KAppConfigServic.shared.analytics.track(.v2TabBar, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.open.rawValue])
+        KAppConfigServic.shared.analytics.track(.mainScreenOpened, with: [
+            "type" : "hearing_main",
+            "hearing_status" : SAudioKitServicesAp.shared.isStartedMixer ? "activated" : "deativated"
+        ])
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -117,7 +120,11 @@ final class TabBarViewController: PMUMainViewController {
     @IBAction private func didTapOnTabBarButton(_ sender: UIButton) {
         TapticEngine.impact.feedback(.heavy)
         updateMainView(with: sender.tag)
-        KAppConfigServic.shared.analytics.track(.v2TabBar, with: [GAppAnalyticActions.action.rawValue: tabBarButtons[sender.tag].analyticAction.rawValue])
+        KAppConfigServic.shared.analytics.track(.mainScreenOpened, with: [
+            "type" : tabBarButtons[sender.tag].analyticAction.rawValue,
+            "hearing_status" : SAudioKitServicesAp.shared.isStartedMixer ? "activated" : "deativated"
+        ])
+//        KAppConfigServic.shared.analytics.track(.v2TabBar, with: [GAppAnalyticActions.action.rawValue: tabBarButtons[sender.tag].analyticAction.rawValue])
     }
     
     // MARK: - Private methods

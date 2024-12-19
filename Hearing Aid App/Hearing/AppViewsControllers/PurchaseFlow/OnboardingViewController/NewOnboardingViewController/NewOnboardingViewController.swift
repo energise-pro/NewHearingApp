@@ -27,7 +27,10 @@ final class NewOnboardingViewController: UIViewController {
     //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        KAppConfigServic.shared.analytics.track(.v2Onboarding, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.open.rawValue])
+        KAppConfigServic.shared.analytics.track(.obSeen, with: [
+            "screen_number": (currentIndex + 1).toString() ?? "",
+            "ob_version" : "1"
+        ])
         configureViewController()
         configureCollectionView()
         configureDataSource()
@@ -157,15 +160,21 @@ final class NewOnboardingViewController: UIViewController {
             configureBottomControl(newHeight: defaultBottomViewHeight)
         }
         
-        KAppConfigServic.shared.analytics.track(.v2Onboarding, with: [GAppAnalyticActions.action.rawValue: "scroll_on_\(index)"])
+        KAppConfigServic.shared.analytics.track(.obSeen, with: [
+            "screen_number": (currentIndex + 1).toString() ?? "",
+            "ob_version" : "1"
+        ])
     }
     
     //MARK: - Actions
     @IBAction func onBottomButtonTap(_ sender: Any) {
         TapticEngine.impact.feedback(.medium)
-        KAppConfigServic.shared.analytics.track(.v2Onboarding, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.continue.rawValue)_\(currentIndex)"])
         
         let newCurrentIndex = currentIndex + 1
+        KAppConfigServic.shared.analytics.track(.obPassed, with: [
+            "screen_number": newCurrentIndex.toString() ?? "",
+            "ob_version" : "1"
+        ])
         currentIndex == NewOnboardingPagesModel.allCases.count - 1 ? Void() : collectionView.scrollToItem(at: IndexPath(row: newCurrentIndex, section: 0), at: .centeredHorizontally, animated: true)
         currentIndex == NewOnboardingPagesModel.allCases.count - 1 ? AppsNavManager.shared.setTabBarAsRootViewController() : Void()
         

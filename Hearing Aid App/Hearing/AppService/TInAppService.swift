@@ -128,7 +128,7 @@ final class TInAppService: NSObject, DIServicProtocols {
         LoggerApp.log(tag: TInAppService.TAG, message: "Try to purchase product with identifier - \(product.productId)")
         Apphud.purchase(product) { [weak self] result in
             if result.subscription?.status == .trial || result.subscription?.status == .intro {
-                KAppConfigServic.shared.analytics.trackTrial(amount: product.skProduct?.price.doubleValue ?? .zero, currency: product.skProduct?.priceLocale.currencyCode ?? "")
+//                KAppConfigServic.shared.analytics.trackTrial(amount: product.skProduct?.price.doubleValue ?? .zero, currency: product.skProduct?.priceLocale.currencyCode ?? "")
                 self?.wasUsedTrial = true
             }
             let isSuccess: Bool = result.error == nil
@@ -149,7 +149,7 @@ extension TInAppService: SKPaymentTransactionObserver {
     func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) { }
     
     func paymentQueue(_ queue: SKPaymentQueue, shouldAddStorePayment payment: SKPayment, for product: SKProduct) -> Bool {
-        KAppConfigServic.shared.analytics.track(GAppAnalyticActions.v2AppStore, with: [GAppAnalyticActions.open.rawValue: "paywall"])
+//        KAppConfigServic.shared.analytics.track(GAppAnalyticActions.v2AppStore, with: [GAppAnalyticActions.open.rawValue: "paywall"])
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
             AppsNavManager.shared.presentPaywallViewController(with: .openFromAppStore)
         }

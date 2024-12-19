@@ -31,7 +31,7 @@ final class DHeadphsRemindApViewController: UIViewController {
     //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        KAppConfigServic.shared.analytics.track(.v2HeadphonesReminder, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.open.rawValue])
+//        KAppConfigServic.shared.analytics.track(.v2HeadphonesReminder, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.open.rawValue])
         configureUI()
         configureObserver()
         //chargePlayer()
@@ -53,13 +53,13 @@ final class DHeadphsRemindApViewController: UIViewController {
     
     //MARK: - Actions
     @IBAction private func nextButtonAction(_ sender: UIButton) {
-        KAppConfigServic.shared.analytics.track(.v2HeadphonesReminder, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.close.rawValue])
+//        KAppConfigServic.shared.analytics.track(.v2HeadphonesReminder, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.close.rawValue])
         TapticEngine.impact.feedback(.medium)
         dismiss(animated: true)
     }
     
     @IBAction private func airplayButtonAction(_ sender: UIButton) {
-        KAppConfigServic.shared.analytics.track(.v2HeadphonesReminder, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.airPlay.rawValue])
+//        KAppConfigServic.shared.analytics.track(.v2HeadphonesReminder, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.airPlay.rawValue])
         TapticEngine.impact.feedback(.medium)
         routePickerView.present()
     }
@@ -126,7 +126,7 @@ final class DHeadphsRemindApViewController: UIViewController {
 
         switch audioRouteChangeReason {
         case AVAudioSession.RouteChangeReason.newDeviceAvailable.rawValue:
-            KAppConfigServic.shared.analytics.track(.v2HeadphonesReminder, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.connected.rawValue])
+//            KAppConfigServic.shared.analytics.track(.v2HeadphonesReminder, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.connected.rawValue])
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [weak self] in
                 if SAudioKitServicesAp.shared.connectedHeadphones {
                     SAudioKitServicesAp.shared.setAudioEngine(true)

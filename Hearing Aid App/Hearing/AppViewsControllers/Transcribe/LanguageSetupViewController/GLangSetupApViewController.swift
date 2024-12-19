@@ -105,17 +105,17 @@ extension GLangSetupApViewController: SettingTableViewCellDelegate {
                 let newCellModel = SettingTableViewCellModel(title: cellModel.title, buttonTypes: cellModel.buttonTypes, switchState: newState, delegate: self)
                 dataSource[indexRow] = SettingTableViewCellConfig(item: newCellModel)
                 
-                let stringState = newState ? GAppAnalyticActions.enable.rawValue : GAppAnalyticActions.disable.rawValue
-                KAppConfigServic.shared.analytics.track(action: .v2TranslateLanguageSetupScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.offlineTranslate.rawValue)_\(stringState)"])
+//                let stringState = newState ? GAppAnalyticActions.enable.rawValue : GAppAnalyticActions.disable.rawValue
+//                KAppConfigServic.shared.analytics.track(action: .v2TranslateLanguageSetupScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.offlineTranslate.rawValue)_\(stringState)"])
             default:
                 break
             }
         case 1: // Translate language
             AppsNavManager.shared.pushJLocaleListApViewController(with: .translateTo, with: self)
-            KAppConfigServic.shared.analytics.track(action: .v2TranslateLanguageSetupScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.translateLanguage.rawValue])
+//            KAppConfigServic.shared.analytics.track(action: .v2TranslateLanguageSetupScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.translateLanguage.rawValue])
         case 2: // Your language
             AppsNavManager.shared.pushJLocaleListApViewController(with: .translateFrom, with: self)
-            KAppConfigServic.shared.analytics.track(action: .v2TranslateLanguageSetupScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.userLanguage.rawValue])
+//            KAppConfigServic.shared.analytics.track(action: .v2TranslateLanguageSetupScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.userLanguage.rawValue])
 //        case 3: // Shake to clear
 //            switch type {
 //            case .switchButton:

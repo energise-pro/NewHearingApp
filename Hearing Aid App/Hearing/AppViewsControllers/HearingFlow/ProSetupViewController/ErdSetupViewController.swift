@@ -28,7 +28,7 @@ final class ErdSetupViewController: PMUMainViewController {
         super.viewDidLoad()
         configureUI()
         configureDataSource()
-        KAppConfigServic.shared.analytics.track(action: .v2HearingProSetupScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.open.rawValue])
+//        KAppConfigServic.shared.analytics.track(action: .v2HearingProSetupScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.open.rawValue])
     }
     
 //    override func didChangeTheme() {
@@ -86,7 +86,7 @@ final class ErdSetupViewController: PMUMainViewController {
     @objc private func closeButtonAction() {
         dismiss(animated: true)
         
-        KAppConfigServic.shared.analytics.track(action: .v2HearingProSetupScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.close.rawValue])
+//        KAppConfigServic.shared.analytics.track(action: .v2HearingProSetupScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.close.rawValue])
     }
 }
 
@@ -131,7 +131,7 @@ extension ErdSetupViewController: NSimplSementTablViewCellDelegate {
         delegate?.didChangeMicrophone()
         
         let selectedMicrophoneString = String(describing: MicroFineType.selectedMicrophone)
-        KAppConfigServic.shared.analytics.track(action: .v2HearingProSetupScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.changeMicrophone.rawValue)_\(selectedMicrophoneString)"])
+//        KAppConfigServic.shared.analytics.track(action: .v2HearingProSetupScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.changeMicrophone.rawValue)_\(selectedMicrophoneString)"])
     }
 }
 
@@ -148,7 +148,7 @@ extension ErdSetupViewController: VCentereButnTableViewCellDelegate {
         delegate?.didUpdateSystemVolumeValue()
         delegate?.didChangeMicrophone()
         
-        KAppConfigServic.shared.analytics.track(action: .v2HearingProSetupScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.reset.rawValue])
+//        KAppConfigServic.shared.analytics.track(action: .v2HearingProSetupScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.reset.rawValue])
     }
 }
 
@@ -168,15 +168,19 @@ extension ErdSetupViewController: SettingTableViewCellDelegate {
             case .info:
                 presentAlertPM(title: "Music mode".localized(), message: "If you set this option, system will mixes audio from this app with audio playing in background apps, such as the Music app.\nFor example, you want to listen a music or audio book over headphones, and at the same time hear sounds around you very well.\nIf this option OFF system reduces the volume of other audio apps to make the audio of this app more prominent.".localized())
                 
-                KAppConfigServic.shared.analytics.track(action: .v2HearingProSetupScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.musicMode.rawValue)_\(GAppAnalyticActions.info.rawValue)"])
+                KAppConfigServic.shared.analytics.track(action: .infoTooltipOpened, with: [
+                    GAppAnalyticActions.source.rawValue : GAppAnalyticActions.musicMode.rawValue
+                ])
             case .switchButton:
                 let newState = !SAudioKitServicesAp.shared.isMusicModeEnabled
                 SAudioKitServicesAp.shared.setMusicMode(newState)
                 let newCellModel = SettingTableViewCellModel(title: cellModel.title, buttonTypes: cellModel.buttonTypes, switchState: newState, delegate: self)
                 dataSource[indexRow] = SettingTableViewCellConfig(item: newCellModel)
                 
-                let stringState = newState ? GAppAnalyticActions.enable.rawValue : GAppAnalyticActions.disable.rawValue
-                KAppConfigServic.shared.analytics.track(action: .v2HearingProSetupScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.musicMode.rawValue)_\(stringState)"])
+                let actionState = newState ? GAppAnalyticActions.setupOptionActivated : GAppAnalyticActions.setupOptionDeactivated
+                KAppConfigServic.shared.analytics.track(action: actionState, with: [
+                    "option_type" : GAppAnalyticActions.musicMode.rawValue
+                ])
             default:
                 break
             }
@@ -185,7 +189,9 @@ extension ErdSetupViewController: SettingTableViewCellDelegate {
             case .info:
                 presentAlertPM(title: "Use system volume".localized(), message: "Increase Volume of Hearing Aid together with the device system volume".localized())
                 
-                KAppConfigServic.shared.analytics.track(action: .v2HearingProSetupScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.systemVolume.rawValue)_\(GAppAnalyticActions.info.rawValue)"])
+                KAppConfigServic.shared.analytics.track(action: .infoTooltipOpened, with: [
+                    GAppAnalyticActions.source.rawValue : GAppAnalyticActions.systemVolume.rawValue
+                ])
             case .switchButton:
                 let newState = !SAudioKitServicesAp.shared.isUseSystemVolume
                 SAudioKitServicesAp.shared.setUseSystemVolume(newState)
@@ -193,8 +199,10 @@ extension ErdSetupViewController: SettingTableViewCellDelegate {
                 dataSource[indexRow] = SettingTableViewCellConfig(item: newCellModel)
                 delegate?.didUpdateSystemVolumeValue()
                 
-                let stringState = newState ? GAppAnalyticActions.enable.rawValue : GAppAnalyticActions.disable.rawValue
-                KAppConfigServic.shared.analytics.track(action: .v2HearingProSetupScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.systemVolume.rawValue)_\(stringState)"])
+                let actionState = newState ? GAppAnalyticActions.setupOptionActivated : GAppAnalyticActions.setupOptionDeactivated
+                KAppConfigServic.shared.analytics.track(action: actionState, with: [
+                    "option_type" : GAppAnalyticActions.systemVolume.rawValue
+                ])
             default:
                 break
             }
@@ -203,30 +211,34 @@ extension ErdSetupViewController: SettingTableViewCellDelegate {
             case .info:
                 presentAlertPM(title: "Clear voice".localized(), message: "AI helps to pick a voice out from the background noise and other sounds".localized())
                 
-                KAppConfigServic.shared.analytics.track(action: .v2HearingProSetupScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.clearVoice.rawValue)_\(GAppAnalyticActions.info.rawValue)"])
+                KAppConfigServic.shared.analytics.track(action: .infoTooltipOpened, with: [
+                    GAppAnalyticActions.source.rawValue : GAppAnalyticActions.clearVoice.rawValue
+                ])
             case .switchButton:
                 let newState = !SAudioKitServicesAp.shared.isClearVoice
                 SAudioKitServicesAp.shared.setClearVoice(newState)
                 let newCellModel = SettingTableViewCellModel(title: cellModel.title, buttonTypes: cellModel.buttonTypes, switchState: newState, delegate: self)
                 dataSource[indexRow] = SettingTableViewCellConfig(item: newCellModel)
                 
-                let stringState = newState ? GAppAnalyticActions.enable.rawValue : GAppAnalyticActions.disable.rawValue
-                KAppConfigServic.shared.analytics.track(action: .v2HearingProSetupScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.clearVoice.rawValue)_\(stringState)"])
+                let actionState = newState ? GAppAnalyticActions.setupOptionActivated : GAppAnalyticActions.setupOptionDeactivated
+                KAppConfigServic.shared.analytics.track(action: actionState, with: [
+                    "option_type" : "clear_voice"
+                ])
             default:
                 break
             }
-        case 4:
+        case 4: // Voice changer
             AppsNavManager.shared.pushRVoicChangeJViewController()
-            KAppConfigServic.shared.analytics.track(action: .v2HearingProSetupScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.voiceChanger.rawValue])
+//            KAppConfigServic.shared.analytics.track(action: .v2HearingProSetupScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.voiceChanger.rawValue])
         case 5: // Compressor
             AppsNavManager.shared.pushKCompresViewController()
-            KAppConfigServic.shared.analytics.track(action: .v2HearingProSetupScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.compressor.rawValue])
+//            KAppConfigServic.shared.analytics.track(action: .v2HearingProSetupScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.compressor.rawValue])
         case 6: // Limiter
             AppsNavManager.shared.pushYLimitApViewController()
-            KAppConfigServic.shared.analytics.track(action: .v2HearingProSetupScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.limiter.rawValue])
+//            KAppConfigServic.shared.analytics.track(action: .v2HearingProSetupScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.limiter.rawValue])
         case 7: // Equalizer
             AppsNavManager.shared.pushUEqualizeApViewController()
-            KAppConfigServic.shared.analytics.track(action: .v2HearingProSetupScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.equalizer.rawValue])
+//            KAppConfigServic.shared.analytics.track(action: .v2HearingProSetupScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.equalizer.rawValue])
         default:
             break
         }

@@ -135,11 +135,11 @@ final class USpeechRecViewController: UMainViewController, AOrientationalApProto
         vc.delegate = self
         presentAsPopover(vc: vc, sourceView: sender, height: 350)
         
-        KAppConfigServic.shared.analytics.track(action: .v2TranscribeScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.settings.rawValue])
+//        KAppConfigServic.shared.analytics.track(action: .v2TranscribeScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.sourceSettings.rawValue])
     }
 
     @IBAction func shareAction(sender: UIButton) {
-        KAppConfigServic.shared.analytics.track(action: .v2TranscribeScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.share.rawValue])
+//        KAppConfigServic.shared.analytics.track(action: .v2TranscribeScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.share.rawValue])
         var shareText = textView.text ?? "Try this app!🙂"
         shareText += "\n\n✏️ Created by: \(Bundle.main.appName)\n\(CAppConstants.URLs.appStoreUrl)"
         let activityVC = UIActivityViewController(activityItems: [shareText], applicationActivities: nil)
@@ -153,7 +153,7 @@ final class USpeechRecViewController: UMainViewController, AOrientationalApProto
         localeSelection.selectionDelegate = self
         presentAsPopover(vc: localeSelection, sourceView: sender)
         
-        KAppConfigServic.shared.analytics.track(action: .v2TranscribeScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.changeLanguage.rawValue])
+//        KAppConfigServic.shared.analytics.track(action: .v2TranscribeScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.changeLanguage.rawValue])
     }
 
     @IBAction func hideLeftTextViewAction(sender: UIButton) {
@@ -175,7 +175,7 @@ final class USpeechRecViewController: UMainViewController, AOrientationalApProto
     private var deletedText: String?
     private var fullText: String?
     @IBAction func clearTextAction(sender: UIButton?) {
-        KAppConfigServic.shared.analytics.track(action: .v2TranscribeScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.clearText.rawValue])
+//        KAppConfigServic.shared.analytics.track(action: .v2TranscribeScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.clearText.rawValue])
         UIView.transition(with: textView, duration: 0.4,
                           options: [.curveEaseInOut, .transitionCurlUp], animations: {
                             self.deletedText = self.fullText
@@ -193,7 +193,7 @@ final class USpeechRecViewController: UMainViewController, AOrientationalApProto
             setOrientation(.portrait)
         }
         
-        KAppConfigServic.shared.analytics.track(action: .v2TranscribeScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.rotate.rawValue])
+//        KAppConfigServic.shared.analytics.track(action: .v2TranscribeScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.rotate.rawValue])
     }
 
     @IBAction func speechRecognitionAction(sender: UIButton) {
@@ -217,7 +217,7 @@ final class USpeechRecViewController: UMainViewController, AOrientationalApProto
                 if !self.menuView.isRecognitionButtonSelected {
                     SAudioKitServicesAp.shared.setAudioEngine(true)
                     
-                    KAppConfigServic.shared.analytics.track(action: .v2TranscribeScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.microphone.rawValue)_\(GAppAnalyticActions.enable.rawValue)"])
+//                    KAppConfigServic.shared.analytics.track(action: .v2TranscribeScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.microphone.rawValue)_\(GAppAnalyticActions.enable.rawValue)"])
                     
                     UIApplication.shared.isIdleTimerDisabled = true
                     TapticEngine.customHaptic.playOn()
@@ -243,7 +243,7 @@ final class USpeechRecViewController: UMainViewController, AOrientationalApProto
                 } else {
                     SAudioKitServicesAp.shared.setAudioEngine(false)
                     
-                    KAppConfigServic.shared.analytics.track(action: .v2TranscribeScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.microphone.rawValue)_\(GAppAnalyticActions.disable.rawValue)"])
+//                    KAppConfigServic.shared.analytics.track(action: .v2TranscribeScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.microphone.rawValue)_\(GAppAnalyticActions.disable.rawValue)"])
                     
                     UIApplication.shared.isIdleTimerDisabled = false
                     self.speech.stopRecognition()
@@ -257,7 +257,7 @@ final class USpeechRecViewController: UMainViewController, AOrientationalApProto
     }
 
     @IBAction func fullScreenAction(sender:UIButton) {
-        KAppConfigServic.shared.analytics.track(action: .v2TranscribeScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.fullScreen.rawValue])
+//        KAppConfigServic.shared.analytics.track(action: .v2TranscribeScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.fullScreen.rawValue])
         let vc: RTextVFullScrViewController = RTextVFullScrViewController.instantiate()
         vc.delegate = self
         vc.text = textView.text
@@ -268,7 +268,7 @@ final class USpeechRecViewController: UMainViewController, AOrientationalApProto
     }
 
     @IBAction func flipAction(sender: UIButton) {
-        KAppConfigServic.shared.analytics.track(action: .v2TranscribeScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.flip.rawValue])
+//        KAppConfigServic.shared.analytics.track(action: .v2TranscribeScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.flip.rawValue])
 
         UIView.animate(withDuration: 0.35) {
             let flipTransform = CGAffineTransform(scaleX: -1, y: -1)

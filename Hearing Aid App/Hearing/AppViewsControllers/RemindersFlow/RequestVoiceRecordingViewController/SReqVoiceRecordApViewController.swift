@@ -13,7 +13,7 @@ final class SReqVoiceRecordApViewController: UIViewController {
     //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        KAppConfigServic.shared.analytics.track(.v2VoiceRecordingReminder, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.open.rawValue])
+//        KAppConfigServic.shared.analytics.track(.v2VoiceRecordingReminder, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.open.rawValue])
         configureUI()
     }
     
@@ -31,7 +31,7 @@ final class SReqVoiceRecordApViewController: UIViewController {
     //MARK: @IBAction
     @IBAction private func allowButtonAction(_ sender: UIButton) {
         TapticEngine.impact.feedback(.medium)
-        KAppConfigServic.shared.analytics.track(.v2VoiceRecordingReminder, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.allow.rawValue])
+//        KAppConfigServic.shared.analytics.track(.v2VoiceRecordingReminder, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.allow.rawValue])
         if let appSettingsUrl = URL(string: UIApplication.openSettingsURLString) {
             UIApplication.shared.open(appSettingsUrl, options: [:], completionHandler: nil)
         }
@@ -39,7 +39,7 @@ final class SReqVoiceRecordApViewController: UIViewController {
     
     @IBAction private func closeButtonAction(_ sender: UIButton) {
         TapticEngine.impact.feedback(.medium)
-        KAppConfigServic.shared.analytics.track(.v2VoiceRecordingReminder, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.close.rawValue])
+//        KAppConfigServic.shared.analytics.track(.v2VoiceRecordingReminder, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.close.rawValue])
         dismiss(animated: true, completion: nil)
     }
 }
@@ -49,7 +49,7 @@ extension SReqVoiceRecordApViewController: SIAppStateListeners {
     
     func appWillEnterForeground() {
         if SFSpeechRecognizer.authorizationStatus() == .authorized {
-            KAppConfigServic.shared.analytics.track(.v2VoiceRecordingReminder, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.close.rawValue])
+//            KAppConfigServic.shared.analytics.track(.v2VoiceRecordingReminder, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.close.rawValue])
             dismiss(animated: true, completion: nil)
         }
     }

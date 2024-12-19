@@ -14,7 +14,7 @@ final class KCompresViewController: PMUMainViewController {
         configureUI()
         configureDataSource()
         
-        KAppConfigServic.shared.analytics.track(action: .v2CompressorScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.open.rawValue])
+//        KAppConfigServic.shared.analytics.track(action: .v2CompressorScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.open.rawValue])
     }
     
 //    override func didChangeTheme() {
@@ -69,7 +69,7 @@ final class KCompresViewController: PMUMainViewController {
     @objc private func closeButtonAction() {
         dismiss(animated: true)
         
-        KAppConfigServic.shared.analytics.track(action: .v2CompressorScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.close.rawValue])
+//        KAppConfigServic.shared.analytics.track(action: .v2CompressorScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.close.rawValue])
     }
 }
 
@@ -106,7 +106,7 @@ extension KCompresViewController: VCentereButnTableViewCellDelegate {
         SAudioKitServicesAp.shared.resetCompressorValues()
         configureDataSource()
         
-        KAppConfigServic.shared.analytics.track(action: .v2CompressorScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.reset.rawValue])
+//        KAppConfigServic.shared.analytics.track(action: .v2CompressorScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.reset.rawValue])
     }
 }
 
@@ -124,15 +124,17 @@ extension KCompresViewController: SettingTableViewCellDelegate {
         case .info: // Compressor status
             presentAlertPM(title: "Compressor status".localized(), message: "The compressor allows you to set up sound more punchy. Compressors reduce the difference between the loudest and quietest parts of the volume".localized())
             
-            KAppConfigServic.shared.analytics.track(action: .v2CompressorScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.compressor.rawValue)_\(GAppAnalyticActions.info.rawValue)"])
+//            KAppConfigServic.shared.analytics.track(action: .v2CompressorScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.compressor.rawValue)_\(GAppAnalyticActions.info.rawValue)"])
         case .switchButton:
             let newState = !SAudioKitServicesAp.shared.isCompressorEnabled
             SAudioKitServicesAp.shared.setCompressor(newState)
             let newCellModel = SettingTableViewCellModel(title: cellModel.title, buttonTypes: cellModel.buttonTypes, switchState: newState, delegate: self)
             dataSource[indexRow] = SettingTableViewCellConfig(item: newCellModel)
             
-            let stringState = newState ? GAppAnalyticActions.enable.rawValue : GAppAnalyticActions.disable.rawValue
-            KAppConfigServic.shared.analytics.track(action: .v2CompressorScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.compressor.rawValue)_\(stringState)"])
+            let actionState = newState ? GAppAnalyticActions.setupOptionActivated : GAppAnalyticActions.setupOptionDeactivated
+            KAppConfigServic.shared.analytics.track(action: actionState, with: [
+                "option_type" : "compressor"
+            ])
         default:
             break
         }
@@ -154,7 +156,7 @@ extension KCompresViewController: GSlideBTablViewCellDelegate {
         
         sliderTimer?.invalidate()
         sliderTimer = Timer.scheduledTimer(withTimeInterval: GAppAnalyticActions.delaySliderInterval, repeats: false) { _ in
-            KAppConfigServic.shared.analytics.track(action: .v2CompressorScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.change.rawValue)_\(compressorParameter.rawValue)"])
+//            KAppConfigServic.shared.analytics.track(action: .v2CompressorScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.change.rawValue)_\(compressorParameter.rawValue)"])
         }
     }
 }

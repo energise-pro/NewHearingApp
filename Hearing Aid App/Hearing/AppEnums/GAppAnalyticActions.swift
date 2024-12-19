@@ -15,8 +15,8 @@ enum GAppAnalyticActions: String {
     case manageSubscriptions = "manage_subscriptions"
     case cancelSubscription = "cancel_subscription"
     // Version 2
-//    case v2FirstLaunch = "v2_first_launch"
-//    case v2AppOpen = "v2_app_open"
+    //    case v2FirstLaunch = "v2_first_launch"
+    //    case v2AppOpen = "v2_app_open"
     
     case v2Onboarding = "v2_onboarding_screen"
     case v2TabBar = "v2_tab_bar_screen"
@@ -54,7 +54,7 @@ enum GAppAnalyticActions: String {
     
     case hearing = "hearing"
     case transcribe = "transcribe"
-    case settings = "settings"
+    //    case settings = "settings"
     
     case v2AppStoreEvent = "v2_app_store_event"
     case v2AppStore = "v2_app_store"
@@ -93,6 +93,8 @@ enum GAppAnalyticActions: String {
     case share = "share"
     case redeem = "redeem"
     case search = "search"
+    case rate = "rate"
+    case compliant = "compliant"
     
     case green = "green"
     case orange = "orange"
@@ -135,7 +137,7 @@ enum GAppAnalyticActions: String {
     case keyboardDone = "keyboard_done"
     
     case type = "type"
-    case saved = "saved"
+//    case saved = "saved"
     case textSetup = "text_setup"
     case languageSetup = "language_setup"
     case expand = "expand"
@@ -163,4 +165,76 @@ enum GAppAnalyticActions: String {
     case firstOpenApp = "first_open_app"
     
     case paywallSeen = "paywall_seen"
+    case paywallPassed = "paywall_passed"
+    case purchaseCheckout = "purchase_checkout"
+    case purchaseActivate = "purchase_activate"
+    
+    case obSeen = "ob_seen"
+    case obPassed = "ob_passed"
+    
+    case headphonesConnected = "headphones_connected"
+    case hearingActivated = "hearing_activated"
+    case hearingDeactivated = "hearing_deactivated"
+    
+    case homeOptionsActivated = "home_options_activated"
+    case homeOptionsDeactivated = "home_options_deactivated"
+    case volumeBarMoved = "volume_bar_moved"
+    case stringMoved = "string_moved"
+    case templatesOptionActivated = "templates_option_activated"
+    case templatesOptionDeactivated = "templates_option_deactivated"
+    case setupOptionActivated = "setup_option_activated"
+    case setupOptionDeactivated = "setup_option_deactivated"
+    case mainScreenOpened = "main_screen_opened"
+    case infoTooltipOpened = "info_tooltip_opened"
+    case hapticFeedback = "haptic_feedback"
+    case shakeDeleteTranscript = "shake_delete_transcript"
+    case settingsClicked = "settings_clicked"
+    case savingOpened = "saving_opened"
+    case typeScreenOpened = "type_screen_opened"
+    case typeScreenClosed = "type_screen_closed"
+    case typeAreaExpanded = "type_area_expanded"
+    case translateActivated = "translate_activated"
+    case translateDeactivated = "translate_deactivated"
+    case transcribeActivated = "transcribe_activated"
+    case transcribeDeactivated = "transcribe_deactivated"
+    case screenFlipped = "screen_flipped"
+    case deleted = "deleted"
+    case saved = "saved"
+    case sharedResult = "shared_result"
+    case permissionViewed = "permission_viewed"
+    case permissionGranted = "permission_granted"
+    case pushOpened = "push_opened"
+    
+    // Source
+    case source = "source"
+    case sourceDefault = "default"
+    case sourceOb = "ob"
+    case sourceAppLaunch = "app_launch"
+    case sourceAfterPwOb = "after_pw_ob"
+    case sourceVolumeBar = "volume_bar"
+    case sourceSetupBtn = "setup_btn"
+    case sourceTemplatesBtn = "templates_btn"
+    case sourceActivateBtn = "activate_btn"
+    case sourceNonoiseBtn = "nonoise_btn"
+    case sourceStereoBtn = "stereo_btn"
+    case sourceLeftRightString = "left_right_string"
+    case sourceTranscriptMain = "transcript_main"
+    case sourceAfterPwlTranscript = "after_pwl_transcript"
+    case sourceSettings = "settings"
+    case sourceTranscribeBtn = "transcribe_btn"
+    case sourceTranslateBtn = "translate_btn"
+    case sourceTypeBtn = "type_btn"
+    case sourceAfterPw = "after_pw"
+    case sourceHearingActivateBtn = "hearing_activate_btn"
+    case sourceHeader = "header"
+    
+    // Status
+    case statusTrue = "true"
+    case statusFalse = "false"
+    
+    //
+    
+    case hearingMain = "hearing_main"
+    case transcriptionMain = "transcription_main"
+    case settingsMain = "settings_main"
 }

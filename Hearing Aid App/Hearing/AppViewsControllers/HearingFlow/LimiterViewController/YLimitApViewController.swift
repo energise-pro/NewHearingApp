@@ -14,7 +14,7 @@ final class YLimitApViewController: PMUMainViewController {
         configureUI()
         configureDataSource()
         
-        KAppConfigServic.shared.analytics.track(action: .v2LimiterScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.open.rawValue])
+//        KAppConfigServic.shared.analytics.track(action: .v2LimiterScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.open.rawValue])
     }
     
     override func didChangeTheme() {
@@ -91,7 +91,7 @@ final class YLimitApViewController: PMUMainViewController {
     @objc private func closeButtonAction() {
         dismiss(animated: true)
         
-        KAppConfigServic.shared.analytics.track(action: .v2LimiterScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.close.rawValue])
+//        KAppConfigServic.shared.analytics.track(action: .v2LimiterScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.close.rawValue])
     }
 }
 
@@ -128,7 +128,7 @@ extension YLimitApViewController: VCentereButnTableViewCellDelegate {
         SAudioKitServicesAp.shared.resetLimiterValues()
         configureDataSource()
         
-        KAppConfigServic.shared.analytics.track(action: .v2LimiterScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.reset.rawValue])
+//        KAppConfigServic.shared.analytics.track(action: .v2LimiterScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.reset.rawValue])
     }
 }
 
@@ -142,14 +142,16 @@ extension YLimitApViewController: SettingTableViewCellDelegate {
         case .info: // Limiter status
             presentAlertPM(title: "Limiter status".localized(), message: "Peak limiter allows you to bring up the level without allowing the peaks to clip. It limits high-volume spikes which can sound disgusting".localized())
             
-            KAppConfigServic.shared.analytics.track(action: .v2LimiterScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.limiter.rawValue)_\(GAppAnalyticActions.info.rawValue)"])
+//            KAppConfigServic.shared.analytics.track(action: .v2LimiterScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.limiter.rawValue)_\(GAppAnalyticActions.info.rawValue)"])
         case .switchButton:
             let newState = !SAudioKitServicesAp.shared.isLimiterEnabled
             newState ? SAudioKitServicesAp.shared.setLimiter(newState) : presentWarningAlert()
             updateSettingsCell()
             
-            let stringState = newState ? GAppAnalyticActions.enable.rawValue : GAppAnalyticActions.disable.rawValue
-            KAppConfigServic.shared.analytics.track(action: .v2LimiterScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.limiter.rawValue)_\(stringState)"])
+            let actionState = newState ? GAppAnalyticActions.setupOptionActivated : GAppAnalyticActions.setupOptionDeactivated
+            KAppConfigServic.shared.analytics.track(action: actionState, with: [
+                "option_type" : "limiter"
+            ])
         default:
             break
         }
@@ -171,7 +173,7 @@ extension YLimitApViewController: GSlideBTablViewCellDelegate {
         
         sliderTimer?.invalidate()
         sliderTimer = Timer.scheduledTimer(withTimeInterval: GAppAnalyticActions.delaySliderInterval, repeats: false) { _ in
-            KAppConfigServic.shared.analytics.track(action: .v2LimiterScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.change.rawValue)_\(VPLirParameter.rawValue)"])
+//            KAppConfigServic.shared.analytics.track(action: .v2LimiterScreen, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.change.rawValue)_\(VPLirParameter.rawValue)"])
         }
     }
 }

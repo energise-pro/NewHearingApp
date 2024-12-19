@@ -17,7 +17,7 @@ final class FOnboardApViewController: UIViewController {
     //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        KAppConfigServic.shared.analytics.track(.v2Onboarding, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.open.rawValue])
+//        KAppConfigServic.shared.analytics.track(.v2Onboarding, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.open.rawValue])
         configureCollectionView()
         configureDataSource()
         pageControl.numberOfPages = TOnboardHvTabs.allCases.count
@@ -88,7 +88,7 @@ final class FOnboardApViewController: UIViewController {
         }
         
         configurePageControl()
-        KAppConfigServic.shared.analytics.track(.v2Onboarding, with: [GAppAnalyticActions.action.rawValue: "scroll_on_\(index)"])
+//        KAppConfigServic.shared.analytics.track(.v2Onboarding, with: [GAppAnalyticActions.action.rawValue: "scroll_on_\(index)"])
     }
     
     private func configurePlayer(audioPath: String) {
@@ -130,7 +130,7 @@ extension FOnboardApViewController: JOnbrdCollectViewCellDelegate {
             return
         }
         TapticEngine.impact.feedback(.medium)
-        KAppConfigServic.shared.analytics.track(.v2Onboarding, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.before.rawValue)_\(currentIndex)"])
+//        KAppConfigServic.shared.analytics.track(.v2Onboarding, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.before.rawValue)_\(currentIndex)"])
         playedIndexPath = indexPath
         configurePlayer(audioPath: audioPath)
     }
@@ -141,14 +141,14 @@ extension FOnboardApViewController: JOnbrdCollectViewCellDelegate {
             return
         }
         TapticEngine.impact.feedback(.medium)
-        KAppConfigServic.shared.analytics.track(.v2Onboarding, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.after.rawValue)_\(currentIndex)"])
+//        KAppConfigServic.shared.analytics.track(.v2Onboarding, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.after.rawValue)_\(currentIndex)"])
         playedIndexPath = indexPath
         configurePlayer(audioPath: audioPath)
     }
     
     func tapContinueButton() {
         TapticEngine.impact.feedback(.medium)
-        KAppConfigServic.shared.analytics.track(.v2Onboarding, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.continue.rawValue)_\(currentIndex)"])
+//        KAppConfigServic.shared.analytics.track(.v2Onboarding, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.continue.rawValue)_\(currentIndex)"])
         audioPlayer?.pause()
         currentIndex == TOnboardHvTabs.allCases.count - 1 ? Void() : collectionView.scrollToItem(at: IndexPath(row: currentIndex + 1, section: 0), at: .centeredHorizontally, animated: true)
         currentIndex == TOnboardHvTabs.allCases.count - 1 ? AppsNavManager.shared.setTabBarAsRootViewController() : Void()

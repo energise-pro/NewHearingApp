@@ -94,11 +94,17 @@ final class CTranscribServicesAp: NSObject {
         if recordPermission == .denied {
             completion?(false)
         } else {
+            KAppConfigServic.shared.analytics.track(action: .permissionViewed, with: [
+                "type" : "speech_recognition"
+            ])
             SFSpeechRecognizer.requestAuthorization { status in
                 DispatchQueue.main.async {
                     switch status {
                     case .authorized:
                         completion?(true)
+                        KAppConfigServic.shared.analytics.track(action: .permissionGranted, with: [
+                            "type" : "speech_recognition"
+                        ])
                     case .denied, .restricted, .notDetermined:
                         completion?(false)
                     @unknown default:

@@ -35,18 +35,18 @@ final class DBPaywlApViewController: PMUMainViewController {
         purchaseContainerView.backgroundColor = UIColor.appColor(.Red100)
         closeButton.tintColor = UIColor.appColor(.UnactiveButton_1)?.withAlphaComponent(0.3)
         headerImageView.tintColor = AThemeServicesAp.shared.activeColor
+        localizedUI()
         
         Timer.scheduledTimer(withTimeInterval: 5.0, repeats: false) { [weak self] _ in
             UIView.animate(withDuration: 0.3) {
                 self?.closeButton.alpha = 1.0
             }
         }
-        
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
-//            self?.purchaseContainerView.pulseAnimation()
-//        }
-        
-        localizedUI()
+        KAppConfigServic.shared.analytics.track(.paywallSeen, with: [
+            GAppAnalyticActions.source.rawValue: GAppAnalyticActions.sourceOb.rawValue,
+            "pwl_version" : "pw_default_ob_1",
+            "offer" : "plc"
+        ])
     }
     
     private func localizedUI() {
@@ -80,11 +80,15 @@ final class DBPaywlApViewController: PMUMainViewController {
             self.isLoading = false
             self.subscriptionItems = items //EApphudServiceAp.shared.experimentProducts
             self.updateSelectedPlan()
-//            KAppConfigServic.shared.analytics.track(.paywallSeen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.openFromLaunch.rawValue])
         }
     }
     
     private func purchase(plan: ShopItem) {
+        KAppConfigServic.shared.analytics.track(.purchaseCheckout, with: [
+            GAppAnalyticActions.source.rawValue: GAppAnalyticActions.sourceOb.rawValue,
+            "pwl_version" : "pw_default_ob_1",
+            "offer" : "plc"
+        ])
         HAppLoaderView.showLoader(at: self.view, animated: true)
         TInAppService.shared.purchase(plan, from: .subscriptions) { [weak self] isSuccess in
             guard let self = self else {
@@ -92,6 +96,11 @@ final class DBPaywlApViewController: PMUMainViewController {
             }
             HAppLoaderView.hideLoader(for: self.view, animated: true)
             if isSuccess {
+                KAppConfigServic.shared.analytics.track(.purchaseActivate, with: [
+                    GAppAnalyticActions.source.rawValue: GAppAnalyticActions.sourceOb.rawValue,
+                    "pwl_version" : "pw_default_ob_1",
+                    "offer" : "plc"
+                ])
                 DispatchQueue.main.async {
                     self.closePaywall()
                 }
@@ -110,14 +119,18 @@ final class DBPaywlApViewController: PMUMainViewController {
     
     @IBAction private func purchaseButtonAction(_ sender: UIButton) {
         guard let selectedPlan = selectedPlan else { return }
-        KAppConfigServic.shared.analytics.track(.v2BPaywall, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.purchase.rawValue])
+//        KAppConfigServic.shared.analytics.track(.v2BPaywall, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.purchase.rawValue])
         TapticEngine.impact.feedback(.heavy)
         purchase(plan: selectedPlan)
     }
     
     @IBAction private func closeButton(_ sender: UIButton) {
         TapticEngine.impact.feedback(.heavy)
-        KAppConfigServic.shared.analytics.track(.v2BPaywall, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.close.rawValue])
+        KAppConfigServic.shared.analytics.track(.paywallPassed, with: [
+            GAppAnalyticActions.source.rawValue: GAppAnalyticActions.sourceOb.rawValue,
+            "pwl_version" : "pw_default_ob_1",
+            "offer" : "plc"
+        ])
         closePaywall()
     }
     
@@ -125,10 +138,10 @@ final class DBPaywlApViewController: PMUMainViewController {
         TapticEngine.impact.feedback(.medium)
         switch sender.tag {
         case 0:
-            KAppConfigServic.shared.analytics.track(.v2BPaywall, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.privacy.rawValue])
+//            KAppConfigServic.shared.analytics.track(.v2BPaywall, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.privacy.rawValue])
             AppsNavManager.shared.presentSafariViewController(with: CAppConstants.URLs.privacyPolicyURL)
         case 1:
-            KAppConfigServic.shared.analytics.track(.v2BPaywall, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.restore.rawValue])
+//            KAppConfigServic.shared.analytics.track(.v2BPaywall, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.restore.rawValue])
             HAppLoaderView.showLoader(at: view, animated: true)
             TInAppService.shared.restorePurchases { [weak self] isSuccess in
                 guard let self = self else { return }
@@ -142,7 +155,7 @@ final class DBPaywlApViewController: PMUMainViewController {
                 }
             }
         case 2:
-            KAppConfigServic.shared.analytics.track(.v2BPaywall, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.terms.rawValue])
+//            KAppConfigServic.shared.analytics.track(.v2BPaywall, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.terms.rawValue])
             AppsNavManager.shared.presentSafariViewController(with: CAppConstants.URLs.termsURL)
         default:
             break

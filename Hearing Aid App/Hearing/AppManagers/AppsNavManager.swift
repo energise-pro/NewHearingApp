@@ -60,7 +60,7 @@ final class AppsNavManager: NSObject {
     }
     
     @MainActor
-    func presentCatchUpAfter(_ duration: TimeInterval) {
+    func presentCatchUpAfter(_ duration: TimeInterval, with openAction: GAppAnalyticActions) {
         guard UserDefaults.standard.bool(forKey: CAppConstants.Keys.wasPresentedCatchUp) == false, !TInAppService.shared.isPremium else {
             return
         }
@@ -69,26 +69,26 @@ final class AppsNavManager: NSObject {
             guard UserDefaults.standard.bool(forKey: CAppConstants.Keys.wasPresentedCatchUp) == false else {
                 return
             }
-            AppsNavManager.shared.presentSCatchUpApViewController()
+            AppsNavManager.shared.presentSCatchUpApViewController(with: openAction)
         }
     }
     
     @MainActor
-    func presentSCatchUpApViewController() {
+    func presentSCatchUpApViewController(with openAction: GAppAnalyticActions) {
         guard (topViewController is SpecialOfferViewController) == false, (topViewController is PaywallViewController) == false, !TInAppService.shared.isPremium else {
             return
         }
-        let specialOfferViewController = SpecialOfferViewController()
+        let specialOfferViewController = SpecialOfferViewController(openAction: openAction)
         specialOfferViewController.modalPresentationStyle = .fullScreen
         topViewController?.present(specialOfferViewController, animated: true)
     }
 
-    func presentDHeadphsRemindApViewControllerIfNeeded(_ animated: Bool = true, completion: AppsNavManagerCompletion?) {
+    func presentDHeadphsRemindApViewControllerIfNeeded(_ animated: Bool = true, with openAction: GAppAnalyticActions, completion: AppsNavManagerCompletion?) {
         guard !SAudioKitServicesAp.shared.connectedHeadphones else {
             completion?(false)
             return
         }
-        let DHeadphsRemindApViewController: HeadphonesConnectViewController = HeadphonesConnectViewController()
+        let DHeadphsRemindApViewController: HeadphonesConnectViewController = HeadphonesConnectViewController(openAction: openAction)
         DHeadphsRemindApViewController.modalPresentationStyle = .fullScreen
         DHeadphsRemindApViewController.modalTransitionStyle = .crossDissolve
         if animated {
@@ -102,8 +102,8 @@ final class AppsNavManager: NSObject {
         }
     }
     
-    func presentDHeadphsRemindApViewController() {
-        let DHeadphsRemindApViewController: HeadphonesConnectViewController = HeadphonesConnectViewController()
+    func presentDHeadphsRemindApViewController(with openAction: GAppAnalyticActions) {
+        let DHeadphsRemindApViewController: HeadphonesConnectViewController = HeadphonesConnectViewController(openAction: openAction)
         DHeadphsRemindApViewController.modalPresentationStyle = .fullScreen
         DHeadphsRemindApViewController.modalTransitionStyle = .crossDissolve
         #if targetEnvironment(simulator)
