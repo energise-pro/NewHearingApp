@@ -316,7 +316,7 @@ class SpecialOfferViewController: UIViewController {
     }
     
     @IBAction private func yearlySubscribeButtonAction(_ sender: UIButton) {
-        guard let subscriptionPlan = subscriptionItems.first(where: { $0.productId == CAppConstants.Keys.yearlyWithTrialSubscriptionId }) else {
+        guard let subscriptionPlan = subscriptionItems.first(where: { $0.productId == CAppConstants.Keys.lifetimeSubscriptionId }) else {
             return
         }
         selectedPlan = subscriptionPlan
@@ -325,7 +325,7 @@ class SpecialOfferViewController: UIViewController {
         selectProductView(containerButtonYearly)
         unselectProductView(containerButtonWeekly)
         UIView.transition(with: purchaseButtonLabel, duration: 0.3, options: .transitionCrossDissolve, animations: {
-            self.purchaseButtonLabel.text = "Try Free & Subscribe".localized()
+            self.purchaseButtonLabel.text = "Continue".localized()
         }, completion: nil)
     }
     
