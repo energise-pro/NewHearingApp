@@ -46,7 +46,9 @@ final class NewOnboardingViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        KAppConfigServic.shared.requestIDFA{}
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            KAppConfigServic.shared.requestIDFA{}
+        }
     }
     
     //MARK: - Functions
