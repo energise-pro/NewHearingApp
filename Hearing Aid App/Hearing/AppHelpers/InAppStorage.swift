@@ -1,7 +1,7 @@
 import Foundation
 
 @propertyWrapper
-struct Storage<T: Codable> {
+struct InAppStorage<T: Codable> {
     private let key: String
     private let defaultValue: T
 

@@ -10,7 +10,7 @@ final class AThemeServicesAp: NSObject {
         return UITraitCollection.current.userInterfaceStyle == .dark
     }
     
-    @Storage(key: "ControlsColor", defaultValue: 2)
+    @InAppStorage(key: "ControlsColor", defaultValue: 2)
     private var currentColor: Int
     
     var activeColor: UIColor {

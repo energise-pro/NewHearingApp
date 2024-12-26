@@ -9,13 +9,13 @@ struct АHearAppSett {
         return UserDefaults.standard.integer(forKey: CAppConstants.Keys.launchCount)
     }
     
-    @Storage(key: "outputLanguageSetted", defaultValue: false)
+    @InAppStorage(key: "outputLanguageSetted", defaultValue: false)
     var outputLanguageSetted: Bool
     
-    @Storage(key: "mainScreenKey", defaultValue: 0)
+    @InAppStorage(key: "mainScreenKey", defaultValue: 0)
     var mainScreen: Int
     
-    @Storage(key: "emailScreenShown", defaultValue: false)
+    @InAppStorage(key: "emailScreenShown", defaultValue: false)
     var emailScreenShown: Bool
     
     @MainActor

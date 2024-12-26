@@ -79,10 +79,10 @@ final class BTranslServicesNew: NSObject {
         return downloadedLanguages + nonDownloadedLanguages
     }
     
-    @Storage(key: "TranslateFromText", defaultValue: "")
+    @InAppStorage(key: "TranslateFromText", defaultValue: "")
     var translateFromText: String
     
-    @Storage(key: "TranslateToText", defaultValue: "")
+    @InAppStorage(key: "TranslateToText", defaultValue: "")
     var translateToText: String
     
     private var translator: Translator?

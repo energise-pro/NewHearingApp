@@ -16,25 +16,25 @@ final class CTranscribServicesAp: NSObject {
     static let shared: CTranscribServicesAp = CTranscribServicesAp()
     static let TAG: String = "CTranscribServicesAp"
     
-    @Storage(key: "ShakeToClearText", defaultValue: false)
+    @InAppStorage(key: "ShakeToClearText", defaultValue: false)
     private(set) var isShakeToClear: Bool
     
-    @Storage(key: "OfflineTranslate", defaultValue: true)
+    @InAppStorage(key: "OfflineTranslate", defaultValue: true)
     private(set) var isOfflineTranslate: Bool
     
-    @Storage(key: "TypeText", defaultValue: "")
+    @InAppStorage(key: "TypeText", defaultValue: "")
     var typeText: String
     
-    @Storage(key: "TranscribeText", defaultValue: "")
+    @InAppStorage(key: "TranscribeText", defaultValue: "")
     var transcribeText: String
     
-    @Storage(key: "SavedTranscripts", defaultValue: [])
+    @InAppStorage(key: "SavedTranscripts", defaultValue: [])
     var savedTranscripts: [TranscribeModel]
     
-    @Storage(key: "ShowGetStartedView", defaultValue: true)
+    @InAppStorage(key: "ShowGetStartedView", defaultValue: true)
     var isShowGetStartedView: Bool
     
-    @Storage(key: "SavedFirstTranscripts", defaultValue: false)
+    @InAppStorage(key: "SavedFirstTranscripts", defaultValue: false)
     var isSavedFirstTranscripts: Bool
     
     var isStartedTranscribe: Bool = false

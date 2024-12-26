@@ -25,49 +25,49 @@ final class SAudioKitServicesAp {
     static let shared: SAudioKitServicesAp = SAudioKitServicesAp()
     static let TAG: String = "AVService"
     
-    @Storage(key: "noseOFF_Enabeld", defaultValue: true)
+    @InAppStorage(key: "noseOFF_Enabeld", defaultValue: true)
     var isNoiseOffEnabled: Bool
     
-    @Storage(key: "stereoEnabled", defaultValue: false)
+    @InAppStorage(key: "stereoEnabled", defaultValue: false)
     var isStereoEnabled: Bool
     
-    @Storage(key: "MusicMode", defaultValue: false)
+    @InAppStorage(key: "MusicMode", defaultValue: false)
     var isMusicModeEnabled: Bool
     
-    @Storage(key: "SystemVolume", defaultValue: true)
+    @InAppStorage(key: "SystemVolume", defaultValue: true)
     var isUseSystemVolume: Bool
     
-    @Storage(key: "ClearVoice", defaultValue: false)
+    @InAppStorage(key: "ClearVoice", defaultValue: false)
     var isClearVoice: Bool
     
-    @Storage(key: "Reverb.isStarted", defaultValue: true)
+    @InAppStorage(key: "Reverb.isStarted", defaultValue: true)
     var isTemplatesEnabled: Bool
     
-    @Storage(key: "Compressor.isStarted", defaultValue: true)
+    @InAppStorage(key: "Compressor.isStarted", defaultValue: true)
     var isCompressorEnabled: Bool
     
-    @Storage(key: "VoiceChanger.isStarted", defaultValue: true)
+    @InAppStorage(key: "VoiceChanger.isStarted", defaultValue: true)
     var isVoiceChangerEnabled: Bool
     
-    @Storage(key: "Limiter.isStarted", defaultValue: true)
+    @InAppStorage(key: "Limiter.isStarted", defaultValue: true)
     var isLimiterEnabled: Bool
     
-    @Storage(key: "Equalizer.isEnabled", defaultValue: true)
+    @InAppStorage(key: "Equalizer.isEnabled", defaultValue: true)
     var isEqualizedEnabled: Bool
     
-    @Storage(key: "microphoneVolume", defaultValue: 0.45)
+    @InAppStorage(key: "microphoneVolume", defaultValue: 0.45)
     var microphoneVolume: Double
     
-    @Storage(key: "Balance", defaultValue: 0.0)
+    @InAppStorage(key: "Balance", defaultValue: 0.0)
     var balanceValue: Double
     
-    @Storage(key: "countOfUsingAid", defaultValue: 0)
+    @InAppStorage(key: "countOfUsingAid", defaultValue: 0)
     var countOfUsingAid: Int
     
-    @Storage(key: "countOfUsingRecognize", defaultValue: 0)
+    @InAppStorage(key: "countOfUsingRecognize", defaultValue: 0)
     var countOfUsingRecognize: Int
     
-    @Storage(key: "countOfTranslate", defaultValue: 0)
+    @InAppStorage(key: "countOfTranslate", defaultValue: 0)
     var countOfTranslate: Int
     
     var connectedHeadphones: Bool {

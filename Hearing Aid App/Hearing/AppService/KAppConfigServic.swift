@@ -37,6 +37,7 @@ final class KAppConfigServic: NSObject, DIServicProtocols {
         settings.appLaunchCount < 2 ? AppsNavManager.shared.setNewOnboardingAsRootViewController() : AppsNavManager.shared.setTabBarAsRootViewController()
         
         asaServiceAp.initializeASATools()
+        asaServiceAp.initializeJaklinSDK()
         asaServiceAp.sendAppleAttribution()
     }
     

@@ -82,6 +82,63 @@
 		860E1E022D0F4CD1004F44E9 /* ShowMessageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 860E1E002D0F4CD0004F44E9 /* ShowMessageViewController.xib */; };
 		860E1E042D0F54CF004F44E9 /* ShowMessageTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860E1E032D0F54CF004F44E9 /* ShowMessageTextView.swift */; };
 		8613CE0F2D1175270012FD31 /* JPBlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613CE0E2D1175270012FD31 /* JPBlurView.swift */; };
+		8613CE7D2D1D54660012FD31 /* AnonymousIDStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613CE6C2D1D54660012FD31 /* AnonymousIDStorage.swift */; };
+		8613CE7E2D1D54660012FD31 /* IAPPaymentsObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613CE592D1D54660012FD31 /* IAPPaymentsObserver.swift */; };
+		8613CE7F2D1D54660012FD31 /* ISO8601DateFormatter+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613CE422D1D54660012FD31 /* ISO8601DateFormatter+Extensions.swift */; };
+		8613CE802D1D54660012FD31 /* RequestDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613CE692D1D54660012FD31 /* RequestDispatcher.swift */; };
+		8613CE812D1D54660012FD31 /* AppStoreReceipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613CE3B2D1D54660012FD31 /* AppStoreReceipt.swift */; };
+		8613CE822D1D54660012FD31 /* InfoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613CE762D1D54660012FD31 /* InfoHelper.swift */; };
+		8613CE832D1D54660012FD31 /* AppleReceiptBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613CE362D1D54660012FD31 /* AppleReceiptBuilder.swift */; };
+		8613CE842D1D54660012FD31 /* ValidateAppStoreReceiptResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613CE552D1D54660012FD31 /* ValidateAppStoreReceiptResponse.swift */; };
+		8613CE852D1D54660012FD31 /* ASN1ObjectIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613CE3D2D1D54660012FD31 /* ASN1ObjectIdentifier.swift */; };
+		8613CE862D1D54660012FD31 /* NetworkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613CE682D1D54660012FD31 /* NetworkSession.swift */; };
+		8613CE872D1D54660012FD31 /* AppStoreValidateResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613CE4B2D1D54660012FD31 /* AppStoreValidateResult.swift */; };
+		8613CE882D1D54660012FD31 /* NumberLaunches.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613CE772D1D54660012FD31 /* NumberLaunches.swift */; };
+		8613CE892D1D54660012FD31 /* AppStoreReceiptParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613CE452D1D54660012FD31 /* AppStoreReceiptParser.swift */; };
+		8613CE8A2D1D54660012FD31 /* IAPValidateAppStoreReceipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613CE602D1D54660012FD31 /* IAPValidateAppStoreReceipt.swift */; };
+		8613CE8B2D1D54660012FD31 /* UInt8+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613CE432D1D54660012FD31 /* UInt8+Extensions.swift */; };
+		8613CE8C2D1D54660012FD31 /* APIEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613CE632D1D54660012FD31 /* APIEnvironment.swift */; };
+		8613CE8D2D1D54660012FD31 /* ReceiptReadingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613CE3F2D1D54660012FD31 /* ReceiptReadingError.swift */; };
+		8613CE8E2D1D54660012FD31 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613CE732D1D54660012FD31 /* UserManager.swift */; };
+		8613CE8F2D1D54660012FD31 /* ValidateAppStoreReceiptRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613CE542D1D54660012FD31 /* ValidateAppStoreReceiptRequest.swift */; };
+		8613CE902D1D54660012FD31 /* UsedProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613CE502D1D54660012FD31 /* UsedProducts.swift */; };
+		8613CE912D1D54660012FD31 /* IAPProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613CE4E2D1D54660012FD31 /* IAPProduct.swift */; };
+		8613CE922D1D54660012FD31 /* OtterScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613CE782D1D54660012FD31 /* OtterScale.swift */; };
+		8613CE932D1D54660012FD31 /* IAPTransactionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613CE5A2D1D54660012FD31 /* IAPTransactionHandler.swift */; };
+		8613CE942D1D54660012FD31 /* IAPPaymentTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613CE4C2D1D54660012FD31 /* IAPPaymentTransaction.swift */; };
+		8613CE952D1D54660012FD31 /* ArraySlice_UInt8+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613CE412D1D54660012FD31 /* ArraySlice_UInt8+Extensions.swift */; };
+		8613CE962D1D54660012FD31 /* OtterScaleAnalyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613CE342D1D54660012FD31 /* OtterScaleAnalyticsManager.swift */; };
+		8613CE972D1D54660012FD31 /* ASN1Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613CE3C2D1D54660012FD31 /* ASN1Container.swift */; };
+		8613CE982D1D54660012FD31 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613CE662D1D54660012FD31 /* EndPoint.swift */; };
+		8613CE992D1D54660012FD31 /* ObtainAppStoreValidateResultRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613CE572D1D54660012FD31 /* ObtainAppStoreValidateResultRequest.swift */; };
+		8613CE9A2D1D54660012FD31 /* APIOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613CE642D1D54660012FD31 /* APIOperation.swift */; };
+		8613CE9B2D1D54660012FD31 /* ASN1ContainerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613CE372D1D54660012FD31 /* ASN1ContainerBuilder.swift */; };
+		8613CE9C2D1D54660012FD31 /* IAPMediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613CE5E2D1D54660012FD31 /* IAPMediator.swift */; };
+		8613CE9D2D1D54660012FD31 /* AppStoreReceiptRefreshRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613CE482D1D54660012FD31 /* AppStoreReceiptRefreshRequest.swift */; };
+		8613CE9E2D1D54660012FD31 /* IAPProductsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613CE5F2D1D54660012FD31 /* IAPProductsRequest.swift */; };
+		8613CE9F2D1D54660012FD31 /* OtterScaleReceiptValidationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613CE522D1D54660012FD31 /* OtterScaleReceiptValidationDelegate.swift */; };
+		8613CEA02D1D54660012FD31 /* UserUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613CE742D1D54660012FD31 /* UserUpdater.swift */; };
+		8613CEA12D1D54660012FD31 /* ADServiceToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613CE332D1D54660012FD31 /* ADServiceToken.swift */; };
+		8613CEA22D1D54660012FD31 /* UserSetRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613CE6F2D1D54660012FD31 /* UserSetRequest.swift */; };
+		8613CEA32D1D54660012FD31 /* URLRequest+EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613CE6A2D1D54660012FD31 /* URLRequest+EndPoint.swift */; };
+		8613CEA42D1D54660012FD31 /* IAPPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613CE4D2D1D54660012FD31 /* IAPPrice.swift */; };
+		8613CEA52D1D54660012FD31 /* AppStoreReceiptSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613CE492D1D54660012FD31 /* AppStoreReceiptSource.swift */; };
+		8613CEA62D1D54660012FD31 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613CE6D2D1D54660012FD31 /* Storage.swift */; };
+		8613CEA72D1D54660012FD31 /* InAppPurchaseBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613CE392D1D54660012FD31 /* InAppPurchaseBuilder.swift */; };
+		8613CEA82D1D54660012FD31 /* UserSetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613CE702D1D54660012FD31 /* UserSetResponse.swift */; };
+		8613CEA92D1D54660012FD31 /* ASN1ObjectIdentifierBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613CE382D1D54660012FD31 /* ASN1ObjectIdentifierBuilder.swift */; };
+		8613CEAA2D1D54660012FD31 /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613CE5D2D1D54660012FD31 /* IAPManager.swift */; };
+		8613CEAB2D1D54660012FD31 /* APIOperationWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613CE652D1D54660012FD31 /* APIOperationWrapper.swift */; };
+		8613CEAC2D1D54660012FD31 /* PaymentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613CE4F2D1D54660012FD31 /* PaymentData.swift */; };
+		8613CEAD2D1D54660012FD31 /* AppStoreReceiptFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613CE472D1D54660012FD31 /* AppStoreReceiptFetcher.swift */; };
+		8613CEAE2D1D54660012FD31 /* Weak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613CE7B2D1D54660012FD31 /* Weak.swift */; };
+		8613CEAF2D1D54660012FD31 /* PaymentDataBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613CE612D1D54660012FD31 /* PaymentDataBuilder.swift */; };
+		8613CEB02D1D54660012FD31 /* OtterScaleInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613CE792D1D54660012FD31 /* OtterScaleInteractor.swift */; };
+		8613CEB12D1D54660012FD31 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613CE672D1D54660012FD31 /* HTTPMethod.swift */; };
+		8613CEB22D1D54660012FD31 /* InAppPurchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613CE3E2D1D54660012FD31 /* InAppPurchase.swift */; };
+		8613CEB32D1D54660012FD31 /* IAPTransactionObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613CE5B2D1D54660012FD31 /* IAPTransactionObserver.swift */; };
+		8613CEB42D1D54660012FD31 /* SendADServiceTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613CE312D1D54660012FD31 /* SendADServiceTokenRequest.swift */; };
+		8613CEB52D1D54660012FD31 /* RegisterInstallRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613CE302D1D54660012FD31 /* RegisterInstallRequest.swift */; };
 		8619E5BD2D06DAB30044B624 /* TranscriptionInstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8619E5BC2D06DAB30044B624 /* TranscriptionInstructionViewController.swift */; };
 		8619E5CC2D074A7C0044B624 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8619E5CA2D074A7C0044B624 /* AlertViewController.swift */; };
 		8619E5CD2D074A7C0044B624 /* AlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8619E5CB2D074A7C0044B624 /* AlertViewController.xib */; };
@@ -102,7 +159,7 @@
 		9A09434A282D654800F7AEC5 /* ZAppIconViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A094348282D654800F7AEC5 /* ZAppIconViewController.swift */; };
 		9A09434B282D654800F7AEC5 /* ZAppIconViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A094349282D654800F7AEC5 /* ZAppIconViewController.xib */; };
 		9A09434D282D78F500F7AEC5 /* AThemeServicesAp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A09434C282D78F500F7AEC5 /* AThemeServicesAp.swift */; };
-		9A0B09A0280D9ADC0084D695 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0B099F280D9ADC0084D695 /* Storage.swift */; };
+		9A0B09A0280D9ADC0084D695 /* InAppStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0B099F280D9ADC0084D695 /* InAppStorage.swift */; };
 		9A122CF0283B8DB900944287 /* GLangSetupApViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A122CEE283B8DB900944287 /* GLangSetupApViewController.swift */; };
 		9A122CF1283B8DB900944287 /* GLangSetupApViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A122CEF283B8DB900944287 /* GLangSetupApViewController.xib */; };
 		9A122CF5283BA6B600944287 /* BTranslServicesNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A122CF4283BA6B600944287 /* BTranslServicesNew.swift */; };
@@ -363,6 +420,64 @@
 		860E1E002D0F4CD0004F44E9 /* ShowMessageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShowMessageViewController.xib; sourceTree = "<group>"; };
 		860E1E032D0F54CF004F44E9 /* ShowMessageTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMessageTextView.swift; sourceTree = "<group>"; };
 		8613CE0E2D1175270012FD31 /* JPBlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JPBlurView.swift; sourceTree = "<group>"; };
+		8613CE302D1D54660012FD31 /* RegisterInstallRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterInstallRequest.swift; sourceTree = "<group>"; };
+		8613CE312D1D54660012FD31 /* SendADServiceTokenRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendADServiceTokenRequest.swift; sourceTree = "<group>"; };
+		8613CE332D1D54660012FD31 /* ADServiceToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADServiceToken.swift; sourceTree = "<group>"; };
+		8613CE342D1D54660012FD31 /* OtterScaleAnalyticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtterScaleAnalyticsManager.swift; sourceTree = "<group>"; };
+		8613CE362D1D54660012FD31 /* AppleReceiptBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleReceiptBuilder.swift; sourceTree = "<group>"; };
+		8613CE372D1D54660012FD31 /* ASN1ContainerBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASN1ContainerBuilder.swift; sourceTree = "<group>"; };
+		8613CE382D1D54660012FD31 /* ASN1ObjectIdentifierBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASN1ObjectIdentifierBuilder.swift; sourceTree = "<group>"; };
+		8613CE392D1D54660012FD31 /* InAppPurchaseBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppPurchaseBuilder.swift; sourceTree = "<group>"; };
+		8613CE3B2D1D54660012FD31 /* AppStoreReceipt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreReceipt.swift; sourceTree = "<group>"; };
+		8613CE3C2D1D54660012FD31 /* ASN1Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASN1Container.swift; sourceTree = "<group>"; };
+		8613CE3D2D1D54660012FD31 /* ASN1ObjectIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASN1ObjectIdentifier.swift; sourceTree = "<group>"; };
+		8613CE3E2D1D54660012FD31 /* InAppPurchase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppPurchase.swift; sourceTree = "<group>"; };
+		8613CE3F2D1D54660012FD31 /* ReceiptReadingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptReadingError.swift; sourceTree = "<group>"; };
+		8613CE412D1D54660012FD31 /* ArraySlice_UInt8+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArraySlice_UInt8+Extensions.swift"; sourceTree = "<group>"; };
+		8613CE422D1D54660012FD31 /* ISO8601DateFormatter+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ISO8601DateFormatter+Extensions.swift"; sourceTree = "<group>"; };
+		8613CE432D1D54660012FD31 /* UInt8+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UInt8+Extensions.swift"; sourceTree = "<group>"; };
+		8613CE452D1D54660012FD31 /* AppStoreReceiptParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreReceiptParser.swift; sourceTree = "<group>"; };
+		8613CE472D1D54660012FD31 /* AppStoreReceiptFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreReceiptFetcher.swift; sourceTree = "<group>"; };
+		8613CE482D1D54660012FD31 /* AppStoreReceiptRefreshRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreReceiptRefreshRequest.swift; sourceTree = "<group>"; };
+		8613CE492D1D54660012FD31 /* AppStoreReceiptSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreReceiptSource.swift; sourceTree = "<group>"; };
+		8613CE4B2D1D54660012FD31 /* AppStoreValidateResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreValidateResult.swift; sourceTree = "<group>"; };
+		8613CE4C2D1D54660012FD31 /* IAPPaymentTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPPaymentTransaction.swift; sourceTree = "<group>"; };
+		8613CE4D2D1D54660012FD31 /* IAPPrice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPPrice.swift; sourceTree = "<group>"; };
+		8613CE4E2D1D54660012FD31 /* IAPProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPProduct.swift; sourceTree = "<group>"; };
+		8613CE4F2D1D54660012FD31 /* PaymentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentData.swift; sourceTree = "<group>"; };
+		8613CE502D1D54660012FD31 /* UsedProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsedProducts.swift; sourceTree = "<group>"; };
+		8613CE522D1D54660012FD31 /* OtterScaleReceiptValidationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtterScaleReceiptValidationDelegate.swift; sourceTree = "<group>"; };
+		8613CE542D1D54660012FD31 /* ValidateAppStoreReceiptRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateAppStoreReceiptRequest.swift; sourceTree = "<group>"; };
+		8613CE552D1D54660012FD31 /* ValidateAppStoreReceiptResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateAppStoreReceiptResponse.swift; sourceTree = "<group>"; };
+		8613CE572D1D54660012FD31 /* ObtainAppStoreValidateResultRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObtainAppStoreValidateResultRequest.swift; sourceTree = "<group>"; };
+		8613CE592D1D54660012FD31 /* IAPPaymentsObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPPaymentsObserver.swift; sourceTree = "<group>"; };
+		8613CE5A2D1D54660012FD31 /* IAPTransactionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPTransactionHandler.swift; sourceTree = "<group>"; };
+		8613CE5B2D1D54660012FD31 /* IAPTransactionObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPTransactionObserver.swift; sourceTree = "<group>"; };
+		8613CE5D2D1D54660012FD31 /* IAPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPManager.swift; sourceTree = "<group>"; };
+		8613CE5E2D1D54660012FD31 /* IAPMediator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPMediator.swift; sourceTree = "<group>"; };
+		8613CE5F2D1D54660012FD31 /* IAPProductsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPProductsRequest.swift; sourceTree = "<group>"; };
+		8613CE602D1D54660012FD31 /* IAPValidateAppStoreReceipt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPValidateAppStoreReceipt.swift; sourceTree = "<group>"; };
+		8613CE612D1D54660012FD31 /* PaymentDataBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentDataBuilder.swift; sourceTree = "<group>"; };
+		8613CE632D1D54660012FD31 /* APIEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEnvironment.swift; sourceTree = "<group>"; };
+		8613CE642D1D54660012FD31 /* APIOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIOperation.swift; sourceTree = "<group>"; };
+		8613CE652D1D54660012FD31 /* APIOperationWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIOperationWrapper.swift; sourceTree = "<group>"; };
+		8613CE662D1D54660012FD31 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
+		8613CE672D1D54660012FD31 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		8613CE682D1D54660012FD31 /* NetworkSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSession.swift; sourceTree = "<group>"; };
+		8613CE692D1D54660012FD31 /* RequestDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestDispatcher.swift; sourceTree = "<group>"; };
+		8613CE6A2D1D54660012FD31 /* URLRequest+EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+EndPoint.swift"; sourceTree = "<group>"; };
+		8613CE6C2D1D54660012FD31 /* AnonymousIDStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnonymousIDStorage.swift; sourceTree = "<group>"; };
+		8613CE6D2D1D54660012FD31 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		8613CE6F2D1D54660012FD31 /* UserSetRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSetRequest.swift; sourceTree = "<group>"; };
+		8613CE702D1D54660012FD31 /* UserSetResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSetResponse.swift; sourceTree = "<group>"; };
+		8613CE732D1D54660012FD31 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		8613CE742D1D54660012FD31 /* UserUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserUpdater.swift; sourceTree = "<group>"; };
+		8613CE762D1D54660012FD31 /* InfoHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoHelper.swift; sourceTree = "<group>"; };
+		8613CE772D1D54660012FD31 /* NumberLaunches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberLaunches.swift; sourceTree = "<group>"; };
+		8613CE782D1D54660012FD31 /* OtterScale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtterScale.swift; sourceTree = "<group>"; };
+		8613CE792D1D54660012FD31 /* OtterScaleInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtterScaleInteractor.swift; sourceTree = "<group>"; };
+		8613CE7A2D1D54660012FD31 /* OtterScaleiOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OtterScaleiOS.h; sourceTree = "<group>"; };
+		8613CE7B2D1D54660012FD31 /* Weak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weak.swift; sourceTree = "<group>"; };
 		8619E5BC2D06DAB30044B624 /* TranscriptionInstructionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptionInstructionViewController.swift; sourceTree = "<group>"; };
 		8619E5CA2D074A7C0044B624 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
 		8619E5CB2D074A7C0044B624 /* AlertViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertViewController.xib; sourceTree = "<group>"; };
@@ -384,7 +499,7 @@
 		9A094348282D654800F7AEC5 /* ZAppIconViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZAppIconViewController.swift; sourceTree = "<group>"; };
 		9A094349282D654800F7AEC5 /* ZAppIconViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZAppIconViewController.xib; sourceTree = "<group>"; };
 		9A09434C282D78F500F7AEC5 /* AThemeServicesAp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AThemeServicesAp.swift; sourceTree = "<group>"; };
-		9A0B099F280D9ADC0084D695 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		9A0B099F280D9ADC0084D695 /* InAppStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppStorage.swift; sourceTree = "<group>"; };
 		9A122CEE283B8DB900944287 /* GLangSetupApViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GLangSetupApViewController.swift; sourceTree = "<group>"; };
 		9A122CEF283B8DB900944287 /* GLangSetupApViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GLangSetupApViewController.xib; sourceTree = "<group>"; };
 		9A122CF4283BA6B600944287 /* BTranslServicesNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTranslServicesNew.swift; sourceTree = "<group>"; };
@@ -819,6 +934,215 @@
 				8613CE0E2D1175270012FD31 /* JPBlurView.swift */,
 			);
 			path = JPBlurView;
+			sourceTree = "<group>";
+		};
+		8613CE322D1D54660012FD31 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				8613CE302D1D54660012FD31 /* RegisterInstallRequest.swift */,
+				8613CE312D1D54660012FD31 /* SendADServiceTokenRequest.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		8613CE352D1D54660012FD31 /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				8613CE322D1D54660012FD31 /* Request */,
+				8613CE332D1D54660012FD31 /* ADServiceToken.swift */,
+				8613CE342D1D54660012FD31 /* OtterScaleAnalyticsManager.swift */,
+			);
+			path = Analytics;
+			sourceTree = "<group>";
+		};
+		8613CE3A2D1D54660012FD31 /* Builders */ = {
+			isa = PBXGroup;
+			children = (
+				8613CE362D1D54660012FD31 /* AppleReceiptBuilder.swift */,
+				8613CE372D1D54660012FD31 /* ASN1ContainerBuilder.swift */,
+				8613CE382D1D54660012FD31 /* ASN1ObjectIdentifierBuilder.swift */,
+				8613CE392D1D54660012FD31 /* InAppPurchaseBuilder.swift */,
+			);
+			path = Builders;
+			sourceTree = "<group>";
+		};
+		8613CE402D1D54660012FD31 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8613CE3B2D1D54660012FD31 /* AppStoreReceipt.swift */,
+				8613CE3C2D1D54660012FD31 /* ASN1Container.swift */,
+				8613CE3D2D1D54660012FD31 /* ASN1ObjectIdentifier.swift */,
+				8613CE3E2D1D54660012FD31 /* InAppPurchase.swift */,
+				8613CE3F2D1D54660012FD31 /* ReceiptReadingError.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8613CE442D1D54660012FD31 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				8613CE412D1D54660012FD31 /* ArraySlice_UInt8+Extensions.swift */,
+				8613CE422D1D54660012FD31 /* ISO8601DateFormatter+Extensions.swift */,
+				8613CE432D1D54660012FD31 /* UInt8+Extensions.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		8613CE462D1D54660012FD31 /* ReceiptLocalParse */ = {
+			isa = PBXGroup;
+			children = (
+				8613CE3A2D1D54660012FD31 /* Builders */,
+				8613CE402D1D54660012FD31 /* Model */,
+				8613CE442D1D54660012FD31 /* Utils */,
+				8613CE452D1D54660012FD31 /* AppStoreReceiptParser.swift */,
+			);
+			path = ReceiptLocalParse;
+			sourceTree = "<group>";
+		};
+		8613CE4A2D1D54660012FD31 /* AppStoreReceipt */ = {
+			isa = PBXGroup;
+			children = (
+				8613CE462D1D54660012FD31 /* ReceiptLocalParse */,
+				8613CE472D1D54660012FD31 /* AppStoreReceiptFetcher.swift */,
+				8613CE482D1D54660012FD31 /* AppStoreReceiptRefreshRequest.swift */,
+				8613CE492D1D54660012FD31 /* AppStoreReceiptSource.swift */,
+			);
+			path = AppStoreReceipt;
+			sourceTree = "<group>";
+		};
+		8613CE512D1D54660012FD31 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8613CE4B2D1D54660012FD31 /* AppStoreValidateResult.swift */,
+				8613CE4C2D1D54660012FD31 /* IAPPaymentTransaction.swift */,
+				8613CE4D2D1D54660012FD31 /* IAPPrice.swift */,
+				8613CE4E2D1D54660012FD31 /* IAPProduct.swift */,
+				8613CE4F2D1D54660012FD31 /* PaymentData.swift */,
+				8613CE502D1D54660012FD31 /* UsedProducts.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8613CE532D1D54660012FD31 /* Public */ = {
+			isa = PBXGroup;
+			children = (
+				8613CE522D1D54660012FD31 /* OtterScaleReceiptValidationDelegate.swift */,
+			);
+			path = Public;
+			sourceTree = "<group>";
+		};
+		8613CE562D1D54660012FD31 /* ValidateAppStoreReceipt */ = {
+			isa = PBXGroup;
+			children = (
+				8613CE542D1D54660012FD31 /* ValidateAppStoreReceiptRequest.swift */,
+				8613CE552D1D54660012FD31 /* ValidateAppStoreReceiptResponse.swift */,
+			);
+			path = ValidateAppStoreReceipt;
+			sourceTree = "<group>";
+		};
+		8613CE582D1D54660012FD31 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				8613CE562D1D54660012FD31 /* ValidateAppStoreReceipt */,
+				8613CE572D1D54660012FD31 /* ObtainAppStoreValidateResultRequest.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		8613CE5C2D1D54660012FD31 /* TransactionObserver */ = {
+			isa = PBXGroup;
+			children = (
+				8613CE592D1D54660012FD31 /* IAPPaymentsObserver.swift */,
+				8613CE5A2D1D54660012FD31 /* IAPTransactionHandler.swift */,
+				8613CE5B2D1D54660012FD31 /* IAPTransactionObserver.swift */,
+			);
+			path = TransactionObserver;
+			sourceTree = "<group>";
+		};
+		8613CE622D1D54660012FD31 /* IAP */ = {
+			isa = PBXGroup;
+			children = (
+				8613CE4A2D1D54660012FD31 /* AppStoreReceipt */,
+				8613CE512D1D54660012FD31 /* Model */,
+				8613CE532D1D54660012FD31 /* Public */,
+				8613CE582D1D54660012FD31 /* Request */,
+				8613CE5C2D1D54660012FD31 /* TransactionObserver */,
+				8613CE5D2D1D54660012FD31 /* IAPManager.swift */,
+				8613CE5E2D1D54660012FD31 /* IAPMediator.swift */,
+				8613CE5F2D1D54660012FD31 /* IAPProductsRequest.swift */,
+				8613CE602D1D54660012FD31 /* IAPValidateAppStoreReceipt.swift */,
+				8613CE612D1D54660012FD31 /* PaymentDataBuilder.swift */,
+			);
+			path = IAP;
+			sourceTree = "<group>";
+		};
+		8613CE6B2D1D54660012FD31 /* NetworkLayer */ = {
+			isa = PBXGroup;
+			children = (
+				8613CE632D1D54660012FD31 /* APIEnvironment.swift */,
+				8613CE642D1D54660012FD31 /* APIOperation.swift */,
+				8613CE652D1D54660012FD31 /* APIOperationWrapper.swift */,
+				8613CE662D1D54660012FD31 /* EndPoint.swift */,
+				8613CE672D1D54660012FD31 /* HTTPMethod.swift */,
+				8613CE682D1D54660012FD31 /* NetworkSession.swift */,
+				8613CE692D1D54660012FD31 /* RequestDispatcher.swift */,
+				8613CE6A2D1D54660012FD31 /* URLRequest+EndPoint.swift */,
+			);
+			path = NetworkLayer;
+			sourceTree = "<group>";
+		};
+		8613CE6E2D1D54660012FD31 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				8613CE6C2D1D54660012FD31 /* AnonymousIDStorage.swift */,
+				8613CE6D2D1D54660012FD31 /* Storage.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		8613CE712D1D54660012FD31 /* UserSetRequest */ = {
+			isa = PBXGroup;
+			children = (
+				8613CE6F2D1D54660012FD31 /* UserSetRequest.swift */,
+				8613CE702D1D54660012FD31 /* UserSetResponse.swift */,
+			);
+			path = UserSetRequest;
+			sourceTree = "<group>";
+		};
+		8613CE722D1D54660012FD31 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				8613CE712D1D54660012FD31 /* UserSetRequest */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		8613CE752D1D54660012FD31 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				8613CE722D1D54660012FD31 /* Request */,
+				8613CE732D1D54660012FD31 /* UserManager.swift */,
+				8613CE742D1D54660012FD31 /* UserUpdater.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		8613CE7C2D1D54660012FD31 /* OtterScale */ = {
+			isa = PBXGroup;
+			children = (
+				8613CE352D1D54660012FD31 /* Analytics */,
+				8613CE622D1D54660012FD31 /* IAP */,
+				8613CE6B2D1D54660012FD31 /* NetworkLayer */,
+				8613CE6E2D1D54660012FD31 /* Storage */,
+				8613CE752D1D54660012FD31 /* User */,
+				8613CE762D1D54660012FD31 /* InfoHelper.swift */,
+				8613CE772D1D54660012FD31 /* NumberLaunches.swift */,
+				8613CE782D1D54660012FD31 /* OtterScale.swift */,
+				8613CE792D1D54660012FD31 /* OtterScaleInteractor.swift */,
+				8613CE7A2D1D54660012FD31 /* OtterScaleiOS.h */,
+				8613CE7B2D1D54660012FD31 /* Weak.swift */,
+			);
+			path = OtterScale;
 			sourceTree = "<group>";
 		};
 		8619E5BB2D06DA7C0044B624 /* InstructionViewController */ = {
@@ -1540,6 +1864,7 @@
 		A5B2324126CC44C70042AA7B /* AppService */ = {
 			isa = PBXGroup;
 			children = (
+				8613CE7C2D1D54660012FD31 /* OtterScale */,
 				A5B2324526CC44C70042AA7B /* HAmplitudeApService.swift */,
 				A5B2324426CC44C70042AA7B /* KAppConfigServic.swift */,
 				9A949F5228A2917F00F7D7D4 /* EApphudServiceAp.swift */,
@@ -1589,7 +1914,7 @@
 				9A9DC6792833CF460080B46F /* GKeybLayConst.swift */,
 				A5B2325426CC48080042AA7B /* LoggerApp.swift */,
 				9A9D2D052840B3A900332B10 /* MMPPulseLayer.swift */,
-				9A0B099F280D9ADC0084D695 /* Storage.swift */,
+				9A0B099F280D9ADC0084D695 /* InAppStorage.swift */,
 				9ACB45942812B9BE00FAF44E /* AudioKitUI */,
 				11DC523B2CD412CA00A9589A /* ButtonView.swift */,
 			);
@@ -1958,6 +2283,63 @@
 				86DFB2132CE755BB00CBD94F /* RadialGradientView.swift in Sources */,
 				A5B2325126CC47B40042AA7B /* FAppinAnalytica.swift in Sources */,
 				83C81AA1264A86F300B3F8E2 /* AppExt.swift in Sources */,
+				8613CE7D2D1D54660012FD31 /* AnonymousIDStorage.swift in Sources */,
+				8613CE7E2D1D54660012FD31 /* IAPPaymentsObserver.swift in Sources */,
+				8613CE7F2D1D54660012FD31 /* ISO8601DateFormatter+Extensions.swift in Sources */,
+				8613CE802D1D54660012FD31 /* RequestDispatcher.swift in Sources */,
+				8613CE812D1D54660012FD31 /* AppStoreReceipt.swift in Sources */,
+				8613CE822D1D54660012FD31 /* InfoHelper.swift in Sources */,
+				8613CE832D1D54660012FD31 /* AppleReceiptBuilder.swift in Sources */,
+				8613CE842D1D54660012FD31 /* ValidateAppStoreReceiptResponse.swift in Sources */,
+				8613CE852D1D54660012FD31 /* ASN1ObjectIdentifier.swift in Sources */,
+				8613CE862D1D54660012FD31 /* NetworkSession.swift in Sources */,
+				8613CE872D1D54660012FD31 /* AppStoreValidateResult.swift in Sources */,
+				8613CE882D1D54660012FD31 /* NumberLaunches.swift in Sources */,
+				8613CE892D1D54660012FD31 /* AppStoreReceiptParser.swift in Sources */,
+				8613CE8A2D1D54660012FD31 /* IAPValidateAppStoreReceipt.swift in Sources */,
+				8613CE8B2D1D54660012FD31 /* UInt8+Extensions.swift in Sources */,
+				8613CE8C2D1D54660012FD31 /* APIEnvironment.swift in Sources */,
+				8613CE8D2D1D54660012FD31 /* ReceiptReadingError.swift in Sources */,
+				8613CE8E2D1D54660012FD31 /* UserManager.swift in Sources */,
+				8613CE8F2D1D54660012FD31 /* ValidateAppStoreReceiptRequest.swift in Sources */,
+				8613CE902D1D54660012FD31 /* UsedProducts.swift in Sources */,
+				8613CE912D1D54660012FD31 /* IAPProduct.swift in Sources */,
+				8613CE922D1D54660012FD31 /* OtterScale.swift in Sources */,
+				8613CE932D1D54660012FD31 /* IAPTransactionHandler.swift in Sources */,
+				8613CE942D1D54660012FD31 /* IAPPaymentTransaction.swift in Sources */,
+				8613CE952D1D54660012FD31 /* ArraySlice_UInt8+Extensions.swift in Sources */,
+				8613CE962D1D54660012FD31 /* OtterScaleAnalyticsManager.swift in Sources */,
+				8613CE972D1D54660012FD31 /* ASN1Container.swift in Sources */,
+				8613CE982D1D54660012FD31 /* EndPoint.swift in Sources */,
+				8613CE992D1D54660012FD31 /* ObtainAppStoreValidateResultRequest.swift in Sources */,
+				8613CE9A2D1D54660012FD31 /* APIOperation.swift in Sources */,
+				8613CE9B2D1D54660012FD31 /* ASN1ContainerBuilder.swift in Sources */,
+				8613CE9C2D1D54660012FD31 /* IAPMediator.swift in Sources */,
+				8613CE9D2D1D54660012FD31 /* AppStoreReceiptRefreshRequest.swift in Sources */,
+				8613CE9E2D1D54660012FD31 /* IAPProductsRequest.swift in Sources */,
+				8613CE9F2D1D54660012FD31 /* OtterScaleReceiptValidationDelegate.swift in Sources */,
+				8613CEA02D1D54660012FD31 /* UserUpdater.swift in Sources */,
+				8613CEA12D1D54660012FD31 /* ADServiceToken.swift in Sources */,
+				8613CEA22D1D54660012FD31 /* UserSetRequest.swift in Sources */,
+				8613CEA32D1D54660012FD31 /* URLRequest+EndPoint.swift in Sources */,
+				8613CEA42D1D54660012FD31 /* IAPPrice.swift in Sources */,
+				8613CEA52D1D54660012FD31 /* AppStoreReceiptSource.swift in Sources */,
+				8613CEA62D1D54660012FD31 /* Storage.swift in Sources */,
+				8613CEA72D1D54660012FD31 /* InAppPurchaseBuilder.swift in Sources */,
+				8613CEA82D1D54660012FD31 /* UserSetResponse.swift in Sources */,
+				8613CEA92D1D54660012FD31 /* ASN1ObjectIdentifierBuilder.swift in Sources */,
+				8613CEAA2D1D54660012FD31 /* IAPManager.swift in Sources */,
+				8613CEAB2D1D54660012FD31 /* APIOperationWrapper.swift in Sources */,
+				8613CEAC2D1D54660012FD31 /* PaymentData.swift in Sources */,
+				8613CEAD2D1D54660012FD31 /* AppStoreReceiptFetcher.swift in Sources */,
+				8613CEAE2D1D54660012FD31 /* Weak.swift in Sources */,
+				8613CEAF2D1D54660012FD31 /* PaymentDataBuilder.swift in Sources */,
+				8613CEB02D1D54660012FD31 /* OtterScaleInteractor.swift in Sources */,
+				8613CEB12D1D54660012FD31 /* HTTPMethod.swift in Sources */,
+				8613CEB22D1D54660012FD31 /* InAppPurchase.swift in Sources */,
+				8613CEB32D1D54660012FD31 /* IAPTransactionObserver.swift in Sources */,
+				8613CEB42D1D54660012FD31 /* SendADServiceTokenRequest.swift in Sources */,
+				8613CEB52D1D54660012FD31 /* RegisterInstallRequest.swift in Sources */,
 				83ABA251264BE340001784B8 /* USpeechRecViewController.swift in Sources */,
 				9A122CF5283BA6B600944287 /* BTranslServicesNew.swift in Sources */,
 				86053B202CE20A82004BA772 /* NewOnboardingPagesModel.swift in Sources */,
@@ -1997,7 +2379,7 @@
 				9A5512E3280977380078C5E5 /* SHearinApViewController.swift in Sources */,
 				9A1B0B7A2833842B003588B5 /* FTextSetupApViewController.swift in Sources */,
 				9ACB45C22812B9BF00FAF44E /* ArcKnob.swift in Sources */,
-				9A0B09A0280D9ADC0084D695 /* Storage.swift in Sources */,
+				9A0B09A0280D9ADC0084D695 /* InAppStorage.swift in Sources */,
 				9A4DA22028464DEA00DCBC87 /* RVoicChangeJViewController.swift in Sources */,
 				9A171CB026D4164000714425 /* AVRoutePickerView+Extension.swift in Sources */,
 				9ACB45D52812B9BF00FAF44E /* AmplitudeView.swift in Sources */,

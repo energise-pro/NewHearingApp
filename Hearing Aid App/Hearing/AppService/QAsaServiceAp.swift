@@ -47,21 +47,43 @@ final class QAsaServiceAp {
         }
     }
     
+    func initializeJaklinSDK() {
+        OtterScale.shared.initialize(host: CAppConstants.General.otterScaleHost, apiKey: CAppConstants.General.otterScaleApiKey)
+    }
+    
+//    func sendAppleAttribution() {
+//        guard !UserDefaults.standard.bool(forKey: CAppConstants.Keys.needsSkipSearchAdsTracking) else { return }
+//        
+//        if #available(iOS 14.3, *) {
+//            DispatchQueue.global(qos: .default).async { [weak self] in
+//                if let token = try? AAAttribution.attributionToken() {
+//                    DispatchQueue.main.async {
+//                        Apphud.addAttribution(data: nil, from: .appleAdsAttribution, identifer: token, callback: nil)
+//                    }
+//                    self?.sendASAInfo(with: ["token_info": token])
+//                } else {
+//                    self?.sendASAInfo()
+//                }
+//            }
+//        } 
+//    }
+    
     func sendAppleAttribution() {
-        guard !UserDefaults.standard.bool(forKey: CAppConstants.Keys.needsSkipSearchAdsTracking) else { return }
-        
         if #available(iOS 14.3, *) {
-            DispatchQueue.global(qos: .default).async { [weak self] in
-                if let token = try? AAAttribution.attributionToken() {
-                    DispatchQueue.main.async {
-                        Apphud.addAttribution(data: nil, from: .appleAdsAttribution, identifer: token, callback: nil)
-                    }
-                    self?.sendASAInfo(with: ["token_info": token])
-                } else {
-                    self?.sendASAInfo()
+            Task {
+                do {
+                    let asaToken = try AAAttribution.attributionToken()
+                    Apphud.addAttribution(data: nil, from: .appleAdsAttribution, identifer: asaToken, callback: nil)
+                    Amplitude.instance().setUserProperties(["did_asa_Token": asaToken])
+                    let isAttributed = !asaToken.isEmpty
+                    let userTrafficType = isAttributed ? "attributed" : "organic"
+                    Amplitude.instance().setUserProperties(["did_asa_att": userTrafficType])
+                } catch {
+                    let errorType = "asa_token_error"
+                    Amplitude.instance().setUserProperties(["did_asa_att": errorType])
                 }
             }
-        } 
+        }
     }
     
     // MARK: - Private methods
