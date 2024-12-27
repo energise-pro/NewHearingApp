@@ -24,9 +24,8 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="allowMicrophoneUsageBackground" translatesAutoresizingMaskIntoConstraints="NO" id="0dM-3P-9Pl" userLabel="Background - UIImageView">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="allowMicrophoneUsageBackground" translatesAutoresizingMaskIntoConstraints="NO" id="0dM-3P-9Pl" userLabel="Background - UIImageView">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ga1-C9-DJf" userLabel="Close container - UIView">
                     <rect key="frame" x="16" y="61" width="36" height="36"/>
@@ -115,7 +114,10 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="H5T-xW-O69" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="1xo-Cz-Hfk"/>
+                <constraint firstItem="0dM-3P-9Pl" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="7dH-Ub-Pcz"/>
+                <constraint firstAttribute="trailing" secondItem="0dM-3P-9Pl" secondAttribute="trailing" id="DJj-g8-8O0"/>
                 <constraint firstAttribute="trailing" secondItem="H5T-xW-O69" secondAttribute="trailing" constant="16" id="Dmc-vo-sbU"/>
+                <constraint firstItem="0dM-3P-9Pl" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="G39-cb-and"/>
                 <constraint firstItem="H5T-xW-O69" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="HFi-cP-cH4"/>
                 <constraint firstItem="Ga1-C9-DJf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="LY6-rg-aSF"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="H5T-xW-O69" secondAttribute="bottom" constant="60" id="NAI-Qo-0NE"/>
@@ -123,6 +125,7 @@
                 <constraint firstItem="GNw-Jx-WyA" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="Rwl-fr-Af1"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ic0-mV-1bG" secondAttribute="trailing" constant="16" id="THV-OM-Sgc"/>
                 <constraint firstItem="GNw-Jx-WyA" firstAttribute="top" secondItem="ic0-mV-1bG" secondAttribute="bottom" constant="12" id="TX2-EE-baK"/>
+                <constraint firstAttribute="bottom" secondItem="0dM-3P-9Pl" secondAttribute="bottom" id="X08-xD-er6"/>
                 <constraint firstItem="ic0-mV-1bG" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="bXk-m6-Zfm"/>
                 <constraint firstItem="s28-fW-zbI" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="cZa-Vd-Ivj"/>
                 <constraint firstItem="Ga1-C9-DJf" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="13" id="fFI-hm-wzm"/>
