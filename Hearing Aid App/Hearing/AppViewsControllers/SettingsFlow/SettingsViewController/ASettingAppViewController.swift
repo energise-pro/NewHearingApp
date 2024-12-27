@@ -100,7 +100,14 @@ final class ASettingAppViewController: PMUMainViewController {
         termsOfUseCellModel.cellId = SettingAppViewControllerCellId.termsOfUseCell.rawValue
         let termsOfUseCellConfig = NewSettingTableViewCellConfig(item: termsOfUseCellModel, height: 44.0)
         
-        firstSectionDataSource = [rateAppCellConfig, emptyCellConfig, shareAppCellConfig, betweenSectionCellConfig]
+        var firstSectionDataSourceObjects: [CellConfigurator] = [rateAppCellConfig, emptyCellConfig, shareAppCellConfig, betweenSectionCellConfig]
+        if TInAppService.shared.isPremium {
+            let emptyCellModel = NewSettingTableViewEmptyCellModel()
+            let emptyCellConfig = NewSettingTableViewEmptyCellConfig(item: emptyCellModel, height: 36.0)
+            firstSectionDataSourceObjects.insert(emptyCellConfig, at: 0)
+        }
+        
+        firstSectionDataSource = firstSectionDataSourceObjects
         secondSectionDataSource = [hapticCellConfig, emptyCellConfig, restorePurchasesCellConfig, emptyCellConfig, supportCellConfig, emptyCellConfig, submitCompliantCellConfig, emptyCellConfig, privacyPolicyCellConfig, emptyCellConfig, termsOfUseCellConfig]
         dataSource = firstSectionDataSource + secondSectionDataSource
         tableView.reloadData()
