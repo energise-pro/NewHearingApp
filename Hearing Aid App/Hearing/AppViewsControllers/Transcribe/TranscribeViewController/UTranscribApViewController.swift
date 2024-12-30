@@ -361,7 +361,7 @@ final class UTranscribApViewController: PMUMainViewController {
             }
             
             CTranscribServicesAp.shared.requestRecognitionPermission { [weak self] isAllowed in
-                isAllowed ? self?.changeTranscribeState(isSaveRecognitionText: true) : AppsNavManager.shared.presentSReqVoiceRecordApViewController()
+                isAllowed ? self?.changeTranscribeState(isSaveRecognitionText: true) : AppsNavManager.shared.presentSReqVoiceRecordApViewController(with: .transcribe)
             }
         case .flip:
             TapticEngine.impact.feedback(.medium)

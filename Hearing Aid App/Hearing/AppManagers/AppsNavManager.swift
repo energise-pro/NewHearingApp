@@ -167,8 +167,8 @@ final class AppsNavManager: NSObject {
         topViewController?.present(activityViewController, animated: true)
     }
     
-    func presentSReqVoiceRecordApViewController() {
-        let SReqVoiceRecordApViewController: SReqVoiceRecordApViewController = SReqVoiceRecordApViewController()
+    func presentSReqVoiceRecordApViewController(with openScreenType: OpenScreenType) {
+        let SReqVoiceRecordApViewController: SReqVoiceRecordApViewController = SReqVoiceRecordApViewController(with: openScreenType)
         SReqVoiceRecordApViewController.modalPresentationStyle = .fullScreen
         SReqVoiceRecordApViewController.modalTransitionStyle = .crossDissolve
         topViewController?.present(SReqVoiceRecordApViewController, animated: true)

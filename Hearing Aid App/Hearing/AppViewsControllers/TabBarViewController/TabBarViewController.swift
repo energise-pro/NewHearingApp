@@ -116,6 +116,22 @@ final class TabBarViewController: PMUMainViewController {
         configureUI()
     }
     
+    func selectTab(with index: Int) {
+        TapticEngine.impact.feedback(.heavy)
+        updateMainView(with: index)
+        KAppConfigServic.shared.analytics.track(.mainScreenOpened, with: [
+            "type" : tabBarButtons[index].analyticAction.rawValue,
+            "hearing_status" : SAudioKitServicesAp.shared.isStartedMixer ? "activated" : "deativated"
+        ])
+    }
+    
+    func currentSelectedNavigationController() -> UIViewController? {
+        if let currentTabIndex = currentTabIndex {
+            return navigationControllers[currentTabIndex].children.first
+        }
+        return nil
+    }
+    
     // MARK: - Action methods
     @IBAction private func didTapOnTabBarButton(_ sender: UIButton) {
         TapticEngine.impact.feedback(.heavy)

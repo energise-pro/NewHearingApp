@@ -386,7 +386,7 @@ final class JTranslatApViewController: PMUMainViewController {
             }
             
             CTranscribServicesAp.shared.requestRecognitionPermission { [weak self] isAllowed in
-                isAllowed ? self?.changeTranscribeState(isSaveRecognitionText: true): AppsNavManager.shared.presentSReqVoiceRecordApViewController()
+                isAllowed ? self?.changeTranscribeState(isSaveRecognitionText: true): AppsNavManager.shared.presentSReqVoiceRecordApViewController(with: .translate)
             }
         case .textSetup:
             TapticEngine.impact.feedback(.medium)

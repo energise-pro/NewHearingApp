@@ -144,6 +144,7 @@
 		8619E5CD2D074A7C0044B624 /* AlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8619E5CB2D074A7C0044B624 /* AlertViewController.xib */; };
 		863F688E2D019E2600B34302 /* TranscriptsInstructionTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863F688D2D019E2600B34302 /* TranscriptsInstructionTextView.swift */; };
 		8640710A2D0B9484009A42FB /* PaywallCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864071092D0B9484009A42FB /* PaywallCarouselView.swift */; };
+		869080122D22B04A0047173F /* OpenScreenType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869080112D22B04A0047173F /* OpenScreenType.swift */; };
 		86DFB1F82CE4B1DE00CBD94F /* TooltipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DFB1F72CE4B1DE00CBD94F /* TooltipView.swift */; };
 		86DFB20B2CE670AD00CBD94F /* NewSettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DFB20A2CE670AD00CBD94F /* NewSettingTableViewCell.swift */; };
 		86DFB20D2CE671A600CBD94F /* NewSettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86DFB20C2CE671A600CBD94F /* NewSettingTableViewCell.xib */; };
@@ -483,6 +484,7 @@
 		8619E5CB2D074A7C0044B624 /* AlertViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertViewController.xib; sourceTree = "<group>"; };
 		863F688D2D019E2600B34302 /* TranscriptsInstructionTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptsInstructionTextView.swift; sourceTree = "<group>"; };
 		864071092D0B9484009A42FB /* PaywallCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallCarouselView.swift; sourceTree = "<group>"; };
+		869080112D22B04A0047173F /* OpenScreenType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenScreenType.swift; sourceTree = "<group>"; };
 		86DFB1F72CE4B1DE00CBD94F /* TooltipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TooltipView.swift; sourceTree = "<group>"; };
 		86DFB20A2CE670AD00CBD94F /* NewSettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSettingTableViewCell.swift; sourceTree = "<group>"; };
 		86DFB20C2CE671A600CBD94F /* NewSettingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewSettingTableViewCell.xib; sourceTree = "<group>"; };
@@ -1891,6 +1893,7 @@
 				A5BEDCE526F2967000CF1381 /* ВTypPwlScreen.swift */,
 				9AC37F6B2833E3A100F95E24 /* GTranscribTextParam.swift */,
 				86053B1F2CE20A82004BA772 /* NewOnboardingPagesModel.swift */,
+				869080112D22B04A0047173F /* OpenScreenType.swift */,
 			);
 			path = AppEnums;
 			sourceTree = "<group>";
@@ -2200,6 +2203,7 @@
 				9ADCA38627353DD900B8CE6B /* BFirebaseServices.swift in Sources */,
 				A5B2325626CC48080042AA7B /* LoggerApp.swift in Sources */,
 				9A42A9C326CEF81500496DC9 /* SKProductSubscriptionPeriod+Extensions.swift in Sources */,
+				869080122D22B04A0047173F /* OpenScreenType.swift in Sources */,
 				1111338D2CE797430012A6D5 /* HearingInstructionViewController.swift in Sources */,
 				9A60EDC7281A955C00112720 /* YLimitApViewController.swift in Sources */,
 				83AF2C76264D9CD100DB9909 /* RTextVFullScrViewController.swift in Sources */,

@@ -156,6 +156,12 @@ final class WSpeechApViewController: PMUMainViewController {
 //        }
     }
     
+    // MARK: - Public methods
+    func openViewController(with openScreenType: OpenScreenType) {
+        TapticEngine.impact.feedback(.medium)
+        openScreenType == .transcribe ? AppsNavManager.shared.presentUTranscribApViewController(and: self) : AppsNavManager.shared.presentJTranslatApViewController(with: self)
+    }
+    
     // MARK: - IBActions
     @IBAction private func bottomButtonsAction(_ sender: UIButton) {
         guard let buttonType = BottomButtonType(rawValue: sender.tag) else {

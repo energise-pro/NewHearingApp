@@ -28,6 +28,9 @@ struct CAppConstants {
         /// One Signal Screen names
         static let catchUpScreenName = "catch_up"
         static let paywallScreenName = "paywall"
+        /// OpenScreenType
+        static let needsShowTranscribeOrTranslateViewController = "needsShowTranscribeOrTranslateViewController"
+        static let showOpenScreenTypeViewController = "showOpenScreenTypeViewController"
     }
     
     struct Colors {

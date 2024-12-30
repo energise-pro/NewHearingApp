@@ -39,6 +39,23 @@ final class KAppConfigServic: NSObject, DIServicProtocols {
         asaServiceAp.initializeASATools()
         asaServiceAp.initializeJaklinSDK()
         asaServiceAp.sendAppleAttribution()
+        
+        // Add for HAD-58
+        if UserDefaults.standard.bool(forKey: CAppConstants.Keys.needsShowTranscribeOrTranslateViewController) {
+            UserDefaults.standard.setValue(false, forKey: CAppConstants.Keys.needsShowTranscribeOrTranslateViewController)
+            CTranscribServicesAp.shared.requestRecognitionPermission { isAllowed in
+                if isAllowed {
+                    AppsNavManager.shared.tabBarViewController?.selectTab(with: 1)
+                    if let currentSelectedVC = AppsNavManager.shared.tabBarViewController?.currentSelectedNavigationController() {
+                        if currentSelectedVC.isKind(of: WSpeechApViewController.self) {
+                            let selectedVC = currentSelectedVC as? WSpeechApViewController
+                            let openType = UserDefaults.standard.integer(forKey: CAppConstants.Keys.showOpenScreenTypeViewController)
+                            selectedVC?.openViewController(with: OpenScreenType(rawValue: openType) ?? .transcribe)
+                        }
+                    }
+                }
+            }
+        }
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {
