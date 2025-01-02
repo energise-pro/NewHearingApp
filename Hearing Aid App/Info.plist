@@ -65,14 +65,12 @@
 		<key>NSAllowsLocalNetworking</key>
 		<true/>
 	</dict>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>You will get zero benefits allowing this app to access your location. You should never see this alert. If you do alert technical support at artemsherbachuk@icloud.com</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Please allow microphone usage for hearing aid and speech recognition</string>
 	<key>NSSpeechRecognitionUsageDescription</key>
-	<string>Please allow access speech recognition</string>
+	<string>Allow access to Speech Recognition to convert spoken words into text, enabling users to see transcriptions of conversations in real-time for better communication and accessibility</string>
 	<key>NSUserTrackingUsageDescription</key>
-	<string>Dear User, we use your data only for analytics purpose. To improve the app and help you get better product. We don't share this data to any third party. Please allow permission. Thank you!</string>
+	<string>Dear User, we use your data only for analytics purpose. To improve the app and help you get better product. We don&apos;t share this data to any third party. Please allow permission. Thank you!</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UIBackgroundModes</key>
