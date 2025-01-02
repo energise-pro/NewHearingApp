@@ -122,7 +122,18 @@ final class JTranslatApViewController: PMUMainViewController {
         title = BTranslServicesNew.shared.localizedInputLanguage.capitalized + " - " + BTranslServicesNew.shared.localizedOutputLanguage.capitalized
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.appColor(.Purple100)!]
         let shareButtonItem = UIBarButtonItem(image: UIImage(named: "shareButtonIcon"), style: .plain, target: self, action: #selector(shareButtonAction))
-        navigationItem.leftBarButtonItem = shareButtonItem
+        
+        let switchButton = UIButton(type: .custom)
+        switchButton.setImage(UIImage(named: "arrowRotateIcon"), for: .normal)
+        switchButton.addTarget(self, action: #selector(switchButtonAction), for: .touchUpInside)
+        switchButton.frame = CGRect(x: 0, y: 0, width: 45, height: 45)
+        
+        let switchButtonItemView = UIView(frame: CGRect(x: 0, y: 0, width: 45, height: 45))
+        switchButtonItemView.bounds = switchButtonItemView.bounds.offsetBy(dx: 12, dy: 1)
+        switchButtonItemView.addSubview(switchButton)
+        let switchButtonItem = UIBarButtonItem(customView: switchButtonItemView)
+
+        navigationItem.leftBarButtonItems = [shareButtonItem, switchButtonItem]
         navigationController?.navigationBar.barTintColor = UIColor.appColor(.White100)!
         setupRightBarButton()
         
@@ -150,6 +161,10 @@ final class JTranslatApViewController: PMUMainViewController {
         placeholderLabels.forEach {
             $0.text = "Tap the Mic button below to get started".localized()
             $0.textColor = UIColor.appColor(.UnactiveButton_1)?.withAlphaComponent(0.5)
+        }
+        
+        navigationItem.leftBarButtonItems?.forEach {
+            $0.tintColor = UIColor.appColor(.Red100)
         }
         
         if !BTranslServicesNew.shared.translateFromText.isEmpty {
@@ -319,6 +334,15 @@ final class JTranslatApViewController: PMUMainViewController {
         KAppConfigServic.shared.analytics.track(action: .share, with: [
             "object" : GAppAnalyticActions.translate.rawValue
         ])
+    }
+    
+    @objc private func switchButtonAction() {
+        let inputLanguage = BTranslServicesNew.shared.inputLanguage
+        let outputLanguage = BTranslServicesNew.shared.outputLanguage
+        
+        BTranslServicesNew.shared.inputLanguage = outputLanguage
+        BTranslServicesNew.shared.outputLanguage = inputLanguage
+        title = BTranslServicesNew.shared.localizedInputLanguage.capitalized + " - " + BTranslServicesNew.shared.localizedOutputLanguage.capitalized
     }
     
     @objc private func clearButtonAction() {
