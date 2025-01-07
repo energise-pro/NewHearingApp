@@ -540,10 +540,10 @@ final class SHearinApViewController: PMUMainViewController {
     
     @IBAction func titleViewTapAction(_ sender: UITapGestureRecognizer) {
         TapticEngine.impact.feedback(.medium)
-        if !SAudioKitServicesAp.shared.connectedHeadphones {
-            AppsNavManager.shared.presentDHeadphsRemindApViewController(with: .sourceActivateBtn)
-            return
-        }
+//        if !SAudioKitServicesAp.shared.connectedHeadphones {
+//            AppsNavManager.shared.presentDHeadphsRemindApViewController(with: .sourceActivateBtn)
+//            return
+//        }
         routePickerView.present()
     }
 }
