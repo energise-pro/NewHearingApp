@@ -132,7 +132,9 @@ final class SHearinApViewController: PMUMainViewController {
         if !SAudioKitServicesAp.shared.isStartedMixer {
             showTooltip()
         }
-        waveContainerView.isHidden = !SAudioKitServicesAp.shared.isStartedMixer
+        if SAudioKitServicesAp.shared.recordPermission == .granted {
+            waveContainerView.isHidden = !SAudioKitServicesAp.shared.isStartedMixer
+        }
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
@@ -238,6 +240,9 @@ final class SHearinApViewController: PMUMainViewController {
                 self.configureWaveView()
             }
             self.mainSwitchImageView.image = SAudioKitServicesAp.shared.isStartedMixer ? CAppConstants.Images.powerOn : CAppConstants.Images.powerOff
+            if SAudioKitServicesAp.shared.recordPermission == .granted {
+                self.waveContainerView.isHidden = !SAudioKitServicesAp.shared.isStartedMixer
+            }
         }
         
         updateMainColors()
@@ -416,7 +421,9 @@ final class SHearinApViewController: PMUMainViewController {
         newState && SAudioKitServicesAp.shared.countOfUsingAid % 3 == 0 ? KAppConfigServic.shared.settings.presentAppRatingAlert() : Void()
         newState ? SAudioKitServicesAp.shared.increaseCountOfUsing(for: .aid) : Void()
         
-        waveContainerView.isHidden = !newState
+        if SAudioKitServicesAp.shared.recordPermission == .granted {
+            waveContainerView.isHidden = !newState
+        }
         
         let actionState = newState ? GAppAnalyticActions.hearingActivated : GAppAnalyticActions.hearingDeactivated
         KAppConfigServic.shared.analytics.track(action: actionState, with: [
