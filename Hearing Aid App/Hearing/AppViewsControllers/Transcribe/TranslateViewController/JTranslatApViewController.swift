@@ -340,8 +340,15 @@ final class JTranslatApViewController: PMUMainViewController {
         let inputLanguage = BTranslServicesNew.shared.inputLanguage
         let outputLanguage = BTranslServicesNew.shared.outputLanguage
         
+        let firstText = mainTextViews.first?.text
+        let lastText = mainTextViews.last?.text
+        
         BTranslServicesNew.shared.inputLanguage = outputLanguage
         BTranslServicesNew.shared.outputLanguage = inputLanguage
+        
+        mainTextViews.first?.text = lastText
+        mainTextViews.last?.text = firstText
+        
         title = BTranslServicesNew.shared.localizedInputLanguage.capitalized + " - " + BTranslServicesNew.shared.localizedOutputLanguage.capitalized
     }
     
