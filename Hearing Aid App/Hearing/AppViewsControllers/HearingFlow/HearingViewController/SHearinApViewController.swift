@@ -362,7 +362,7 @@ final class SHearinApViewController: PMUMainViewController {
     }
     
     private func updateHeadphonesTitleLabel() {
-        headphonesTitleLabel.text = SAudioKitServicesAp.shared.connectedHeadphones ? (!SAudioKitServicesAp.shared.outputDeviceName.isEmpty ? SAudioKitServicesAp.shared.outputDeviceName : "Connect Headphones".localized()) : "Connect Headphones".localized()
+        headphonesTitleLabel.text = SAudioKitServicesAp.shared.connectedHeadphones ? SAudioKitServicesAp.shared.outputDeviceName : "Connect Headphones".localized()
     }
     
     @objc private func audioRouteChanged(notification: NSNotification) {
