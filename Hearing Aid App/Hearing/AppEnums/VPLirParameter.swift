@@ -48,7 +48,7 @@ enum TemplatesType: Int, CaseIterable {
     case mediumHall3
     case largeHall2
     
-    static var defaultTemplate = TemplatesType.largeRoom
+    static var defaultTemplate = TemplatesType.smallRoom
     
     static var selectedTemplate: TemplatesType {
         set {
