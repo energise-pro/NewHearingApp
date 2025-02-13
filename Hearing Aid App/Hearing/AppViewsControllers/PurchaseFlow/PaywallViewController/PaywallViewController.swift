@@ -81,7 +81,8 @@ final class PaywallViewController: UIViewController {
         
         localizedUI()
         
-        Timer.scheduledTimer(withTimeInterval: 5.0, repeats: false) { [weak self] _ in
+        let closeButtonTimeInterval = Int(truncating: KAppConfigServic.shared.remoteConfigValueFor(RemoteConfigKey.Xtime_HA_PT_2_pw_default_inapp_1.rawValue).numberValue)
+        Timer.scheduledTimer(withTimeInterval: TimeInterval(closeButtonTimeInterval), repeats: false) { [weak self] _ in
             UIView.animate(withDuration: 0.3) {
                 self?.closeButton.alpha = 1.0
             }

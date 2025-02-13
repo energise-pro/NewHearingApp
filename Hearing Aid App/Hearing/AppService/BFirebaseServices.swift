@@ -3,8 +3,14 @@ import Firebase
 import ApphudSDK
 import FirebaseRemoteConfig
 
+public enum RemoteConfigKey: String {
+    case Xtime_HA_PT_2_pw_default_ob_1 = "Xtime_HA_PT_2_pw_default_ob_1" // Затримка хрестика на пейволі з об (1 план)
+    case Xtime_HA_PT_2_pw_default_inapp_1 = "Xtime_HA_PT_2_pw_default_inapp_1" // Затримка хрестика на пейволі інапному
+    case Xtime_HA_PT_2_pw_special_inapp_1 = "Xtime_HA_PT_2_pw_special_inapp_1" // Затримка хретика на пейволі спешл
+}
+
 final class BFirebaseServices: DIServicProtocols {
-    private var remoteConfig: RemoteConfig!
+    public var remoteConfig: RemoteConfig!
     // MARK: - DIServicProtocols
     @MainActor
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
@@ -32,7 +38,11 @@ final class BFirebaseServices: DIServicProtocols {
                     if let error = error {
                         print("Activation error: \(error.localizedDescription)")
                     } else if activated {
-                        print("Config activated!")
+                        print("✅ Config activated!")
+                        
+                        print("❗ RemoteConfigValue: key - \(RemoteConfigKey.Xtime_HA_PT_2_pw_default_ob_1.rawValue), value - \(self.remoteConfig.configValue(forKey: RemoteConfigKey.Xtime_HA_PT_2_pw_default_ob_1.rawValue).numberValue)")
+                        print("❗ RemoteConfigValue: key - \(RemoteConfigKey.Xtime_HA_PT_2_pw_default_inapp_1.rawValue), value - \(self.remoteConfig.configValue(forKey: RemoteConfigKey.Xtime_HA_PT_2_pw_default_inapp_1.rawValue).numberValue)")
+                        print("❗ RemoteConfigValue: key - \(RemoteConfigKey.Xtime_HA_PT_2_pw_special_inapp_1.rawValue), value - \(self.remoteConfig.configValue(forKey: RemoteConfigKey.Xtime_HA_PT_2_pw_special_inapp_1.rawValue).numberValue)")
                     }
                 }
             } else {

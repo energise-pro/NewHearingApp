@@ -1,4 +1,5 @@
 import UIKit
+import FirebaseRemoteConfig
 
 final class KAppConfigServic: NSObject, DIServicProtocols {
     
@@ -89,4 +90,7 @@ final class KAppConfigServic: NSObject, DIServicProtocols {
         asaServiceAp.requestIDFA(completion: completion)
     }
     
+    func remoteConfigValueFor(_ key: String) -> RemoteConfigValue {
+        return firebaseServices.remoteConfig.configValue(forKey: key)
+    }
 }
