@@ -90,10 +90,11 @@ final class SHearinApViewController: PMUMainViewController {
     private var isConfiguredVolumeView: Bool = false
     private let systemVolumeView = MPVolumeView()
     private var balanceTimer: Timer?
-    private var volumeTimer: Timer?
+//    private var volumeTimer: Timer?
     private var tooltip: TooltipView?
     private var maxVolumeValue: CGFloat = 100.0
     private var volumeUpdateWorkItem: DispatchWorkItem?
+    private var volumeViewUpdateWorkItem: DispatchWorkItem?
     
     private var cachedSystemVolumeSlider: UISlider? {
         return systemVolumeView.subviews.compactMap({ $0 as? UISlider }).first
@@ -212,24 +213,31 @@ final class SHearinApViewController: PMUMainViewController {
                 return
             }
             let percentage = volume * (self?.maxVolumeValue ?? 100)
-//            if !TInAppService.shared.isPremium && percentage >= 100 {
-//                self?.volumePercentageValue = 100
-//                DispatchQueue.main.async {
-//                    self?.updateVolumeView(on: 100)
-//                }
-//                let topViewController = AppsNavManager.shared.topViewController
-//                if let paywallController = topViewController, paywallController.isKind(of: PaywallViewController.self) {
-//                    return
-//                }
-//                AppsNavManager.shared.presentPaywallViewController(with: .openFromHearing)
-//            } else {
-                self?.volumePercentageValue = percentage
-                DispatchQueue.main.async {
-                    self?.updateVolumeView(on: percentage)
-                }
-                
-                SAudioKitServicesAp.shared.changeVolume(on: volume)
-//            }
+            //            if !TInAppService.shared.isPremium && percentage >= 100 {
+            //                self?.volumePercentageValue = 100
+            //                DispatchQueue.main.async {
+            //                    self?.updateVolumeView(on: 100)
+            //                }
+            //                let topViewController = AppsNavManager.shared.topViewController
+            //                if let paywallController = topViewController, paywallController.isKind(of: PaywallViewController.self) {
+            //                    return
+            //                }
+            //                AppsNavManager.shared.presentPaywallViewController(with: .openFromHearing)
+            //            } else {
+            self?.volumePercentageValue = percentage
+            DispatchQueue.main.async {
+                self?.updateVolumeView(on: percentage)
+            }
+            
+            SAudioKitServicesAp.shared.changeVolume(on: volume)
+            
+            self?.volumeViewUpdateWorkItem?.cancel()
+            let newWorkItem = DispatchWorkItem { [weak self] in
+                self?.startMixerIfNeed()
+            }
+            self?.volumeViewUpdateWorkItem = newWorkItem
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.35, execute: newWorkItem)
+            //            }
         }
         
         SAudioKitServicesAp.shared.didInitialiseService = { [weak self] in
@@ -390,10 +398,18 @@ final class SHearinApViewController: PMUMainViewController {
         waveContainerView.addSubview(childView.view)
     }
     
-    // MARK: - IBActions
-    @IBAction private func mainButtonAction(_ sendner: UIButton) {
+    private func startMixerIfNeed() {
+        guard !SAudioKitServicesAp.shared.isStartedMixer else { return }
+        startMixer()
+    }
+    
+    private func startMixer() {
         guard SAudioKitServicesAp.shared.isStartedMixer || TInAppService.shared.isPremium || SAudioKitServicesAp.shared.countOfUsingAid < 2 else {
             TapticEngine.impact.feedback(.medium)
+            let topViewController = AppsNavManager.shared.topViewController
+            if let paywallController = topViewController, paywallController.isKind(of: PaywallViewController.self) {
+                return
+            }
             AppsNavManager.shared.presentPaywallViewController(with: .openFromHearing)
             return
         }
@@ -442,6 +458,11 @@ final class SHearinApViewController: PMUMainViewController {
         ])
     }
     
+    // MARK: - IBActions
+    @IBAction private func mainButtonAction(_ sendner: UIButton) {
+        startMixer()
+    }
+    
     @IBAction private func bottomButtonsAction(_ sender: UIButton) {
         guard let buttonType = BottomButtonTabType(rawValue: sender.tag) else {
             return
@@ -450,11 +471,12 @@ final class SHearinApViewController: PMUMainViewController {
         switch buttonType {
         case .proSetup:
             AppsNavManager.shared.presentErdSetupViewController(with: self)
-//            KAppConfigServic.shared.analytics.track(action: .v2HearingScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.proSetup.rawValue])
+            startMixerIfNeed()
         case .noiseOff:
             let newState = !SAudioKitServicesAp.shared.isNoiseOffEnabled
             SAudioKitServicesAp.shared.setNoiseOFF(newState)
             setBottomButton(.noiseOff, asSelected: newState)
+            startMixerIfNeed()
             
             let actionState = newState ? GAppAnalyticActions.homeOptionsActivated : GAppAnalyticActions.homeOptionsDeactivated
             KAppConfigServic.shared.analytics.track(action: actionState, with: [
@@ -464,6 +486,7 @@ final class SHearinApViewController: PMUMainViewController {
             let newState = !SAudioKitServicesAp.shared.isStereoEnabled
             SAudioKitServicesAp.shared.setStereo(newState)
             setBottomButton(.stereo, asSelected: newState)
+            startMixerIfNeed()
             
             let actionState = newState ? GAppAnalyticActions.homeOptionsActivated : GAppAnalyticActions.homeOptionsDeactivated
             KAppConfigServic.shared.analytics.track(action: actionState, with: [
@@ -471,7 +494,7 @@ final class SHearinApViewController: PMUMainViewController {
             ])
         case .templates:
             AppsNavManager.shared.presentQTemplateApViewController(with: self)
-//            KAppConfigServic.shared.analytics.track(action: .v2HearingScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.templates.rawValue])
+            startMixerIfNeed()
         }
     }
     
@@ -488,6 +511,7 @@ final class SHearinApViewController: PMUMainViewController {
         guard balanceCurrentValue != senderValue else {
             return
         }
+        startMixerIfNeed()
         TapticEngine.selection.feedback()
         balanceCurrentValue = senderValue
         updateSliderFillView(on: senderValue)
@@ -500,12 +524,12 @@ final class SHearinApViewController: PMUMainViewController {
     }
     
     @IBAction private func panGestureAction(_ sender: UIPanGestureRecognizer) {
-        func trackAnalytic() {
-            volumeTimer?.invalidate()
-            volumeTimer = Timer.scheduledTimer(withTimeInterval: GAppAnalyticActions.delaySliderInterval, repeats: false) { _ in
+//        func trackAnalytic() {
+//            volumeTimer?.invalidate()
+//            volumeTimer = Timer.scheduledTimer(withTimeInterval: GAppAnalyticActions.delaySliderInterval, repeats: false) { _ in
 //                KAppConfigServic.shared.analytics.track(action: .v2HearingScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.changeVolume.rawValue])
-            }
-        }
+//            }
+//        }
         
         let location = sender.location(in: volumeContainer)
         let percentage = maxVolumeValue - (location.y / volumeContainer.bounds.height) * maxVolumeValue
@@ -527,14 +551,19 @@ final class SHearinApViewController: PMUMainViewController {
             volumePercentageValue = percentage
             updateVolumeView(on: percentage)
             SAudioKitServicesAp.shared.changeVolume(on: percentage / maxVolumeValue)
-            trackAnalytic()
+//            trackAnalytic()
         } else if volumePercentageValue != 0 && volumePercentageValue != maxVolumeValue && volumePercentageValue != percentage {
             let newPercentage: Double = percentage > 50 ? maxVolumeValue : 0
             TapticEngine.selection.feedback()
             volumePercentageValue = newPercentage
             updateVolumeView(on: newPercentage)
             SAudioKitServicesAp.shared.changeVolume(on: newPercentage / maxVolumeValue)
-            trackAnalytic()
+//            trackAnalytic()
+        }
+        if sender.state == .ended {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+                self.startMixerIfNeed()
+            }
         }
     }
     
