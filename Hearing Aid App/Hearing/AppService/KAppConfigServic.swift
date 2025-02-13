@@ -7,6 +7,7 @@ final class KAppConfigServic: NSObject, DIServicProtocols {
     static let TAG = "KAppConfigServic"
     
     var analytics: FAppinAnalytica
+    var firebaseServices = BFirebaseServices()
     var settings: АHearAppSett
     var services: [DIServicProtocols]
     var supportedOrientations: UIInterfaceOrientationMask = .portrait
@@ -16,7 +17,7 @@ final class KAppConfigServic: NSObject, DIServicProtocols {
     // MARK: - Methods
     override init() {
         let TInAppService = TInAppService(apiKey: CAppConstants.General.appHudKey)
-        let services: [DIServicProtocols] = [TInAppService, BFirebaseServices(), HAmplitudeApService(apiKey: CAppConstants.General.amplitudeKey), SFbServices()]
+        let services: [DIServicProtocols] = [TInAppService, firebaseServices, HAmplitudeApService(apiKey: CAppConstants.General.amplitudeKey), SFbServices()]
         self.services = services
         
         let analyticsServices = services.compactMap { ($0 as? IAnalyticsService) }
