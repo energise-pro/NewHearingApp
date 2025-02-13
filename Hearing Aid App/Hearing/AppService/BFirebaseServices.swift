@@ -7,6 +7,15 @@ public enum RemoteConfigKey: String {
     case Xtime_HA_PT_2_pw_default_ob_1 = "Xtime_HA_PT_2_pw_default_ob_1" // Затримка хрестика на пейволі з об (1 план)
     case Xtime_HA_PT_2_pw_default_inapp_1 = "Xtime_HA_PT_2_pw_default_inapp_1" // Затримка хрестика на пейволі інапному
     case Xtime_HA_PT_2_pw_special_inapp_1 = "Xtime_HA_PT_2_pw_special_inapp_1" // Затримка хретика на пейволі спешл
+    case Paywall_visual_HA_PT_1_ob = "Paywall_visual_HA_PT_1_ob" // Який пейвол показувати після об
+}
+
+public struct RemoteConfigValues {
+    enum Paywall: String {
+        case pw_default_ob_1 = "pw_default_ob_1"
+        case pw_default_inapp_1 = "pw_default_inapp_1"
+        case pw_special_inapp_1 = "pw_special_inapp_1"
+    }
 }
 
 final class BFirebaseServices: DIServicProtocols {
@@ -43,6 +52,7 @@ final class BFirebaseServices: DIServicProtocols {
                         print("❗ RemoteConfigValue: key - \(RemoteConfigKey.Xtime_HA_PT_2_pw_default_ob_1.rawValue), value - \(self.remoteConfig.configValue(forKey: RemoteConfigKey.Xtime_HA_PT_2_pw_default_ob_1.rawValue).numberValue)")
                         print("❗ RemoteConfigValue: key - \(RemoteConfigKey.Xtime_HA_PT_2_pw_default_inapp_1.rawValue), value - \(self.remoteConfig.configValue(forKey: RemoteConfigKey.Xtime_HA_PT_2_pw_default_inapp_1.rawValue).numberValue)")
                         print("❗ RemoteConfigValue: key - \(RemoteConfigKey.Xtime_HA_PT_2_pw_special_inapp_1.rawValue), value - \(self.remoteConfig.configValue(forKey: RemoteConfigKey.Xtime_HA_PT_2_pw_special_inapp_1.rawValue).numberValue)")
+                        print("❗ RemoteConfigValue: key - \(RemoteConfigKey.Paywall_visual_HA_PT_1_ob.rawValue), value - \(self.remoteConfig.configValue(forKey: RemoteConfigKey.Paywall_visual_HA_PT_1_ob.rawValue).stringValue ?? "Empty value")")
                     }
                 }
             } else {

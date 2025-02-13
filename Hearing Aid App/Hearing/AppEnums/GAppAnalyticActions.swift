@@ -69,6 +69,7 @@ enum GAppAnalyticActions: String {
     case openFromAppStore = "open_from_app_store"
     case openFromNotification = "open_from_notification"
     case openFromDeeplink = "open_from_deeplink"
+    case openAfterOnboarding = "open_after_onboarding"
     
     // Additional actions
     case trial = "trial"
