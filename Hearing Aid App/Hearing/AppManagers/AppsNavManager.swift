@@ -82,6 +82,24 @@ final class AppsNavManager: NSObject {
         specialOfferViewController.modalPresentationStyle = .fullScreen
         topViewController?.present(specialOfferViewController, animated: true)
     }
+    
+    @MainActor
+    func presentSpecialOffer(_ after: Double?, with openAction: GAppAnalyticActions) {
+        guard (topViewController is SpecialOfferViewController) == false, !TInAppService.shared.isPremium else {
+            return
+        }
+        if let after = after {
+            DispatchQueue.main.asyncAfter(deadline: .now() + TimeInterval(after)) { [weak self] in
+                let specialOfferViewController = SpecialOfferViewController(openAction: openAction)
+                specialOfferViewController.modalPresentationStyle = .fullScreen
+                self?.topViewController?.present(specialOfferViewController, animated: true)
+            }
+        } else {
+            let specialOfferViewController = SpecialOfferViewController(openAction: openAction)
+            specialOfferViewController.modalPresentationStyle = .fullScreen
+            self.topViewController?.present(specialOfferViewController, animated: true)
+        }
+    }
 
     func presentDHeadphsRemindApViewControllerIfNeeded(_ animated: Bool = true, with openAction: GAppAnalyticActions, completion: AppsNavManagerCompletion?) {
         guard !SAudioKitServicesAp.shared.connectedHeadphones else {

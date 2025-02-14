@@ -81,7 +81,7 @@ class SpecialOfferViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        UserDefaults.standard.setValue(true, forKey: CAppConstants.Keys.wasPresentedCatchUp)
+//        UserDefaults.standard.setValue(true, forKey: CAppConstants.Keys.wasPresentedCatchUp)
         EApphudServiceAp.shared.paywallShown()
         configureUI()
         configureCountdownTimer()

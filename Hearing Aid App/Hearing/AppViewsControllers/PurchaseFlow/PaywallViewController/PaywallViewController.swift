@@ -36,6 +36,9 @@ final class PaywallViewController: UIViewController {
     private var openAction: GAppAnalyticActions
     private var selectedPlan: ShopItem?
     
+    @InAppStorage(key: "isFirstInAppShowedSpecialOffer", defaultValue: false)
+    var isFirstInAppShowedSpecialOffer: Bool
+    
     //MARK: - Init
     init(typeScreen: ВTypPwlScreen, openAction: GAppAnalyticActions) {
         self.typeScreen = typeScreen
@@ -287,7 +290,10 @@ final class PaywallViewController: UIViewController {
             "pwl_version" : "pw_default_inapp_1",
             "offer" : "plc"
         ])
-        typeScreen == .trial ? AppsNavManager.shared.presentCatchUpAfter(60.0, with: openAction) : Void()
+        if openAction != .openAfterOnboarding && !isFirstInAppShowedSpecialOffer {
+            isFirstInAppShowedSpecialOffer = true
+            AppsNavManager.shared.presentSpecialOffer(1.0, with: openAction)
+        }
         closePaywall()
     }
     
