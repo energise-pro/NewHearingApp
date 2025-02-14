@@ -102,6 +102,30 @@ public extension SKProduct {
         
         return "\(numberOfUnits) \(period)"
     }
+    
+    var regulatDuration: String {
+        guard let units = subscriptionPeriod?.numberOfUnits else {
+            return ""
+        }
+        
+        var period: String = ""
+        switch self.subscriptionPeriod?.unit {
+        case .day:
+            if units == 7 {
+                period = "week"
+            }
+        case .week: period = "week"
+        case .month: period = "month"
+        case .year: period = "year"
+            default: period = ""
+        }
+        
+        return "\(period)"
+    }
+    
+    var isLifetimePurchase: Bool {
+        return subscriptionPeriod == nil
+    }
 }
 
 extension ApphudPurchaseResult {

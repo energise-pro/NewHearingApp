@@ -25,10 +25,7 @@ final class TInAppService: NSObject, DIServicProtocols {
     @MainActor
     var isPremium: Bool {
 //        return true
-        let subscriptions = Apphud.subscriptions() ?? []
-
-        let purchases = Apphud.nonRenewingPurchases() ?? []
-        return subscriptions.contains { $0.isActive() == true } || purchases.contains { $0.productId == CAppConstants.Keys.lifetimeSubscriptionId }
+        return Apphud.hasPremiumAccess()
     }
     
     var wasUsedTrial: Bool {
@@ -102,6 +99,17 @@ final class TInAppService: NSObject, DIServicProtocols {
 //                }
 //            }
 //        }
+    }
+    
+    @MainActor
+    func fetchProducts(with placementIdentifier: String, and completion: PurchasesServiceProductCompletion?) {
+        Apphud.fetchPlacements { placements, error in
+            if let placement = placements.first(where: { $0.identifier == placementIdentifier }), let paywall = placement.paywall  {
+                let products = paywall.products
+                Apphud.paywallShown(paywall)
+                completion?(products)
+            }
+        }
     }
     
     @MainActor

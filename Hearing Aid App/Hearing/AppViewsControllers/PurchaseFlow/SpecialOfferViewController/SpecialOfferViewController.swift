@@ -48,21 +48,22 @@ class SpecialOfferViewController: UIViewController {
     private var subscriptionItems: [ShopItem] = []
     private var selectedPlan: ShopItem?
     private var countdownTimer: Timer?
-    private var expirationDate: Date? {
-        get {
-            if let timestamp = UserDefaults.standard.object(forKey: "specialOfferExpirationDate") as? TimeInterval {
-                return Date(timeIntervalSince1970: timestamp)
-            }
-            return nil
-        }
-        set {
-            if let newValue = newValue {
-                UserDefaults.standard.set(newValue.timeIntervalSince1970, forKey: "specialOfferExpirationDate")
-            } else {
-                UserDefaults.standard.removeObject(forKey: "specialOfferExpirationDate")
-            }
-        }
-    }
+    private var expirationDate: Date?
+//    private var expirationDate: Date? {
+//        get {
+//            if let timestamp = UserDefaults.standard.object(forKey: "specialOfferExpirationDate") as? TimeInterval {
+//                return Date(timeIntervalSince1970: timestamp)
+//            }
+//            return nil
+//        }
+//        set {
+//            if let newValue = newValue {
+//                UserDefaults.standard.set(newValue.timeIntervalSince1970, forKey: "specialOfferExpirationDate")
+//            } else {
+//                UserDefaults.standard.removeObject(forKey: "specialOfferExpirationDate")
+//            }
+//        }
+//    }
     
     //MARK: - Init
     init(openAction: GAppAnalyticActions) {
@@ -133,10 +134,7 @@ class SpecialOfferViewController: UIViewController {
     }
     
     private func configureCountdownTimer() {
-        if expirationDate == nil {
-            let newExpirationDate = Date().addingTimeInterval(120) // 2 minutes - 60 * 2
-            expirationDate = newExpirationDate
-        }
+        expirationDate = Date().addingTimeInterval(120) // 2 minutes - 60 * 2
         
         countdownTimer?.invalidate()
         countdownTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateCountdownTimer), userInfo: nil, repeats: true)
@@ -179,17 +177,17 @@ class SpecialOfferViewController: UIViewController {
     }
     
     private func localizedUI() {
-        purchaseButtonLabel.text = "Try Free & Subscribe".localized()
         mostPopularLabel.text = "Most popular".localized()
-        titleYearlyButtonLabel.text = "3 Days Free".localized()
-        titleWeeklyButtonLabel.text = "1 Week".localized()
+//        titleYearlyButtonLabel.text = "3 Days Free".localized()
+//        titleWeeklyButtonLabel.text = "1 Week".localized()
         privacyButton.setTitle("Privacy Policy".localized(), for: .normal)
         termsButton.setTitle("Terms of Use".localized(), for: .normal)
         restoreButton.setTitle("Restore".localized(), for: .normal)
     }
     
     private func loadSubscriptionPlans() {
-        TInAppService.shared.fetchProducts(with: .offer) { [weak self] items in
+        let placementIdentifier = KAppConfigServic.shared.remoteConfigValueFor(RemoteConfigKey.Price_HA_PT_2_pw_special_inapp_1.rawValue).stringValue ?? "plc"
+        TInAppService.shared.fetchProducts(with: placementIdentifier) { [weak self] items in
             guard let self = self, let items = items, !items.isEmpty else { return }
             self.subscriptionItems = items //EApphudServiceAp.shared.experimentProducts
             DispatchQueue.main.async {
@@ -199,8 +197,8 @@ class SpecialOfferViewController: UIViewController {
     }
     
     private func configureUIAfterSubscriptionsLoading() {
-        guard let lifetimeSubscriptionPlan = subscriptionItems.first(where: { $0.productId == CAppConstants.Keys.lifetimeSubscriptionId }),
-              let weeklySubscriptionPlan = subscriptionItems.first(where: { $0.productId == CAppConstants.Keys.weeklyNoTrialSubscriptionId }) else {
+        guard let lifetimeSubscriptionPlan = subscriptionItems.first(where: {$0.skProduct?.isLifetimePurchase == true}),
+              let weeklySubscriptionPlan = subscriptionItems.first(where: {$0.skProduct?.regulatDuration == "week"}) else {
             return
         }
         
@@ -208,9 +206,11 @@ class SpecialOfferViewController: UIViewController {
         if let daysFree = daysFree, !daysFree.isEmpty {
             titleYearlyButtonLabel.text = daysFree + " " + "free".localized()
             priceYearlyButtonLabel.text = "Then %@/lifetime".localized(with: [lifetimeSubscriptionPlan.skProduct?.regularPrice ?? ""])
+            purchaseButtonLabel.text = "Try Free & Subscribe".localized()
         } else {
             titleYearlyButtonLabel.text = "Lifetime".localized()
             priceYearlyButtonLabel.text = lifetimeSubscriptionPlan.skProduct?.regularPrice
+            purchaseButtonLabel.text = "Continue".localized()
         }
         
         titleWeeklyButtonLabel.text = weeklySubscriptionPlan.skProduct?.duration(for: .regular) ?? "1 Week".localized()
@@ -303,11 +303,10 @@ class SpecialOfferViewController: UIViewController {
     }
     
     @IBAction private func weeklySubscribeButtonAction(_ sender: UIButton) {
-        guard let subscriptionPlan = subscriptionItems.first(where: { $0.productId == CAppConstants.Keys.weeklyNoTrialSubscriptionId }) else {
+        guard let subscriptionPlan = subscriptionItems.first(where: {$0.skProduct?.regulatDuration == "week"}) else {
             return
         }
         selectedPlan = subscriptionPlan
-//        KAppConfigServic.shared.analytics.track(.v2Paywall, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.purchase.rawValue)_\(subscriptionPlan.productId)"])
         
         selectProductView(containerButtonWeekly)
         unselectProductView(containerButtonYearly)
@@ -317,22 +316,25 @@ class SpecialOfferViewController: UIViewController {
     }
     
     @IBAction private func yearlySubscribeButtonAction(_ sender: UIButton) {
-        guard let subscriptionPlan = subscriptionItems.first(where: { $0.productId == CAppConstants.Keys.lifetimeSubscriptionId }) else {
+        guard let subscriptionPlan = subscriptionItems.first(where: {$0.skProduct?.isLifetimePurchase == true}) else {
             return
         }
         selectedPlan = subscriptionPlan
-//        KAppConfigServic.shared.analytics.track(.v2Paywall, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.purchase.rawValue)_\(subscriptionPlan.productId)"])
         
         selectProductView(containerButtonYearly)
         unselectProductView(containerButtonWeekly)
+        var purchaseButtonTitle = "Continue".localized()
+        let daysFree = selectedPlan?.skProduct?.duration(for: .trial)
+        if let daysFree = daysFree, !daysFree.isEmpty {
+            purchaseButtonTitle = "Try Free & Subscribe".localized()
+        }
         UIView.transition(with: purchaseButtonLabel, duration: 0.3, options: .transitionCrossDissolve, animations: {
-            self.purchaseButtonLabel.text = "Continue".localized()
+            self.purchaseButtonLabel.text = purchaseButtonTitle
         }, completion: nil)
     }
     
     @IBAction private func restoreButtonAction(_ sender: UIButton) {
         TapticEngine.impact.feedback(.medium)
-//        KAppConfigServic.shared.analytics.track(.v2Paywall, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.restore.rawValue])
         HAppLoaderView.showLoader(at: view, animated: true)
         TInAppService.shared.restorePurchases { [weak self] isSuccess in
             guard let self = self else {
@@ -351,13 +353,11 @@ class SpecialOfferViewController: UIViewController {
     
     @IBAction private func privacyButtonAction(_ sender: UIButton) {
         TapticEngine.impact.feedback(.medium)
-//        KAppConfigServic.shared.analytics.track(.v2Paywall, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.privacy.rawValue])
         AppsNavManager.shared.presentSafariViewController(with: CAppConstants.URLs.privacyPolicyURL)
     }
     
     @IBAction private func termsButtonAction(_ sender: UIButton) {
         TapticEngine.impact.feedback(.medium)
-//        KAppConfigServic.shared.analytics.track(.v2Paywall, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.terms.rawValue])
         AppsNavManager.shared.presentSafariViewController(with: CAppConstants.URLs.termsURL)
     }
     
@@ -373,7 +373,6 @@ class SpecialOfferViewController: UIViewController {
     
     @IBAction private func redeemPromocodeAction(_ sender: UIButton) {
         TapticEngine.impact.feedback(.medium)
-//        KAppConfigServic.shared.analytics.track(.v2Paywall, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.redeem.rawValue])
         TInAppService.shared.presentRedeemScreen()
     }
 }

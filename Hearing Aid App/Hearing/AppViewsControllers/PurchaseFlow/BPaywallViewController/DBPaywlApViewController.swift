@@ -52,12 +52,11 @@ final class DBPaywlApViewController: PMUMainViewController {
     
     private func localizedUI() {
         ["Privacy Policy".localized(), "Terms of Use".localized(), "Restore".localized(),].enumerated().forEach { bottomButtons[$0.offset].setTitle($0.element, for: .normal) }
-        purchaseButtonLabel.text = "Try Free & Subscribe".localized()
         headerTitle.text = "Get Unlimited Access".localized()
     }
     
     private func updateSelectedPlan() {
-        guard let yearlySubscriptionPlan = subscriptionItems.first(where: { $0.productId == CAppConstants.Keys.yearlyWithTrialSubscriptionId }) else {
+        guard let yearlySubscriptionPlan = subscriptionItems.first(where: {$0.skProduct?.regulatDuration == "year"}) else {
             return
         }
         
@@ -66,20 +65,23 @@ final class DBPaywlApViewController: PMUMainViewController {
             trialTitle.text = daysFree + " " + "free".localized()
             let weeklyPriceForYearlyPlan = ((yearlySubscriptionPlan.skProduct?.price.doubleValue ?? 1.0) / 52.0).rounded(toPlaces: 2)
             trialDescription.text = "Then %@/year (only %@/week)".localized(with: [yearlySubscriptionPlan.skProduct?.regularPrice ?? "", yearlySubscriptionPlan.skProduct?.regularPrice(for: weeklyPriceForYearlyPlan) ?? ""])
+            purchaseButtonLabel.text = "Try Free & Subscribe".localized()
         } else {
-            trialTitle.text = "1 Year".localized()
+            trialTitle.text = yearlySubscriptionPlan.skProduct?.duration(for: .regular) ?? "1 Year".localized()
             trialDescription.text = yearlySubscriptionPlan.skProduct?.regularPrice
+            purchaseButtonLabel.text = "Continue".localized()
         }
         
         selectedPlan = yearlySubscriptionPlan
     }
     
     private func loadSubscriptionPlans() {
+        let placementIdentifier = KAppConfigServic.shared.remoteConfigValueFor(RemoteConfigKey.Price_HA_PT_2_pw_default_ob_1.rawValue).stringValue ?? "plc"
         isLoading = true
-        TInAppService.shared.fetchProducts(with: .subscriptions) { [weak self] items in
+        TInAppService.shared.fetchProducts(with: placementIdentifier) { [weak self] items in
             guard let self = self, let items = items, !items.isEmpty else { return }
             self.isLoading = false
-            self.subscriptionItems = items //EApphudServiceAp.shared.experimentProducts
+            self.subscriptionItems = items
             self.updateSelectedPlan()
         }
     }

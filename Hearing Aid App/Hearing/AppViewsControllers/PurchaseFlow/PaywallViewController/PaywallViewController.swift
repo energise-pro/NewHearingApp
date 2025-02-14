@@ -98,7 +98,6 @@ final class PaywallViewController: UIViewController {
     }
     
     private func localizedUI() {
-        purchaseButtonLabel.text = "Try Free & Subscribe".localized()
         mostPopularLabel.text = "Most popular".localized()
         titleYearlyButtonLabel.text = "3 Days Free".localized()
         titleWeeklyButtonLabel.text = "1 Week".localized()
@@ -110,7 +109,8 @@ final class PaywallViewController: UIViewController {
     }
     
     private func loadSubscriptionPlans() {
-        TInAppService.shared.fetchProducts(with: .subscriptions) { [weak self] items in
+        let placementIdentifier = KAppConfigServic.shared.remoteConfigValueFor(RemoteConfigKey.Price_HA_PT_2_pw_default_inapp_1.rawValue).stringValue ?? "plc"
+        TInAppService.shared.fetchProducts(with: placementIdentifier) { [weak self] items in
             guard let self = self, let items = items, !items.isEmpty else { return }
             self.subscriptionItems = items //EApphudServiceAp.shared.experimentProducts
             DispatchQueue.main.async {
@@ -120,8 +120,8 @@ final class PaywallViewController: UIViewController {
     }
     
     private func configureUIAfterSubscriptionsLoading() {
-        guard let yearlySubscriptionPlan = subscriptionItems.first(where: { $0.productId == CAppConstants.Keys.yearlyWithTrialSubscriptionId }),
-              let weeklySubscriptionPlan = subscriptionItems.first(where: { $0.productId == CAppConstants.Keys.weeklyNoTrialSubscriptionId }) else {
+        guard let yearlySubscriptionPlan = subscriptionItems.first(where: {$0.skProduct?.regulatDuration == "year"}),
+              let weeklySubscriptionPlan = subscriptionItems.first(where: {$0.skProduct?.regulatDuration == "week"}) else {
             return
         }
         
@@ -130,9 +130,11 @@ final class PaywallViewController: UIViewController {
             titleYearlyButtonLabel.text = daysFree + " " + "free".localized()
             let weeklyPriceForYearlyPlan = ((yearlySubscriptionPlan.skProduct?.price.doubleValue ?? 1.0) / 52.0).rounded(toPlaces: 2)
             priceYearlyButtonLabel.text = "Then %@/year (only %@/week)".localized(with: [yearlySubscriptionPlan.skProduct?.regularPrice ?? "", yearlySubscriptionPlan.skProduct?.regularPrice(for:weeklyPriceForYearlyPlan) ?? ""])
+            purchaseButtonLabel.text = "Try Free & Subscribe".localized()
         } else {
-            titleYearlyButtonLabel.text = "1 Year".localized()
+            titleYearlyButtonLabel.text = yearlySubscriptionPlan.skProduct?.duration(for: .regular) ?? "1 Year".localized()
             priceYearlyButtonLabel.text = yearlySubscriptionPlan.skProduct?.regularPrice
+            purchaseButtonLabel.text = "Continue".localized()
         }
         
         titleWeeklyButtonLabel.text = weeklySubscriptionPlan.skProduct?.duration(for: .regular) ?? "1 Week".localized()
@@ -225,11 +227,10 @@ final class PaywallViewController: UIViewController {
     }
     
     @IBAction private func weeklySubscribeButtonAction(_ sender: UIButton) {
-        guard let subscriptionPlan = subscriptionItems.first(where: { $0.productId == CAppConstants.Keys.weeklyNoTrialSubscriptionId }) else {
+        guard let subscriptionPlan = subscriptionItems.first(where: {$0.skProduct?.regulatDuration == "week"}) else {
             return
         }
         selectedPlan = subscriptionPlan
-//        KAppConfigServic.shared.analytics.track(.v2Paywall, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.purchase.rawValue)_\(subscriptionPlan.productId)"])
         
         selectProductView(containerButtonWeekly)
         unselectProductView(containerButtonYearly)
@@ -239,16 +240,21 @@ final class PaywallViewController: UIViewController {
     }
     
     @IBAction private func yearlySubscribeButtonAction(_ sender: UIButton) {
-        guard let subscriptionPlan = subscriptionItems.first(where: { $0.productId == CAppConstants.Keys.yearlyWithTrialSubscriptionId }) else {
+        guard let subscriptionPlan = subscriptionItems.first(where: {$0.skProduct?.regulatDuration == "year"}) else {
             return
         }
         selectedPlan = subscriptionPlan
-//        KAppConfigServic.shared.analytics.track(.v2Paywall, with: [GAppAnalyticActions.action.rawValue: "\(GAppAnalyticActions.purchase.rawValue)_\(subscriptionPlan.productId)"])
         
         selectProductView(containerButtonYearly)
         unselectProductView(containerButtonWeekly)
+        
+        var purchaseButtonTitle = "Continue".localized()
+        let daysFree = selectedPlan?.skProduct?.duration(for: .trial)
+        if let daysFree = daysFree, !daysFree.isEmpty {
+            purchaseButtonTitle = "Try Free & Subscribe".localized()
+        }
         UIView.transition(with: purchaseButtonLabel, duration: 0.3, options: .transitionCrossDissolve, animations: {
-            self.purchaseButtonLabel.text = "Try Free & Subscribe".localized()
+            self.purchaseButtonLabel.text = purchaseButtonTitle
         }, completion: nil)
     }
     
