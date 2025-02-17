@@ -49,6 +49,7 @@ class SpecialOfferViewController: UIViewController {
     private var selectedPlan: ShopItem?
     private var countdownTimer: Timer?
     private var expirationDate: Date?
+    private var analyticProperties: [String: String] = [:]
 //    private var expirationDate: Date? {
 //        get {
 //            if let timestamp = UserDefaults.standard.object(forKey: "specialOfferExpirationDate") as? TimeInterval {
@@ -126,11 +127,6 @@ class SpecialOfferViewController: UIViewController {
                 self?.closeButton.alpha = 1.0
             }
         }
-        KAppConfigServic.shared.analytics.track(.paywallSeen, with: [
-            GAppAnalyticActions.source.rawValue: openAction.rawValue,
-            "pwl_version" : "pw_special_inapp_1",
-            "offer" : "plc"
-        ])
     }
     
     private func configureCountdownTimer() {
@@ -194,6 +190,11 @@ class SpecialOfferViewController: UIViewController {
                 self.configureUIAfterSubscriptionsLoading()
             }
         }
+        
+        analyticProperties[GAppAnalyticActions.source.rawValue] = openAction.rawValue
+        analyticProperties["pwl_version"] = "pw_special_inapp_1"
+        analyticProperties["offer"] = placementIdentifier
+        KAppConfigServic.shared.analytics.track(.paywallSeen, with: analyticProperties)
     }
     
     private func configureUIAfterSubscriptionsLoading() {
@@ -220,11 +221,7 @@ class SpecialOfferViewController: UIViewController {
     }
 
     private func purchase(plan: ShopItem) {
-        KAppConfigServic.shared.analytics.track(.purchaseCheckout, with: [
-            GAppAnalyticActions.source.rawValue: openAction.rawValue,
-            "pwl_version" : "pw_special_inapp_1",
-            "offer" : "plc"
-        ])
+        KAppConfigServic.shared.analytics.track(.purchaseCheckout, with: analyticProperties)
         HAppLoaderView.showLoader(at: self.view, animated: true)
         TInAppService.shared.purchase(plan, from: .subscriptions) { [weak self] isSuccess in
             guard let self = self else {
@@ -232,11 +229,7 @@ class SpecialOfferViewController: UIViewController {
             }
             HAppLoaderView.hideLoader(for: self.view, animated: true)
             if isSuccess {
-                KAppConfigServic.shared.analytics.track(.purchaseActivate, with: [
-                    GAppAnalyticActions.source.rawValue: openAction.rawValue,
-                    "pwl_version" : "pw_special_inapp_1",
-                    "offer" : "plc"
-                ])
+                KAppConfigServic.shared.analytics.track(.purchaseActivate, with: analyticProperties)
                 DispatchQueue.main.async {
                     self.closePaywall()
                 }
@@ -363,11 +356,7 @@ class SpecialOfferViewController: UIViewController {
     
     @IBAction private func closeButton(_ sender: UIButton) {
         TapticEngine.impact.feedback(.heavy)
-        KAppConfigServic.shared.analytics.track(.paywallPassed, with: [
-            GAppAnalyticActions.source.rawValue: openAction.rawValue,
-            "pwl_version" : "pw_special_inapp_1",
-            "offer" : "plc"
-        ])
+        KAppConfigServic.shared.analytics.track(.paywallPassed, with: analyticProperties)
         closePaywall()
     }
     

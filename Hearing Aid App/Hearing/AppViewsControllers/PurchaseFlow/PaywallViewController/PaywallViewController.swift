@@ -35,6 +35,7 @@ final class PaywallViewController: UIViewController {
     private var subscriptionItems: [ShopItem] = []
     private var openAction: GAppAnalyticActions
     private var selectedPlan: ShopItem?
+    private var analyticProperties: [String: String] = [:]
     
     @InAppStorage(key: "isFirstInAppShowedSpecialOffer", defaultValue: false)
     var isFirstInAppShowedSpecialOffer: Bool
@@ -54,7 +55,6 @@ final class PaywallViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         EApphudServiceAp.shared.paywallShown()
-//        KAppConfigServic.shared.analytics.track(.v2Paywall, with: [GAppAnalyticActions.action.rawValue: openAction.rawValue])
         configureUI()
     }
     
@@ -90,11 +90,6 @@ final class PaywallViewController: UIViewController {
                 self?.closeButton.alpha = 1.0
             }
         }
-        KAppConfigServic.shared.analytics.track(.paywallSeen, with: [
-            GAppAnalyticActions.source.rawValue: openAction.rawValue,
-            "pwl_version" : "pw_default_inapp_1",
-            "offer" : "plc"
-        ])
     }
     
     private func localizedUI() {
@@ -105,18 +100,22 @@ final class PaywallViewController: UIViewController {
         privacyButton.setTitle("Privacy Policy".localized(), for: .normal)
         termsButton.setTitle("Terms of Use".localized(), for: .normal)
         restoreButton.setTitle("Restore".localized(), for: .normal)
-//        redeemPromocodeButton.setTitle("Redeem code", for: .normal)
     }
     
     private func loadSubscriptionPlans() {
         let placementIdentifier = KAppConfigServic.shared.remoteConfigValueFor(RemoteConfigKey.Price_HA_PT_2_pw_default_inapp_1.rawValue).stringValue ?? "plc"
         TInAppService.shared.fetchProducts(with: placementIdentifier) { [weak self] items in
             guard let self = self, let items = items, !items.isEmpty else { return }
-            self.subscriptionItems = items //EApphudServiceAp.shared.experimentProducts
+            self.subscriptionItems = items
             DispatchQueue.main.async {
                 self.configureUIAfterSubscriptionsLoading()
             }
         }
+        
+        analyticProperties[GAppAnalyticActions.source.rawValue] = openAction.rawValue
+        analyticProperties["pwl_version"] = "pw_default_inapp_1"
+        analyticProperties["offer"] = placementIdentifier
+        KAppConfigServic.shared.analytics.track(.paywallSeen, with: analyticProperties)
     }
     
     private func configureUIAfterSubscriptionsLoading() {
@@ -144,11 +143,7 @@ final class PaywallViewController: UIViewController {
     }
     
     private func purchase(plan: ShopItem) {
-        KAppConfigServic.shared.analytics.track(.purchaseCheckout, with: [
-            GAppAnalyticActions.source.rawValue: openAction.rawValue,
-            "pwl_version" : "pw_default_inapp_1",
-            "offer" : "plc"
-        ])
+        KAppConfigServic.shared.analytics.track(.purchaseCheckout, with: analyticProperties)
         HAppLoaderView.showLoader(at: self.view, animated: true)
         TInAppService.shared.purchase(plan, from: .subscriptions) { [weak self] isSuccess in
             guard let self = self else {
@@ -156,11 +151,7 @@ final class PaywallViewController: UIViewController {
             }
             HAppLoaderView.hideLoader(for: self.view, animated: true)
             if isSuccess {
-                KAppConfigServic.shared.analytics.track(.purchaseActivate, with: [
-                    GAppAnalyticActions.source.rawValue: openAction.rawValue,
-                    "pwl_version" : "pw_default_inapp_1",
-                    "offer" : "plc"
-                ])
+                KAppConfigServic.shared.analytics.track(.purchaseActivate, with: analyticProperties)
                 DispatchQueue.main.async {
                     self.closePaywall()
                 }
@@ -260,7 +251,6 @@ final class PaywallViewController: UIViewController {
     
     @IBAction private func restoreButtonAction(_ sender: UIButton) {
         TapticEngine.impact.feedback(.medium)
-//        KAppConfigServic.shared.analytics.track(.v2Paywall, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.restore.rawValue])
         HAppLoaderView.showLoader(at: view, animated: true)
         TInAppService.shared.restorePurchases { [weak self] isSuccess in
             guard let self = self else {
@@ -279,23 +269,17 @@ final class PaywallViewController: UIViewController {
     
     @IBAction private func privacyButtonAction(_ sender: UIButton) {
         TapticEngine.impact.feedback(.medium)
-//        KAppConfigServic.shared.analytics.track(.v2Paywall, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.privacy.rawValue])
         AppsNavManager.shared.presentSafariViewController(with: CAppConstants.URLs.privacyPolicyURL)
     }
     
     @IBAction private func termsButtonAction(_ sender: UIButton) {
         TapticEngine.impact.feedback(.medium)
-//        KAppConfigServic.shared.analytics.track(.v2Paywall, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.terms.rawValue])
         AppsNavManager.shared.presentSafariViewController(with: CAppConstants.URLs.termsURL)
     }
     
     @IBAction private func closeButton(_ sender: UIButton) {
         TapticEngine.impact.feedback(.heavy)
-        KAppConfigServic.shared.analytics.track(.paywallPassed, with: [
-            GAppAnalyticActions.source.rawValue: openAction.rawValue,
-            "pwl_version" : "pw_default_inapp_1",
-            "offer" : "plc"
-        ])
+        KAppConfigServic.shared.analytics.track(.paywallPassed, with: analyticProperties)
         if openAction != .openAfterOnboarding && !isFirstInAppShowedSpecialOffer {
             isFirstInAppShowedSpecialOffer = true
             AppsNavManager.shared.presentSpecialOffer(1.0, with: openAction)
@@ -305,7 +289,6 @@ final class PaywallViewController: UIViewController {
     
     @IBAction private func redeemPromocodeAction(_ sender: UIButton) {
         TapticEngine.impact.feedback(.medium)
-//        KAppConfigServic.shared.analytics.track(.v2Paywall, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.redeem.rawValue])
         TInAppService.shared.presentRedeemScreen()
     }
 }
