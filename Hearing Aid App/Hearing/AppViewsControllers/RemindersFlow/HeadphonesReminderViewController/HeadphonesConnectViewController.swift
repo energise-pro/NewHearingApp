@@ -95,6 +95,15 @@ final class HeadphonesConnectViewController: UIViewController {
         super.viewDidLoad()
         uiLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(audioRouteChanged(notification:)), name: AVAudioSession.routeChangeNotification, object: nil)
+        
+        var analyticsInfo: [String: Any] = [
+         "source": self.openAction,
+         "connect_status": SAudioKitServicesAp.shared.connectedHeadphones
+        ]
+        if !SAudioKitServicesAp.shared.outputDeviceName.isEmpty {
+            analyticsInfo["model"] = SAudioKitServicesAp.shared.outputDeviceName
+        }
+        KAppConfigServic.shared.analytics.track(action: GAppAnalyticActions.connectScreenOpened, with: analyticsInfo)
     }
     
     private func uiLoad() {
@@ -104,7 +113,7 @@ final class HeadphonesConnectViewController: UIViewController {
         topLabels.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
         topLabels.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         topLabels.textAlignment = .center
-        var paragraphStyle = NSMutableParagraphStyle()
+        let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineHeightMultiple = 1.18
         btmLabels.textAlignment = .center
         btmLabels.attributedText = NSMutableAttributedString(string: "Please connect your headphones \nto continue with the best hearing aid.".localized(), attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
@@ -174,21 +183,34 @@ final class HeadphonesConnectViewController: UIViewController {
     
     // MARK: - Actions
        @objc private func closeBtnTapped() {
-           print("Close button tapped")
+           var analyticsInfo: [String: Any] = [
+            "source": self.openAction,
+            "connect_status": SAudioKitServicesAp.shared.connectedHeadphones,
+            "btn": "close"
+           ]
+           if !SAudioKitServicesAp.shared.outputDeviceName.isEmpty {
+               analyticsInfo["model"] = SAudioKitServicesAp.shared.outputDeviceName
+           }
+           KAppConfigServic.shared.analytics.track(action: GAppAnalyticActions.connectScreenClosed, with: analyticsInfo)
            self.dismiss(animated: true, completion: nil)
        }
 
        @objc private func selectDeviceTapped() {
-           print("Select Device button tapped")
-//           KAppConfigServic.shared.analytics.track(.v2HeadphonesReminder, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.airPlay.rawValue])
            TapticEngine.impact.feedback(.medium)
            routePickerView.present()
        }
 
        @objc private func okBtnTapped() {
-           print("OK button tapped")
-//           KAppConfigServic.shared.analytics.track(.v2HeadphonesReminder, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.close.rawValue])
            TapticEngine.impact.feedback(.medium)
+           var analyticsInfo: [String: Any] = [
+            "source": self.openAction,
+            "connect_status": SAudioKitServicesAp.shared.connectedHeadphones,
+            "btn": "ok_gotit"
+           ]
+           if !SAudioKitServicesAp.shared.outputDeviceName.isEmpty {
+               analyticsInfo["model"] = SAudioKitServicesAp.shared.outputDeviceName
+           }
+           KAppConfigServic.shared.analytics.track(action: GAppAnalyticActions.connectScreenClosed, with: analyticsInfo)
            dismiss(animated: true)
        }
     //MARK: - Notification actions
@@ -202,6 +224,15 @@ final class HeadphonesConnectViewController: UIViewController {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [weak self] in
                 if SAudioKitServicesAp.shared.connectedHeadphones {
                     SAudioKitServicesAp.shared.setAudioEngine(true, with: self?.openAction ?? .sourceDefault)
+                    
+                    var analyticsInfo: [String: Any] = [
+                     "source": self?.openAction ?? .sourceDefault,
+                     "connect_status": SAudioKitServicesAp.shared.connectedHeadphones
+                    ]
+                    if !SAudioKitServicesAp.shared.outputDeviceName.isEmpty {
+                        analyticsInfo["model"] = SAudioKitServicesAp.shared.outputDeviceName
+                    }
+                    KAppConfigServic.shared.analytics.track(action: GAppAnalyticActions.connectScreenClosed, with: analyticsInfo)
                 }
                 self?.dismiss(animated: true)
             }

@@ -238,4 +238,7 @@ enum GAppAnalyticActions: String {
     case hearingMain = "hearing_main"
     case transcriptionMain = "transcription_main"
     case settingsMain = "settings_main"
+    
+    case connectScreenOpened = "connect_screen_opened"
+    case connectScreenClosed = "connect_screen_closed"
 }
