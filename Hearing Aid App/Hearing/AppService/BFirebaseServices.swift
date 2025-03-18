@@ -11,6 +11,10 @@ public enum RemoteConfigKey: String {
     case Price_HA_PT_2_pw_default_ob_1 = "Price_HA_PT_2_pw_default_ob_1" // Ціни на пейволі з об (1 план) через плейсменти апхуда
     case Price_HA_PT_2_pw_default_inapp_1 = "Price_HA_PT_2_pw_default_inapp_1" // Ціни на пейволі інапному через плейсменти апхуда
     case Price_HA_PT_2_pw_special_inapp_1 = "Price_HA_PT_2_pw_special_inapp_1" // Ціни на пейволі спешл через плейсменти апхуда
+    case Price_HA_PT_5_pw_inapp_monthly = "Price_HA_PT_5_pw_inapp_monthly"
+    case Price_HA_PT_5_pw_special_monthly = "Price_HA_PT_5_pw_special_monthly"
+    case Paywall_visual_inapp = "Paywall_visual_inapp"
+    case Paywall_visual_product_inapp = "Paywall_visual_product_inapp"
 }
 
 public struct RemoteConfigValues {

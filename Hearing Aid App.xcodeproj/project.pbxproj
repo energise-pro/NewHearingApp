@@ -145,6 +145,13 @@
 		863F688E2D019E2600B34302 /* TranscriptsInstructionTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863F688D2D019E2600B34302 /* TranscriptsInstructionTextView.swift */; };
 		8640710A2D0B9484009A42FB /* PaywallCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864071092D0B9484009A42FB /* PaywallCarouselView.swift */; };
 		869080122D22B04A0047173F /* OpenScreenType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869080112D22B04A0047173F /* OpenScreenType.swift */; };
+		86CB0FFD2D8433B6008360F5 /* PaywallYearMonthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB0FFC2D8433B6008360F5 /* PaywallYearMonthViewController.swift */; };
+		86CB14BA2D845B32008360F5 /* PaywallProductPerDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB14B92D845B32008360F5 /* PaywallProductPerDayView.swift */; };
+		86CB156E2D8752C9008360F5 /* PaywallReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB156D2D8752C9008360F5 /* PaywallReviewView.swift */; };
+		86CB15702D87FCEE008360F5 /* PaywallReviewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB156F2D87FCEE008360F5 /* PaywallReviewsView.swift */; };
+		86CB15882D885133008360F5 /* PaywallProductDefaultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB15872D885133008360F5 /* PaywallProductDefaultView.swift */; };
+		86CB158A2D886718008360F5 /* PaywallProductBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB15892D886718008360F5 /* PaywallProductBaseView.swift */; };
+		86CB17E32D895466008360F5 /* UIButton+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB17E22D895466008360F5 /* UIButton+Ext.swift */; };
 		86DFB1F82CE4B1DE00CBD94F /* TooltipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DFB1F72CE4B1DE00CBD94F /* TooltipView.swift */; };
 		86DFB20B2CE670AD00CBD94F /* NewSettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DFB20A2CE670AD00CBD94F /* NewSettingTableViewCell.swift */; };
 		86DFB20D2CE671A600CBD94F /* NewSettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86DFB20C2CE671A600CBD94F /* NewSettingTableViewCell.xib */; };
@@ -485,6 +492,13 @@
 		863F688D2D019E2600B34302 /* TranscriptsInstructionTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptsInstructionTextView.swift; sourceTree = "<group>"; };
 		864071092D0B9484009A42FB /* PaywallCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallCarouselView.swift; sourceTree = "<group>"; };
 		869080112D22B04A0047173F /* OpenScreenType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenScreenType.swift; sourceTree = "<group>"; };
+		86CB0FFC2D8433B6008360F5 /* PaywallYearMonthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallYearMonthViewController.swift; sourceTree = "<group>"; };
+		86CB14B92D845B32008360F5 /* PaywallProductPerDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallProductPerDayView.swift; sourceTree = "<group>"; };
+		86CB156D2D8752C9008360F5 /* PaywallReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallReviewView.swift; sourceTree = "<group>"; };
+		86CB156F2D87FCEE008360F5 /* PaywallReviewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallReviewsView.swift; sourceTree = "<group>"; };
+		86CB15872D885133008360F5 /* PaywallProductDefaultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallProductDefaultView.swift; sourceTree = "<group>"; };
+		86CB15892D886718008360F5 /* PaywallProductBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallProductBaseView.swift; sourceTree = "<group>"; };
+		86CB17E22D895466008360F5 /* UIButton+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Ext.swift"; sourceTree = "<group>"; };
 		86DFB1F72CE4B1DE00CBD94F /* TooltipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TooltipView.swift; sourceTree = "<group>"; };
 		86DFB20A2CE670AD00CBD94F /* NewSettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSettingTableViewCell.swift; sourceTree = "<group>"; };
 		86DFB20C2CE671A600CBD94F /* NewSettingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewSettingTableViewCell.xib; sourceTree = "<group>"; };
@@ -1172,6 +1186,25 @@
 			path = CarouselViewController;
 			sourceTree = "<group>";
 		};
+		86CB14B82D845AEB008360F5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				86CB14B92D845B32008360F5 /* PaywallProductPerDayView.swift */,
+				86CB156D2D8752C9008360F5 /* PaywallReviewView.swift */,
+				86CB156F2D87FCEE008360F5 /* PaywallReviewsView.swift */,
+				86CB15872D885133008360F5 /* PaywallProductDefaultView.swift */,
+				86CB15892D886718008360F5 /* PaywallProductBaseView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		86CB17DF2D895233008360F5 /* AppExtensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AppExtensions;
+			sourceTree = "<group>";
+		};
 		86DFB1F62CE4B1C100CBD94F /* TooltipView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1804,6 +1837,7 @@
 				A573ADA826F69955000C5B82 /* UIView+Extension.swift */,
 				9AC37F672833D3EB00F95E24 /* UITextView+Extension.swift */,
 				9A2452DA283798440019DAC1 /* Date+Formatter.swift */,
+				86CB17E22D895466008360F5 /* UIButton+Ext.swift */,
 			);
 			path = AppExt;
 			sourceTree = "<group>";
@@ -1838,6 +1872,7 @@
 		A5B2323D26CC44BC0042AA7B /* Hearing */ = {
 			isa = PBXGroup;
 			children = (
+				86CB17DF2D895233008360F5 /* AppExtensions */,
 				11DC523D2CD4139200A9589A /* HAnalliticAViewController.swift */,
 				A5E9ADD626E0962100B7DA17 /* AppCustomView */,
 				9A87D76526CF06F70077C9D0 /* AppViewsControllers */,
@@ -1927,8 +1962,10 @@
 		A5E542AB26EFF06F001D3AB4 /* PaywallViewController */ = {
 			isa = PBXGroup;
 			children = (
+				86CB14B82D845AEB008360F5 /* Views */,
 				A5E542AC26EFF08A001D3AB4 /* PaywallViewController.swift */,
 				A5E542AD26EFF08A001D3AB4 /* PaywallViewController.xib */,
+				86CB0FFC2D8433B6008360F5 /* PaywallYearMonthViewController.swift */,
 			);
 			path = PaywallViewController;
 			sourceTree = "<group>";
@@ -2217,6 +2254,7 @@
 				9A1F9B26273E59EC0079C4F0 /* AOrientationalApProtocol.swift in Sources */,
 				9ACB45F5281307EE00FAF44E /* VCentereButnTableViewCell.swift in Sources */,
 				83A8E8E92645A7FD0080AEE5 /* DesignableTabBarController.swift in Sources */,
+				86CB15702D87FCEE008360F5 /* PaywallReviewsView.swift in Sources */,
 				86DFB1F82CE4B1DE00CBD94F /* TooltipView.swift in Sources */,
 				9AC37F682833D3EB00F95E24 /* UITextView+Extension.swift in Sources */,
 				A58219AF26F9196D005BFCD6 /* JOnbrdCollectViewCell.swift in Sources */,
@@ -2231,6 +2269,7 @@
 				9A09434D282D78F500F7AEC5 /* AThemeServicesAp.swift in Sources */,
 				9A2452D328378C3D0019DAC1 /* HTranscriptListApViewController.swift in Sources */,
 				9A3328B826E20BB400D5F32B /* SAudioKitServicesAp.swift in Sources */,
+				86CB17E32D895466008360F5 /* UIButton+Ext.swift in Sources */,
 				839DE07326529F1B00A65DD7 /* NIndicatShaper.swift in Sources */,
 				9ACB45D12812B9BF00FAF44E /* SpectrumPopupView.swift in Sources */,
 				83A8E8E12645A7FD0080AEE5 /* DesignableTextField.swift in Sources */,
@@ -2294,6 +2333,7 @@
 				8613CE812D1D54660012FD31 /* AppStoreReceipt.swift in Sources */,
 				8613CE822D1D54660012FD31 /* InfoHelper.swift in Sources */,
 				8613CE832D1D54660012FD31 /* AppleReceiptBuilder.swift in Sources */,
+				86CB15882D885133008360F5 /* PaywallProductDefaultView.swift in Sources */,
 				8613CE842D1D54660012FD31 /* ValidateAppStoreReceiptResponse.swift in Sources */,
 				8613CE852D1D54660012FD31 /* ASN1ObjectIdentifier.swift in Sources */,
 				8613CE862D1D54660012FD31 /* NetworkSession.swift in Sources */,
@@ -2305,6 +2345,7 @@
 				8613CE8C2D1D54660012FD31 /* APIEnvironment.swift in Sources */,
 				8613CE8D2D1D54660012FD31 /* ReceiptReadingError.swift in Sources */,
 				8613CE8E2D1D54660012FD31 /* UserManager.swift in Sources */,
+				86CB156E2D8752C9008360F5 /* PaywallReviewView.swift in Sources */,
 				8613CE8F2D1D54660012FD31 /* ValidateAppStoreReceiptRequest.swift in Sources */,
 				8613CE902D1D54660012FD31 /* UsedProducts.swift in Sources */,
 				8613CE912D1D54660012FD31 /* IAPProduct.swift in Sources */,
@@ -2317,6 +2358,7 @@
 				8613CE982D1D54660012FD31 /* EndPoint.swift in Sources */,
 				8613CE992D1D54660012FD31 /* ObtainAppStoreValidateResultRequest.swift in Sources */,
 				8613CE9A2D1D54660012FD31 /* APIOperation.swift in Sources */,
+				86CB158A2D886718008360F5 /* PaywallProductBaseView.swift in Sources */,
 				8613CE9B2D1D54660012FD31 /* ASN1ContainerBuilder.swift in Sources */,
 				8613CE9C2D1D54660012FD31 /* IAPMediator.swift in Sources */,
 				8613CE9D2D1D54660012FD31 /* AppStoreReceiptRefreshRequest.swift in Sources */,
@@ -2340,6 +2382,7 @@
 				8613CEAF2D1D54660012FD31 /* PaymentDataBuilder.swift in Sources */,
 				8613CEB02D1D54660012FD31 /* OtterScaleInteractor.swift in Sources */,
 				8613CEB12D1D54660012FD31 /* HTTPMethod.swift in Sources */,
+				86CB14BA2D845B32008360F5 /* PaywallProductPerDayView.swift in Sources */,
 				8613CEB22D1D54660012FD31 /* InAppPurchase.swift in Sources */,
 				8613CEB32D1D54660012FD31 /* IAPTransactionObserver.swift in Sources */,
 				8613CEB42D1D54660012FD31 /* SendADServiceTokenRequest.swift in Sources */,
@@ -2365,6 +2408,7 @@
 				9A836AF328198B4C00FD5AF2 /* GSlideBTablViewCell.swift in Sources */,
 				9ACB45CE2812B9BF00FAF44E /* FragmentBuilder.swift in Sources */,
 				86053B262CE20D33004BA772 /* NewOnboardPageCollectionViewCell.swift in Sources */,
+				86CB0FFD2D8433B6008360F5 /* PaywallYearMonthViewController.swift in Sources */,
 				9A9D2D062840B3A900332B10 /* MMPPulseLayer.swift in Sources */,
 				83A8E8ED2645A7FD0080AEE5 /* AutoTextView.swift in Sources */,
 				9A09434A282D654800F7AEC5 /* ZAppIconViewController.swift in Sources */,

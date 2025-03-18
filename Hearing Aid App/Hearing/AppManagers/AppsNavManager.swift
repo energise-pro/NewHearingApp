@@ -20,6 +20,10 @@ final class AppsNavManager: NSObject {
     
     private var catchUpTimer: Timer?
     
+    var safeAreaInset: UIEdgeInsets {
+        return UIApplication.shared.windows.first?.safeAreaInsets ?? .zero
+    }
+    
     // MARK: - Internal methods & properties
     var topViewController: UIViewController? {
         return appDelegate?.window?.rootViewController?.topDAppViewController()
@@ -199,10 +203,17 @@ final class AppsNavManager: NSObject {
         } else {
             paywallScreenType = TInAppService.shared.wasUsedTrial ? .regular : .trial
         }
-        let paywallViewController: PaywallViewController = PaywallViewController(typeScreen: paywallScreenType, openAction: openAction)
-        paywallViewController.modalPresentationStyle = .fullScreen
-        paywallViewController.modalTransitionStyle = .crossDissolve
-        topViewController?.present(paywallViewController, animated: true)
+        if KAppConfigServic.shared.remoteConfigValueFor(RemoteConfigKey.Paywall_visual_inapp.rawValue).stringValue == "pw_inapp_monthly" {
+            let paywallViewController: PaywallYearMonthViewController = PaywallYearMonthViewController(typeScreen: paywallScreenType, openAction: openAction)
+            paywallViewController.modalPresentationStyle = .fullScreen
+            paywallViewController.modalTransitionStyle = .crossDissolve
+            topViewController?.present(paywallViewController, animated: true)
+        } else {
+            let paywallViewController: PaywallViewController = PaywallViewController(typeScreen: paywallScreenType, openAction: openAction)
+            paywallViewController.modalPresentationStyle = .fullScreen
+            paywallViewController.modalTransitionStyle = .crossDissolve
+            topViewController?.present(paywallViewController, animated: true)
+        }
     }
     
     func presentHMicrophPermisApViewController() {

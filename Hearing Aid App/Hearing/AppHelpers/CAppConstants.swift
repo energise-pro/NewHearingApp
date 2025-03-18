@@ -88,6 +88,16 @@ struct CAppConstants {
         static let speechTypeIcon = UIImage(named: "speechTypeIcon")!
         static let speechTranscribeIcon = UIImage(named: "speechTranscribeIcon")!
         static let speechTranslateIcon = UIImage(named: "speechTranslateIcon")!
+        
+        static let paywallBackgroundImage = UIImage(named: "paywallBackgroundImage")!
+        static let paywallTopImage = UIImage(named: "paywallTopImage")!
+        static let paywallCrownSmallImage = UIImage(named: "crownSmallImage")!
+        
+        static let paywallPerDayBackgroundImage = UIImage(named: "perDayBackgroundImage")!
+        static let paywallPerDayBackgroundSelectedImage = UIImage(named: "perDayBackgroundSelectedImage")!
+        static let paywallRatingImage = UIImage(named: "ratingImage")!
+        static let paywallDotImage = UIImage(named: "paywallDotImage")!
+        static let paywallReviewBackgroundImage = UIImage(named: "reviewBackgroundImage")!
     }
     
     @MainActor
