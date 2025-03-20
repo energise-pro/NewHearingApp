@@ -251,7 +251,7 @@ class PaywallYearMonthViewController: UIViewController {
         contentView.addSubview(headerView)
         contentView.addSubview(topImageView)
         contentView.addSubview(paywallCarouselView)
-        let isProductPerDayView = KAppConfigServic.shared.remoteConfigValueFor(RemoteConfigKey.Paywall_visual_product_inapp.rawValue).stringValue == "pw_inapp_perday_product"
+        let isProductPerDayView = KAppConfigServic.shared.remoteConfigValueFor(RemoteConfigKey.Paywall_visual_product_perDay_inapp.rawValue).boolValue
         if isProductPerDayView {
             contentView.addSubview(yearProductPerDayView)
             contentView.addSubview(monthProductPerDayView)
@@ -317,7 +317,7 @@ class PaywallYearMonthViewController: UIViewController {
             bottomView.heightAnchor.constraint(equalToConstant: AppsNavManager.shared.safeAreaInset.bottom + 130),
         ])
         
-        let isProductPerDayView = KAppConfigServic.shared.remoteConfigValueFor(RemoteConfigKey.Paywall_visual_product_inapp.rawValue).stringValue == "pw_inapp_perday_product"
+        let isProductPerDayView = KAppConfigServic.shared.remoteConfigValueFor(RemoteConfigKey.Paywall_visual_product_perDay_inapp.rawValue).boolValue
         if isProductPerDayView {
             NSLayoutConstraint.activate([
                 // YearProductPerDayView
@@ -363,7 +363,7 @@ class PaywallYearMonthViewController: UIViewController {
     }
     
     private func loadSubscriptionPlans() {
-        let placementIdentifier = KAppConfigServic.shared.remoteConfigValueFor(RemoteConfigKey.Price_HA_PT_5_pw_inapp_monthly.rawValue).stringValue ?? "plc" // mt10_yt40_smt5
+        let placementIdentifier = KAppConfigServic.shared.remoteConfigValueFor(RemoteConfigKey.Price_HA_PT_5_pw_inapp_monthly.rawValue).stringValue ?? "plc"
         TInAppService.shared.fetchProducts(with: placementIdentifier) { [weak self] items in
             guard let self = self, let items = items, !items.isEmpty else { return }
             self.subscriptionItems = items
@@ -384,7 +384,7 @@ class PaywallYearMonthViewController: UIViewController {
             return
         }
         
-        let isProductPerDayView = KAppConfigServic.shared.remoteConfigValueFor(RemoteConfigKey.Paywall_visual_product_inapp.rawValue).stringValue == "pw_inapp_perday_product"
+        let isProductPerDayView = KAppConfigServic.shared.remoteConfigValueFor(RemoteConfigKey.Paywall_visual_product_perDay_inapp.rawValue).boolValue
         if isProductPerDayView {
             var tapGesture = UITapGestureRecognizer(target: self, action: #selector(onYearProductViewTap(_:)))
             yearProductPerDayView.addGestureRecognizer(tapGesture)
@@ -408,12 +408,12 @@ class PaywallYearMonthViewController: UIViewController {
             yearProductDefaultView.product = yearlySubscriptionPlan
             yearProductDefaultView.isSelected = true
             yearProductDefaultView.showMostPopularView = true
-            yearProductDefaultView.mostPopularLabel.text = "Most Popular"
+            yearProductDefaultView.mostPopularLabel.text = "Most Popular".localized()
             if let skProduct = yearlySubscriptionPlan.skProduct {
                 let perMonthPrice = (skProduct.price.doubleValue / 12.0).rounded(toPlaces: 2)
                 let localizedPerMonthPrice = skProduct.regularPrice(for: perMonthPrice)
                 yearProductDefaultView.showPerPeriodLabel = true
-                yearProductDefaultView.pricePerPeriodLabel.text = "only" + " " + "\(localizedPerMonthPrice)" + " " + "per month"
+                yearProductDefaultView.pricePerPeriodLabel.text = "only".localized() + " " + "\(localizedPerMonthPrice)" + " " + "per month".localized()
             }
             configureProductDefaultView(yearProductDefaultView, withProduct: yearlySubscriptionPlan)
             
@@ -430,7 +430,7 @@ class PaywallYearMonthViewController: UIViewController {
     }
     
     private func configureProductPerDayView(_ view: PaywallProductPerDayView, withProduct product: ShopItem) {
-        view.perDayLabel.text = "per day"
+        view.perDayLabel.text = "per day".localized()
         view.dollarLabel.text = "$"
         view.dollarPricePerDayLabel.text = "0"
         view.centPricePerDayLabel.text = "00"
@@ -474,7 +474,7 @@ class PaywallYearMonthViewController: UIViewController {
     }
     
     private func updateProductViews() {
-        let isProductPerDayView = KAppConfigServic.shared.remoteConfigValueFor(RemoteConfigKey.Paywall_visual_product_inapp.rawValue).stringValue == "pw_inapp_perday_product"
+        let isProductPerDayView = KAppConfigServic.shared.remoteConfigValueFor(RemoteConfigKey.Paywall_visual_product_perDay_inapp.rawValue).boolValue
         if isProductPerDayView {
             let isYearProductSelected = selectedProductView == yearProductPerDayView
             yearProductPerDayView.isSelected = isYearProductSelected
@@ -502,7 +502,7 @@ class PaywallYearMonthViewController: UIViewController {
         guard let subscriptionPlan = subscriptionItems.first(where: {$0.skProduct?.regulatDuration == "year"}) else { return }
         
         selectedPlan = subscriptionPlan
-        let isProductPerDayView = KAppConfigServic.shared.remoteConfigValueFor(RemoteConfigKey.Paywall_visual_product_inapp.rawValue).stringValue == "pw_inapp_perday_product"
+        let isProductPerDayView = KAppConfigServic.shared.remoteConfigValueFor(RemoteConfigKey.Paywall_visual_product_perDay_inapp.rawValue).boolValue
         selectedProductView = isProductPerDayView ? yearProductPerDayView : yearProductDefaultView
         updateProductViews()
     }
@@ -511,7 +511,7 @@ class PaywallYearMonthViewController: UIViewController {
         guard let subscriptionPlan = subscriptionItems.first(where: {$0.skProduct?.regulatDuration == "month"}) else { return }
         
         selectedPlan = subscriptionPlan
-        let isProductPerDayView = KAppConfigServic.shared.remoteConfigValueFor(RemoteConfigKey.Paywall_visual_product_inapp.rawValue).stringValue == "pw_inapp_perday_product"
+        let isProductPerDayView = KAppConfigServic.shared.remoteConfigValueFor(RemoteConfigKey.Paywall_visual_product_perDay_inapp.rawValue).boolValue
         selectedProductView = isProductPerDayView ? monthProductPerDayView : monthProductDefaultView
         updateProductViews()
     }

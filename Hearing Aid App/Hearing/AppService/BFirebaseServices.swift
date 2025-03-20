@@ -15,7 +15,8 @@ public enum RemoteConfigKey: String {
     case Price_HA_PT_5_pw_special_monthly = "Price_HA_PT_5_pw_special_monthly"
     case Paywall_visual_inapp = "Paywall_visual_inapp"
     case Paywall_visual_special = "Paywall_visual_special"
-    case Paywall_visual_product_inapp = "Paywall_visual_product_inapp"
+    case Paywall_visual_product_perDay_inapp = "Paywall_visual_product_perDay_inapp"
+    case Paywall_visual_product_perDay_special = "Paywall_visual_product_perDay_special"
 }
 
 public struct RemoteConfigValues {

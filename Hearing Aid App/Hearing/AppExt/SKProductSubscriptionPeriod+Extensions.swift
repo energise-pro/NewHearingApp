@@ -52,7 +52,7 @@ extension SKProductSubscriptionPeriod {
         case .month:
             return "Monthly".localized()
         case .year:
-            return "Annual".localized()
+            return "Yearly".localized()
         default:
             return nil
         }

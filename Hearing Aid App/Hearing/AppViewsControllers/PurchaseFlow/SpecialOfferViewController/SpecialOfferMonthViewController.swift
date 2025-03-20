@@ -273,7 +273,7 @@ class SpecialOfferMonthViewController: SpecialOfferBaseViewController {
         restoreButton.titleLabel?.font = UIFont.systemFont(ofSize: 13, weight: .regular)
         restoreButton.addTarget(self, action: #selector(restoreButtonTapped), for: .touchUpInside)
         
-        titleLabel.text = "🔥 Don't Miss Out 🔥"
+        titleLabel.text = "🔥 Don't Miss Out 🔥".localized()
         
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineHeightMultiple = 1.23
@@ -303,7 +303,7 @@ class SpecialOfferMonthViewController: SpecialOfferBaseViewController {
         contentView.addSubview(titleLabel)
         contentView.addSubview(subtitleLabel)
         
-        let isProductPerDayView = KAppConfigServic.shared.remoteConfigValueFor(RemoteConfigKey.Paywall_visual_product_inapp.rawValue).stringValue == "pw_inapp_perday_product"
+        let isProductPerDayView = KAppConfigServic.shared.remoteConfigValueFor(RemoteConfigKey.Paywall_visual_product_perDay_special.rawValue).boolValue
         if isProductPerDayView {
             contentView.addSubview(monthProductPerDayView)
         } else {
@@ -394,7 +394,7 @@ class SpecialOfferMonthViewController: SpecialOfferBaseViewController {
             bottomView.heightAnchor.constraint(equalToConstant: AppsNavManager.shared.safeAreaInset.bottom + 170),
         ])
         
-        let isProductPerDayView = KAppConfigServic.shared.remoteConfigValueFor(RemoteConfigKey.Paywall_visual_product_inapp.rawValue).stringValue == "pw_inapp_perday_product"
+        let isProductPerDayView = KAppConfigServic.shared.remoteConfigValueFor(RemoteConfigKey.Paywall_visual_product_perDay_special.rawValue).boolValue
         if isProductPerDayView {
             NSLayoutConstraint.activate([
                 // MonthProductView
@@ -402,7 +402,7 @@ class SpecialOfferMonthViewController: SpecialOfferBaseViewController {
                 monthProductPerDayView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
                 monthProductPerDayView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
                 monthProductPerDayView.heightAnchor.constraint(equalToConstant: 70),
-                monthProductDefaultView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16)
+                monthProductPerDayView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16)
             ])
         } else {
             NSLayoutConstraint.activate([
@@ -417,7 +417,7 @@ class SpecialOfferMonthViewController: SpecialOfferBaseViewController {
     }
     
     private func loadSubscriptionPlans() {
-        let placementIdentifier = "mt10_yt40_smt5" // KAppConfigServic.shared.remoteConfigValueFor(RemoteConfigKey.Price_HA_PT_5_pw_special_monthly.rawValue).stringValue ?? "plc" // mt10_yt40_smt5
+        let placementIdentifier = KAppConfigServic.shared.remoteConfigValueFor(RemoteConfigKey.Price_HA_PT_5_pw_special_monthly.rawValue).stringValue ?? "plc"
         TInAppService.shared.fetchProducts(with: placementIdentifier) { [weak self] items in
             guard let self = self, let items = items, !items.isEmpty else { return }
             self.subscriptionItems = items
@@ -437,7 +437,7 @@ class SpecialOfferMonthViewController: SpecialOfferBaseViewController {
             return
         }
         
-        let isProductPerDayView = KAppConfigServic.shared.remoteConfigValueFor(RemoteConfigKey.Paywall_visual_product_inapp.rawValue).stringValue == "pw_inapp_perday_product"
+        let isProductPerDayView = KAppConfigServic.shared.remoteConfigValueFor(RemoteConfigKey.Paywall_visual_product_perDay_special.rawValue).boolValue
         if isProductPerDayView {
             monthProductPerDayView.product = monthSubscriptionPlan
             monthProductPerDayView.isSelected = true

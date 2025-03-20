@@ -36,7 +36,7 @@ class PaywallProductPerDayView: PaywallProductBaseView {
     public let savePercentLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 1
-        label.font = UIFont.systemFont(ofSize: 14, weight: .medium)
+        label.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
         label.textColor = UIColor.appColor(.White100)
         return label
     }()
