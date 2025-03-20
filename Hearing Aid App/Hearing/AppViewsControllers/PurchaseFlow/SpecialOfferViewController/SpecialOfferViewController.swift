@@ -1,13 +1,6 @@
-//
-//  SpecialOfferViewController.swift
-//  Hearing Aid App
-//
-//  Created by Evgeniy Zelinskiy on 13.12.2024.
-//
-
 import UIKit
 
-class SpecialOfferViewController: UIViewController {
+class SpecialOfferViewController: SpecialOfferBaseViewController {
     
     //MARK: - @IBoutlets
     @IBOutlet private weak var purchaseContainerView: UIView!

@@ -74,10 +74,12 @@ final class SHearinApViewController: PMUMainViewController {
     
     @IBOutlet private weak var volumeScaleStackView: UIStackView!
     @IBOutlet private weak var waveContainerView: UIView!
+    @IBOutlet private weak var specialOfferBannerView: SpecialOfferBannerView!
     
     @IBOutlet private weak var balanceFillViewLeftConstraint: NSLayoutConstraint!
     @IBOutlet private weak var balanceFillViewRightConstraint: NSLayoutConstraint!
     @IBOutlet private weak var volumePercentageViewBottomConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var waveViewTopConstraint: NSLayoutConstraint!
     
     @IBOutlet private var bottomImageViews: [UIImageView]!
     @IBOutlet private var bottomLabels: [UILabel]!
@@ -95,6 +97,7 @@ final class SHearinApViewController: PMUMainViewController {
     private var maxVolumeValue: CGFloat = 100.0
     private var volumeUpdateWorkItem: DispatchWorkItem?
     private var volumeViewUpdateWorkItem: DispatchWorkItem?
+    private var showSpecialOfferBanner: Bool = false
     
     private var cachedSystemVolumeSlider: UISlider? {
         return systemVolumeView.subviews.compactMap({ $0 as? UISlider }).first
@@ -136,6 +139,10 @@ final class SHearinApViewController: PMUMainViewController {
         if SAudioKitServicesAp.shared.recordPermission == .granted {
             waveContainerView.isHidden = !SAudioKitServicesAp.shared.isStartedMixer
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        configureSpecialOfferBanner()
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
@@ -253,12 +260,16 @@ final class SHearinApViewController: PMUMainViewController {
             }
         }
         
+        let tapHandler = UITapGestureRecognizer(target: self, action: #selector(onSpecialOfferBannerViewTap))
+        specialOfferBannerView.addGestureRecognizer(tapHandler)
+        
         updateMainColors()
         configureObserver()
     }
     
     private func configureObserver() {
         NotificationCenter.default.addObserver(self, selector: #selector(audioRouteChanged(notification:)), name: AVAudioSession.routeChangeNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(specialOfferTimerExpiration(notification:)), name: SpecialOfferTimerExpirationNotification, object: nil)
     }
     
     private func setBottomButton(_ bottomButton: BottomButtonTabType, asSelected isSelected: Bool) {
@@ -456,6 +467,49 @@ final class SHearinApViewController: PMUMainViewController {
             "limiter_status" : SAudioKitServicesAp.shared.isLimiterEnabled,
             "equalizer_status" : SAudioKitServicesAp.shared.isEqualizedEnabled
         ])
+    }
+    
+    private func configureSpecialOfferBanner() {
+        guard !TInAppService.shared.isPremium else {
+            if showSpecialOfferBanner {
+                hideSpecialOfferBanner()
+            }
+            return
+        }
+        
+        if ((KAppConfigServic.shared.remoteConfigValueFor(RemoteConfigKey.Paywall_visual_special.rawValue).stringValue == "pw_special_monthly") && bannerSecondsRemaining(for: UserDefaultsStorage.shared.specialOfferExpirationDate) > 0) {
+            if !showSpecialOfferBanner {
+                showSpecialOfferBanner = true
+                specialOfferBannerView.isHidden = !showSpecialOfferBanner
+                waveViewTopConstraint.constant = specialOfferBannerView.isHidden ? 10 : 68
+                isConfiguredVolumeView = false
+                view.layoutIfNeeded()
+            }
+        }
+    }
+    
+    private func hideSpecialOfferBanner() {
+        showSpecialOfferBanner = false
+        specialOfferBannerView.isHidden = !showSpecialOfferBanner
+        waveViewTopConstraint.constant = specialOfferBannerView.isHidden ? 10 : 68
+        isConfiguredVolumeView = false
+        view.layoutIfNeeded()
+    }
+    
+    @objc private func specialOfferTimerExpiration(notification: NSNotification) {
+        DispatchQueue.main.async {
+            self.hideSpecialOfferBanner()
+        }
+    }
+    
+    private func bannerSecondsRemaining(for expirationDate: Date?) -> Int {
+        guard let expirationDate = expirationDate else { return 0 }
+        let remaining = Int(expirationDate.timeIntervalSinceNow)
+        return max(0, remaining)
+    }
+    
+    @objc private func onSpecialOfferBannerViewTap() {
+        AppsNavManager.shared.presentSpecialOffer(0, with: .openFromHearing)
     }
     
     // MARK: - IBActions

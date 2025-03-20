@@ -14,6 +14,7 @@ public enum RemoteConfigKey: String {
     case Price_HA_PT_5_pw_inapp_monthly = "Price_HA_PT_5_pw_inapp_monthly"
     case Price_HA_PT_5_pw_special_monthly = "Price_HA_PT_5_pw_special_monthly"
     case Paywall_visual_inapp = "Paywall_visual_inapp"
+    case Paywall_visual_special = "Paywall_visual_special"
     case Paywall_visual_product_inapp = "Paywall_visual_product_inapp"
 }
 

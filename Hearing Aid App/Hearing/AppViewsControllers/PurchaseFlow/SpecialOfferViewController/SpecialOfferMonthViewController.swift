@@ -1,6 +1,6 @@
 import UIKit
 
-class PaywallYearMonthViewController: UIViewController {
+class SpecialOfferMonthViewController: SpecialOfferBaseViewController {
     // MARK: - Private properties
     private let backgroundImageView: UIImageView = {
         let imageView = UIImageView()
@@ -18,7 +18,7 @@ class PaywallYearMonthViewController: UIViewController {
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         return scrollView
     }()
-
+    
     private let contentView: UIView = {
         let view = UIView()
         view.backgroundColor = .clear
@@ -32,50 +32,24 @@ class PaywallYearMonthViewController: UIViewController {
         return button
     }()
     
-    private let headerView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .clear
-        view.translatesAutoresizingMaskIntoConstraints = false
-        
-        let imageView = UIImageView()
-        imageView.image = CAppConstants.Images.paywallCrownSmallImage
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        let titleLabel = UILabel()
-        titleLabel.font = UIFont.systemFont(ofSize: 28, weight: .bold)
-        titleLabel.textColor = UIColor.appColor(.White100)
-        titleLabel.textAlignment = .center
-        titleLabel.text = "Get Unlimited Access".localized()
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        view.addSubview(imageView)
-        view.addSubview(titleLabel)
-        
-        NSLayoutConstraint.activate([
-            // ImageView
-            imageView.topAnchor.constraint(equalTo: view.topAnchor),
-            imageView.heightAnchor.constraint(equalToConstant: 36),
-            imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor),
-            imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            
-            // TitleLabel
-            titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 16),
-            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            titleLabel.heightAnchor.constraint(equalToConstant: 32)
-        ])
-        
-        return view
+    private let bottomViewDescriptionLabel: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 0
+        label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+        label.textColor = UIColor.appColor(.Grey100)
+        label.textAlignment = .center
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
     
-    private let bottomView: UIView = {
+    private lazy var bottomView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         
         let continueButton = UIButton()
         continueButton.backgroundColor = UIColor.appColor(.Red100)
         continueButton.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
-        continueButton.setTitle("Continue".localized(), for: .normal)
+        continueButton.setTitle("Get 50% OFF", for: .normal)
         continueButton.setTitleColor(UIColor.appColor(.White100), for: .normal)
         continueButton.addTarget(self, action: #selector(purchaseButtonAction), for: .touchUpInside)
         continueButton.layer.cornerRadius = 28
@@ -129,6 +103,7 @@ class PaywallYearMonthViewController: UIViewController {
         bottomButtomStackView.addArrangedSubview(proceedWithBasicButton)
         
         view.addSubview(continueButton)
+        view.addSubview(bottomViewDescriptionLabel)
         view.addSubview(bottomButtomStackView)
         
         NSLayoutConstraint.activate([
@@ -138,8 +113,13 @@ class PaywallYearMonthViewController: UIViewController {
             continueButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 26), // if not need pulse - constant: 16
             continueButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -26),
             
+            // BottomViewDescriptionLabel
+            bottomViewDescriptionLabel.topAnchor.constraint(equalTo: continueButton.bottomAnchor, constant: 16),
+            bottomViewDescriptionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            bottomViewDescriptionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            
             // BottomButtomStackView
-            bottomButtomStackView.topAnchor.constraint(equalTo: continueButton.bottomAnchor, constant: 20),
+            bottomButtomStackView.topAnchor.constraint(equalTo: bottomViewDescriptionLabel.bottomAnchor, constant: 16),
             bottomButtomStackView.heightAnchor.constraint(equalToConstant: 18),
             bottomButtomStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
@@ -153,32 +133,96 @@ class PaywallYearMonthViewController: UIViewController {
     
     private let topImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = CAppConstants.Images.paywallTopImage
-        imageView.contentMode = .scaleAspectFit
+        imageView.image = CAppConstants.Images.specialOffer50OffTopImage
+        imageView.contentMode = .scaleAspectFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
-    private let paywallCarouselView: PaywallCarouselView = {
-        let carouselView = PaywallCarouselView()
-        carouselView.translatesAutoresizingMaskIntoConstraints = false
-        return carouselView
-    }()
-    
-    private let yearProductPerDayView: PaywallProductPerDayView = {
-        let view = PaywallProductPerDayView()
+    private let countdownContentView: UIView = {
+        let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
+    }()
+    
+    private let countdownViewTitle: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 1
+        label.font = UIFont.systemFont(ofSize: 17, weight: .regular)
+        label.textColor = UIColor.appColor(.White100)
+        label.textAlignment = .center
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private let countdownMinuteLabel: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 1
+        label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
+        label.textColor = UIColor.appColor(.White100)
+        label.textAlignment = .center
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private let countdownSeparatorLabel: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 1
+        label.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
+        label.textColor = UIColor.appColor(.White100)
+        label.textAlignment = .center
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private let countdownSecondsLabel: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 1
+        label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
+        label.textColor = UIColor.appColor(.White100)
+        label.textAlignment = .center
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private let countdownStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.spacing = 4.0
+        stackView.axis = .horizontal
+        stackView.alignment = .fill
+        stackView.distribution = .fill
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
+    }()
+    
+    private let countdownContainerView: ShadowBorderView = {
+        let view = ShadowBorderView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    private let titleLabel: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 1
+        label.font = UIFont.systemFont(ofSize: 28, weight: .bold)
+        label.textColor = UIColor.appColor(.White100)
+        label.textAlignment = .center
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private let subtitleLabel: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 0
+        label.font = UIFont.systemFont(ofSize: 17, weight: .regular)
+        label.textColor = UIColor.appColor(.White100)
+        label.textAlignment = .center
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
     
     private let monthProductPerDayView: PaywallProductPerDayView = {
         let view = PaywallProductPerDayView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
-    private let yearProductDefaultView: PaywallProductDefaultView = {
-        let view = PaywallProductDefaultView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -189,13 +233,6 @@ class PaywallYearMonthViewController: UIViewController {
         return view
     }()
     
-    private let reviewsView: PaywallReviewsView = {
-        let view = PaywallReviewsView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
-    private var typeScreen: ВTypPwlScreen
     private var scaleYearlyButton = true
     private var isLoading: Bool = false
     private var subscriptionItems: [ShopItem] = []
@@ -203,10 +240,10 @@ class PaywallYearMonthViewController: UIViewController {
     private var selectedPlan: ShopItem?
     private var selectedProductView: PaywallProductBaseView?
     private var analyticProperties: [String: String] = [:]
+    private var countdownTimer: Timer?
     
     //MARK: - Init
-    init(typeScreen: ВTypPwlScreen, openAction: GAppAnalyticActions) {
-        self.typeScreen = typeScreen
+    init(openAction: GAppAnalyticActions) {
         self.openAction = openAction
         super.init(nibName: nil, bundle: nil)
     }
@@ -221,7 +258,7 @@ class PaywallYearMonthViewController: UIViewController {
         
         EApphudServiceAp.shared.paywallShown()
         configureUI()
-        
+        configureCountdownTimer()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -236,30 +273,42 @@ class PaywallYearMonthViewController: UIViewController {
         restoreButton.titleLabel?.font = UIFont.systemFont(ofSize: 13, weight: .regular)
         restoreButton.addTarget(self, action: #selector(restoreButtonTapped), for: .touchUpInside)
         
-        addSubviews()
-        configureReviewsView()
-    }
-    
-    private func configureReviewsView() {
+        titleLabel.text = "🔥 Don't Miss Out 🔥"
         
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineHeightMultiple = 1.23
+        subtitleLabel.attributedText = NSMutableAttributedString(string: "Get Premium for a full month with a limited-time 50% discount!".localized(), attributes: [
+            .kern: -0.31,
+            .paragraphStyle: paragraphStyle
+        ])
+        subtitleLabel.textAlignment = .center
+        
+        countdownViewTitle.text = "Your offer expires in".localized()
+        
+        addSubviews()
     }
     
     private func addSubviews() {
         view.addSubview(backgroundImageView)
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
-        contentView.addSubview(headerView)
         contentView.addSubview(topImageView)
-        contentView.addSubview(paywallCarouselView)
+        contentView.addSubview(countdownContentView)
+        countdownContentView.addSubview(countdownViewTitle)
+        countdownStackView.addArrangedSubview(countdownMinuteLabel)
+        countdownStackView.addArrangedSubview(countdownSeparatorLabel)
+        countdownStackView.addArrangedSubview(countdownSecondsLabel)
+        countdownContentView.addSubview(countdownStackView)
+        contentView.addSubview(countdownContainerView)
+        contentView.addSubview(titleLabel)
+        contentView.addSubview(subtitleLabel)
+        
         let isProductPerDayView = KAppConfigServic.shared.remoteConfigValueFor(RemoteConfigKey.Paywall_visual_product_inapp.rawValue).stringValue == "pw_inapp_perday_product"
         if isProductPerDayView {
-            contentView.addSubview(yearProductPerDayView)
             contentView.addSubview(monthProductPerDayView)
         } else {
-            contentView.addSubview(yearProductDefaultView)
             contentView.addSubview(monthProductDefaultView)
         }
-        contentView.addSubview(reviewsView)
         view.addSubview(bottomView)
         view.addSubview(restoreButton)
         
@@ -292,78 +341,83 @@ class PaywallYearMonthViewController: UIViewController {
             contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
             contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
             
-            // HeaderView
-            headerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: AppsNavManager.shared.safeAreaInset.top + 13),
-            headerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            headerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            headerView.heightAnchor.constraint(equalToConstant: 80),
-            
             // TopImageView
-            topImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: AppsNavManager.shared.safeAreaInset.top),
-            topImageView.heightAnchor.constraint(equalToConstant: 436),
+            topImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
+            topImageView.heightAnchor.constraint(equalToConstant: 372),
             topImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             topImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             
-            // PaywallCarouselView
-            paywallCarouselView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 95),
-            paywallCarouselView.heightAnchor.constraint(equalToConstant: 210),
-            paywallCarouselView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            paywallCarouselView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            // CountdownContentView
+            countdownContentView.heightAnchor.constraint(equalToConstant: 85),
+            countdownContentView.widthAnchor.constraint(equalToConstant: 187),
+            countdownContentView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            countdownContentView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: AppsNavManager.shared.safeAreaInset.top + 228),
+            
+            // CountdownViewTitle
+            countdownViewTitle.heightAnchor.constraint(equalToConstant: 25),
+            countdownViewTitle.topAnchor.constraint(equalTo: countdownContentView.topAnchor, constant: 12),
+            countdownViewTitle.leadingAnchor.constraint(equalTo: countdownContentView.leadingAnchor, constant: 16),
+            countdownViewTitle.trailingAnchor.constraint(equalTo: countdownContentView.trailingAnchor, constant: -16),
+            
+            // CountdownViewTitle
+            countdownViewTitle.heightAnchor.constraint(equalToConstant: 25),
+            countdownViewTitle.topAnchor.constraint(equalTo: countdownContentView.topAnchor, constant: 12),
+            countdownViewTitle.leadingAnchor.constraint(equalTo: countdownContentView.leadingAnchor, constant: 16),
+            countdownViewTitle.trailingAnchor.constraint(equalTo: countdownContentView.trailingAnchor, constant: -16),
+            
+            // CountdownStackView
+            countdownStackView.heightAnchor.constraint(equalToConstant: 36),
+            countdownStackView.topAnchor.constraint(equalTo: countdownViewTitle.bottomAnchor),
+            countdownStackView.centerXAnchor.constraint(equalTo: countdownContentView.centerXAnchor),
+            
+            // CountdownContainerView
+            countdownContainerView.topAnchor.constraint(equalTo: countdownContentView.topAnchor),
+            countdownContainerView.leadingAnchor.constraint(equalTo: countdownContentView.leadingAnchor),
+            countdownContainerView.bottomAnchor.constraint(equalTo: countdownContentView.bottomAnchor),
+            countdownContainerView.trailingAnchor.constraint(equalTo: countdownContentView.trailingAnchor),
+            
+            // TitleLabel
+            titleLabel.topAnchor.constraint(equalTo: countdownContainerView.bottomAnchor, constant: 36),
+            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            titleLabel.heightAnchor.constraint(equalToConstant: 34),
+            
+            // SubtitleLabel
+            subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
+            subtitleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            subtitleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
             
             // BottomView
             bottomView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             bottomView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             bottomView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            bottomView.heightAnchor.constraint(equalToConstant: AppsNavManager.shared.safeAreaInset.bottom + 130),
+            bottomView.heightAnchor.constraint(equalToConstant: AppsNavManager.shared.safeAreaInset.bottom + 170),
         ])
         
         let isProductPerDayView = KAppConfigServic.shared.remoteConfigValueFor(RemoteConfigKey.Paywall_visual_product_inapp.rawValue).stringValue == "pw_inapp_perday_product"
         if isProductPerDayView {
             NSLayoutConstraint.activate([
-                // YearProductPerDayView
-                yearProductPerDayView.topAnchor.constraint(equalTo: paywallCarouselView.bottomAnchor, constant: 20),
-                yearProductPerDayView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-                yearProductPerDayView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-                yearProductPerDayView.heightAnchor.constraint(equalToConstant: 70),
-                
                 // MonthProductView
-                monthProductPerDayView.topAnchor.constraint(equalTo: yearProductPerDayView.bottomAnchor, constant: 12),
+                monthProductPerDayView.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 28),
                 monthProductPerDayView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
                 monthProductPerDayView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
                 monthProductPerDayView.heightAnchor.constraint(equalToConstant: 70),
-                
-                // ReviewsView
-                reviewsView.topAnchor.constraint(equalTo: monthProductPerDayView.bottomAnchor, constant: 20),
-                reviewsView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-                reviewsView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-                reviewsView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16)
+                monthProductDefaultView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16)
             ])
         } else {
             NSLayoutConstraint.activate([
-                // YearProductDefaultView
-                yearProductDefaultView.topAnchor.constraint(equalTo: paywallCarouselView.bottomAnchor, constant: 20),
-                yearProductDefaultView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-                yearProductDefaultView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-                yearProductDefaultView.heightAnchor.constraint(equalToConstant: 70),
-                
                 // MonthProductDefaultView
-                monthProductDefaultView.topAnchor.constraint(equalTo: yearProductDefaultView.bottomAnchor, constant: 12),
+                monthProductDefaultView.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 28),
                 monthProductDefaultView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
                 monthProductDefaultView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
                 monthProductDefaultView.heightAnchor.constraint(equalToConstant: 70),
-                
-                // ReviewsView
-                reviewsView.topAnchor.constraint(equalTo: monthProductDefaultView.bottomAnchor, constant: 20),
-                reviewsView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-                reviewsView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-                reviewsView.heightAnchor.constraint(equalToConstant: 146),
-                reviewsView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16)
+                monthProductDefaultView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16)
             ])
         }
     }
     
     private func loadSubscriptionPlans() {
-        let placementIdentifier = KAppConfigServic.shared.remoteConfigValueFor(RemoteConfigKey.Price_HA_PT_5_pw_inapp_monthly.rawValue).stringValue ?? "plc" // mt10_yt40_smt5
+        let placementIdentifier = "mt10_yt40_smt5" // KAppConfigServic.shared.remoteConfigValueFor(RemoteConfigKey.Price_HA_PT_5_pw_special_monthly.rawValue).stringValue ?? "plc" // mt10_yt40_smt5
         TInAppService.shared.fetchProducts(with: placementIdentifier) { [weak self] items in
             guard let self = self, let items = items, !items.isEmpty else { return }
             self.subscriptionItems = items
@@ -379,58 +433,30 @@ class PaywallYearMonthViewController: UIViewController {
     }
     
     private func configureUIAfterSubscriptionsLoading() {
-        guard let yearlySubscriptionPlan = subscriptionItems.first(where: {$0.skProduct?.regulatDuration == "year"}),
-              let monthSubscriptionPlan = subscriptionItems.first(where: {$0.skProduct?.regulatDuration == "month"}) else {
+        guard let monthSubscriptionPlan = subscriptionItems.first(where: {$0.skProduct?.introductoryPrice != nil}) else {
             return
         }
         
         let isProductPerDayView = KAppConfigServic.shared.remoteConfigValueFor(RemoteConfigKey.Paywall_visual_product_inapp.rawValue).stringValue == "pw_inapp_perday_product"
         if isProductPerDayView {
-            var tapGesture = UITapGestureRecognizer(target: self, action: #selector(onYearProductViewTap(_:)))
-            yearProductPerDayView.addGestureRecognizer(tapGesture)
-            yearProductPerDayView.product = yearlySubscriptionPlan
-            yearProductPerDayView.isSelected = true
-            yearProductPerDayView.showSavePercentView = true
-            let savingsPercentage = calculateSavingsPercentage(monthlyProduct: monthSubscriptionPlan, yearlyProduct: yearlySubscriptionPlan)
-            yearProductPerDayView.savePercentLabel.text = "🔥 " + "Save".localized() + " \(String(format: "%i", savingsPercentage))%"
-            configureProductPerDayView(yearProductPerDayView, withProduct: yearlySubscriptionPlan)
-            
-            tapGesture = UITapGestureRecognizer(target: self, action: #selector(onMonthProductViewTap(_:)))
-            monthProductPerDayView.addGestureRecognizer(tapGesture)
             monthProductPerDayView.product = monthSubscriptionPlan
-            monthProductPerDayView.isSelected = false
+            monthProductPerDayView.isSelected = true
             configureProductPerDayView(monthProductPerDayView, withProduct: monthSubscriptionPlan)
             
-            selectedProductView = yearProductPerDayView
+            selectedProductView = monthProductPerDayView
         } else {
-            var tapGesture = UITapGestureRecognizer(target: self, action: #selector(onYearProductViewTap(_:)))
-            yearProductDefaultView.addGestureRecognizer(tapGesture)
-            yearProductDefaultView.product = yearlySubscriptionPlan
-            yearProductDefaultView.isSelected = true
-            yearProductDefaultView.showMostPopularView = true
-            yearProductDefaultView.mostPopularLabel.text = "Most Popular"
-            if let skProduct = yearlySubscriptionPlan.skProduct {
-                let perMonthPrice = (skProduct.price.doubleValue / 12.0).rounded(toPlaces: 2)
-                let localizedPerMonthPrice = skProduct.regularPrice(for: perMonthPrice)
-                yearProductDefaultView.showPerPeriodLabel = true
-                yearProductDefaultView.pricePerPeriodLabel.text = "only" + " " + "\(localizedPerMonthPrice)" + " " + "per month"
-            }
-            configureProductDefaultView(yearProductDefaultView, withProduct: yearlySubscriptionPlan)
-            
-            tapGesture = UITapGestureRecognizer(target: self, action: #selector(onMonthProductViewTap(_:)))
-            monthProductDefaultView.addGestureRecognizer(tapGesture)
             monthProductDefaultView.product = monthSubscriptionPlan
-            monthProductDefaultView.isSelected = false
+            monthProductDefaultView.isSelected = true
             configureProductDefaultView(monthProductDefaultView, withProduct: monthSubscriptionPlan)
             
-            selectedProductView = yearProductDefaultView
+            selectedProductView = monthProductDefaultView
         }
         
-        selectedPlan = yearlySubscriptionPlan
+        selectedPlan = monthSubscriptionPlan
     }
     
     private func configureProductPerDayView(_ view: PaywallProductPerDayView, withProduct product: ShopItem) {
-        view.perDayLabel.text = "per day"
+        view.perDayLabel.text = "per day".localized()
         view.dollarLabel.text = "$"
         view.dollarPricePerDayLabel.text = "0"
         view.centPricePerDayLabel.text = "00"
@@ -438,30 +464,47 @@ class PaywallYearMonthViewController: UIViewController {
         
         if let skProduct = product.skProduct {
             if let subscriptionPeriod = skProduct.subscriptionPeriod {
-                let price = skProduct.price.doubleValue
                 let localizedSubscriptionPeriod = subscriptionPeriod.localizedPeriod()
                 view.durationLabel.text = localizedSubscriptionPeriod
-                
-                let dayPrice = subscriptionPeriod.unit == .year ? price / 365.0 : price / 30.0
-                let dayPriceDollars = Int(dayPrice)
-                let dayPriceCents = dayPrice.truncatingRemainder(dividingBy: 1) * 100
-                
-                view.dollarPricePerDayLabel.text = "\(dayPriceDollars)"
-                view.centPricePerDayLabel.text = String(format: "%i", Int(dayPriceCents))
             } else {
                 let localizedDescription = skProduct.localizedDescription
                 view.durationLabel.text = localizedDescription
             }
             
-            let localizedPrice = skProduct.price.localizedPrice(for: skProduct.priceLocale)
-            view.pricePerPeriodLabel.text = localizedPrice
+            var dayPrice = skProduct.price.doubleValue / 30.0
+            if let introductoryPrice = skProduct.introductoryPrice {
+                dayPrice = (skProduct.introductoryPrice?.price.doubleValue ?? 0) / 30.0
+                
+                let localizedPrice = skProduct.price.localizedPrice(for: skProduct.priceLocale) ?? ""
+                let localizedIntroductoryPrice = introductoryPrice.price.localizedPrice(for: skProduct.priceLocale) ?? ""
+            
+                bottomViewDescriptionLabel.text = "%@ for the first month, then %@ per month. Cancel anytime.".localized(with: [localizedIntroductoryPrice, localizedPrice])
+                
+                let attributedPricePerPeriod = NSMutableAttributedString(string: localizedPrice, attributes: [
+                    .foregroundColor: UIColor.appColor(.Grey100)!,
+                    .strikethroughStyle: NSUnderlineStyle.single.rawValue,
+                    .strikethroughColor: UIColor.appColor(.Red100)!
+                ])
+                attributedPricePerPeriod.append(NSAttributedString(string: " "))
+                attributedPricePerPeriod.append(NSAttributedString(string: localizedIntroductoryPrice))
+                view.pricePerPeriodLabel.attributedText = attributedPricePerPeriod
+            } else {
+                let localizedPrice = skProduct.price.localizedPrice(for: skProduct.priceLocale)
+                view.pricePerPeriodLabel.text = localizedPrice
+            }
+            
+            let dayPriceDollars = Int(dayPrice)
+            let dayPriceCents = dayPrice.truncatingRemainder(dividingBy: 1) * 100
+            
+            view.dollarPricePerDayLabel.text = "\(dayPriceDollars)"
+            view.centPricePerDayLabel.text = String(format: "%i", Int(dayPriceCents))
         }
     }
     
     private func configureProductDefaultView(_ view: PaywallProductDefaultView, withProduct product: ShopItem) {
         if let skProduct = product.skProduct {
             if let subscriptionPeriod = skProduct.subscriptionPeriod {
-                let localizedSubscriptionPeriod = subscriptionPeriod.localizedPeriod(for: Locale(identifier: "en"))
+                let localizedSubscriptionPeriod = subscriptionPeriod.localizedPeriod()
                 view.durationLabel.text = localizedSubscriptionPeriod
             } else {
                 let localizedDescription = skProduct.localizedDescription
@@ -470,20 +513,83 @@ class PaywallYearMonthViewController: UIViewController {
             
             let localizedPrice = skProduct.price.localizedPrice(for: skProduct.priceLocale)
             view.priceLabel.text = localizedPrice
+            
+            if let introductoryPrice = skProduct.introductoryPrice {
+                let localizedPrice = skProduct.price.localizedPrice(for: skProduct.priceLocale) ?? ""
+                let localizedIntroductoryPrice = introductoryPrice.price.localizedPrice(for: skProduct.priceLocale) ?? ""
+            
+                bottomViewDescriptionLabel.text = "%@ for the first month, then %@ per month. Cancel anytime.".localized(with: [localizedIntroductoryPrice, localizedPrice])
+                
+                view.priceLabel.attributedText = NSAttributedString(string: localizedIntroductoryPrice, attributes: [
+                    .font: UIFont.systemFont(ofSize: 17, weight: .medium),
+                    .foregroundColor: UIColor.appColor(.White100)!
+                ])
+                view.showPerPeriodLabel = true
+                view.pricePerPeriodLabel.attributedText = NSAttributedString(string: localizedPrice, attributes: [
+                    .font: UIFont.systemFont(ofSize: 14, weight: .regular),
+                    .foregroundColor: UIColor.appColor(.Grey100)!,
+                    .strikethroughStyle: NSUnderlineStyle.single.rawValue,
+                    .strikethroughColor: UIColor.appColor(.Red100)!
+                ])
+            }
         }
     }
     
-    private func updateProductViews() {
-        let isProductPerDayView = KAppConfigServic.shared.remoteConfigValueFor(RemoteConfigKey.Paywall_visual_product_inapp.rawValue).stringValue == "pw_inapp_perday_product"
-        if isProductPerDayView {
-            let isYearProductSelected = selectedProductView == yearProductPerDayView
-            yearProductPerDayView.isSelected = isYearProductSelected
-            monthProductPerDayView.isSelected = !isYearProductSelected
-        } else {
-            let isYearProductSelected = selectedProductView == yearProductDefaultView
-            yearProductDefaultView.isSelected = isYearProductSelected
-            monthProductDefaultView.isSelected = !isYearProductSelected
+    private func configureCountdownTimer() {
+        let expirationDate = currentExpirationDate()
+        if expirationDate?.timeIntervalSinceNow ?? 0 <= 0 {
+            let newExpirationDate = Date().addingTimeInterval(600) // 10 minutes - 60 * 10
+            UserDefaultsStorage.shared.specialOfferExpirationDate = newExpirationDate
+            DispatchQueue.main.async {
+                NotificationCenter.default.post(name: SpecialOfferTimerUpdatedNotification, object: nil)
+            }
         }
+        
+        countdownTimer?.invalidate()
+        countdownTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateCountdownTimer), userInfo: nil, repeats: true)
+        if let timer = countdownTimer {
+            RunLoop.current.add(timer, forMode: .common)
+        }
+        updateCountdownLabel()
+    }
+    
+    private func currentExpirationDate() -> Date? {
+        return UserDefaultsStorage.shared.specialOfferExpirationDate
+    }
+    
+    @objc private func updateCountdownTimer() {
+        if secondsRemaining(for: currentExpirationDate()) > 0 {
+            TapticEngine.impact.feedback(.light)
+            updateCountdownLabel()
+        } else {
+            handleCountdownTimerExpiration()
+        }
+    }
+    
+    private func handleCountdownTimerExpiration() {
+        updateCountdownLabel()
+        countdownContainerView.isHidden = true
+        countdownContentView.isHidden = true
+        countdownTimer?.invalidate()
+        DispatchQueue.main.async {
+            NotificationCenter.default.post(name: SpecialOfferTimerExpirationNotification, object: nil)
+        }
+    }
+    
+    private func secondsRemaining(for expirationDate: Date?) -> Int {
+        guard let expirationDate = expirationDate else { return 0 }
+        let remaining = Int(expirationDate.timeIntervalSinceNow)
+        return max(0, remaining)
+    }
+    
+    private func updateCountdownLabel() {
+        let remainingTime = secondsRemaining(for: currentExpirationDate())
+        let minutes = remainingTime / 60
+        let seconds = remainingTime % 60
+        
+        countdownMinuteLabel.text = String(format: "%02d", minutes)
+        countdownSeparatorLabel.text = ":"
+        countdownSecondsLabel.text = String(format: "%02d", seconds)
     }
     
     // MARK: - Layout
@@ -498,24 +604,6 @@ class PaywallYearMonthViewController: UIViewController {
     }
     
     // MARK: - Action
-    @objc func onYearProductViewTap(_: UIGestureRecognizer) {
-        guard let subscriptionPlan = subscriptionItems.first(where: {$0.skProduct?.regulatDuration == "year"}) else { return }
-        
-        selectedPlan = subscriptionPlan
-        let isProductPerDayView = KAppConfigServic.shared.remoteConfigValueFor(RemoteConfigKey.Paywall_visual_product_inapp.rawValue).stringValue == "pw_inapp_perday_product"
-        selectedProductView = isProductPerDayView ? yearProductPerDayView : yearProductDefaultView
-        updateProductViews()
-    }
-    
-    @objc func onMonthProductViewTap(_: UIGestureRecognizer) {
-        guard let subscriptionPlan = subscriptionItems.first(where: {$0.skProduct?.regulatDuration == "month"}) else { return }
-        
-        selectedPlan = subscriptionPlan
-        let isProductPerDayView = KAppConfigServic.shared.remoteConfigValueFor(RemoteConfigKey.Paywall_visual_product_inapp.rawValue).stringValue == "pw_inapp_perday_product"
-        selectedProductView = isProductPerDayView ? monthProductPerDayView : monthProductDefaultView
-        updateProductViews()
-    }
-        
     @objc func termsButtonTapped() {
         TapticEngine.impact.feedback(.medium)
         AppsNavManager.shared.presentSafariViewController(with: CAppConstants.URLs.termsURL)

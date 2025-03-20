@@ -50,15 +50,22 @@ final class WSpeechApViewController: PMUMainViewController {
     @IBOutlet weak var instructionContainerInfo2: UILabel!
     @IBOutlet weak var instructionContainerInfo3: UILabel!
     
+    @IBOutlet weak var specialOfferBannerView: SpecialOfferBannerView!
+    @IBOutlet weak var searchViewTopConstraint: NSLayoutConstraint!
+    
     private var dataSource: [[CellConfigurator]] = []
     private var filteredDataSource: [[CellConfigurator]] = []
-    
+    private var showSpecialOfferBanner: Bool = false
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
         configureDataSource()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        configureSpecialOfferBanner()
     }
     
     override func viewDidLayoutSubviews() {
@@ -105,7 +112,15 @@ final class WSpeechApViewController: PMUMainViewController {
         instructionContainerInfo3.text = "3. Adjust text size and save if needed".localized()
         instructionContainerView.isHidden = !CTranscribServicesAp.shared.isShowGetStartedView
         
+        let tapHandler = UITapGestureRecognizer(target: self, action: #selector(onSpecialOfferBannerViewTap))
+        specialOfferBannerView.addGestureRecognizer(tapHandler)
+        
         updateMainColors()
+        configureObserver()
+    }
+    
+    private func configureObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(specialOfferTimerExpiration(notification:)), name: SpecialOfferTimerExpirationNotification, object: nil)
     }
     
     private func configureDataSource() {
@@ -154,6 +169,43 @@ final class WSpeechApViewController: PMUMainViewController {
 //        searchTimer = Timer.scheduledTimer(withTimeInterval: GAppAnalyticActions.delaySliderInterval, repeats: false) { _ in
 //            KAppConfigServic.shared.analytics.track(action: .v2SavedTranscriptsScreen, with: [GAppAnalyticActions.action.rawValue: GAppAnalyticActions.search.rawValue])
 //        }
+    }
+    
+    private func configureSpecialOfferBanner() {
+        guard !TInAppService.shared.isPremium else {
+            if showSpecialOfferBanner {
+                showSpecialOfferBanner = false
+                specialOfferBannerView.isHidden = !showSpecialOfferBanner
+                searchViewTopConstraint.constant = specialOfferBannerView.isHidden ? 12 : 68
+            }
+            return
+        }
+        
+        if ((KAppConfigServic.shared.remoteConfigValueFor(RemoteConfigKey.Paywall_visual_special.rawValue).stringValue == "pw_special_monthly") && bannerSecondsRemaining(for: UserDefaultsStorage.shared.specialOfferExpirationDate) > 0) {
+            if !showSpecialOfferBanner {
+                showSpecialOfferBanner = true
+                specialOfferBannerView.isHidden = !showSpecialOfferBanner
+                searchViewTopConstraint.constant = specialOfferBannerView.isHidden ? 12 : 68
+            }
+        }
+    }
+    
+    @objc private func specialOfferTimerExpiration(notification: NSNotification) {
+        DispatchQueue.main.async {
+            self.showSpecialOfferBanner = false
+            self.specialOfferBannerView.isHidden = !self.showSpecialOfferBanner
+            self.searchViewTopConstraint.constant = self.specialOfferBannerView.isHidden ? 12 : 68
+        }
+    }
+    
+    private func bannerSecondsRemaining(for expirationDate: Date?) -> Int {
+        guard let expirationDate = expirationDate else { return 0 }
+        let remaining = Int(expirationDate.timeIntervalSinceNow)
+        return max(0, remaining)
+    }
+    
+    @objc private func onSpecialOfferBannerViewTap() {
+        AppsNavManager.shared.presentSpecialOffer(0, with: .openFromTranscribe)
     }
     
     // MARK: - Public methods

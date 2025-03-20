@@ -79,29 +79,47 @@ final class AppsNavManager: NSObject {
     
     @MainActor
     func presentSCatchUpApViewController(with openAction: GAppAnalyticActions) {
-        guard (topViewController is SpecialOfferViewController) == false, (topViewController is PaywallViewController) == false, !TInAppService.shared.isPremium else {
+        guard (topViewController is SpecialOfferBaseViewController) == false, (topViewController is PaywallViewController) == false, !TInAppService.shared.isPremium else {
             return
         }
-        let specialOfferViewController = SpecialOfferViewController(openAction: openAction)
-        specialOfferViewController.modalPresentationStyle = .fullScreen
-        topViewController?.present(specialOfferViewController, animated: true)
+        if KAppConfigServic.shared.remoteConfigValueFor(RemoteConfigKey.Paywall_visual_special.rawValue).stringValue == "pw_special_monthly" {
+            let specialOfferViewController = SpecialOfferMonthViewController(openAction: openAction)
+            specialOfferViewController.modalPresentationStyle = .fullScreen
+            topViewController?.present(specialOfferViewController, animated: true)
+        } else {
+            let specialOfferViewController = SpecialOfferViewController(openAction: openAction)
+            specialOfferViewController.modalPresentationStyle = .fullScreen
+            topViewController?.present(specialOfferViewController, animated: true)
+        }
     }
     
     @MainActor
     func presentSpecialOffer(_ after: Double?, with openAction: GAppAnalyticActions) {
-        guard (topViewController is SpecialOfferViewController) == false, !TInAppService.shared.isPremium else {
+        guard (topViewController is SpecialOfferBaseViewController) == false, !TInAppService.shared.isPremium else {
             return
         }
         if let after = after {
             DispatchQueue.main.asyncAfter(deadline: .now() + TimeInterval(after)) { [weak self] in
-                let specialOfferViewController = SpecialOfferViewController(openAction: openAction)
-                specialOfferViewController.modalPresentationStyle = .fullScreen
-                self?.topViewController?.present(specialOfferViewController, animated: true)
+                if KAppConfigServic.shared.remoteConfigValueFor(RemoteConfigKey.Paywall_visual_special.rawValue).stringValue == "pw_special_monthly" {
+                    let specialOfferViewController = SpecialOfferMonthViewController(openAction: openAction)
+                    specialOfferViewController.modalPresentationStyle = .fullScreen
+                    self?.topViewController?.present(specialOfferViewController, animated: true)
+                } else {
+                    let specialOfferViewController = SpecialOfferViewController(openAction: openAction)
+                    specialOfferViewController.modalPresentationStyle = .fullScreen
+                    self?.topViewController?.present(specialOfferViewController, animated: true)
+                }
             }
         } else {
-            let specialOfferViewController = SpecialOfferViewController(openAction: openAction)
-            specialOfferViewController.modalPresentationStyle = .fullScreen
-            self.topViewController?.present(specialOfferViewController, animated: true)
+            if KAppConfigServic.shared.remoteConfigValueFor(RemoteConfigKey.Paywall_visual_special.rawValue).stringValue == "pw_special_monthly" {
+                let specialOfferViewController = SpecialOfferMonthViewController(openAction: openAction)
+                specialOfferViewController.modalPresentationStyle = .fullScreen
+                topViewController?.present(specialOfferViewController, animated: true)
+            } else {
+                let specialOfferViewController = SpecialOfferViewController(openAction: openAction)
+                specialOfferViewController.modalPresentationStyle = .fullScreen
+                topViewController?.present(specialOfferViewController, animated: true)
+            }
         }
     }
 

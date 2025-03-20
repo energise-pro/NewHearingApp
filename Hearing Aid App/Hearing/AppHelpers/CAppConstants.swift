@@ -98,6 +98,9 @@ struct CAppConstants {
         static let paywallRatingImage = UIImage(named: "ratingImage")!
         static let paywallDotImage = UIImage(named: "paywallDotImage")!
         static let paywallReviewBackgroundImage = UIImage(named: "reviewBackgroundImage")!
+        static let specialOffer50OffTopImage = UIImage(named: "specialOffer50OffTopImage")!
+        static let specialOfferBannerBackgroundImage = UIImage(named: "specialOfferBannerBackgroundImage")!
+        static let specialOfferCrownImage = UIImage(named: "specialOfferCrownImage")!
     }
     
     @MainActor
