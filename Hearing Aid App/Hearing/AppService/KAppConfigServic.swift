@@ -1,5 +1,7 @@
 import UIKit
 import FirebaseRemoteConfig
+import AdjustSdk
+import ApphudSDK
 
 final class KAppConfigServic: NSObject, DIServicProtocols {
     
@@ -41,6 +43,7 @@ final class KAppConfigServic: NSObject, DIServicProtocols {
         asaServiceAp.initializeASATools()
         asaServiceAp.initializeJaklinSDK()
         asaServiceAp.sendAppleAttribution()
+        initializeAdjustSDK()
         
         // Add for HAD-58
         if UserDefaults.standard.bool(forKey: CAppConstants.Keys.needsShowTranscribeOrTranslateViewController) {
@@ -92,5 +95,49 @@ final class KAppConfigServic: NSObject, DIServicProtocols {
     
     func remoteConfigValueFor(_ key: String) -> RemoteConfigValue {
         return firebaseServices.remoteConfig.configValue(forKey: key)
+    }
+    
+    func initializeAdjustSDK() {
+#if DEBUG
+        let environment = ADJEnvironmentSandbox
+        let adjustConfig = ADJConfig(
+            appToken: CAppConstants.General.adjustApiToken,
+            environment: environment)
+        adjustConfig?.logLevel = ADJLogLevel.verbose
+        adjustConfig?.enableCostDataInAttribution()
+        adjustConfig?.delegate = self
+#else
+        let environment = ADJEnvironmentProduction
+        let adjustConfig = ADJConfig(
+            appToken: CAppConstants.General.adjustApiToken,
+            environment: environment)
+        adjustConfig?.logLevel = ADJLogLevel.suppress
+        adjustConfig?.enableCostDataInAttribution()
+        adjustConfig?.delegate = self
+#endif
+        
+        Adjust.initSdk(adjustConfig)
+    }
+}
+
+// MARK: - AdjustDelegate
+extension KAppConfigServic: AdjustDelegate {
+    
+    func adjustAttributionChanged(_ attribution: ADJAttribution?) {
+        Task {
+            if let data = attribution?.dictionary() {
+                let adid: String? = await Adjust.adid()
+                Apphud.addAttribution(data: data, from: .adjust, identifer:adid) { (result) in }
+            }
+        }
+    }
+    
+    func adjustSessionTrackingSucceeded(_ sessionSuccessResponseData: ADJSessionSuccess?) {
+        Task {
+            if let data = await Adjust.attribution()?.dictionary() {
+                let adid: String? = await Adjust.adid()
+                Apphud.addAttribution(data: data, from: .adjust, identifer:adid) { (result) in }
+            }
+        }
     }
 }

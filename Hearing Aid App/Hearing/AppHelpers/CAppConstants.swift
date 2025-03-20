@@ -49,6 +49,7 @@ struct CAppConstants {
         static let asaToolsKey = ""
         static let otterScaleHost = "https://api.aiapp3.store"
         static let otterScaleApiKey = "ifW9XE5hcJ7TyQ5J"
+        static let adjustApiToken = "nhyu044s7u2o"
         
         static let countForPresentingRatingAlert = 2
     }
