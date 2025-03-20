@@ -111,6 +111,14 @@ final class SHearinApViewController: PMUMainViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.01)  { [weak self] in
+            let volumeValue = SAudioKitServicesAp.shared.isUseSystemVolume ? SAudioKitServicesAp.shared.systemVolume : SAudioKitServicesAp.shared.microphoneVolume
+            self?.volumePercentageValue = volumeValue * (self?.maxVolumeValue ?? 0.0)
+            self?.updateVolumeView(on: self?.volumePercentageValue ?? 0.0)
+            self?.updateSliderFillView(on: SAudioKitServicesAp.shared.balanceValue)
+            self?.configureScaleStackView(with: self?.volumePercentageValue ?? 0.0)
+            self?.configureWaveView()
+        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -187,7 +195,7 @@ final class SHearinApViewController: PMUMainViewController {
             bottomImageViews[index].tintColor = UIColor.appColor(.UnactiveButton_1)
             bottomLabels[index].textColor = UIColor.appColor(.White100) //UIColor.appColor(.UnactiveButton_1)
         }
-        mainSwitchImageView.image = UIImage.init(systemName: "power")
+        mainSwitchImageView.image = CAppConstants.Images.powerOff
         infoImageView.image = CAppConstants.Images.icInstructionInfo
         headphonesImageView.image = UIImage.init(named: "airplayIcon")
         
