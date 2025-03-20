@@ -9,7 +9,7 @@ target 'Hearing Aid App' do
   
   pod 'Firebase/Analytics', '~> 8.7.0'
   pod 'Firebase/Crashlytics', '~> 8.7.0'
-  pod 'Amplitude', '~> 7.2.0'
+  pod 'AmplitudeSwift'
   pod 'ApphudSDK'
   pod 'lottie-ios', '3.2.3'
   pod 'ASATools', '~> 1.2.0'

@@ -1,5 +1,5 @@
 import UIKit
-import Amplitude
+import AmplitudeSwift
 import ApphudSDK
 
 final class HAmplitudeApService: IAnalyticsService {
@@ -8,20 +8,21 @@ final class HAmplitudeApService: IAnalyticsService {
     
     // MARK: - Properties
     private let apiKey: String
+    private let amplitude: Amplitude
     
     // MARK: - Init
     init(apiKey: String) {
         self.apiKey = apiKey
+        self.amplitude = Amplitude(configuration: Configuration(
+            apiKey: apiKey,
+            autocapture: [.sessions, .screenViews, .appLifecycles, .screenViews]
+        ))
     }
     
     // MARK: - DIServicProtocols
     @MainActor
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
-        Amplitude.instance().initializeApiKey(apiKey)
-//        Amplitude.instance().defaultTracking.sessions = true
-        Amplitude.instance().setUserId(Apphud.userID())
-//        Amplitude.instance().useDynamicConfig = true
-        
+        amplitude.setUserId(userId: Apphud.userID())
         Apphud.setDelegate(self)
     }
     
@@ -30,7 +31,10 @@ final class HAmplitudeApService: IAnalyticsService {
         #if DEBUG
         LoggerApp.log(tag: HAmplitudeApService.TAG, message: "Action - \(action.rawValue) with fillingInfo \(fillingInfo ?? [:]).")
         #else
-        Amplitude.instance().logEvent(action.rawValue, withEventProperties: fillingInfo)
+        amplitude.track(
+            eventType: action.rawValue,
+            eventProperties: fillingInfo
+        )
         #endif
     }
     
@@ -38,7 +42,7 @@ final class HAmplitudeApService: IAnalyticsService {
         guard let fillingInfo = fillingInfo, !fillingInfo.isEmpty else {
             return
         }
-        Amplitude.instance().setUserProperties(fillingInfo)
+        amplitude.identify(userProperties: fillingInfo)
     }
 }
 
@@ -46,6 +50,6 @@ final class HAmplitudeApService: IAnalyticsService {
 extension HAmplitudeApService: ApphudDelegate {
     
     func apphudDidChangeUserID(_ userID: String) {
-        Amplitude.instance().setUserId(userID)
+        amplitude.setUserId(userId: userID)
     }
 }

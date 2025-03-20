@@ -242,4 +242,6 @@ enum GAppAnalyticActions: String {
     
     case connectScreenOpened = "connect_screen_opened"
     case connectScreenClosed = "connect_screen_closed"
+    
+    case didReceiveAsaAttribution = "did_receive_asa_attribution"
 }

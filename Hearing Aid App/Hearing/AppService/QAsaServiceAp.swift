@@ -4,8 +4,6 @@ import AppTrackingTransparency
 import ApphudSDK
 import AdServices
 import ASATools
-import Amplitude
-//import iAd
 
 typealias QAsaServiceApCompletion = () -> ()
 
@@ -41,8 +39,8 @@ final class QAsaServiceAp {
         ASATools.instance.attribute(apiToken: CAppConstants.General.asaToolsKey) { response, error in
             if let response = response {
                 // store response.analyticsValues() in your product analytics
-                Amplitude.instance().setUserProperties(response.analyticsValues())
-                Amplitude.instance().logEvent("did_receive_asa_attribution", withEventProperties: response.analyticsValues())
+                KAppConfigServic.shared.analytics.setUserProperty(with: response.analyticsValues())
+                KAppConfigServic.shared.analytics.track(.didReceiveAsaAttribution, with: response.analyticsValues())
             }
         }
     }
@@ -74,13 +72,13 @@ final class QAsaServiceAp {
                 do {
                     let asaToken = try AAAttribution.attributionToken()
                     Apphud.addAttribution(data: nil, from: .appleAdsAttribution, identifer: asaToken, callback: nil)
-                    Amplitude.instance().setUserProperties(["did_asa_Token": asaToken])
+                    KAppConfigServic.shared.analytics.setUserProperty(with: ["did_asa_Token": asaToken])
                     let isAttributed = !asaToken.isEmpty
                     let userTrafficType = isAttributed ? "attributed" : "organic"
-                    Amplitude.instance().setUserProperties(["did_asa_att": userTrafficType])
+                    KAppConfigServic.shared.analytics.setUserProperty(with: ["did_asa_att": userTrafficType])
                 } catch {
                     let errorType = "asa_token_error"
-                    Amplitude.instance().setUserProperties(["did_asa_att": errorType])
+                    KAppConfigServic.shared.analytics.setUserProperty(with: ["did_asa_att": errorType])
                 }
             }
         }
