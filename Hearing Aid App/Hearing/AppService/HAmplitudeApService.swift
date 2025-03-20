@@ -18,8 +18,9 @@ final class HAmplitudeApService: IAnalyticsService {
     @MainActor
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
         Amplitude.instance().initializeApiKey(apiKey)
+//        Amplitude.instance().defaultTracking.sessions = true
         Amplitude.instance().setUserId(Apphud.userID())
-        Amplitude.instance().useDynamicConfig = true
+//        Amplitude.instance().useDynamicConfig = true
         
         Apphud.setDelegate(self)
     }

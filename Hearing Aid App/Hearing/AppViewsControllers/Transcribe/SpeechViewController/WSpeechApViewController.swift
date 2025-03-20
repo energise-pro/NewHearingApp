@@ -205,7 +205,7 @@ final class WSpeechApViewController: PMUMainViewController {
     }
     
     @objc private func onSpecialOfferBannerViewTap() {
-        AppsNavManager.shared.presentSpecialOffer(0, with: .openFromTranscribe)
+        AppsNavManager.shared.presentSpecialOffer(0, with: .openFromSpecialBanner)
     }
     
     // MARK: - Public methods

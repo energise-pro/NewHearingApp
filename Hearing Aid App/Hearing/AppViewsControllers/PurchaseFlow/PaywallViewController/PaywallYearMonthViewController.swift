@@ -373,7 +373,7 @@ class PaywallYearMonthViewController: UIViewController {
         }
         
         analyticProperties[GAppAnalyticActions.source.rawValue] = openAction.rawValue
-        analyticProperties["pwl_version"] = "pw_default_inapp_1"
+        analyticProperties["pwl_version"] = "pw_inapp_monthly"
         analyticProperties["offer"] = placementIdentifier
         KAppConfigServic.shared.analytics.track(.paywallSeen, with: analyticProperties)
     }

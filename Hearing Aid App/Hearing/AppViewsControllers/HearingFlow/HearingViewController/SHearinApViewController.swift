@@ -509,7 +509,7 @@ final class SHearinApViewController: PMUMainViewController {
     }
     
     @objc private func onSpecialOfferBannerViewTap() {
-        AppsNavManager.shared.presentSpecialOffer(0, with: .openFromHearing)
+        AppsNavManager.shared.presentSpecialOffer(0, with: .openFromSpecialBanner)
     }
     
     // MARK: - IBActions
