@@ -17,13 +17,10 @@
 		118EDAF92CD2648C00C3F2CF /* SporthAudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = 118EDAF82CD2648C00C3F2CF /* SporthAudioKit */; };
 		11DC52332CD403E400A9589A /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DC52242CD403E400A9589A /* Theme.swift */; };
 		11DC523C2CD412CB00A9589A /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DC523B2CD412CA00A9589A /* ButtonView.swift */; };
-		11DC523E2CD4139200A9589A /* HAnalliticAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DC523D2CD4139200A9589A /* HAnalliticAViewController.swift */; };
 		834EB73526482F9600026F01 /* ParticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834EB73326482F9600026F01 /* ParticleView.swift */; };
 		834EB73926482FEC00026F01 /* Particle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 834EB73826482FEC00026F01 /* Particle.sks */; };
 		839DE07326529F1B00A65DD7 /* NIndicatShaper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DE07126529F1B00A65DD7 /* NIndicatShaper.swift */; };
 		839DE07426529F1B00A65DD7 /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DE07226529F1B00A65DD7 /* ActivityIndicatorView.swift */; };
-		839FAC20264EE383004910D9 /* JSpeechRecoSetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839FAC1F264EE383004910D9 /* JSpeechRecoSetViewController.swift */; };
-		839FAC24264EE87D004910D9 /* JSpeechRecoSetViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 839FAC23264EE87D004910D9 /* JSpeechRecoSetViewController.storyboard */; };
 		83A0A0C9267E02C700D06F35 /* Spawn.ahap in Resources */ = {isa = PBXBuildFile; fileRef = 83A0A0C3267E02C700D06F35 /* Spawn.ahap */; };
 		83A0A0CA267E02C700D06F35 /* Implode.wav in Resources */ = {isa = PBXBuildFile; fileRef = 83A0A0C4267E02C700D06F35 /* Implode.wav */; };
 		83A0A0CB267E02C700D06F35 /* CustomHaptic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A0A0C5267E02C700D06F35 /* CustomHaptic.swift */; };
@@ -56,11 +53,7 @@
 		83A8E8EE2645A7FD0080AEE5 /* SpringAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A8E8D82645A7FD0080AEE5 /* SpringAnimation.swift */; };
 		83AA6D8C267774BD00AFFB7F /* MLTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AA6D8B267774BD00AFFB7F /* MLTranslator.swift */; };
 		83AA6D8E26777DD800AFFB7F /* JTranslrToLangSelecController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AA6D8D26777DD800AFFB7F /* JTranslrToLangSelecController.swift */; };
-		83ABA251264BE340001784B8 /* USpeechRecViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83ABA250264BE340001784B8 /* USpeechRecViewController.swift */; };
-		83ABA254264BE346001784B8 /* USpeechRecViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83ABA253264BE346001784B8 /* USpeechRecViewController.storyboard */; };
 		83AF2C23264D660E00DB9909 /* DSpeechRecLocaleSelecViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AF2C22264D660E00DB9909 /* DSpeechRecLocaleSelecViewController.swift */; };
-		83AF2C76264D9CD100DB9909 /* RTextVFullScrViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AF2C75264D9CD100DB9909 /* RTextVFullScrViewController.swift */; };
-		83AF2C79264D9CEF00DB9909 /* RTextVFullScrViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83AF2C78264D9CEF00DB9909 /* RTextVFullScrViewController.storyboard */; };
 		83BCCDD7264C797100AAAF9B /* SpeechRecognition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BCCDD6264C797100AAAF9B /* SpeechRecognition.swift */; };
 		83C81AA1264A86F300B3F8E2 /* AppExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C81AA0264A86F300B3F8E2 /* AppExt.swift */; };
 		86053B1B2CDE3B24004BA772 /* NewOnboardingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86053B1A2CDE3B24004BA772 /* NewOnboardingViewController.xib */; };
@@ -168,8 +161,6 @@
 		86EAFCC72D0ACC3200FBE13C /* LocaleListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86EAFCC62D0ACC3200FBE13C /* LocaleListTableViewCell.xib */; };
 		9A0441A926E8D97E0030AF77 /* HMicrophPermisApViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0441A726E8D97E0030AF77 /* HMicrophPermisApViewController.swift */; };
 		9A0441AA26E8D97E0030AF77 /* HMicrophPermisApViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A0441A826E8D97E0030AF77 /* HMicrophPermisApViewController.xib */; };
-		9A09434A282D654800F7AEC5 /* ZAppIconViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A094348282D654800F7AEC5 /* ZAppIconViewController.swift */; };
-		9A09434B282D654800F7AEC5 /* ZAppIconViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A094349282D654800F7AEC5 /* ZAppIconViewController.xib */; };
 		9A09434D282D78F500F7AEC5 /* AThemeServicesAp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A09434C282D78F500F7AEC5 /* AThemeServicesAp.swift */; };
 		9A0B09A0280D9ADC0084D695 /* InAppStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0B099F280D9ADC0084D695 /* InAppStorage.swift */; };
 		9A122CF0283B8DB900944287 /* GLangSetupApViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A122CEE283B8DB900944287 /* GLangSetupApViewController.swift */; };
@@ -251,8 +242,6 @@
 		9AC37F6C2833E3A100F95E24 /* GTranscribTextParam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC37F6B2833E3A100F95E24 /* GTranscribTextParam.swift */; };
 		9AC37F702833F70D00F95E24 /* DTypeTextApViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC37F6E2833F70D00F95E24 /* DTypeTextApViewController.swift */; };
 		9AC37F712833F70D00F95E24 /* DTypeTextApViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AC37F6F2833F70D00F95E24 /* DTypeTextApViewController.xib */; };
-		9AC90E652886B74C00A43212 /* TPermissListApViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC90E632886B74C00A43212 /* TPermissListApViewController.swift */; };
-		9AC90E662886B74C00A43212 /* TPermissListApViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AC90E642886B74C00A43212 /* TPermissListApViewController.xib */; };
 		9ACB45BA2812B9BF00FAF44E /* AudioKitUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACB45952812B9BE00FAF44E /* AudioKitUI.swift */; };
 		9ACB45BB2812B9BF00FAF44E /* TempoDraggableStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACB45972812B9BE00FAF44E /* TempoDraggableStepper.swift */; };
 		9ACB45BC2812B9BF00FAF44E /* ReverbPresetStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACB45982812B9BE00FAF44E /* ReverbPresetStepper.swift */; };
@@ -302,30 +291,14 @@
 		9ADCA38627353DD900B8CE6B /* BFirebaseServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADCA38527353DD900B8CE6B /* BFirebaseServices.swift */; };
 		9ADD32C328365A24002ADA43 /* JLocaleListApViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADD32C128365A24002ADA43 /* JLocaleListApViewController.swift */; };
 		9ADD32C428365A24002ADA43 /* JLocaleListApViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9ADD32C228365A24002ADA43 /* JLocaleListApViewController.xib */; };
-		9AE1EC8F283D0BD000941B54 /* OMoreApViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE1EC8D283D0BD000941B54 /* OMoreApViewController.swift */; };
-		9AE1EC90283D0BD000941B54 /* OMoreApViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AE1EC8E283D0BD000941B54 /* OMoreApViewController.xib */; };
-		9AE950AD283FBDD00044CAB1 /* GPOnboardApViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE950AB283FBDD00044CAB1 /* GPOnboardApViewController.swift */; };
-		9AE950AE283FBDD00044CAB1 /* GPOnboardApViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AE950AC283FBDD00044CAB1 /* GPOnboardApViewController.xib */; };
 		9AEC02F0283533FF00E9E88B /* HTexParamTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEC02EE283533FF00E9E88B /* HTexParamTableViewCell.swift */; };
 		9AEC02F1283533FF00E9E88B /* HTexParamTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AEC02EF283533FF00E9E88B /* HTexParamTableViewCell.xib */; };
-		A51EBD3426D9572E00674657 /* AppdialogAfter.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A51EBD3226D9572E00674657 /* AppdialogAfter.mp3 */; };
-		A51EBD3526D9572E00674657 /* AppguitarAfter.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A51EBD3326D9572E00674657 /* AppguitarAfter.mp3 */; };
-		A51EBD3826D9575600674657 /* AppdialogBefore.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A51EBD3626D9575600674657 /* AppdialogBefore.mp3 */; };
-		A51EBD3926D9575600674657 /* AppguitarBefore.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A51EBD3726D9575600674657 /* AppguitarBefore.mp3 */; };
-		A51EBD3D26D957C600674657 /* FOnboardApViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51EBD3B26D957C600674657 /* FOnboardApViewController.swift */; };
-		A51EBD3E26D957C600674657 /* FOnboardApViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A51EBD3C26D957C600674657 /* FOnboardApViewController.xib */; };
-		A51EBD4926D95B5100674657 /* GOnboModelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51EBD4826D95B5100674657 /* GOnboModelCollectionViewCell.swift */; };
 		A52F8B0426D1B0E100034120 /* CGFloat+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52F8B0326D1B0E100034120 /* CGFloat+Extension.swift */; };
 		A53D650626E91FDD00C9882D /* SReqVoiceRecordApViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53D650426E91FDD00C9882D /* SReqVoiceRecordApViewController.swift */; };
 		A53D650726E91FDD00C9882D /* SReqVoiceRecordApViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A53D650526E91FDD00C9882D /* SReqVoiceRecordApViewController.xib */; };
 		A53D650926E9483000C9882D /* SIAppStateListeners.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53D650826E9483000C9882D /* SIAppStateListeners.swift */; };
-		A552868826FA711500A92066 /* GOnbBSpeechViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A552868626FA711500A92066 /* GOnbBSpeechViewCell.swift */; };
-		A552868926FA711500A92066 /* GOnbBSpeechViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A552868726FA711500A92066 /* GOnbBSpeechViewCell.xib */; };
-		A55EECF526DFDF0A001CA6B5 /* TOnboardHvTabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55EECF426DFDF0A001CA6B5 /* TOnboardHvTabs.swift */; };
 		A55EECF726E01079001CA6B5 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55EECF626E01079001CA6B5 /* String+Extension.swift */; };
 		A573ADA926F69955000C5B82 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A573ADA826F69955000C5B82 /* UIView+Extension.swift */; };
-		A58219AF26F9196D005BFCD6 /* JOnbrdCollectViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58219AD26F9196D005BFCD6 /* JOnbrdCollectViewCell.swift */; };
-		A58219B026F9196D005BFCD6 /* JOnbrdCollectViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A58219AE26F9196D005BFCD6 /* JOnbrdCollectViewCell.xib */; };
 		A5B2324626CC44C70042AA7B /* DIServicProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B2323F26CC44C70042AA7B /* DIServicProtocols.swift */; };
 		A5B2324726CC44C70042AA7B /* FIAnalyticProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B2324026CC44C70042AA7B /* FIAnalyticProtocols.swift */; };
 		A5B2324926CC44C70042AA7B /* UKeyServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B2324326CC44C70042AA7B /* UKeyServices.swift */; };
@@ -363,14 +336,11 @@
 		1197E8D22CD2A76C007F05B3 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		11DC52242CD403E400A9589A /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		11DC523B2CD412CA00A9589A /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
-		11DC523D2CD4139200A9589A /* HAnalliticAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HAnalliticAViewController.swift; sourceTree = "<group>"; };
 		5C171E85063BBD69E1B3BB49 /* Pods-Hearing Aid App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hearing Aid App.debug.xcconfig"; path = "Target Support Files/Pods-Hearing Aid App/Pods-Hearing Aid App.debug.xcconfig"; sourceTree = "<group>"; };
 		834EB73326482F9600026F01 /* ParticleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticleView.swift; sourceTree = "<group>"; };
 		834EB73826482FEC00026F01 /* Particle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Particle.sks; sourceTree = "<group>"; };
 		839DE07126529F1B00A65DD7 /* NIndicatShaper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NIndicatShaper.swift; sourceTree = "<group>"; };
 		839DE07226529F1B00A65DD7 /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
-		839FAC1F264EE383004910D9 /* JSpeechRecoSetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSpeechRecoSetViewController.swift; sourceTree = "<group>"; };
-		839FAC23264EE87D004910D9 /* JSpeechRecoSetViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = JSpeechRecoSetViewController.storyboard; sourceTree = "<group>"; };
 		83A0A0C3267E02C700D06F35 /* Spawn.ahap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Spawn.ahap; sourceTree = "<group>"; };
 		83A0A0C4267E02C700D06F35 /* Implode.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Implode.wav; sourceTree = "<group>"; };
 		83A0A0C5267E02C700D06F35 /* CustomHaptic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomHaptic.swift; sourceTree = "<group>"; };
@@ -406,11 +376,7 @@
 		83A8E8D82645A7FD0080AEE5 /* SpringAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpringAnimation.swift; sourceTree = "<group>"; };
 		83AA6D8B267774BD00AFFB7F /* MLTranslator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLTranslator.swift; sourceTree = "<group>"; };
 		83AA6D8D26777DD800AFFB7F /* JTranslrToLangSelecController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JTranslrToLangSelecController.swift; sourceTree = "<group>"; };
-		83ABA250264BE340001784B8 /* USpeechRecViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = USpeechRecViewController.swift; sourceTree = "<group>"; };
-		83ABA253264BE346001784B8 /* USpeechRecViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = USpeechRecViewController.storyboard; sourceTree = "<group>"; };
 		83AF2C22264D660E00DB9909 /* DSpeechRecLocaleSelecViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSpeechRecLocaleSelecViewController.swift; sourceTree = "<group>"; };
-		83AF2C75264D9CD100DB9909 /* RTextVFullScrViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTextVFullScrViewController.swift; sourceTree = "<group>"; };
-		83AF2C78264D9CEF00DB9909 /* RTextVFullScrViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RTextVFullScrViewController.storyboard; sourceTree = "<group>"; };
 		83BCCDD6264C797100AAAF9B /* SpeechRecognition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognition.swift; sourceTree = "<group>"; };
 		83C81AA0264A86F300B3F8E2 /* AppExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppExt.swift; sourceTree = "<group>"; };
 		86053B192CDE3B24004BA772 /* NewOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOnboardingViewController.swift; sourceTree = "<group>"; };
@@ -520,8 +486,6 @@
 		9883D930377BC8671B11DE76 /* Pods_Hearing_Aid_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hearing_Aid_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A0441A726E8D97E0030AF77 /* HMicrophPermisApViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMicrophPermisApViewController.swift; sourceTree = "<group>"; };
 		9A0441A826E8D97E0030AF77 /* HMicrophPermisApViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HMicrophPermisApViewController.xib; sourceTree = "<group>"; };
-		9A094348282D654800F7AEC5 /* ZAppIconViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZAppIconViewController.swift; sourceTree = "<group>"; };
-		9A094349282D654800F7AEC5 /* ZAppIconViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZAppIconViewController.xib; sourceTree = "<group>"; };
 		9A09434C282D78F500F7AEC5 /* AThemeServicesAp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AThemeServicesAp.swift; sourceTree = "<group>"; };
 		9A0B099F280D9ADC0084D695 /* InAppStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppStorage.swift; sourceTree = "<group>"; };
 		9A122CEE283B8DB900944287 /* GLangSetupApViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GLangSetupApViewController.swift; sourceTree = "<group>"; };
@@ -601,8 +565,6 @@
 		9AC37F6B2833E3A100F95E24 /* GTranscribTextParam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GTranscribTextParam.swift; sourceTree = "<group>"; };
 		9AC37F6E2833F70D00F95E24 /* DTypeTextApViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTypeTextApViewController.swift; sourceTree = "<group>"; };
 		9AC37F6F2833F70D00F95E24 /* DTypeTextApViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DTypeTextApViewController.xib; sourceTree = "<group>"; };
-		9AC90E632886B74C00A43212 /* TPermissListApViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPermissListApViewController.swift; sourceTree = "<group>"; };
-		9AC90E642886B74C00A43212 /* TPermissListApViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TPermissListApViewController.xib; sourceTree = "<group>"; };
 		9ACB45952812B9BE00FAF44E /* AudioKitUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioKitUI.swift; sourceTree = "<group>"; };
 		9ACB45972812B9BE00FAF44E /* TempoDraggableStepper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TempoDraggableStepper.swift; sourceTree = "<group>"; };
 		9ACB45982812B9BE00FAF44E /* ReverbPresetStepper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReverbPresetStepper.swift; sourceTree = "<group>"; };
@@ -652,30 +614,14 @@
 		9ADCA38527353DD900B8CE6B /* BFirebaseServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BFirebaseServices.swift; sourceTree = "<group>"; };
 		9ADD32C128365A24002ADA43 /* JLocaleListApViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLocaleListApViewController.swift; sourceTree = "<group>"; };
 		9ADD32C228365A24002ADA43 /* JLocaleListApViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JLocaleListApViewController.xib; sourceTree = "<group>"; };
-		9AE1EC8D283D0BD000941B54 /* OMoreApViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OMoreApViewController.swift; sourceTree = "<group>"; };
-		9AE1EC8E283D0BD000941B54 /* OMoreApViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OMoreApViewController.xib; sourceTree = "<group>"; };
-		9AE950AB283FBDD00044CAB1 /* GPOnboardApViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPOnboardApViewController.swift; sourceTree = "<group>"; };
-		9AE950AC283FBDD00044CAB1 /* GPOnboardApViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GPOnboardApViewController.xib; sourceTree = "<group>"; };
 		9AEC02EE283533FF00E9E88B /* HTexParamTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTexParamTableViewCell.swift; sourceTree = "<group>"; };
 		9AEC02EF283533FF00E9E88B /* HTexParamTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HTexParamTableViewCell.xib; sourceTree = "<group>"; };
-		A51EBD3226D9572E00674657 /* AppdialogAfter.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = AppdialogAfter.mp3; sourceTree = "<group>"; };
-		A51EBD3326D9572E00674657 /* AppguitarAfter.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = AppguitarAfter.mp3; sourceTree = "<group>"; };
-		A51EBD3626D9575600674657 /* AppdialogBefore.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = AppdialogBefore.mp3; sourceTree = "<group>"; };
-		A51EBD3726D9575600674657 /* AppguitarBefore.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = AppguitarBefore.mp3; sourceTree = "<group>"; };
-		A51EBD3B26D957C600674657 /* FOnboardApViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FOnboardApViewController.swift; sourceTree = "<group>"; };
-		A51EBD3C26D957C600674657 /* FOnboardApViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FOnboardApViewController.xib; sourceTree = "<group>"; };
-		A51EBD4826D95B5100674657 /* GOnboModelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GOnboModelCollectionViewCell.swift; sourceTree = "<group>"; };
 		A52F8B0326D1B0E100034120 /* CGFloat+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extension.swift"; sourceTree = "<group>"; };
 		A53D650426E91FDD00C9882D /* SReqVoiceRecordApViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SReqVoiceRecordApViewController.swift; sourceTree = "<group>"; };
 		A53D650526E91FDD00C9882D /* SReqVoiceRecordApViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SReqVoiceRecordApViewController.xib; sourceTree = "<group>"; };
 		A53D650826E9483000C9882D /* SIAppStateListeners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SIAppStateListeners.swift; sourceTree = "<group>"; };
-		A552868626FA711500A92066 /* GOnbBSpeechViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GOnbBSpeechViewCell.swift; sourceTree = "<group>"; };
-		A552868726FA711500A92066 /* GOnbBSpeechViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GOnbBSpeechViewCell.xib; sourceTree = "<group>"; };
-		A55EECF426DFDF0A001CA6B5 /* TOnboardHvTabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOnboardHvTabs.swift; sourceTree = "<group>"; };
 		A55EECF626E01079001CA6B5 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		A573ADA826F69955000C5B82 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
-		A58219AD26F9196D005BFCD6 /* JOnbrdCollectViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JOnbrdCollectViewCell.swift; sourceTree = "<group>"; };
-		A58219AE26F9196D005BFCD6 /* JOnbrdCollectViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JOnbrdCollectViewCell.xib; sourceTree = "<group>"; };
 		A5B2323F26CC44C70042AA7B /* DIServicProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DIServicProtocols.swift; sourceTree = "<group>"; };
 		A5B2324026CC44C70042AA7B /* FIAnalyticProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIAnalyticProtocols.swift; sourceTree = "<group>"; };
 		A5B2324326CC44C70042AA7B /* UKeyServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UKeyServices.swift; sourceTree = "<group>"; };
@@ -734,8 +680,6 @@
 		839FAC22264EE846004910D9 /* ASpeechReco */ = {
 			isa = PBXGroup;
 			children = (
-				839FAC1F264EE383004910D9 /* JSpeechRecoSetViewController.swift */,
-				839FAC23264EE87D004910D9 /* JSpeechRecoSetViewController.storyboard */,
 			);
 			path = ASpeechReco;
 			sourceTree = "<group>";
@@ -845,10 +789,6 @@
 		83ABA24F264BE316001784B8 /* AppSpeechRec */ = {
 			isa = PBXGroup;
 			children = (
-				83ABA250264BE340001784B8 /* USpeechRecViewController.swift */,
-				83AF2C75264D9CD100DB9909 /* RTextVFullScrViewController.swift */,
-				83AF2C78264D9CEF00DB9909 /* RTextVFullScrViewController.storyboard */,
-				83ABA253264BE346001784B8 /* USpeechRecViewController.storyboard */,
 				83AA6D8A2677749300AFFB7F /* ApGoogleTranslator */,
 				83AA6D892677747800AFFB7F /* ASpeechRecognition */,
 				839FAC22264EE846004910D9 /* ASpeechReco */,
@@ -1217,13 +1157,6 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		86CB17DF2D895233008360F5 /* AppExtensions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = AppExtensions;
-			sourceTree = "<group>";
-		};
 		86DFB1F62CE4B1C100CBD94F /* TooltipView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1292,7 +1225,6 @@
 			children = (
 				9A87D76626CF06F70077C9D0 /* HeadphonesReminderViewController */,
 				9A0441A626E8D96A0030AF77 /* MicrophonePermissionViewController */,
-				9AC90E622886B70300A43212 /* PermissionsListViewController */,
 				A53D650326E91FAF00C9882D /* RequestVoiceRecordingViewController */,
 			);
 			path = RemindersFlow;
@@ -1303,7 +1235,6 @@
 			children = (
 				860E1DCB2D0BB481004F44E9 /* SpecialOfferViewController */,
 				9AD6C64828A1019B0055C518 /* BPaywallViewController */,
-				9AE950AA283FBDB70044CAB1 /* PreOnboardingViewController */,
 				9A635DCE26F3811900A6C0EF /* CatchUpViewController */,
 				A5E542AB26EFF06F001D3AB4 /* PaywallViewController */,
 				A51EBD3A26D957AC00674657 /* OnboardingViewController */,
@@ -1314,20 +1245,9 @@
 		9A094346282D652200F7AEC5 /* SettingsFlow */ = {
 			isa = PBXGroup;
 			children = (
-				9A094347282D653100F7AEC5 /* AppIconsViewController */,
-				9AC3113F283D0BA600DCEE59 /* MoreViewController */,
 				9A60EDF8281FE97A00112720 /* SettingsViewController */,
 			);
 			path = SettingsFlow;
-			sourceTree = "<group>";
-		};
-		9A094347282D653100F7AEC5 /* AppIconsViewController */ = {
-			isa = PBXGroup;
-			children = (
-				9A094348282D654800F7AEC5 /* ZAppIconViewController.swift */,
-				9A094349282D654800F7AEC5 /* ZAppIconViewController.xib */,
-			);
-			path = AppIconsViewController;
 			sourceTree = "<group>";
 		};
 		9A122CED283B8DA300944287 /* LanguageSetupViewController */ = {
@@ -1389,7 +1309,6 @@
 			children = (
 				83A8E8A72645898B0080AEE5 /* Assets.xcassets */,
 				83A8E8A92645898B0080AEE5 /* LaunchScreen.storyboard */,
-				A51EBD3126D956BE00674657 /* AppRingtone */,
 			);
 			path = AppResource;
 			sourceTree = "<group>";
@@ -1538,7 +1457,6 @@
 		9A715FE226E0B6B000B2DD06 /* CollectionCellModels */ = {
 			isa = PBXGroup;
 			children = (
-				A51EBD4826D95B5100674657 /* GOnboModelCollectionViewCell.swift */,
 				86053B212CE20C27004BA772 /* NewOnbordingPageModelCollectionViewCell.swift */,
 			);
 			path = CollectionCellModels;
@@ -1607,15 +1525,6 @@
 			path = InstructionViewController;
 			sourceTree = "<group>";
 		};
-		9AC3113F283D0BA600DCEE59 /* MoreViewController */ = {
-			isa = PBXGroup;
-			children = (
-				9AE1EC8D283D0BD000941B54 /* OMoreApViewController.swift */,
-				9AE1EC8E283D0BD000941B54 /* OMoreApViewController.xib */,
-			);
-			path = MoreViewController;
-			sourceTree = "<group>";
-		};
 		9AC37F6D2833F6F700F95E24 /* TypeTextViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -1623,15 +1532,6 @@
 				9AC37F6F2833F70D00F95E24 /* DTypeTextApViewController.xib */,
 			);
 			path = TypeTextViewController;
-			sourceTree = "<group>";
-		};
-		9AC90E622886B70300A43212 /* PermissionsListViewController */ = {
-			isa = PBXGroup;
-			children = (
-				9AC90E632886B74C00A43212 /* TPermissListApViewController.swift */,
-				9AC90E642886B74C00A43212 /* TPermissListApViewController.xib */,
-			);
-			path = PermissionsListViewController;
 			sourceTree = "<group>";
 		};
 		9ACB45942812B9BE00FAF44E /* AudioKitUI */ = {
@@ -1787,15 +1687,6 @@
 			path = LocalesListViewController;
 			sourceTree = "<group>";
 		};
-		9AE950AA283FBDB70044CAB1 /* PreOnboardingViewController */ = {
-			isa = PBXGroup;
-			children = (
-				9AE950AB283FBDD00044CAB1 /* GPOnboardApViewController.swift */,
-				9AE950AC283FBDD00044CAB1 /* GPOnboardApViewController.xib */,
-			);
-			path = PreOnboardingViewController;
-			sourceTree = "<group>";
-		};
 		9AEC02ED283533E900E9E88B /* TextParametersTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -1805,23 +1696,10 @@
 			path = TextParametersTableViewCell;
 			sourceTree = "<group>";
 		};
-		A51EBD3126D956BE00674657 /* AppRingtone */ = {
-			isa = PBXGroup;
-			children = (
-				A51EBD3226D9572E00674657 /* AppdialogAfter.mp3 */,
-				A51EBD3626D9575600674657 /* AppdialogBefore.mp3 */,
-				A51EBD3326D9572E00674657 /* AppguitarAfter.mp3 */,
-				A51EBD3726D9575600674657 /* AppguitarBefore.mp3 */,
-			);
-			path = AppRingtone;
-			sourceTree = "<group>";
-		};
 		A51EBD3A26D957AC00674657 /* OnboardingViewController */ = {
 			isa = PBXGroup;
 			children = (
 				86053B182CDE3ADD004BA772 /* NewOnboardingViewController */,
-				A51EBD3B26D957C600674657 /* FOnboardApViewController.swift */,
-				A51EBD3C26D957C600674657 /* FOnboardApViewController.xib */,
 			);
 			path = OnboardingViewController;
 			sourceTree = "<group>";
@@ -1873,8 +1751,6 @@
 		A552868526FA70E400A92066 /* OnboardingSpeechViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				A552868626FA711500A92066 /* GOnbBSpeechViewCell.swift */,
-				A552868726FA711500A92066 /* GOnbBSpeechViewCell.xib */,
 			);
 			path = OnboardingSpeechViewCell;
 			sourceTree = "<group>";
@@ -1882,8 +1758,6 @@
 		A58219A826F91922005BFCD6 /* OnboardingCollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				A58219AD26F9196D005BFCD6 /* JOnbrdCollectViewCell.swift */,
-				A58219AE26F9196D005BFCD6 /* JOnbrdCollectViewCell.xib */,
 			);
 			path = OnboardingCollectionViewCell;
 			sourceTree = "<group>";
@@ -1891,8 +1765,6 @@
 		A5B2323D26CC44BC0042AA7B /* Hearing */ = {
 			isa = PBXGroup;
 			children = (
-				86CB17DF2D895233008360F5 /* AppExtensions */,
-				11DC523D2CD4139200A9589A /* HAnalliticAViewController.swift */,
 				A5E9ADD626E0962100B7DA17 /* AppCustomView */,
 				9A87D76526CF06F70077C9D0 /* AppViewsControllers */,
 				A5B2324F26CC47B40042AA7B /* AppEntities */,
@@ -1943,7 +1815,6 @@
 			children = (
 				A5B2324D26CC44D20042AA7B /* GAppAnalyticActions.swift */,
 				9A60EDCE281A9B9A00112720 /* VPLirParameter.swift */,
-				A55EECF426DFDF0A001CA6B5 /* TOnboardHvTabs.swift */,
 				A5BEDCE526F2967000CF1381 /* ВTypPwlScreen.swift */,
 				9AC37F6B2833E3A100F95E24 /* GTranscribTextParam.swift */,
 				86053B1F2CE20A82004BA772 /* NewOnboardingPagesModel.swift */,
@@ -2091,34 +1962,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A5CCE982819906700B8F89D /* GCenterPickrTablViewCell.xib in Resources */,
-				9AE1EC90283D0BD000941B54 /* OMoreApViewController.xib in Resources */,
 				9ACB45E42812D05F00FAF44E /* KCompresViewController.xib in Resources */,
-				839FAC24264EE87D004910D9 /* JSpeechRecoSetViewController.storyboard in Resources */,
 				9A0441AA26E8D97E0030AF77 /* HMicrophPermisApViewController.xib in Resources */,
 				9A122CF1283B8DB900944287 /* GLangSetupApViewController.xib in Resources */,
 				A5E542AF26EFF08A001D3AB4 /* PaywallViewController.xib in Resources */,
 				9A60EE012820074100112720 /* UThemNTablViewCell.xib in Resources */,
 				9A2452D428378C3D0019DAC1 /* HTranscriptListApViewController.xib in Resources */,
 				86DFB20D2CE671A600CBD94F /* NewSettingTableViewCell.xib in Resources */,
-				83AF2C79264D9CEF00DB9909 /* RTextVFullScrViewController.storyboard in Resources */,
 				9A52DD182832A90400307F2A /* UTranscribApViewController.xib in Resources */,
 				9A52DD1328324E7100307F2A /* WSpeechApViewController.xib in Resources */,
 				9AC37F712833F70D00F95E24 /* DTypeTextApViewController.xib in Resources */,
 				9ACB45E92812D0CD00FAF44E /* QTemplateApViewController.xib in Resources */,
 				9A60EDC8281A955C00112720 /* YLimitApViewController.xib in Resources */,
-				A51EBD3526D9572E00674657 /* AppguitarAfter.mp3 in Resources */,
 				9ABEB29A26D3FF5600A8252D /* DHeadphsRemindApViewController.xib in Resources */,
 				83A0A0C9267E02C700D06F35 /* Spawn.ahap in Resources */,
 				860E1DD32D0BB8A8004F44E9 /* SpecialOfferViewController.xib in Resources */,
-				A51EBD3426D9572E00674657 /* AppdialogAfter.mp3 in Resources */,
 				9A60EDFC281FE99600112720 /* ASettingAppViewController.xib in Resources */,
 				86053B1B2CDE3B24004BA772 /* NewOnboardingViewController.xib in Resources */,
 				86053B272CE20D33004BA772 /* NewOnboardPageCollectionViewCell.xib in Resources */,
-				A58219B026F9196D005BFCD6 /* JOnbrdCollectViewCell.xib in Resources */,
 				860E1E022D0F4CD1004F44E9 /* ShowMessageViewController.xib in Resources */,
 				9A949F5828A293E800F7D7D4 /* SFakSplasApViewController.xib in Resources */,
 				83A8E8AB2645898B0080AEE5 /* LaunchScreen.storyboard in Resources */,
-				A51EBD3826D9575600674657 /* AppdialogBefore.mp3 in Resources */,
 				11225B412CDAA4F700C43353 /* GoogleService-Info.plist in Resources */,
 				9A60EDD4281AE17800112720 /* JEqlizeTableViewCell.xib in Resources */,
 				9A1B0B7B2833842B003588B5 /* FTextSetupApViewController.xib in Resources */,
@@ -2131,22 +1995,15 @@
 				9A2452D92837926A0019DAC1 /* GTranscriptionTablViewCell.xib in Resources */,
 				9A635DD126F3811900A6C0EF /* SCatchUpApViewController.xib in Resources */,
 				9A8EE3EC28379C630038E58F /* YTranscriptDetailApViewController.xib in Resources */,
-				9AE950AE283FBDD00044CAB1 /* GPOnboardApViewController.xib in Resources */,
 				9A836AEF281929CE00FD5AF2 /* SettingTableViewCell.xib in Resources */,
 				9ACB45DF2812CE7000FAF44E /* ErdSetupViewController.xib in Resources */,
 				83A0A0CC267E02C700D06F35 /* Spawn.wav in Resources */,
-				A51EBD3926D9575600674657 /* AppguitarBefore.mp3 in Resources */,
-				9AC90E662886B74C00A43212 /* TPermissListApViewController.xib in Resources */,
-				A552868926FA711500A92066 /* GOnbBSpeechViewCell.xib in Resources */,
 				86EAFCC22D09AA3300FBE13C /* NewSettingWithSubtitleTableViewCell.xib in Resources */,
 				9ADD32C428365A24002ADA43 /* JLocaleListApViewController.xib in Resources */,
 				86DFB2112CE67F6600CBD94F /* NewSettingTableViewEmptyCell.xib in Resources */,
 				9A4DA22128464DEA00DCBC87 /* RVoicChangeJViewController.xib in Resources */,
-				A51EBD3E26D957C600674657 /* FOnboardApViewController.xib in Resources */,
 				9AD6C64C28A101CC0055C518 /* DBPaywlApViewController.xib in Resources */,
-				9A09434B282D654800F7AEC5 /* ZAppIconViewController.xib in Resources */,
 				834EB73926482FEC00026F01 /* Particle.sks in Resources */,
-				83ABA254264BE346001784B8 /* USpeechRecViewController.storyboard in Resources */,
 				A53D650726E91FDD00C9882D /* SReqVoiceRecordApViewController.xib in Resources */,
 				9A5512E4280977380078C5E5 /* SHearinApViewController.xib in Resources */,
 				83A8E8A82645898B0080AEE5 /* Assets.xcassets in Resources */,
@@ -2241,16 +2098,13 @@
 				83A8E8E42645A7FD0080AEE5 /* Misc.swift in Sources */,
 				9A635DD426F389F900A6C0EF /* HAppLoaderView.swift in Sources */,
 				9A42A9C526CEFAC400496DC9 /* TInAppService.swift in Sources */,
-				9AE1EC8F283D0BD000941B54 /* OMoreApViewController.swift in Sources */,
 				839DE07426529F1B00A65DD7 /* ActivityIndicatorView.swift in Sources */,
-				11DC523E2CD4139200A9589A /* HAnalliticAViewController.swift in Sources */,
 				9ACB45BE2812B9BF00FAF44E /* TapCountingDrumPadGrid.swift in Sources */,
 				A5B2324626CC44C70042AA7B /* DIServicProtocols.swift in Sources */,
 				9A5512DC28096B870078C5E5 /* TabBarViewController.swift in Sources */,
 				9A80746726E814AB00E89B83 /* UIFont+Extensions.swift in Sources */,
 				9A2452D82837926A0019DAC1 /* GTranscriptionTablViewCell.swift in Sources */,
 				A53D650926E9483000C9882D /* SIAppStateListeners.swift in Sources */,
-				9AE950AD283FBDD00044CAB1 /* GPOnboardApViewController.swift in Sources */,
 				86DFB20F2CE67E8700CBD94F /* NewSettingTableViewEmptyCell.swift in Sources */,
 				862843D02D8B6395003CAD6D /* SpecialOfferBannerView.swift in Sources */,
 				9A60EDCF281A9B9A00112720 /* VPLirParameter.swift in Sources */,
@@ -2265,7 +2119,6 @@
 				869080122D22B04A0047173F /* OpenScreenType.swift in Sources */,
 				1111338D2CE797430012A6D5 /* HearingInstructionViewController.swift in Sources */,
 				9A60EDC7281A955C00112720 /* YLimitApViewController.swift in Sources */,
-				83AF2C76264D9CD100DB9909 /* RTextVFullScrViewController.swift in Sources */,
 				9ACB45D62812B9BF00FAF44E /* SpectrogramView.swift in Sources */,
 				11DC523C2CD412CB00A9589A /* ButtonView.swift in Sources */,
 				A53D650626E91FDD00C9882D /* SReqVoiceRecordApViewController.swift in Sources */,
@@ -2279,7 +2132,6 @@
 				86CB15702D87FCEE008360F5 /* PaywallReviewsView.swift in Sources */,
 				86DFB1F82CE4B1DE00CBD94F /* TooltipView.swift in Sources */,
 				9AC37F682833D3EB00F95E24 /* UITextView+Extension.swift in Sources */,
-				A58219AF26F9196D005BFCD6 /* JOnbrdCollectViewCell.swift in Sources */,
 				9A2452DB283798440019DAC1 /* Date+Formatter.swift in Sources */,
 				86CB17F22D897B1A008360F5 /* SpecialOfferBaseViewController.swift in Sources */,
 				A5E9ADD826E096AF00B7DA17 /* Float+Extension.swift in Sources */,
@@ -2305,7 +2157,6 @@
 				9ACB45BD2812B9BF00FAF44E /* KnobView.swift in Sources */,
 				9ACB45D02812B9BF00FAF44E /* CircleCursorView.swift in Sources */,
 				9ABEB29B26D3FF5600A8252D /* DHeadphsRemindApViewController.swift in Sources */,
-				A55EECF526DFDF0A001CA6B5 /* TOnboardHvTabs.swift in Sources */,
 				9A3328B626E203EB00D5F32B /* AppsNavManager.swift in Sources */,
 				83A8E8EC2645A7FD0080AEE5 /* DesignableTextView.swift in Sources */,
 				9A713B01283E8AAC003BCD42 /* SFbServices.swift in Sources */,
@@ -2325,7 +2176,6 @@
 				9ACB45C42812B9BF00FAF44E /* MusicalDurationStepper.swift in Sources */,
 				A5B2324E26CC44D20042AA7B /* GAppAnalyticActions.swift in Sources */,
 				83A8E89F2645898A0080AEE5 /* AppDelegate.swift in Sources */,
-				9AC90E652886B74C00A43212 /* TPermissListApViewController.swift in Sources */,
 				83A0A0CD267E02C700D06F35 /* TapticEngine.swift in Sources */,
 				9AC37F6A2833DBC100F95E24 /* CTranscribServicesAp.swift in Sources */,
 				9A60EDD3281AE17800112720 /* JEqlizeTableViewCell.swift in Sources */,
@@ -2411,7 +2261,6 @@
 				8613CEB32D1D54660012FD31 /* IAPTransactionObserver.swift in Sources */,
 				8613CEB42D1D54660012FD31 /* SendADServiceTokenRequest.swift in Sources */,
 				8613CEB52D1D54660012FD31 /* RegisterInstallRequest.swift in Sources */,
-				83ABA251264BE340001784B8 /* USpeechRecViewController.swift in Sources */,
 				9A122CF5283BA6B600944287 /* BTranslServicesNew.swift in Sources */,
 				86053B202CE20A82004BA772 /* NewOnboardingPagesModel.swift in Sources */,
 				9A42A9C726CF00A500496DC9 /* Codable+Extension.swift in Sources */,
@@ -2428,14 +2277,12 @@
 				9ACB45CC2812B9BF00FAF44E /* FFTView.swift in Sources */,
 				9ACB45C32812B9BF00FAF44E /* MultitouchGestureRecognizer.swift in Sources */,
 				9A24620A26E121540044C420 /* CLTypingLabel.swift in Sources */,
-				A51EBD3D26D957C600674657 /* FOnboardApViewController.swift in Sources */,
 				9A836AF328198B4C00FD5AF2 /* GSlideBTablViewCell.swift in Sources */,
 				9ACB45CE2812B9BF00FAF44E /* FragmentBuilder.swift in Sources */,
 				86053B262CE20D33004BA772 /* NewOnboardPageCollectionViewCell.swift in Sources */,
 				86CB0FFD2D8433B6008360F5 /* PaywallYearMonthViewController.swift in Sources */,
 				9A9D2D062840B3A900332B10 /* MMPPulseLayer.swift in Sources */,
 				83A8E8ED2645A7FD0080AEE5 /* AutoTextView.swift in Sources */,
-				9A09434A282D654800F7AEC5 /* ZAppIconViewController.swift in Sources */,
 				9ACB45CA2812B9BF00FAF44E /* FloatPlotView.swift in Sources */,
 				8619E5BD2D06DAB30044B624 /* TranscriptionInstructionViewController.swift in Sources */,
 				83A8E8E02645A7FD0080AEE5 /* BlurView.swift in Sources */,
@@ -2462,13 +2309,11 @@
 				860E1DF62D0CB000004F44E9 /* CurveType.swift in Sources */,
 				860E1DF72D0CB000004F44E9 /* Direction.swift in Sources */,
 				860E1DF82D0CB000004F44E9 /* ShapeType.swift in Sources */,
-				A552868826FA711500A92066 /* GOnbBSpeechViewCell.swift in Sources */,
 				9AEC02F0283533FF00E9E88B /* HTexParamTableViewCell.swift in Sources */,
 				A5B2325526CC48080042AA7B /* CAppConstants.swift in Sources */,
 				9A836AEE281929CE00FD5AF2 /* SettingTableViewCell.swift in Sources */,
 				83A8E8E62645A7FD0080AEE5 /* DesignableButton.swift in Sources */,
 				9ACB45C02812B9BF00FAF44E /* KeyboardView.swift in Sources */,
-				839FAC20264EE383004910D9 /* JSpeechRecoSetViewController.swift in Sources */,
 				9ACB45BF2812B9BF00FAF44E /* ADSRView.swift in Sources */,
 				83A8E8DF2645A7FD0080AEE5 /* DesignableLabel.swift in Sources */,
 				9ACB45D82812B9BF00FAF44E /* MultitouchOverlayView.swift in Sources */,
@@ -2478,7 +2323,6 @@
 				9ACB45C82812B9BF00FAF44E /* NodeRollingView.swift in Sources */,
 				A5B2324A26CC44C70042AA7B /* KAppConfigServic.swift in Sources */,
 				9ACB45DA2812B9BF00FAF44E /* AudioKitUIHelpers.swift in Sources */,
-				A51EBD4926D95B5100674657 /* GOnboModelCollectionViewCell.swift in Sources */,
 				9ACB45D32812B9BF00FAF44E /* NodeOutputView.swift in Sources */,
 				9ACB45BA2812B9BF00FAF44E /* AudioKitUI.swift in Sources */,
 				9ACB45BB2812B9BF00FAF44E /* TempoDraggableStepper.swift in Sources */,

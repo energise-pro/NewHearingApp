@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -200,7 +201,6 @@
                         <constraint firstAttribute="width" constant="40" id="elg-zN-jcy"/>
                     </constraints>
                     <color key="tintColor" red="1" green="0.42745098039215684" blue="0.42745098039215684" alpha="1" colorSpace="calibratedRGB"/>
-                    <state key="normal" image="icClose"/>
                     <connections>
                         <action selector="closeButtonAction:" destination="-1" eventType="touchUpInside" id="vgk-fB-JOs"/>
                     </connections>
@@ -237,7 +237,6 @@
     </objects>
     <resources>
         <image name="icCatchUp" width="375" height="494"/>
-        <image name="icClose" width="36" height="36"/>
         <image name="icOval" width="375" height="464"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

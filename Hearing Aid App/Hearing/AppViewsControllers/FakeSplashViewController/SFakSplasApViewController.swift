@@ -7,7 +7,7 @@ final class SFakSplasApViewController: PMUMainViewController {
         super.viewDidLoad()
         EApphudServiceAp.shared.loadABTestParams {
             DispatchQueue.main.async {
-                AppsNavManager.shared.setOnboardingAsRootViewController()
+                AppsNavManager.shared.setNewOnboardingAsRootViewController()
             }
         }
     }

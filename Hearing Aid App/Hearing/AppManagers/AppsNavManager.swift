@@ -39,12 +39,6 @@ final class AppsNavManager: NSObject {
         appDelegate?.window?.makeKeyAndVisible()
     }
     
-    func setOnboardingAsRootViewController() {
-        let FOnboardApViewController = FOnboardApViewController()
-        appDelegate?.window?.rootViewController = FOnboardApViewController
-        appDelegate?.window?.makeKeyAndVisible()
-    }
-    
     func setNewOnboardingAsRootViewController() {
         let newOnboardingViewController = NewOnboardingViewController()
         appDelegate?.window?.rootViewController = newOnboardingViewController
@@ -54,12 +48,6 @@ final class AppsNavManager: NSObject {
     func setFakeSplashAsRootViewController() {
         let SFakSplasApViewController = SFakSplasApViewController()
         appDelegate?.window?.rootViewController = SFakSplasApViewController
-        appDelegate?.window?.makeKeyAndVisible()
-    }
-    
-    func setPreOnboardingAsRootViewController() {
-        let GPOnboardApViewController = GPOnboardApViewController()
-        appDelegate?.window?.rootViewController = GPOnboardApViewController
         appDelegate?.window?.makeKeyAndVisible()
     }
     
@@ -279,12 +267,12 @@ final class AppsNavManager: NSObject {
         topViewController?.navigationController?.pushViewController(UEqualizeApViewController, animated: true)
     }
     
-    func presentZAppIconViewController() {
-        let ZAppIconViewController = ZAppIconViewController()
-        ZAppIconViewController.modalPresentationStyle = .overFullScreen
-        ZAppIconViewController.modalTransitionStyle = .crossDissolve
-        topViewController?.present(ZAppIconViewController, animated: true)
-    }
+//    func presentZAppIconViewController() {
+//        let ZAppIconViewController = ZAppIconViewController()
+//        ZAppIconViewController.modalPresentationStyle = .overFullScreen
+//        ZAppIconViewController.modalTransitionStyle = .crossDissolve
+//        topViewController?.present(ZAppIconViewController, animated: true)
+//    }
     
     func presentUTranscribApViewController(and delegate: UTranscribApViewControllerDelegate?) { // {
         let UTranscribApViewController = UTranscribApViewController(delegate: delegate)
@@ -355,21 +343,14 @@ final class AppsNavManager: NSObject {
         topViewController?.present(navigationViewController, animated: true)
     }
     
-    func presentOMoreApViewController() {
-        let OMoreApViewController = OMoreApViewController()
-        let navigationViewController = UINavigationController(rootViewController: OMoreApViewController)
-        topViewController?.present(navigationViewController, animated: true)
-    }
+//    func presentOMoreApViewController() {
+//        let OMoreApViewController = OMoreApViewController()
+//        let navigationViewController = UINavigationController(rootViewController: OMoreApViewController)
+//        topViewController?.present(navigationViewController, animated: true)
+//    }
     
     func presentManageSubscription() {
         UIApplication.shared.open(URL(string: "https://apps.apple.com/account/subscriptions")!)
-    }
-    
-    func presentTPermissListApViewController() {
-        let TPermissListApViewController = TPermissListApViewController()
-        TPermissListApViewController.modalPresentationStyle = .fullScreen
-        TPermissListApViewController.modalTransitionStyle = .crossDissolve
-        topViewController?.present(TPermissListApViewController, animated: true)
     }
     
     func presentDBPaywlApViewController() {

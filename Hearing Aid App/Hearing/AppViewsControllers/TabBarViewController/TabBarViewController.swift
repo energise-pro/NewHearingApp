@@ -101,17 +101,6 @@ final class TabBarViewController: PMUMainViewController {
             }
             isPaywallShown = true
         }
-        
-//        if !isPermissionShown && KAppConfigServic.shared.settings.appLaunchCount < 2 && AppsNavManager.shared.topViewController == self {
-//            AppsNavManager.shared.presentTPermissListApViewController()
-//            isPermissionShown = true
-//        }
-        
-//        if !headphonesReminderShown && AppsNavManager.shared.topViewController == self && KAppConfigServic.shared.settings.mainScreen == 0 {
-//            !SAudioKitServicesAp.shared.connectedHeadphones ? AppsNavManager.shared.presentDHeadphsRemindApViewController() : Void()
-//            headphonesReminderShown = true
-//        }
- 
     }
     
 //    override func didChangeTheme() {

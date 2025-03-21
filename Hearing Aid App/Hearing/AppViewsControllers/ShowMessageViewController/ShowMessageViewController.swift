@@ -1,10 +1,3 @@
-//
-//  ShowMessageViewController.swift
-//  Hearing Aid App
-//
-//  Created by Evgeniy Zelinskiy on 15.12.2024.
-//
-
 import UIKit
 
 class ShowMessageViewController: UIViewController {

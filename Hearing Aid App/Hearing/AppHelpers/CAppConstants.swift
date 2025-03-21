@@ -55,10 +55,10 @@ struct CAppConstants {
     }
     struct Images {
         static let icVolumeDownUnactive = UIImage(named: "icValueDownUnactive")!
-        static let icVolumeDownActive = UIImage(named: "icVolumeDownActive")!
-        static let icVolumeUpActive = UIImage(named: "icVolumeUpActive")!
+//        static let icVolumeDownActive = UIImage(named: "icVolumeDownActive")!
+//        static let icVolumeUpActive = UIImage(named: "icVolumeUpActive")!
         static let icVolumeUpUnactive = UIImage(named: "icVolumeUpUnactive")!
-        static let icAppIcon = UIImage(named: "settingsAppIcon")!
+//        static let icAppIcon = UIImage(named: "settingsAppIcon")!
         
         static let icProSetup = UIImage(named: "setupButtonIcon")!
         static let icNoiseOff = UIImage(named: "noNoiseButtonIcon")!
