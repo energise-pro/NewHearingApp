@@ -70,7 +70,7 @@
 	<key>NSSpeechRecognitionUsageDescription</key>
 	<string>Allow access to Speech Recognition to convert spoken words into text, enabling users to see transcriptions of conversations in real-time for better communication and accessibility</string>
 	<key>NSUserTrackingUsageDescription</key>
-	<string>Dear User, we use your data only for analytics purpose. To improve the app and help you get better product. We don&apos;t share this data to any third party. Please allow permission. Thank you!</string>
+	<string>Dear User, we use your data only for analytics purpose. To improve the app and help you get better product. We don't share this data to any third party. Please allow permission. Thank you!</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UIBackgroundModes</key>

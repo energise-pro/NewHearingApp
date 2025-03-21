@@ -233,7 +233,6 @@ class SpecialOfferMonthViewController: SpecialOfferBaseViewController {
         return view
     }()
     
-    private var scaleYearlyButton = true
     private var isLoading: Bool = false
     private var subscriptionItems: [ShopItem] = []
     private var openAction: GAppAnalyticActions
@@ -241,6 +240,7 @@ class SpecialOfferMonthViewController: SpecialOfferBaseViewController {
     private var selectedProductView: PaywallProductBaseView?
     private var analyticProperties: [String: String] = [:]
     private var countdownTimer: Timer?
+    private var isProductPerDayView = KAppConfigServic.shared.remoteConfigValueFor(RemoteConfigKey.Paywall_visual_product_perDay_special.rawValue).boolValue
     
     //MARK: - Init
     init(openAction: GAppAnalyticActions) {
@@ -250,6 +250,11 @@ class SpecialOfferMonthViewController: SpecialOfferBaseViewController {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Deinit
+    deinit {
+        countdownTimer?.invalidate()
     }
 
     // MARK: - Lifecycle
@@ -303,7 +308,6 @@ class SpecialOfferMonthViewController: SpecialOfferBaseViewController {
         contentView.addSubview(titleLabel)
         contentView.addSubview(subtitleLabel)
         
-        let isProductPerDayView = KAppConfigServic.shared.remoteConfigValueFor(RemoteConfigKey.Paywall_visual_product_perDay_special.rawValue).boolValue
         if isProductPerDayView {
             contentView.addSubview(monthProductPerDayView)
         } else {
@@ -342,7 +346,7 @@ class SpecialOfferMonthViewController: SpecialOfferBaseViewController {
             contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
             
             // TopImageView
-            topImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
+            topImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
             topImageView.heightAnchor.constraint(equalToConstant: 372),
             topImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             topImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
@@ -351,13 +355,7 @@ class SpecialOfferMonthViewController: SpecialOfferBaseViewController {
             countdownContentView.heightAnchor.constraint(equalToConstant: 85),
             countdownContentView.widthAnchor.constraint(equalToConstant: 187),
             countdownContentView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            countdownContentView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: AppsNavManager.shared.safeAreaInset.top + 228),
-            
-            // CountdownViewTitle
-            countdownViewTitle.heightAnchor.constraint(equalToConstant: 25),
-            countdownViewTitle.topAnchor.constraint(equalTo: countdownContentView.topAnchor, constant: 12),
-            countdownViewTitle.leadingAnchor.constraint(equalTo: countdownContentView.leadingAnchor, constant: 16),
-            countdownViewTitle.trailingAnchor.constraint(equalTo: countdownContentView.trailingAnchor, constant: -16),
+            countdownContentView.topAnchor.constraint(equalTo: restoreButton.bottomAnchor, constant: 190),
             
             // CountdownViewTitle
             countdownViewTitle.heightAnchor.constraint(equalToConstant: 25),
@@ -394,7 +392,6 @@ class SpecialOfferMonthViewController: SpecialOfferBaseViewController {
             bottomView.heightAnchor.constraint(equalToConstant: AppsNavManager.shared.safeAreaInset.bottom + 170),
         ])
         
-        let isProductPerDayView = KAppConfigServic.shared.remoteConfigValueFor(RemoteConfigKey.Paywall_visual_product_perDay_special.rawValue).boolValue
         if isProductPerDayView {
             NSLayoutConstraint.activate([
                 // MonthProductView
@@ -437,7 +434,6 @@ class SpecialOfferMonthViewController: SpecialOfferBaseViewController {
             return
         }
         
-        let isProductPerDayView = KAppConfigServic.shared.remoteConfigValueFor(RemoteConfigKey.Paywall_visual_product_perDay_special.rawValue).boolValue
         if isProductPerDayView {
             monthProductPerDayView.product = monthSubscriptionPlan
             monthProductPerDayView.isSelected = true
@@ -546,7 +542,10 @@ class SpecialOfferMonthViewController: SpecialOfferBaseViewController {
         }
         
         countdownTimer?.invalidate()
-        countdownTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateCountdownTimer), userInfo: nil, repeats: true)
+        countdownTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
+            guard let self = self else { return }
+            self.updateCountdownTimer()
+        }
         if let timer = countdownTimer {
             RunLoop.current.add(timer, forMode: .common)
         }

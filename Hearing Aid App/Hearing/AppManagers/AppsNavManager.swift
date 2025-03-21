@@ -131,6 +131,8 @@ final class AppsNavManager: NSObject {
     }
     
     func presentDHeadphsRemindApViewController(with openAction: GAppAnalyticActions) {
+        guard (topViewController is HeadphonesConnectViewController) == false else { return }
+        
         let DHeadphsRemindApViewController: HeadphonesConnectViewController = HeadphonesConnectViewController(openAction: openAction)
         DHeadphsRemindApViewController.modalPresentationStyle = .fullScreen
         DHeadphsRemindApViewController.modalTransitionStyle = .crossDissolve

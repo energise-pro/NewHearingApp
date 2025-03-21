@@ -87,11 +87,11 @@ class SpecialOfferViewController: SpecialOfferBaseViewController {
         subscriptionItems.isEmpty && !isLoading ? loadSubscriptionPlans() : Void()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        countdownTimer?.invalidate()
-        countdownTimer = nil
-    }
+//    override func viewWillDisappear(_ animated: Bool) {
+//        super.viewWillDisappear(animated)
+//        countdownTimer?.invalidate()
+//        countdownTimer = nil
+//    }
     
     //MARK: - Functions
     private func configureUI() {
@@ -126,7 +126,10 @@ class SpecialOfferViewController: SpecialOfferBaseViewController {
         expirationDate = Date().addingTimeInterval(120) // 2 minutes - 60 * 2
         
         countdownTimer?.invalidate()
-        countdownTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateCountdownTimer), userInfo: nil, repeats: true)
+        countdownTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
+            guard let self = self else { return }
+            self.updateCountdownTimer()
+        }
         if let timer = countdownTimer {
             RunLoop.current.add(timer, forMode: .common)
         }

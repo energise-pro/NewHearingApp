@@ -94,6 +94,11 @@ final class SpecialOfferBannerView: UIView {
     
     private var countdownTimer: Timer?
     
+    // MARK: - Deinit
+    deinit {
+        countdownTimer?.invalidate()
+    }
+    
     // MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -144,7 +149,10 @@ final class SpecialOfferBannerView: UIView {
     
     private func configureCountdownTimer() {
         countdownTimer?.invalidate()
-        countdownTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateCountdownTimer), userInfo: nil, repeats: true)
+        countdownTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
+            guard let self = self else { return }
+            self.updateCountdownTimer()
+        }
         if let timer = countdownTimer {
             RunLoop.current.add(timer, forMode: .common)
         }
@@ -153,7 +161,6 @@ final class SpecialOfferBannerView: UIView {
     
     @objc private func updateCountdownTimer() {
         if secondsRemaining(for: currentExpirationDate()) > 0 {
-            TapticEngine.impact.feedback(.light)
             updateCountdownLabel()
         } else {
             handleCountdownTimerExpiration()
