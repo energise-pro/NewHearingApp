@@ -241,6 +241,7 @@ class SpecialOfferMonthViewController: SpecialOfferBaseViewController {
     private var analyticProperties: [String: String] = [:]
     private var countdownTimer: Timer?
     private var isProductPerDayView = KAppConfigServic.shared.remoteConfigValueFor(RemoteConfigKey.Paywall_visual_product_perDay_special.rawValue).boolValue
+    private var titleLabelTopConstraint: NSLayoutConstraint!
     
     //MARK: - Init
     init(openAction: GAppAnalyticActions) {
@@ -282,12 +283,14 @@ class SpecialOfferMonthViewController: SpecialOfferBaseViewController {
         
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineHeightMultiple = 1.23
-        subtitleLabel.attributedText = NSMutableAttributedString(string: "Get Premium for a full month with a limited-time 50% discount!".localized(), attributes: [
-            .kern: -0.31,
-            .paragraphStyle: paragraphStyle
-        ])
+        subtitleLabel.attributedText = NSMutableAttributedString(
+            string: "Get Premium for a full month with a limited-time 50% discount!".localized(),
+            attributes:[
+                .kern: -0.31,
+                .paragraphStyle: paragraphStyle
+            ]
+        )
         subtitleLabel.textAlignment = .center
-        
         countdownViewTitle.text = "Your offer expires in".localized()
         
         addSubviews()
@@ -317,9 +320,13 @@ class SpecialOfferMonthViewController: SpecialOfferBaseViewController {
         view.addSubview(restoreButton)
         
         activateLayoutConstraint()
+        updateTitleSpacing()
     }
     
     private func activateLayoutConstraint() {
+        titleLabelTopConstraint = titleLabel.topAnchor.constraint(equalTo: countdownContainerView.bottomAnchor, constant: calculateDynamicSpacing())
+        titleLabelTopConstraint.isActive = true
+        
         NSLayoutConstraint.activate([
             // BackgroundImageView
             backgroundImageView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -355,7 +362,7 @@ class SpecialOfferMonthViewController: SpecialOfferBaseViewController {
             countdownContentView.heightAnchor.constraint(equalToConstant: 85),
             countdownContentView.widthAnchor.constraint(equalToConstant: 187),
             countdownContentView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            countdownContentView.topAnchor.constraint(equalTo: restoreButton.bottomAnchor, constant: 190),
+            countdownContentView.topAnchor.constraint(equalTo: topImageView.topAnchor, constant: 280),
             
             // CountdownViewTitle
             countdownViewTitle.heightAnchor.constraint(equalToConstant: 25),
@@ -375,7 +382,6 @@ class SpecialOfferMonthViewController: SpecialOfferBaseViewController {
             countdownContainerView.trailingAnchor.constraint(equalTo: countdownContentView.trailingAnchor),
             
             // TitleLabel
-            titleLabel.topAnchor.constraint(equalTo: countdownContainerView.bottomAnchor, constant: 36),
             titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
             titleLabel.heightAnchor.constraint(equalToConstant: 34),
@@ -411,6 +417,17 @@ class SpecialOfferMonthViewController: SpecialOfferBaseViewController {
                 monthProductDefaultView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16)
             ])
         }
+    }
+    
+    private func calculateDynamicSpacing() -> CGFloat {
+        let remainingSpace = scrollView.frame.height - contentView.frame.height
+        let minSpacing: CGFloat = 28
+        let additionalSpacing = max(0, remainingSpace)
+        return minSpacing + additionalSpacing
+    }
+    
+    private func updateTitleSpacing() {
+        titleLabelTopConstraint.constant = calculateDynamicSpacing()
     }
     
     private func loadSubscriptionPlans() {
@@ -449,6 +466,7 @@ class SpecialOfferMonthViewController: SpecialOfferBaseViewController {
         }
         
         selectedPlan = monthSubscriptionPlan
+        updateTitleSpacing()
     }
     
     private func configureProductPerDayView(_ view: PaywallProductPerDayView, withProduct product: ShopItem) {
@@ -595,7 +613,6 @@ class SpecialOfferMonthViewController: SpecialOfferBaseViewController {
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         
-        scrollView.contentSize = contentView.frame.size
         bottomView.addGradient([
             UIColor(red: 0.043, green: 0.011, blue: 0.175, alpha: 1),
             UIColor(red: 0.023, green: 0, blue: 0.101, alpha: 1)
