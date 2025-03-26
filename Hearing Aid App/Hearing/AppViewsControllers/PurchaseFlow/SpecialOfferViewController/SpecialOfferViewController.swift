@@ -1,6 +1,6 @@
 import UIKit
 
-class SpecialOfferViewController: SpecialOfferBaseViewController {
+class SpecialOfferViewController: SpecialOfferBaseViewController { // pw_special_inapp_1
     
     //MARK: - @IBoutlets
     @IBOutlet private weak var purchaseContainerView: UIView!

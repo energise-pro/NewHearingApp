@@ -1,6 +1,6 @@
 import UIKit
 
-class PaywallYearMonthViewController: UIViewController {
+class PaywallYearMonthViewController: UIViewController { // pw_inapp_monthly
     // MARK: - Private properties
     private let backgroundImageView: UIImageView = {
         let imageView = UIImageView()
@@ -203,6 +203,9 @@ class PaywallYearMonthViewController: UIViewController {
     private var selectedPlan: ShopItem?
     private var selectedProductView: PaywallProductBaseView?
     private var analyticProperties: [String: String] = [:]
+    
+    @InAppStorage(key: "isFirstInAppShowedSpecialOffer", defaultValue: false)
+    var isFirstInAppShowedSpecialOffer: Bool
     
     //MARK: - Init
     init(typeScreen: ВTypPwlScreen, openAction: GAppAnalyticActions) {
@@ -578,6 +581,10 @@ class PaywallYearMonthViewController: UIViewController {
     private func closePaywall() {
         TapticEngine.impact.feedback(.heavy)
         KAppConfigServic.shared.analytics.track(.paywallPassed, with: analyticProperties)
+        if openAction != .openAfterOnboarding && !isFirstInAppShowedSpecialOffer {
+            isFirstInAppShowedSpecialOffer = true
+            AppsNavManager.shared.presentSpecialOffer(1.0, with: openAction)
+        }
         EApphudServiceAp.shared.paywallClosed()
         dismiss(animated: true)
     }

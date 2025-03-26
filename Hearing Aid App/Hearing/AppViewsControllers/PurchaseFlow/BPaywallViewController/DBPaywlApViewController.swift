@@ -1,6 +1,6 @@
 import UIKit
 
-final class DBPaywlApViewController: PMUMainViewController {
+final class DBPaywlApViewController: PMUMainViewController { // pw_default_ob_1
 
     // MARK: - @IBoutlets
     @IBOutlet private weak var purchaseContainerView: UIView!

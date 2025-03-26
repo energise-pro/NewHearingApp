@@ -51,65 +51,35 @@ final class AppsNavManager: NSObject {
         appDelegate?.window?.makeKeyAndVisible()
     }
     
-    @MainActor
-    func presentCatchUpAfter(_ duration: TimeInterval, with openAction: GAppAnalyticActions) {
-        guard UserDefaults.standard.bool(forKey: CAppConstants.Keys.wasPresentedCatchUp) == false, !TInAppService.shared.isPremium else {
-            return
-        }
-        catchUpTimer?.invalidate()
-        catchUpTimer = Timer.scheduledTimer(withTimeInterval: duration, repeats: false) { _ in
-            guard UserDefaults.standard.bool(forKey: CAppConstants.Keys.wasPresentedCatchUp) == false else {
-                return
-            }
-            AppsNavManager.shared.presentSCatchUpApViewController(with: openAction)
-        }
-    }
+//    @MainActor
+//    func presentCatchUpAfter(_ duration: TimeInterval, with openAction: GAppAnalyticActions) {
+//        guard UserDefaults.standard.bool(forKey: CAppConstants.Keys.wasPresentedCatchUp) == false, !TInAppService.shared.isPremium else {
+//            return
+//        }
+//        catchUpTimer?.invalidate()
+//        catchUpTimer = Timer.scheduledTimer(withTimeInterval: duration, repeats: false) { _ in
+//            guard UserDefaults.standard.bool(forKey: CAppConstants.Keys.wasPresentedCatchUp) == false else {
+//                return
+//            }
+//            AppsNavManager.shared.presentSCatchUpApViewController(with: openAction)
+//        }
+//    }
     
-    @MainActor
-    func presentSCatchUpApViewController(with openAction: GAppAnalyticActions) {
-        guard (topViewController is SpecialOfferBaseViewController) == false, (topViewController is PaywallViewController) == false, !TInAppService.shared.isPremium else {
-            return
-        }
-        if KAppConfigServic.shared.remoteConfigValueFor(RemoteConfigKey.Paywall_visual_special.rawValue).stringValue == "pw_special_monthly" {
-            let specialOfferViewController = SpecialOfferMonthViewController(openAction: openAction)
-            specialOfferViewController.modalPresentationStyle = .fullScreen
-            topViewController?.present(specialOfferViewController, animated: true)
-        } else {
-            let specialOfferViewController = SpecialOfferViewController(openAction: openAction)
-            specialOfferViewController.modalPresentationStyle = .fullScreen
-            topViewController?.present(specialOfferViewController, animated: true)
-        }
-    }
-    
-    @MainActor
-    func presentSpecialOffer(_ after: Double?, with openAction: GAppAnalyticActions) {
-        guard (topViewController is SpecialOfferBaseViewController) == false, !TInAppService.shared.isPremium else {
-            return
-        }
-        if let after = after {
-            DispatchQueue.main.asyncAfter(deadline: .now() + TimeInterval(after)) { [weak self] in
-                if KAppConfigServic.shared.remoteConfigValueFor(RemoteConfigKey.Paywall_visual_special.rawValue).stringValue == "pw_special_monthly" {
-                    let specialOfferViewController = SpecialOfferMonthViewController(openAction: openAction)
-                    specialOfferViewController.modalPresentationStyle = .fullScreen
-                    self?.topViewController?.present(specialOfferViewController, animated: true)
-                } else {
-                    let specialOfferViewController = SpecialOfferViewController(openAction: openAction)
-                    specialOfferViewController.modalPresentationStyle = .fullScreen
-                    self?.topViewController?.present(specialOfferViewController, animated: true)
-                }
-            }
-        } else {
-            if KAppConfigServic.shared.remoteConfigValueFor(RemoteConfigKey.Paywall_visual_special.rawValue).stringValue == "pw_special_monthly" {
-                let specialOfferViewController = SpecialOfferMonthViewController(openAction: openAction)
-                specialOfferViewController.modalPresentationStyle = .fullScreen
-                topViewController?.present(specialOfferViewController, animated: true)
-            } else {
-                let specialOfferViewController = SpecialOfferViewController(openAction: openAction)
-                specialOfferViewController.modalPresentationStyle = .fullScreen
-                topViewController?.present(specialOfferViewController, animated: true)
-            }
-        }
-    }
+//    @MainActor
+//    func presentSCatchUpApViewController(with openAction: GAppAnalyticActions) {
+//        guard (topViewController is SpecialOfferBaseViewController) == false, (topViewController is PaywallViewController) == false, !TInAppService.shared.isPremium else {
+//            return
+//        }
+//        if KAppConfigServic.shared.remoteConfigValueFor(RemoteConfigKey.Paywall_visual_special.rawValue).stringValue == "pw_special_monthly" {
+//            let specialOfferViewController = SpecialOfferMonthViewController(openAction: openAction)
+//            specialOfferViewController.modalPresentationStyle = .fullScreen
+//            topViewController?.present(specialOfferViewController, animated: true)
+//        } else {
+//            let specialOfferViewController = SpecialOfferViewController(openAction: openAction)
+//            specialOfferViewController.modalPresentationStyle = .fullScreen
+//            topViewController?.present(specialOfferViewController, animated: true)
+//        }
+//    }
 
     func presentDHeadphsRemindApViewControllerIfNeeded(_ animated: Bool = true, with openAction: GAppAnalyticActions, completion: AppsNavManagerCompletion?) {
         guard !SAudioKitServicesAp.shared.connectedHeadphones else {
@@ -204,23 +174,68 @@ final class AppsNavManager: NSObject {
         topViewController?.present(SReqVoiceRecordApViewController, animated: true)
     }
     
+    @MainActor func presentPaywallAfterOnboaring(withPaywallVisualType paywallVisualType: RemoteConfigValues.Paywall, withOpenAction openAction: GAppAnalyticActions) {
+        switch paywallVisualType {
+        case .pw_default_ob_1:
+            // Default Paywall After Onboarding
+            presentDefaultPaywallAfterOnboarinig()
+        case .pw_default_inapp_1, .pw_inapp_monthly:
+            // Show InApp Paywall
+            presentInAppPaywall(with: openAction, withPaywallVisualType: paywallVisualType)
+        case .pw_special_inapp_1, .pw_special_monthly:
+            // Show Special Offer
+            presentSpecialOffer(with: openAction, withPaywallVisualType: paywallVisualType)
+        }
+    }
+    
+    func presentDefaultPaywallAfterOnboarinig() {
+        let paywallViewController = DBPaywlApViewController()
+        paywallViewController.modalPresentationStyle = .fullScreen
+        paywallViewController.modalTransitionStyle = .crossDissolve
+        topViewController?.present(paywallViewController, animated: true)
+    }
+    
     func presentPaywallViewController(with openAction: GAppAnalyticActions, _ screenType: ВTypPwlScreen? = nil) {
+        let paywallRemoteType = KAppConfigServic.shared.remoteConfigValueFor(RemoteConfigKey.Paywall_visual_inapp.rawValue).stringValue ?? "pw_default_inapp_1"
+        let paywallVisualType = RemoteConfigValues.Paywall.init(rawValue: paywallRemoteType) ?? .pw_default_inapp_1
+        presentInAppPaywall(with: openAction, screenType, withPaywallVisualType: paywallVisualType)
+    }
+    
+    func presentInAppPaywall(with openAction: GAppAnalyticActions, _ screenType: ВTypPwlScreen? = nil, withPaywallVisualType paywallVisualType: RemoteConfigValues.Paywall) {
         let paywallScreenType: ВTypPwlScreen
         if let screenType = screenType {
             paywallScreenType = screenType
         } else {
             paywallScreenType = TInAppService.shared.wasUsedTrial ? .regular : .trial
         }
-        if KAppConfigServic.shared.remoteConfigValueFor(RemoteConfigKey.Paywall_visual_inapp.rawValue).stringValue == "pw_inapp_monthly" {
-            let paywallViewController: PaywallYearMonthViewController = PaywallYearMonthViewController(typeScreen: paywallScreenType, openAction: openAction)
-            paywallViewController.modalPresentationStyle = .fullScreen
-            paywallViewController.modalTransitionStyle = .crossDissolve
-            topViewController?.present(paywallViewController, animated: true)
+        
+        let paywallViewController = paywallVisualType == .pw_inapp_monthly ? PaywallYearMonthViewController(typeScreen: paywallScreenType, openAction: openAction) : PaywallViewController(typeScreen: paywallScreenType, openAction: openAction)
+        paywallViewController.modalPresentationStyle = .fullScreen
+        paywallViewController.modalTransitionStyle = .crossDissolve
+        topViewController?.present(paywallViewController, animated: true)
+    }
+
+    @MainActor func presentSpecialOffer(_ after: Double?, with openAction: GAppAnalyticActions) {
+        guard (topViewController is SpecialOfferBaseViewController) == false, !TInAppService.shared.isPremium else {
+            return
+        }
+        
+        let paywallRemoteType = KAppConfigServic.shared.remoteConfigValueFor(RemoteConfigKey.Paywall_visual_special.rawValue).stringValue ?? "pw_special_inapp_1"
+        let paywallVisualType = RemoteConfigValues.Paywall.init(rawValue: paywallRemoteType) ?? .pw_special_inapp_1
+        presentSpecialOffer(with: openAction, withPaywallVisualType: paywallVisualType, showAfter: after)
+    }
+
+    func presentSpecialOffer(with openAction: GAppAnalyticActions, withPaywallVisualType paywallVisualType: RemoteConfigValues.Paywall, showAfter after: Double? = 0) {
+        let presentOffer = { [weak self] in
+            let specialOfferViewController = paywallVisualType == .pw_special_monthly ? SpecialOfferMonthViewController(openAction: openAction) : SpecialOfferViewController(openAction: openAction)
+            specialOfferViewController.modalPresentationStyle = .fullScreen
+            self?.topViewController?.present(specialOfferViewController, animated: true)
+        }
+        
+        if let after = after, after > 0 {
+            DispatchQueue.main.asyncAfter(deadline: .now() + after, execute: presentOffer)
         } else {
-            let paywallViewController: PaywallViewController = PaywallViewController(typeScreen: paywallScreenType, openAction: openAction)
-            paywallViewController.modalPresentationStyle = .fullScreen
-            paywallViewController.modalTransitionStyle = .crossDissolve
-            topViewController?.present(paywallViewController, animated: true)
+            presentOffer()
         }
     }
     
@@ -353,13 +368,6 @@ final class AppsNavManager: NSObject {
     
     func presentManageSubscription() {
         UIApplication.shared.open(URL(string: "https://apps.apple.com/account/subscriptions")!)
-    }
-    
-    func presentDBPaywlApViewController() {
-        let paywallViewController = DBPaywlApViewController()
-        paywallViewController.modalPresentationStyle = .fullScreen
-        paywallViewController.modalTransitionStyle = .crossDissolve
-        topViewController?.present(paywallViewController, animated: true)
     }
     
     func presentTranscriptionInstructionViewController() {

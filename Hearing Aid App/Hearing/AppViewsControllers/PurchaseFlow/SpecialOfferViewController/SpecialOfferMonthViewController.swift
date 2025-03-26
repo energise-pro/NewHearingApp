@@ -1,6 +1,6 @@
 import UIKit
 
-class SpecialOfferMonthViewController: SpecialOfferBaseViewController {
+class SpecialOfferMonthViewController: SpecialOfferBaseViewController { // pw_special_monthly
     // MARK: - Private properties
     private let backgroundImageView: UIImageView = {
         let imageView = UIImageView()

@@ -1,7 +1,7 @@
 import UIKit
 
 
-final class PaywallViewController: UIViewController {
+final class PaywallViewController: UIViewController { // pw_default_inapp_1
     
     //MARK: - @IBoutlets
     @IBOutlet private weak var purchaseContainerView: UIView!

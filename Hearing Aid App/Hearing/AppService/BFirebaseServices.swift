@@ -24,6 +24,8 @@ public struct RemoteConfigValues {
         case pw_default_ob_1 = "pw_default_ob_1"
         case pw_default_inapp_1 = "pw_default_inapp_1"
         case pw_special_inapp_1 = "pw_special_inapp_1"
+        case pw_inapp_monthly = "pw_inapp_monthly"
+        case pw_special_monthly = "pw_special_monthly"
     }
 }
 

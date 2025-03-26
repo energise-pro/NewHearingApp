@@ -88,14 +88,7 @@ final class TabBarViewController: PMUMainViewController {
             if KAppConfigServic.shared.settings.appLaunchCount == 1 {
                 let paywallRemoteType = KAppConfigServic.shared.remoteConfigValueFor(RemoteConfigKey.Paywall_visual_HA_PT_1_ob.rawValue).stringValue ?? "pw_default_ob_1"
                 let paywallVisualType = RemoteConfigValues.Paywall.init(rawValue: paywallRemoteType) ?? .pw_default_ob_1
-                switch paywallVisualType {
-                case .pw_default_ob_1:
-                    AppsNavManager.shared.presentDBPaywlApViewController()
-                case .pw_default_inapp_1:
-                    AppsNavManager.shared.presentPaywallViewController(with: .openAfterOnboarding)
-                case .pw_special_inapp_1:
-                    AppsNavManager.shared.presentSCatchUpApViewController(with: .openAfterOnboarding)
-                }
+                AppsNavManager.shared.presentPaywallAfterOnboaring(withPaywallVisualType: paywallVisualType, withOpenAction: .openAfterOnboarding)
             } else {
                 AppsNavManager.shared.presentSpecialOffer(1, with: .openFromLaunch)
             }
