@@ -38,6 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let topViewController = UIApplication.shared.topDAppViewController()
         let viewControllers = [topViewController, window?.rootViewController].compactMap { $0 as? SIAppStateListeners }
         viewControllers.forEach { $0.appDidEnterBackground?() }
+        AppPushManager.shared.showLimitedTimeSpecialOfferNotificationWithIfNeed(completion: nil)
     }
     
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {

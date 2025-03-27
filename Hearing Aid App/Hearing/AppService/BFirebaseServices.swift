@@ -17,6 +17,7 @@ public enum RemoteConfigKey: String {
     case Paywall_visual_special = "Paywall_visual_special"
     case Paywall_visual_product_perDay_inapp = "Paywall_visual_product_perDay_inapp"
     case Paywall_visual_product_perDay_special = "Paywall_visual_product_perDay_special"
+    case Push_special_close = "Push_special_close"
 }
 
 public struct RemoteConfigValues {
@@ -67,6 +68,13 @@ final class BFirebaseServices: DIServicProtocols {
                         print("❗ RemoteConfigValue: key - \(RemoteConfigKey.Price_HA_PT_2_pw_default_ob_1.rawValue), value - \(self.remoteConfig.configValue(forKey: RemoteConfigKey.Price_HA_PT_2_pw_default_ob_1.rawValue).stringValue ?? "Empty value")")
                         print("❗ RemoteConfigValue: key - \(RemoteConfigKey.Price_HA_PT_2_pw_default_inapp_1.rawValue), value - \(self.remoteConfig.configValue(forKey: RemoteConfigKey.Price_HA_PT_2_pw_default_inapp_1.rawValue).stringValue ?? "Empty value")")
                         print("❗ RemoteConfigValue: key - \(RemoteConfigKey.Price_HA_PT_2_pw_special_inapp_1.rawValue), value - \(self.remoteConfig.configValue(forKey: RemoteConfigKey.Price_HA_PT_2_pw_special_inapp_1.rawValue).stringValue ?? "Empty value")")
+                        print("❗ RemoteConfigValue: key - \(RemoteConfigKey.Price_HA_PT_5_pw_inapp_monthly.rawValue), value - \(self.remoteConfig.configValue(forKey: RemoteConfigKey.Price_HA_PT_5_pw_inapp_monthly.rawValue).stringValue ?? "Empty value")")
+                        print("❗ RemoteConfigValue: key - \(RemoteConfigKey.Price_HA_PT_5_pw_special_monthly.rawValue), value - \(self.remoteConfig.configValue(forKey: RemoteConfigKey.Price_HA_PT_5_pw_special_monthly.rawValue).stringValue ?? "Empty value")")
+                        print("❗ RemoteConfigValue: key - \(RemoteConfigKey.Paywall_visual_inapp.rawValue), value - \(self.remoteConfig.configValue(forKey: RemoteConfigKey.Paywall_visual_inapp.rawValue).stringValue ?? "Empty value")")
+                        print("❗ RemoteConfigValue: key - \(RemoteConfigKey.Paywall_visual_special.rawValue), value - \(self.remoteConfig.configValue(forKey: RemoteConfigKey.Paywall_visual_special.rawValue).stringValue ?? "Empty value")")
+                        print("❗ RemoteConfigValue: key - \(RemoteConfigKey.Paywall_visual_product_perDay_inapp.rawValue), value - \(self.remoteConfig.configValue(forKey: RemoteConfigKey.Paywall_visual_product_perDay_inapp.rawValue).stringValue ?? "Empty value")")
+                        print("❗ RemoteConfigValue: key - \(RemoteConfigKey.Paywall_visual_product_perDay_special.rawValue), value - \(self.remoteConfig.configValue(forKey: RemoteConfigKey.Paywall_visual_product_perDay_special.rawValue).stringValue ?? "Empty value")")
+                        print("❗ RemoteConfigValue: key - \(RemoteConfigKey.Push_special_close.rawValue), value - \(self.remoteConfig.configValue(forKey: RemoteConfigKey.Push_special_close.rawValue).stringValue ?? "Empty value")")
                     }
                 }
             } else {

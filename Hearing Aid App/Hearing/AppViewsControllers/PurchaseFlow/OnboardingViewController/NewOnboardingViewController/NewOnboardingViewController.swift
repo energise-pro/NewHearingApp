@@ -158,6 +158,7 @@ final class NewOnboardingViewController: UIViewController {
         configurePageControl()
         if currentIndex == 2 {
             configureBottomControl(newHeight: defaultBottomViewHeightWithImage)
+            AppPushManager.shared.requestAuthorization()
         } else {
             configureBottomControl(newHeight: defaultBottomViewHeight)
         }

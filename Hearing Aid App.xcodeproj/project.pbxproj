@@ -149,6 +149,7 @@
 		86CB17E32D895466008360F5 /* UIButton+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB17E22D895466008360F5 /* UIButton+Ext.swift */; };
 		86CB17F02D897A25008360F5 /* SpecialOfferMonthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB17EF2D897A25008360F5 /* SpecialOfferMonthViewController.swift */; };
 		86CB17F22D897B1A008360F5 /* SpecialOfferBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB17F12D897B1A008360F5 /* SpecialOfferBaseViewController.swift */; };
+		86D6FD602D9538500013E669 /* AppPushManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D6FD5F2D95384F0013E669 /* AppPushManager.swift */; };
 		86DFB1F82CE4B1DE00CBD94F /* TooltipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DFB1F72CE4B1DE00CBD94F /* TooltipView.swift */; };
 		86DFB20B2CE670AD00CBD94F /* NewSettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DFB20A2CE670AD00CBD94F /* NewSettingTableViewCell.swift */; };
 		86DFB20D2CE671A600CBD94F /* NewSettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86DFB20C2CE671A600CBD94F /* NewSettingTableViewCell.xib */; };
@@ -473,6 +474,7 @@
 		86CB17E22D895466008360F5 /* UIButton+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Ext.swift"; sourceTree = "<group>"; };
 		86CB17EF2D897A25008360F5 /* SpecialOfferMonthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialOfferMonthViewController.swift; sourceTree = "<group>"; };
 		86CB17F12D897B1A008360F5 /* SpecialOfferBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialOfferBaseViewController.swift; sourceTree = "<group>"; };
+		86D6FD5F2D95384F0013E669 /* AppPushManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPushManager.swift; sourceTree = "<group>"; };
 		86DFB1F72CE4B1DE00CBD94F /* TooltipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TooltipView.swift; sourceTree = "<group>"; };
 		86DFB20A2CE670AD00CBD94F /* NewSettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSettingTableViewCell.swift; sourceTree = "<group>"; };
 		86DFB20C2CE671A600CBD94F /* NewSettingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewSettingTableViewCell.xib; sourceTree = "<group>"; };
@@ -1317,6 +1319,7 @@
 			isa = PBXGroup;
 			children = (
 				9A3328B526E203EB00D5F32B /* AppsNavManager.swift */,
+				86D6FD5F2D95384F0013E669 /* AppPushManager.swift */,
 			);
 			path = AppManagers;
 			sourceTree = "<group>";
@@ -2221,6 +2224,7 @@
 				8613CE8E2D1D54660012FD31 /* UserManager.swift in Sources */,
 				86CB156E2D8752C9008360F5 /* PaywallReviewView.swift in Sources */,
 				8613CE8F2D1D54660012FD31 /* ValidateAppStoreReceiptRequest.swift in Sources */,
+				86D6FD602D9538500013E669 /* AppPushManager.swift in Sources */,
 				8613CE902D1D54660012FD31 /* UsedProducts.swift in Sources */,
 				8613CE912D1D54660012FD31 /* IAPProduct.swift in Sources */,
 				8613CE922D1D54660012FD31 /* OtterScale.swift in Sources */,
