@@ -41,10 +41,10 @@ final class PaywallReviewsView: UIView {
         scrollView.addSubview(contentView)
 
         let reviewsData = [
-            ("Perfect sound", "I recommend this app for precise, personalized sound adjustments. Great tool for enhancing clarity."),
-            ("Amazing quality", "I’ve never had transcriptions this accurate—even with fast speech. Translation is a lifesaver when traveling."),
-            ("Love it!", "Works like magic! One tap, and all the background noise disappears. Perfect for calls and watching videos."),
-            ("Super useful", "It makes transcription fast and accurate, even with accents. Saves me tons of time at work!")
+            ("Perfect sound".localized(), "I recommend this app for precise, personalized sound adjustments. Great tool for enhancing clarity.".localized()),
+            ("Amazing quality".localized(), "I’ve never had transcriptions this accurate—even with fast speech. Translation is a lifesaver when traveling.".localized()),
+            ("Love it!".localized(), "Works like magic! One tap, and all the background noise disappears. Perfect for calls and watching videos.".localized()),
+            ("Super useful".localized(), "It makes transcription fast and accurate, even with accents. Saves me tons of time at work!".localized())
         ]
         
         var previousView: UIView?
@@ -54,25 +54,17 @@ final class PaywallReviewsView: UIView {
             reviewView.translatesAutoresizingMaskIntoConstraints = false
             contentView.addSubview(reviewView)
             
-            NSLayoutConstraint.activate([
-                reviewView.topAnchor.constraint(equalTo: contentView.topAnchor),
-                reviewView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-                reviewView.widthAnchor.constraint(equalToConstant: 300)
-            ])
-            
             if let previousView = previousView {
                 reviewView.leadingAnchor.constraint(equalTo: previousView.trailingAnchor, constant: 8).isActive = true
             } else {
                 reviewView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
             }
-            
             previousView = reviewView
         }
         
         if let lastReview = previousView {
             lastReview.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
         }
-        
         activateLayoutConstraint()
     }
     
@@ -82,7 +74,7 @@ final class PaywallReviewsView: UIView {
             scrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: trailingAnchor),
             scrollView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            scrollView.heightAnchor.constraint(equalTo: contentView.heightAnchor),
+            scrollView.heightAnchor.constraint(equalToConstant: 145),
             
             contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
             contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),

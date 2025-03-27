@@ -78,7 +78,7 @@ final class PaywallReviewView: UIView {
         addSubview(descriptionLabel)
         addSubview(ratingImage)
         
-        setupConstraints()
+//        setupConstraints()
     }
     
     //MARK: - Layout
@@ -90,6 +90,7 @@ final class PaywallReviewView: UIView {
         
         NSLayoutConstraint.activate([
             widthAnchor.constraint(equalToConstant: 300),
+            heightAnchor.constraint(equalToConstant: calculateViewHeight()),
             
             // BackgroundImageView
             backgroundImageView.topAnchor.constraint(equalTo: topAnchor),
@@ -110,7 +111,7 @@ final class PaywallReviewView: UIView {
             ratingImage.widthAnchor.constraint(equalToConstant: 106),
             
             // DescriptionLabel
-            descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 12),
+            descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
             descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
             descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12),
             descriptionLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -12)
@@ -129,6 +130,15 @@ final class PaywallReviewView: UIView {
         descriptionLabel.attributedText = descriptionAttributedString
         
         ratingImage.image = image
+        
+        setupConstraints()
+    }
+    
+    func calculateViewHeight() -> CGFloat {
+        let offset = 36.0
+        let titleHeight = 25.0
+        let descriptionHeight = descriptionLabel.systemLayoutSizeFitting(CGSize(width: 276, height: 999)).height
+        return CGFloat(min(145.0, offset + titleHeight + descriptionHeight))
     }
     
 //    override func draw(_ rect: CGRect) {

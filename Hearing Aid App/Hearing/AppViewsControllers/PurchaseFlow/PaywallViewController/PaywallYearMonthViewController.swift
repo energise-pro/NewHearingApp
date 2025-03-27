@@ -240,11 +240,6 @@ class PaywallYearMonthViewController: UIViewController { // pw_inapp_monthly
         restoreButton.addTarget(self, action: #selector(restoreButtonTapped), for: .touchUpInside)
         
         addSubviews()
-        configureReviewsView()
-    }
-    
-    private func configureReviewsView() {
-        
     }
     
     private func addSubviews() {
