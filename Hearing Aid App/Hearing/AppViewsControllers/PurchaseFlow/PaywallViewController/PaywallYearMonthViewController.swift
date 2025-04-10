@@ -459,7 +459,7 @@ class PaywallYearMonthViewController: UIViewController { // pw_inapp_monthly
     private func configureProductDefaultView(_ view: PaywallProductDefaultView, withProduct product: ShopItem) {
         if let skProduct = product.skProduct {
             if let subscriptionPeriod = skProduct.subscriptionPeriod {
-                let localizedSubscriptionPeriod = subscriptionPeriod.localizedPeriod(for: Locale(identifier: "en"))
+                let localizedSubscriptionPeriod = subscriptionPeriod.localizedPeriod()
                 view.durationLabel.text = localizedSubscriptionPeriod
             } else {
                 let localizedDescription = skProduct.localizedDescription

@@ -86,8 +86,8 @@ final class TabBarViewController: PMUMainViewController {
         super.viewDidAppear(animated)
         if !isPaywallShown {
             if KAppConfigServic.shared.settings.appLaunchCount == 1 {
-                let paywallRemoteType = KAppConfigServic.shared.remoteConfigValueFor(RemoteConfigKey.Paywall_visual_HA_PT_1_ob.rawValue).stringValue ?? "pw_default_ob_1"
-                let paywallVisualType = RemoteConfigValues.Paywall.init(rawValue: paywallRemoteType) ?? .pw_default_ob_1
+                let paywallRemoteType = KAppConfigServic.shared.remoteConfigValueFor(RemoteConfigKey.Paywall_visual_HA_PT_1_ob.rawValue).stringValue ?? "pw_inapp_monthly"
+                let paywallVisualType = RemoteConfigValues.Paywall.init(rawValue: paywallRemoteType) ?? .pw_inapp_monthly
                 AppsNavManager.shared.presentPaywallAfterOnboaring(withPaywallVisualType: paywallVisualType, withOpenAction: .openAfterOnboarding)
             } else {
                 AppsNavManager.shared.presentSpecialOffer(1, with: .openFromLaunch)

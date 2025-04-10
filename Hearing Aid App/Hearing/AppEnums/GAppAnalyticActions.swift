@@ -206,6 +206,8 @@ enum GAppAnalyticActions: String {
     case permissionViewed = "permission_viewed"
     case permissionGranted = "permission_granted"
     case pushOpened = "push_opened"
+    case remoteConfigActivated = "remote_config_activated"
+    case remoteConfigActivatedError = "remote_config_activated_error"
     
     // Source
     case source = "source"
