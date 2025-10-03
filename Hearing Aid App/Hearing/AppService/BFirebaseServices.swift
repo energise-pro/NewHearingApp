@@ -68,7 +68,7 @@ final class BFirebaseServices: DIServicProtocols {
         
         Analytics.setUserID(Apphud.userID())
         if let instanceID = Analytics.appInstanceID() {
-            Apphud.addAttribution(data: nil, from: .firebase, identifer: instanceID,  callback: nil)
+            Apphud.setAttribution(data: nil, from: .firebase, identifer: instanceID,  callback: nil)
         }
         
         activateFirebaseRemoteConfig()

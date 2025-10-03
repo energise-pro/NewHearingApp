@@ -127,7 +127,7 @@ extension KAppConfigServic: AdjustDelegate {
         Task {
             if let data = attribution?.dictionary() {
                 let adid: String? = await Adjust.adid()
-                Apphud.addAttribution(data: data, from: .adjust, identifer:adid) { (result) in }
+                Apphud.setAttribution(data: nil, from: .adjust, identifer:adid) { (result) in }
             }
         }
     }
@@ -136,7 +136,7 @@ extension KAppConfigServic: AdjustDelegate {
         Task {
             if let data = await Adjust.attribution()?.dictionary() {
                 let adid: String? = await Adjust.adid()
-                Apphud.addAttribution(data: data, from: .adjust, identifer:adid) { (result) in }
+                Apphud.setAttribution(data: nil, from: .adjust, identifer:adid) { (result) in }
             }
         }
     }

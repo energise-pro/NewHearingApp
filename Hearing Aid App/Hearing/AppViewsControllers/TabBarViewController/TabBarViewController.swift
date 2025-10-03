@@ -141,9 +141,6 @@ final class TabBarViewController: PMUMainViewController {
     // MARK: - Private methods
     private func configureUI() {
         navigationControllers = []
-        print(45444)
-        print(tabBarButtons)
-        
         tabBarButtons.enumerated().forEach { (index, item) in
             if index < buttonTitles.count && index < buttonImages.count {
                     buttonTitles[index].text = item.title

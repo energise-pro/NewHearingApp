@@ -71,7 +71,7 @@ final class QAsaServiceAp {
             Task {
                 do {
                     let asaToken = try AAAttribution.attributionToken()
-                    Apphud.addAttribution(data: nil, from: .appleAdsAttribution, identifer: asaToken, callback: nil)
+                    Apphud.setAttribution(data: nil, from: .appleAdsAttribution, identifer: asaToken, callback: nil)
                     KAppConfigServic.shared.analytics.setUserProperty(with: ["did_asa_Token": asaToken])
                     let isAttributed = !asaToken.isEmpty
                     let userTrafficType = isAttributed ? "attributed" : "organic"

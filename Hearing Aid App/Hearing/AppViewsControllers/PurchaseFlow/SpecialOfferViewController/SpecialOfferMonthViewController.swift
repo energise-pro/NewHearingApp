@@ -261,7 +261,6 @@ class SpecialOfferMonthViewController: SpecialOfferBaseViewController { // pw_sp
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         EApphudServiceAp.shared.paywallShown()
         configureUI()
         configureCountdownTimer()
