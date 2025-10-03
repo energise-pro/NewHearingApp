@@ -14,7 +14,7 @@ target 'Hearing Aid App' do
   pod 'lottie-ios', '3.2.3'
   pod 'ASATools', '~> 1.2.0'
   
-  pod 'FBSDKCoreKit', '13.2.0'
+  pod 'FBSDKCoreKit'
   pod 'JXPageControl'
   pod 'FirebaseRemoteConfig'
   pod 'Adjust'

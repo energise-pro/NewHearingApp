@@ -232,7 +232,7 @@
 		9A949F5828A293E800F7D7D4 /* SFakSplasApViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A949F5628A293E800F7D7D4 /* SFakSplasApViewController.xib */; };
 		9A9D2D062840B3A900332B10 /* MMPPulseLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9D2D052840B3A900332B10 /* MMPPulseLayer.swift */; };
 		9A9DC67A2833CF460080B46F /* GKeybLayConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9DC6792833CF460080B46F /* GKeybLayConst.swift */; };
-		9AAB268C26FA23DA007F4A67 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		9AAB268C26FA23DA007F4A67 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
 		9ABEB29A26D3FF5600A8252D /* DHeadphsRemindApViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9ABEB29826D3FF5600A8252D /* DHeadphsRemindApViewController.xib */; };
 		9ABEB29B26D3FF5600A8252D /* DHeadphsRemindApViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABEB29926D3FF5600A8252D /* DHeadphsRemindApViewController.swift */; };
 		9AC26C4E26DFAE0500E78CEC /* QAsaServiceAp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC26C4D26DFAE0500E78CEC /* QAsaServiceAp.swift */; };
@@ -2052,13 +2052,9 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Hearing Aid App/Pods-Hearing Aid App-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Hearing Aid App/Pods-Hearing Aid App-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2073,13 +2069,9 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Hearing Aid App/Pods-Hearing Aid App-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Hearing Aid App/Pods-Hearing Aid App-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2194,7 +2186,7 @@
 				11DC52332CD403E400A9589A /* Theme.swift in Sources */,
 				9ADD32C328365A24002ADA43 /* JLocaleListApViewController.swift in Sources */,
 				86053B1C2CDE3B24004BA772 /* NewOnboardingViewController.swift in Sources */,
-				9AAB268C26FA23DA007F4A67 /* (null) in Sources */,
+				9AAB268C26FA23DA007F4A67 /* BuildFile in Sources */,
 				9A5512E628097A270078C5E5 /* PMUMainViewController.swift in Sources */,
 				9A5CCE972819906700B8F89D /* GCenterPickrTablViewCell.swift in Sources */,
 				9ACB45D92812B9BF00FAF44E /* MorphableShape.swift in Sources */,
