@@ -45,8 +45,7 @@ struct CAppConstants {
         static let appStoreAppID = "6737814326"
         static let amplitudeKey = "216178a637a448232b73b4f8c617b1d0"
         static let supportEmail = "m.sulg@matu-app.online"
-        //static let appHudKey = "app_bpzbC3YNmvZGDYgMHxzqw3Jr698XTr"
-        static let appHudKey = "app_jUScE4GvH1n3xzWE2wtNsGKC5sAqm2"
+        static let appHudKey = "app_bpzbC3YNmvZGDYgMHxzqw3Jr698XTr"
         static let asaToolsKey = ""
         static let adjustApiToken = "nhyu044s7u2o"
         
