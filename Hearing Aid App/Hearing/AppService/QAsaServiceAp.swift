@@ -45,9 +45,6 @@ final class QAsaServiceAp {
         }
     }
     
-    func initializeJaklinSDK() {
-        OtterScale.shared.initialize(host: CAppConstants.General.otterScaleHost, apiKey: CAppConstants.General.otterScaleApiKey)
-    }
     
 //    func sendAppleAttribution() {
 //        guard !UserDefaults.standard.bool(forKey: CAppConstants.Keys.needsSkipSearchAdsTracking) else { return }

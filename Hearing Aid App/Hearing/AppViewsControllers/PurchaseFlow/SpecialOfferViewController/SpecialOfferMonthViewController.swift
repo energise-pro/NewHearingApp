@@ -283,7 +283,7 @@ class SpecialOfferMonthViewController: SpecialOfferBaseViewController { // pw_sp
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineHeightMultiple = 1.23
         subtitleLabel.attributedText = NSMutableAttributedString(
-            string: "Get Premium for a full month with a limited-time 50% discount!".localized(),
+            string: "Get Premium for a full week with a limited-time 50% discount!".localized(),
             attributes:[
                 .kern: -0.31,
                 .paragraphStyle: paragraphStyle
@@ -431,6 +431,7 @@ class SpecialOfferMonthViewController: SpecialOfferBaseViewController { // pw_sp
     
     private func loadSubscriptionPlans() {
         let placementIdentifier = KAppConfigServic.shared.remoteConfigValueFor(RemoteConfigKey.Price_HA_PT_5_pw_special_monthly.rawValue).stringValue ?? "plc"
+        //let placementIdentifier = "plc"
         TInAppService.shared.fetchProducts(with: placementIdentifier) { [weak self] items in
             guard let self = self, let items = items, !items.isEmpty else { return }
             self.subscriptionItems = items
@@ -484,14 +485,14 @@ class SpecialOfferMonthViewController: SpecialOfferBaseViewController { // pw_sp
                 view.durationLabel.text = localizedDescription
             }
             
-            var dayPrice = skProduct.price.doubleValue / 30.0
+            var dayPrice = skProduct.price.doubleValue / 7.0
             if let introductoryPrice = skProduct.introductoryPrice {
-                dayPrice = (skProduct.introductoryPrice?.price.doubleValue ?? 0) / 30.0
+                dayPrice = (skProduct.introductoryPrice?.price.doubleValue ?? 0) / 7.0
                 
                 let localizedPrice = skProduct.price.localizedPrice(for: skProduct.priceLocale) ?? ""
                 let localizedIntroductoryPrice = introductoryPrice.price.localizedPrice(for: skProduct.priceLocale) ?? ""
             
-                bottomViewDescriptionLabel.text = "%@ for the first month, then %@ per month. Cancel anytime.".localized(with: [localizedIntroductoryPrice, localizedPrice])
+                bottomViewDescriptionLabel.text = "%@ for the first week, then %@ per week. Cancel anytime.".localized(with: [localizedIntroductoryPrice, localizedPrice])
                 
                 let attributedPricePerPeriod = NSMutableAttributedString(string: localizedPrice, attributes: [
                     .foregroundColor: UIColor.appColor(.Grey100)!,
@@ -531,7 +532,7 @@ class SpecialOfferMonthViewController: SpecialOfferBaseViewController { // pw_sp
                 let localizedPrice = skProduct.price.localizedPrice(for: skProduct.priceLocale) ?? ""
                 let localizedIntroductoryPrice = introductoryPrice.price.localizedPrice(for: skProduct.priceLocale) ?? ""
             
-                bottomViewDescriptionLabel.text = "%@ for the first month, then %@ per month. Cancel anytime.".localized(with: [localizedIntroductoryPrice, localizedPrice])
+                bottomViewDescriptionLabel.text = "%@ for the first week, then %@ per month. Cancel anytime.".localized(with: [localizedIntroductoryPrice, localizedPrice])
                 
                 view.priceLabel.attributedText = NSAttributedString(string: localizedIntroductoryPrice, attributes: [
                     .font: UIFont.systemFont(ofSize: 17, weight: .medium),

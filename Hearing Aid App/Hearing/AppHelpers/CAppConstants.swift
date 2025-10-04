@@ -47,8 +47,6 @@ struct CAppConstants {
         static let supportEmail = "m.sulg@matu-app.online"
         static let appHudKey = "app_bpzbC3YNmvZGDYgMHxzqw3Jr698XTr"
         static let asaToolsKey = ""
-        static let otterScaleHost = "https://api.aiapp3.store"
-        static let otterScaleApiKey = "ifW9XE5hcJ7TyQ5J"
         static let adjustApiToken = "nhyu044s7u2o"
         
         static let countForPresentingRatingAlert = 2

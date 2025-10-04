@@ -55,10 +55,13 @@ final class DBPaywlApViewController: PMUMainViewController { // pw_default_ob_1
         guard let yearlySubscriptionPlan = subscriptionItems.first(where: {$0.skProduct?.regulatDuration == "year"}) else {
             return
         }
-        
+        trialTitle.text = yearlySubscriptionPlan.skProduct?.duration(for: .regular) ?? "1 Year".localized()
+        trialDescription.text = yearlySubscriptionPlan.skProduct?.regularPrice
+        purchaseButtonLabel.text = "Continue".localized()
+        /*
         let daysFree = yearlySubscriptionPlan.skProduct?.duration(for: .trial)
         if let daysFree = daysFree, !daysFree.isEmpty {
-            trialTitle.text = daysFree + " " + "free".localized()
+            trialTitle.text = daysFree
             let weeklyPriceForYearlyPlan = ((yearlySubscriptionPlan.skProduct?.price.doubleValue ?? 1.0) / 52.0).rounded(toPlaces: 2)
             trialDescription.text = "Then %@/year (only %@/week)".localized(with: [yearlySubscriptionPlan.skProduct?.regularPrice ?? "", yearlySubscriptionPlan.skProduct?.regularPrice(for: weeklyPriceForYearlyPlan) ?? ""])
             purchaseButtonLabel.text = "Try Free & Subscribe".localized()
@@ -67,12 +70,13 @@ final class DBPaywlApViewController: PMUMainViewController { // pw_default_ob_1
             trialDescription.text = yearlySubscriptionPlan.skProduct?.regularPrice
             purchaseButtonLabel.text = "Continue".localized()
         }
-        
+        */
         selectedPlan = yearlySubscriptionPlan
     }
     
     private func loadSubscriptionPlans() {
         let placementIdentifier = KAppConfigServic.shared.remoteConfigValueFor(RemoteConfigKey.Price_HA_PT_2_pw_default_ob_1.rawValue).stringValue ?? "plc"
+        //let placementIdentifier = "plc"
         isLoading = true
         TInAppService.shared.fetchProducts(with: placementIdentifier) { [weak self] items in
             guard let self = self, let items = items, !items.isEmpty else { return }

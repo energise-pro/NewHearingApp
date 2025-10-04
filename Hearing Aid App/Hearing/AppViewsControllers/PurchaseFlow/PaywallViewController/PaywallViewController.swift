@@ -104,6 +104,7 @@ final class PaywallViewController: UIViewController { // pw_default_inapp_1
     
     private func loadSubscriptionPlans() {
         let placementIdentifier = KAppConfigServic.shared.remoteConfigValueFor(RemoteConfigKey.Price_HA_PT_2_pw_default_inapp_1.rawValue).stringValue ?? "plc"
+        //let placementIdentifier = "plc"
         TInAppService.shared.fetchProducts(with: placementIdentifier) { [weak self] items in
             guard let self = self, let items = items, !items.isEmpty else { return }
             self.subscriptionItems = items
@@ -123,7 +124,10 @@ final class PaywallViewController: UIViewController { // pw_default_inapp_1
               let weeklySubscriptionPlan = subscriptionItems.first(where: {$0.skProduct?.regulatDuration == "week"}) else {
             return
         }
-        
+        titleYearlyButtonLabel.text = yearlySubscriptionPlan.skProduct?.duration(for: .regular) ?? "1 Year".localized()
+        priceYearlyButtonLabel.text = yearlySubscriptionPlan.skProduct?.regularPrice
+        purchaseButtonLabel.text = "Continue".localized()
+        /*
         let daysFree = yearlySubscriptionPlan.skProduct?.duration(for: .trial)
         if let daysFree = daysFree, !daysFree.isEmpty {
             titleYearlyButtonLabel.text = daysFree + " " + "free".localized()
@@ -135,7 +139,7 @@ final class PaywallViewController: UIViewController { // pw_default_inapp_1
             priceYearlyButtonLabel.text = yearlySubscriptionPlan.skProduct?.regularPrice
             purchaseButtonLabel.text = "Continue".localized()
         }
-        
+        */
         titleWeeklyButtonLabel.text = weeklySubscriptionPlan.skProduct?.duration(for: .regular) ?? "1 Week".localized()
         priceWeeklyButtonLabel.text = weeklySubscriptionPlan.skProduct?.regularPrice
 
